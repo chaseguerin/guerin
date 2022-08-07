@@ -1,3 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerin Sidebar Final</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+<style type="text/css">
+    
+    .finder-sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+        margin: 0;
+        height: 10000px;
+    }
+
+    .finder-sidebar {
+    position: sticky;
+        top: 0px;
+        left: 0;
+        /* width: 200px; */
+        /* width: 249px; */
+        height: 100%;
+        font-size: 0.87rem;
+        font-family: 'Source Code Pro', monospace;
+        text-transform: uppercase;
+        overflow-x: hidden;
+        overflow-y: auto;
+        color: #808080;
+        border-right: 1px solid #D9D9D9;
+        pointer-events: all;
+    }
+
+
+
+    .finder-sidebar h2 input:active { 
+        color: #5a7fe8 
+    }
+
+    .finder-sidebar ul { 
+        margin: 0; 
+        /* padding: 0 0 0 71px; */
+        padding: 0 0 0 25px;
+    }
+
+
+
+
+    .sidebar-menu-element {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .sidebar-title-element {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .sidebar-sub-menu-element li {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;    
+        cursor: pointer; 
+        list-style-type: none; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .sidebar-title {
+        flex-grow: 1;
+        padding: 0 8px 0 0px;
+        overflow: hidden;
+    }
+
+    .sidebar-title-header {
+        flex-grow: 1;
+        padding: 0 8px 0 0px;
+        font-weight: bold;
+        /* font-size: 16px; */
+        color: black;
+    }
+
+
+
+
+
+    .arrow-indicator {
+        /* transition: transform 0.3s;
+        border-right: 1.5px solid black;
+        border-bottom: 1.5px solid black;
+        width: 6px;
+        height: 6px;
+        transform: rotate(-45deg) translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        position: absolute;
+        */
+
+        transition: transform 0.3s;
+        transform: translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        position: absolute;
+        font-size: 15px;
+    }
+
+
+    .arrow-indicator:after {
+      content: '>';
+      color: black;
+    }
+
+
+
+
+    .hiding-class {
+        display: none !important;
+    }
+
+
+    .guerin-toggle-btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+
+    .menu-icon {
+        width: 23px;
+        min-width: 23px;
+        height: 100%;
+        transition: color 0.3s;
+        position: relative;
+    }
+
+
+    .left-aligned-guerin {
+        transform: translate(0, -50%) scale(.88);
+        left: 0%;
+        top: 50%;
+        position: absolute;
+        transition: transform .4s ease-in-out;
+    }
+
+
+    .gray-border-file {
+        border-left: solid 2px #f2f2f2;
+    }
+
+    .sidebar-content {
+        padding: 60px 0px 60px 25px;
+    }
+
+
+
+    .sidebar-menu-element:hover {
+        /* background-color: #f9f9f9; */
+    }
+
+
+
+
+
+    .finder-sidebar .sidebar-menu-element .black-border-active-element.cur2 {
+        color: black !important;
+        font-weight: bold; 
+    }
+
+
+    .sidebar-menu-element.cur2 .downward-arrow-menu{
+        fill: black !important;
+    }
+
+    .cur .downward-arrow-menu{
+        fill: black !important;
+    }
+
+
+    .finder-sidebar h2 { 
+        color: #868b91; 
+        text-transform: uppercase; 
+        font-size: 11px; 
+        margin: 0; 
+        padding: 6px 6px 3px; 
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+
+    .finder-sidebar ul .cur { 
+        color: black;
+        font-weight: 500; 
+        /* background-color: #f9f9f9; */
+
+    }
+
+
+    .finder-sidebar .sidebar-menu-element.cur2 {
+        /* background-color: #f9f9f9; */
+        color: black;
+        font-weight: 500; 
+    }
+
+
+
+    .hiding-opacity-class {
+        opacity: 1 !important;
+    }
+
+    .pointer-icon {
+        width: 30px;
+        min-width: 30px;
+        height: 100%;
+        transition: color 0.3s;
+        position: relative;
+
+    }
+
+
+    .black-border-active-element {
+        border-left: solid 2px #000000;
+        /* width: 10px; */
+        height: 28px;
+        margin-bottom: 4px;
+        margin-right: 10px;
+
+    }
+
+
+    .line-and-arrow {
+        /* width: 47px; */
+        width: 39px;
+        height: 100%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        opacity: 1;
+    }
+
+    [hidden] { 
+        opacity: 0; 
+    }
+
+    .hiddentwo { 
+        opacity: 1; 
+    }
+
+
+    .downward-arrow-menu {
+        fill: #808080;
+    }
+
+
+    .finder-sidebar ul .cur .gray-border-file {
+        /* border-left: solid 2px #f9f9f9; */
+    }
+
+
+
+
+
+    #sidebar-container-left {
+        /* min-height: 134px; */
+        height: 100%;
+        width: 100%;
+        align-self: start;
+        justify-self: end;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* margin-top: 495.5625px; */
+        margin-bottom: 0px;
+        grid-area: 1/1/1/2;
+        /* grid-area: 1/2/1/2; */
+        box-sizing: border-box;
+        display: grid;
+    }
+
+    #sidebar-container-right {
+        /* min-height: 134px; */
+        height: 100%;
+        width: 100%;
+        align-self: start;
+        justify-self: end;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* margin-top: 495.5625px; */
+        margin-bottom: 0px;
+        grid-area: 1/2/1/2;
+        /* grid-area: 1/2/1/2; */
+        box-sizing: border-box;
+        display: grid;
+    }
+
+    .sidebar-container-website {
+        box-sizing: border-box;
+        display: grid;
+        /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.6fr; */
+        grid-template-columns: 0.4fr 1.9863567763356475fr;
+        height: 100%;
+        /* margin-top: 6px; */
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        pointer-events: none;
+        top: 80px;
+    }
+
+
+    .fixed-position {
+        position: fixed;
+        top: 0px;
+    }
+
+</style>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+    $(function() {
+        $(".finder-sidebar li").click(function() {
+            $(".finder-sidebar li.cur").removeClass("cur"); $(this).addClass("cur");
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2");
+        });
+    });
+
+
+
+    $(function() {
+        $(".finder-sidebar .sidebar-menu-element").click(function() {
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2"); $(this).addClass("cur2");
+
+            $(".finder-sidebar li.cur").removeClass("cur"); 
+        });
+    });
+
+
+    function openbox(id){
+        var el = document.getElementById('item'+id);
+
+        if(el.hidden){
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+          
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+
+          $(document.querySelectorAll('.hiddentwo')).removeClass("hiddentwo");
+          $(el).addClass("hiddentwo");
+
+          el.hidden = false; 
+
+        }else{
+
+          el.hidden = true;
+        }
+    }
+</script>
+
+
+</head>
+
+
+<body>
+
 <section id="sidebar-element-js" class="sidebar-container-website">
 
  
@@ -479,3 +864,6 @@
     }        
 
 </script>
+
+</body>
+</html>
