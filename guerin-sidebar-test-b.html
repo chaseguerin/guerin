@@ -1,0 +1,804 @@
+<style type="text/css">
+    
+    .finder-sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+        margin: 0;
+        height: 10000px;
+    }
+
+    .finder-sidebar {
+    position: sticky;
+        top: 0px;
+        left: 0;
+        /* width: 200px; */
+        /* width: 249px; */
+        height: 100%;
+        font-size: 0.87rem;
+        font-family: 'Source Code Pro', monospace;
+        text-transform: uppercase;
+        overflow-x: hidden;
+        overflow-y: auto;
+        color: #808080;
+        border-right: 1px solid #D9D9D9;
+        pointer-events: all;
+    }
+
+
+
+    .finder-sidebar h2 input:active { 
+        color: #5a7fe8 
+    }
+
+    .finder-sidebar ul { 
+        margin: 0; 
+        /* padding: 0 0 0 71px; */
+        padding: 0 0 0 25px;
+    }
+
+
+
+
+    .sidebar-menu-element {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .sidebar-title-element {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .sidebar-sub-menu-element li {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        position: relative;    
+        cursor: pointer; 
+        list-style-type: none; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .sidebar-title {
+        flex-grow: 1;
+        padding: 0 8px 0 0px;
+        overflow: hidden;
+    }
+
+    .sidebar-title-header {
+        flex-grow: 1;
+        padding: 0 8px 0 0px;
+        font-weight: bold;
+        /* font-size: 16px; */
+        color: black;
+    }
+
+
+
+
+
+    .arrow-indicator {
+        /* transition: transform 0.3s;
+        border-right: 1.5px solid black;
+        border-bottom: 1.5px solid black;
+        width: 6px;
+        height: 6px;
+        transform: rotate(-45deg) translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        position: absolute;
+        */
+
+        transition: transform 0.3s;
+        transform: translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        position: absolute;
+        font-size: 15px;
+    }
+
+
+    .arrow-indicator:after {
+      content: '>';
+      color: black;
+    }
+
+
+
+
+    .hiding-class {
+        display: none !important;
+    }
+
+
+    .guerin-toggle-btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+
+    .menu-icon {
+        width: 23px;
+        min-width: 23px;
+        height: 100%;
+        transition: color 0.3s;
+        position: relative;
+    }
+
+
+    .left-aligned-guerin {
+        transform: translate(0, -50%) scale(.88);
+        left: 0%;
+        top: 50%;
+        position: absolute;
+        transition: transform .4s ease-in-out;
+    }
+
+
+    .gray-border-file {
+        border-left: solid 2px #f2f2f2;
+    }
+
+    .sidebar-content {
+        padding: 60px 0px 60px 25px;
+    }
+
+
+
+    .sidebar-menu-element:hover {
+        /* background-color: #f9f9f9; */
+    }
+
+
+
+
+
+    .finder-sidebar .sidebar-menu-element .black-border-active-element.cur2 {
+        color: black !important;
+        font-weight: bold; 
+    }
+
+
+    .sidebar-menu-element.cur2 .downward-arrow-menu{
+        fill: black !important;
+    }
+
+    .cur .downward-arrow-menu{
+        fill: black !important;
+    }
+
+
+    .finder-sidebar h2 { 
+        color: #868b91; 
+        text-transform: uppercase; 
+        font-size: 11px; 
+        margin: 0; 
+        padding: 6px 6px 3px; 
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+
+    .finder-sidebar ul .cur { 
+        color: black;
+        font-weight: 500; 
+        /* background-color: #f9f9f9; */
+
+    }
+
+
+    .finder-sidebar .sidebar-menu-element.cur2 {
+        /* background-color: #f9f9f9; */
+        color: black;
+        font-weight: 500; 
+    }
+
+
+
+    .hiding-opacity-class {
+        opacity: 1 !important;
+    }
+
+    .pointer-icon {
+        width: 30px;
+        min-width: 30px;
+        height: 100%;
+        transition: color 0.3s;
+        position: relative;
+
+    }
+
+
+    .black-border-active-element {
+        border-left: solid 2px #000000;
+        /* width: 10px; */
+        height: 28px;
+        margin-bottom: 4px;
+        margin-right: 10px;
+
+    }
+
+
+    .line-and-arrow {
+        /* width: 47px; */
+        width: 39px;
+        height: 100%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        opacity: 1;
+    }
+
+    [hidden] { 
+        opacity: 0; 
+    }
+
+    .hiddentwo { 
+        opacity: 1; 
+    }
+
+
+    .downward-arrow-menu {
+        fill: #808080;
+    }
+
+
+    .finder-sidebar ul .cur .gray-border-file {
+        /* border-left: solid 2px #f9f9f9; */
+    }
+
+
+
+
+
+    #sidebar-container-left {
+        /* min-height: 134px; */
+        height: 100%;
+        width: 100%;
+        align-self: start;
+        justify-self: end;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* margin-top: 495.5625px; */
+        margin-bottom: 0px;
+        grid-area: 1/1/1/2;
+        /* grid-area: 1/2/1/2; */
+        box-sizing: border-box;
+        display: grid;
+    }
+
+    #sidebar-container-right {
+        /* min-height: 134px; */
+        height: 100%;
+        width: 100%;
+        align-self: start;
+        justify-self: end;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* margin-top: 495.5625px; */
+        margin-bottom: 0px;
+        grid-area: 1/2/1/2;
+        /* grid-area: 1/2/1/2; */
+        box-sizing: border-box;
+        display: grid;
+    }
+
+    .sidebar-container-website {
+        box-sizing: border-box;
+        display: grid;
+        /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.6fr; */
+        grid-template-columns: 0.4fr 1.9863567763356475fr;
+        height: 100%;
+        /* margin-top: 6px; */
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        pointer-events: none;
+        top: 80px;
+    }
+
+
+    .fixed-position {
+        position: fixed;
+        top: 0px;
+    }
+
+</style>
+
+
+
+<section id="sidebar-element-js" class="sidebar-container-website">
+
+ 
+
+        <div id="sidebar sidebar-container-left" class="finder-sidebar">
+            <div class="sidebar-content">
+
+                <div class="sidebar-title-element">   
+
+                    <span class="sidebar-title-header"> Guerin New York </span> 
+
+                </div>
+
+
+                <div class="sidebar-menu-element cur2" onclick="openbox(1)">
+                    
+
+                    <div class="line-and-arrow hiddentwo" id="item1" >
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon ">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+
+
+
+                    <span class="menu-icon hiding-class">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>        
+
+                    <span class="sidebar-title"> Video </span> 
+
+                </div>
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(2)">
+
+                    <div class="line-and-arrow" id="item2" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon ">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+                    <span class="menu-icon hiding-class">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>        
+
+                    <span class="sidebar-title"> Layout </span> 
+
+                </div>
+
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(3)">
+                    
+
+                    <div class="line-and-arrow" id="item3" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><path class="downward-arrow-menu" d="M0,4.34v7.59h7.59V4.34H0z M6.51,10.84H1.08V5.42h5.42V10.84z"></path><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.08 4.34,1.08 4.34,3.25 3.25,3.25 3.25,0"></polygon></g>
+                            </svg>
+
+                        </button>
+                    </span>    
+
+                    <span class="sidebar-title"> Token Vault </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle1" class="sidebar-sub-menu-element">
+                    
+                    <li onclick="openbox(4)">
+
+                        <div class="line-and-arrow" id="item4" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>                    
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> Mood </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(5)">
+
+                        <div class="line-and-arrow" id="item5" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>   
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> ID </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(6)">
+
+                        <div class="line-and-arrow" id="item6" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>   
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> Artifact </span>
+                    </li>
+
+                </ul>
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(7)">
+                    
+                    <div class="line-and-arrow" id="item7" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+                        
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle2').slideToggle(); rotateArrow()">
+                            
+                            <svg id="active-menu" class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>           
+
+                    <span class="sidebar-title"> User Experience </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle2" class="sidebar-sub-menu-element">
+
+                    <li onclick="openbox(8)">
+
+                        <div class="line-and-arrow" id="item8" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Competitive Analysis </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(9)">
+                        <div class="line-and-arrow" id="item9" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> User Personas </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(10)">
+                        <div class="line-and-arrow" id="item10" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Prototype </span>
+                    </li>
+
+
+                    <li onclick="openbox(11)">
+                        <div class="line-and-arrow" id="item11" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> User Testing </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(12)">
+                        <div class="line-and-arrow" id="item12" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Design System </span>
+                    </li>
+
+                </ul>
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(13)">
+                    
+                    <div class="line-and-arrow" id="item13" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+                        
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle3').slideToggle(); rotateArrow2()">
+                            
+                            <svg id="active-menu2" class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>           
+
+                    <span class="sidebar-title"> User Interface </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle3" class="sidebar-sub-menu-element">
+
+                    <li onclick="openbox(14)">
+                        <div class="line-and-arrow" id="item14" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Visual Identity </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(15)">
+                        <div class="line-and-arrow" id="item15" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Color Styles </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(16)">
+                        <div class="line-and-arrow" id="item16" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Typography </span>
+                    </li>
+
+
+                    <li onclick="openbox(17)">
+                        <div class="line-and-arrow" id="item17" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Iconography </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(18)">
+                        <div class="line-and-arrow" id="item18" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> UI Components </span>
+                    </li>
+
+                </ul>
+
+
+
+                <!--
+                <h2>Default hidden
+                <input type="button" onclick="$('#sidebar_toggle2').slideToggle();if(this.value=='Show')this.value='Hide';else this.value='Show';" value="Show"></h2>
+
+                <ul id="sidebar_toggle2" style='display:none'>
+                <li data-file="themedir/conf.ini">conf.ini</li>
+                <li data-file="docs/macros.js">macros.js</li>
+                <li data-file="docs/wiki.js">wiki.js</li>
+                </ul>
+                -->
+
+
+
+
+            </div>
+        </div>
+
+ 
+
+
+<!--
+    <div id="sidebar-container-right" >
+    </div>
+-->
+
+</section>
+
+
+<script type="text/javascript">
+    
+    myID = document.getElementById("sidebar-element-js");
+
+    var myScrollFunc = function() {
+      var y = window.scrollY;
+      if (y >= 80) {
+        myID.className = "sidebar-container-website fixed-position"
+      } else {
+        myID.className = "sidebar-container-website"
+      }
+    };
+
+    window.addEventListener("scroll", myScrollFunc);
+
+</script>
+
+
+
+<script type="text/javascript">
+    
+    var state = true;
+    var state2 = true;
+    x = document.getElementById("active-menu");
+    y = document.getElementById("active-menu2");
+
+    function rotateArrow()
+    {
+        if (state === true) {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state = false;
+        } else {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state = true;
+        }
+    }
+
+    function rotateArrow2()
+    {
+        if (state2 === true) {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state2 = false;
+        } else {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state2 = true;
+        }
+      
+    }        
+
+</script>
