@@ -1,5 +1,5 @@
 <head> 
-    <style type="text/css">
+<style type="text/css">
     
 
 .finder-sidebar::-webkit-scrollbar {
@@ -321,6 +321,98 @@ position: sticky;
 
 </style>
 
+    
+    
+    
+    <script>
+    $(function() {
+        $(".finder-sidebar li").click(function() {
+            $(".finder-sidebar li.cur").removeClass("cur"); $(this).addClass("cur");
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2");
+        });
+    });
+
+
+
+    $(function() {
+        $(".finder-sidebar .sidebar-menu-element").click(function() {
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2"); $(this).addClass("cur2");
+
+            $(".finder-sidebar li.cur").removeClass("cur"); 
+        });
+    });
+
+
+    function openbox(id){
+        var el = document.getElementById('item'+id);
+
+        if(el.hidden){
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+          
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+
+          $(document.querySelectorAll('.hiddentwo')).removeClass("hiddentwo");
+          $(el).addClass("hiddentwo");
+
+          el.hidden = false; 
+
+        }else{
+
+          el.hidden = true;
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    
+    myID = document.getElementById("sidebar-element-js");
+
+    var myScrollFunc = function() {
+      var y = window.scrollY;
+      if (y >= 80) {
+        myID.className = "sidebar-container-website fixed-position"
+      } else {
+        myID.className = "sidebar-container-website"
+      }
+    };
+
+    window.addEventListener("scroll", myScrollFunc);
+
+</script>
+
+
+
+<script type="text/javascript">
+    
+    var state = true;
+    var state2 = true;
+    x = document.getElementById("active-menu");
+    y = document.getElementById("active-menu2");
+
+    function rotateArrow()
+    {
+        if (state === true) {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state = false;
+        } else {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state = true;
+        }
+    }
+
+    function rotateArrow2()
+    {
+        if (state2 === true) {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state2 = false;
+        } else {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state2 = true;
+        }
+      
+    }        
+
+</script>
 </head>
     
 <section id="sidebar-element-js" class="sidebar-container-website">
