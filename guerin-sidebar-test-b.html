@@ -363,56 +363,6 @@ position: sticky;
     }
 </script>
 
-<script type="text/javascript">
-    
-    myID = document.getElementById("sidebar-element-js");
-
-    var myScrollFunc = function() {
-      var y = window.scrollY;
-      if (y >= 80) {
-        myID.className = "sidebar-container-website fixed-position"
-      } else {
-        myID.className = "sidebar-container-website"
-      }
-    };
-
-    window.addEventListener("scroll", myScrollFunc);
-
-</script>
-
-
-
-<script type="text/javascript">
-    
-    var state = true;
-    var state2 = true;
-    x = document.getElementById("active-menu");
-    y = document.getElementById("active-menu2");
-
-    function rotateArrow()
-    {
-        if (state === true) {
-            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
-            state = false;
-        } else {
-            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
-            state = true;
-        }
-    }
-
-    function rotateArrow2()
-    {
-        if (state2 === true) {
-            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
-            state2 = false;
-        } else {
-            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
-            state2 = true;
-        }
-      
-    }        
-
-</script>
 </head>
     
 <section id="sidebar-element-js" class="sidebar-container-website">
@@ -844,3 +794,54 @@ position: sticky;
 -->
 
 </section>
+
+<script type="text/javascript">
+    
+    myID = document.getElementById("sidebar-element-js");
+
+    var myScrollFunc = function() {
+      var y = window.scrollY;
+      if (y >= 80) {
+        myID.className = "sidebar-container-website fixed-position"
+      } else {
+        myID.className = "sidebar-container-website"
+      }
+    };
+
+    window.addEventListener("scroll", myScrollFunc);
+
+</script>
+
+
+
+<script type="text/javascript">
+    
+    var state = true;
+    var state2 = true;
+    x = document.getElementById("active-menu");
+    y = document.getElementById("active-menu2");
+
+    function rotateArrow()
+    {
+        if (state === true) {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state = false;
+        } else {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state = true;
+        }
+    }
+
+    function rotateArrow2()
+    {
+        if (state2 === true) {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state2 = false;
+        } else {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state2 = true;
+        }
+      
+    }        
+
+</script>
