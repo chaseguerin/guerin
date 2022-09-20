@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>Testing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+
+
+<style type="text/css">
+    
+
+.finder-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+    margin: 0;
+    height: 10000px;
+}
+
+.finder-sidebar {
+position: sticky;
+    top: 0px;
+    left: 0;
+    /* width: 200px; */
+    /* width: 249px; */
+    height: 100%;
+    font-size: 0.87rem;
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #808080;
+    border-right: 1px solid #D9D9D9;
+    pointer-events: all;
+}
+
+.artifact-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.artifact-sidebar {
+position: sticky;
+    top: 0px;
+    left: 0;
+    /* width: 200px; */
+    /* width: 249px; */
+    height: 100%;
+    font-size: 0.87rem;
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #808080;
+    border-left: 1px solid #D9D9D9;
+    pointer-events: all;
+}
+
+
+
+.finder-sidebar h2 input:active { 
+    color: #5a7fe8 
+}
+
+.finder-sidebar ul { 
+    margin: 0; 
+    /* padding: 0 0 0 71px; */
+    padding: 0 0 0 25px;
+}
+
+
+
+
+.sidebar-menu-element {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.sidebar-title-element {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar-sub-menu-element li {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    position: relative;    
+    cursor: pointer; 
+    list-style-type: none; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.sidebar-title {
+    flex-grow: 1;
+    padding: 0 8px 0 0px;
+    overflow: hidden;
+}
+
+.sidebar-title-header {
+    flex-grow: 1;
+    padding: 0 8px 0 0px;
+    font-weight: bold;
+    /* font-size: 16px; */
+    color: black;
+}
+
+
+
+
+
+.arrow-indicator {
+    /* transition: transform 0.3s;
+    border-right: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    width: 6px;
+    height: 6px;
+    transform: rotate(-45deg) translate(50%, -50%);
+    right: 50%;
+    top: 50%;
+    position: absolute;
+    */
+
+    transition: transform 0.3s;
+    transform: translate(50%, -50%);
+    right: 50%;
+    top: 50%;
+    position: absolute;
+    font-size: 15px;
+}
+
+
+.arrow-indicator:after {
+  content: '>';
+  color: black;
+}
+
+
+
+
+.hiding-class {
+    display: none !important;
+}
+
+
+.guerin-toggle-btn {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+.menu-icon {
+    width: 23px;
+    min-width: 23px;
+    height: 100%;
+    transition: color 0.3s;
+    position: relative;
+}
+
+
+.left-aligned-guerin {
+    transform: translate(0, -50%) scale(.88);
+    left: 0%;
+    top: 50%;
+    position: absolute;
+    transition: transform .4s ease-in-out;
+}
+
+
+.gray-border-file {
+    border-left: solid 2px #f2f2f2;
+}
+
+.sidebar-content {
+    padding: 60px 0px 60px 25px;
+}
+
+
+
+.sidebar-menu-element:hover {
+    /* background-color: #f9f9f9; */
+}
+
+
+
+
+
+.finder-sidebar .sidebar-menu-element .black-border-active-element.cur2 {
+    color: black !important;
+    font-weight: bold; 
+}
+
+
+.sidebar-menu-element.cur2 .downward-arrow-menu{
+    fill: black !important;
+}
+
+.cur .downward-arrow-menu{
+    fill: black !important;
+}
+
+
+.finder-sidebar h2 { 
+    color: #868b91; 
+    text-transform: uppercase; 
+    font-size: 11px; 
+    margin: 0; 
+    padding: 6px 6px 3px; 
+    text-shadow: 1px 1px 0 #fff;
+}
+
+
+.finder-sidebar ul .cur { 
+    color: black;
+    font-weight: 500; 
+    /* background-color: #f9f9f9; */
+
+}
+
+
+.finder-sidebar .sidebar-menu-element.cur2 {
+    /* background-color: #f9f9f9; */
+    color: black;
+    font-weight: 500; 
+}
+
+
+
+.hiding-opacity-class {
+    opacity: 1 !important;
+}
+
+.pointer-icon {
+    width: 30px;
+    min-width: 30px;
+    height: 100%;
+    transition: color 0.3s;
+    position: relative;
+
+}
+
+
+.black-border-active-element {
+    border-left: solid 2px #000000;
+    /* width: 10px; */
+    height: 28px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+
+}
+
+
+.line-and-arrow {
+    /* width: 47px; */
+    width: 39px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    opacity: 1;
+}
+
+[hidden] { 
+    opacity: 0; 
+}
+
+.hiddentwo { 
+    opacity: 1; 
+}
+
+
+.downward-arrow-menu {
+    fill: #808080;
+}
+
+
+.finder-sidebar ul .cur .gray-border-file {
+    /* border-left: solid 2px #f9f9f9; */
+}
+
+
+
+
+
+#sidebar-container-left {
+    /* min-height: 134px; */
+    height: 100%;
+    width: 100%;
+    align-self: start;
+    justify-self: end;
+    margin-left: 0%;
+    margin-right: 0%;
+    /* margin-top: 495.5625px; */
+    margin-bottom: 0px;
+    grid-area: 1/1/1/3;
+    /* grid-area: 1/2/1/2; */
+    box-sizing: border-box;
+    display: grid;
+}
+
+#sidebar-container-center {
+    /* min-height: 134px; */
+    /* height: 100vh; */
+    height: 100%;
+    width: 100%;
+    align-self: start;
+    justify-self: end;
+    margin-left: 0%;
+    margin-right: 0%;
+    /* margin-top: 495.5625px; */
+    margin-bottom: 0px;
+    grid-area: 1/2/1/3;
+    /* grid-area: 1/2/1/2; */
+    box-sizing: border-box;
+    display: grid;
+    /* background: red; */
+}
+
+#sidebar-container-right {
+    /* min-height: 134px; */
+    height: 100%;
+    width: 100%;
+    align-self: start;
+    justify-self: end;
+    margin-left: 0%;
+    margin-right: 0%;
+    /* margin-top: 495.5625px; */
+    margin-bottom: 0px;
+    grid-area: 1/3/1/3;
+    /* grid-area: 1/2/1/2; */
+    box-sizing: border-box;
+    display: grid;
+    /* background: purple; */
+}
+
+/*
+@media (max-width: 600px) {
+
+    .sidebar-container-website {
+
+        grid-template-columns: 0.65fr 0.00fr !important;
+    }
+}
+
+@media (max-width: 1500px;) {
+    .sidebar-container-website {
+        grid-template-columns: 0.4fr 1.70900fr !important;
+    }
+}
+*/
+
+
+/*
+@media (max-width: 600px) {
+
+    .sidebar-container-website {
+
+        grid-template-columns: 0.65fr 0.00fr !important;
+    }
+}
+*/
+
+
+@media (min-width: 600px) and (max-width: 1150px) {
+
+    .guerin-logo-svg {
+        display: block !important;
+    }
+
+    .guerin-logo-svg-compressed {
+        display: none !important;
+    }
+}
+
+
+
+
+
+@media /* (min-width: 600px) and */ (max-width: 1150px) {
+    .sidebar-container-website {
+        /* grid-template-columns: 0.18900404906803fr 0.655067610450846fr 0.155928340481125fr !important; */
+        grid-template-columns: 0fr 1fr 0fr !important;
+        /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.33fr !important; */
+    }
+
+    .finder-sidebar {
+        border-right: none !important;
+    }
+
+    .artifact-sidebar {
+        border-left: none !important;
+    }
+
+    .header-gradient { 
+        display: block !important;
+    }
+
+}
+
+@media (min-width: 1150px) and (max-width: 1550px) {
+    .sidebar-container-website {
+        /* grid-template-columns: 0.18900404906803fr 0.655067610450846fr 0.155928340481125fr !important; */
+        grid-template-columns: 0.19fr 0.65fr 0.16fr !important;
+        /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.33fr !important; */
+    }
+
+    .artifact-svg-logo {
+        height: 15.8px !important;
+        width: auto;
+        transform: translateY(1px);
+    }
+
+    .placer {
+        top: 40px !important; 
+        position: absolute;
+    }
+}
+
+
+
+
+.sidebar-container-website {
+    box-sizing: border-box;
+    display: grid;
+    /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.6fr; */
+    /* grid-template-columns: 0.167619529471288fr 0.580951176321781fr 0.251429294206931fr; */
+    grid-template-columns: 0.17fr 0.58fr 0.25fr;
+
+
+    /* grid-template-columns: 0.4fr 1.9863567763356475fr; */
+    height: 100%;
+    /* margin-top: 6px; */
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    pointer-events: none;
+    top: 80px;
+}
+
+
+.fixed-position {
+    position: fixed;
+    top: 0px;
+}
+
+
+
+
+
+
+
+      :root {
+        --variable-gap: 20;
+        --margin-spacing: 5;
+        --details-height: 25;
+        --artifact-gap: 2;
+        --progress-gap;
+        --artifact-size: 172px;
+        --artifact-img-size: calc(var(--artifact-size) - 10px);
+        --arifact-frame-height: calc(var(--margin-spacing) + var(--details-height) + var(--variable-gap));
+      }
+
+      /* calc(var(--variable-gap) + 20px); */
+
+
+
+      .artifact-grid {
+        display: grid;
+        box-sizing: border-box;
+        grid-auto-rows: 1px;
+        justify-content: center;
+        /* grid-template-columns: repeat(6, 167px); */
+        grid-template-columns: repeat(auto-fit, var(--artifact-size));
+        
+        column-gap: calc(var(--variable-gap) * 1px);
+        margin-top: 80px;
+      }
+
+
+      .artifact {
+        background-color: #000000;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .artifact img {
+        width: var(--artifact-img-size);
+        display: block;
+      }
+
+      .artifact-details {
+        position:relative;
+        /* bottom:12px; */
+        color:#fff;
+        /* background: silver; */
+        font-size: 11px;
+        width:100%;
+        display: flex;
+        height: calc(var(--details-height) * 1px);
+      }
+
+      .artifact-details a {
+        text-decoration:none;
+        color:#000
+      }
+
+
+      .artifact-gray {
+        fill:#8B8B8B;
+      }
+
+      .artifact-qr-logo {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 6px;
+      }
+
+      .text-box-artifact {
+        text-transform: uppercase;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-family: 'Source Code Pro', monospace;
+        text-align: right;
+      }
+
+      .title-text-box-artifact {
+        font-size: 6px;
+        margin: 0;
+      }
+
+      .details-text-box-artifact {
+        font-size: 5px;
+        color: #a4a4a4;
+        margin: 0;
+      }
+
+      .artifact-image { 
+        width: var(--artifact-img-size);
+        margin-top: calc(var(--margin-spacing) * 1px); 
+        margin-left: calc(var(--margin-spacing) * 1px);
+        margin-right: calc(var(--margin-spacing) * 1px);
+        margin-bottom: 0px;
+        background: lightgrey;
+        display: inline-block;
+      }
+
+
+      .artifact-svg-logo {
+
+        /* width: 170px; */
+        height: 17.8px;
+        width: auto;
+        transform: translateY(1px);
+      }
+
+      .logo-spacer {
+        grid-column-end: span var(--artifact-gap);
+      }
+
+
+.guerin-future-header {
+    width: 100%;
+    height: 47px;
+    /* background: yellow; */
+    position: absolute;
+    bottom: 10px;
+}
+
+.guerin-logo-svg {
+    height: 18.1558px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    display: none;
+}
+
+.guerin-logo-svg-compressed {
+    height: 18.1558px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.header-gradient {
+    width: 100%;
+    height: 63.1627px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, .0) -1.91%, rgba(255, 255, 255, 1) 104.15%, rgba(255, 255, 255, 1) 136.8331%);
+    pointer-events: all;
+    position: relative;
+    display: none;
+
+}
+
+.sidebar-mobile {
+    font-size: 11.5px;
+    font-family: 'Source Code Pro', monospace;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 20px;
+    position: absolute;
+    text-transform: uppercase;
+
+}
+
+
+.artifact-mobile {
+    font-size: 11.5px;
+    font-family: 'Source Code Pro', monospace;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 20px;
+    position: absolute;
+    text-transform: uppercase;
+
+}
+
+.placer {
+    top: 35px; 
+    position: absolute;
+}
+
+</style>
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+    $(function() {
+        $(".finder-sidebar li").click(function() {
+            $(".finder-sidebar li.cur").removeClass("cur"); $(this).addClass("cur");
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2");
+        });
+    });
+
+
+
+    $(function() {
+        $(".finder-sidebar .sidebar-menu-element").click(function() {
+            $(".finder-sidebar .sidebar-menu-element.cur2").removeClass("cur2"); $(this).addClass("cur2");
+
+            $(".finder-sidebar li.cur").removeClass("cur"); 
+        });
+    });
+
+
+    function openbox(id){
+        var el = document.getElementById('item'+id);
+
+        if(el.hidden){
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+          
+          document.querySelectorAll('.line-and-arrow').forEach(item => item.hidden = true);
+
+          $(document.querySelectorAll('.hiddentwo')).removeClass("hiddentwo");
+          $(el).addClass("hiddentwo");
+
+          el.hidden = false; 
+
+        }else{
+
+          el.hidden = true;
+        }
+    }
+</script>
+
+</head>
+
+
+<body>
+
+
+<section id="sidebar-element-js" class="sidebar-container-website">
+
+ 
+
+        <div id="sidebar sidebar-container-left" class="finder-sidebar">
+            <div class="sidebar-content">
+
+                <div class="sidebar-title-element">   
+
+                    <span class="sidebar-title-header"> Guerin New York </span> 
+
+                </div>
+
+
+                <div class="sidebar-menu-element cur2" onclick="openbox(1)">
+                    
+
+                    <div class="line-and-arrow hiddentwo" id="item1" >
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon ">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+
+
+
+                    <span class="menu-icon hiding-class">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>        
+
+                    <span class="sidebar-title"> Video </span> 
+
+                </div>
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(2)">
+
+                    <div class="line-and-arrow" id="item2" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon ">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+                    <span class="menu-icon hiding-class">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>        
+
+                    <span class="sidebar-title"> Layout </span> 
+
+                </div>
+
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(3)">
+                    
+
+                    <div class="line-and-arrow" id="item3" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle1').slideToggle();">
+                            
+                            <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><path class="downward-arrow-menu" d="M0,4.34v7.59h7.59V4.34H0z M6.51,10.84H1.08V5.42h5.42V10.84z"></path><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.08 4.34,1.08 4.34,3.25 3.25,3.25 3.25,0"></polygon></g>
+                            </svg>
+
+                        </button>
+                    </span>    
+
+                    <span class="sidebar-title"> Token Vault </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle1" class="sidebar-sub-menu-element">
+                    
+                    <li onclick="openbox(4)">
+
+                        <div class="line-and-arrow" id="item4" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>                    
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> Mood </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(5)">
+
+                        <div class="line-and-arrow" id="item5" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>   
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> ID </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(6)">
+
+                        <div class="line-and-arrow" id="item6" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon">
+                            <button class="guerin-toggle-btn" >
+                                <svg class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.93px" height="11.93px" viewBox="0 0 11.93 11.93" xml:space="preserve"><defs></defs><g><polygon class="downward-arrow-menu" points="11.93,0 11.93,8.67 8.67,8.67 8.67,7.59 10.84,7.59 10.84,1.09 4.34,1.09 4.34,3.25 3.25,3.25 3.25,0"/><rect x="4.34" y="3.25" class="downward-arrow-menu" width="3.25" height="1.08"/><polygon class="downward-arrow-menu" points="7.59,7.59 7.59,11.93 0,11.93 0,4.34 4.34,4.34 4.34,7.59 3.25,7.59 3.25,5.42 1.08,5.42 1.08,10.84 6.5,10.84 6.5,8.67 4.34,8.67 4.34,7.59  "/><rect x="7.59" y="4.34" class="downward-arrow-menu" width="1.08" height="3.25"/></g>
+                                </svg>   
+                            </button>
+                        </span>
+
+                        <span class="sidebar-title"> Artifact </span>
+                    </li>
+
+                </ul>
+
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(7)">
+                    
+                    <div class="line-and-arrow" id="item7" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+                        
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle2').slideToggle(); rotateArrow()">
+                            
+                            <svg id="active-menu" class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>           
+
+                    <span class="sidebar-title"> User Experience </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle2" class="sidebar-sub-menu-element">
+
+                    <li onclick="openbox(8)">
+
+                        <div class="line-and-arrow" id="item8" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Competitive Analysis </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(9)">
+                        <div class="line-and-arrow" id="item9" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> User Personas </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(10)">
+                        <div class="line-and-arrow" id="item10" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Prototype </span>
+                    </li>
+
+
+                    <li onclick="openbox(11)">
+                        <div class="line-and-arrow" id="item11" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> User Testing </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(12)">
+                        <div class="line-and-arrow" id="item12" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Design System </span>
+                    </li>
+
+                </ul>
+
+
+
+                <div class="sidebar-menu-element" onclick="openbox(13)">
+                    
+                    <div class="line-and-arrow" id="item13" hidden>
+
+                        <div class="black-border-active-element "></div>
+                        <span class="pointer-icon">
+                            <div class="arrow-indicator"></div>
+                        </span>
+                        
+                    </div>
+
+                    <span class="menu-icon">
+                        <button class="guerin-toggle-btn" onclick="$('#sidebar_toggle3').slideToggle(); rotateArrow2()">
+                            
+                            <svg id="active-menu2" class="left-aligned-guerin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9.48px" height="8.21px" viewBox="0 0 9.48 8.21" xml:space="preserve"><defs></defs><polygon class="downward-arrow-menu" points="4.74,0 9.48,0 7.11,4.1 4.74,8.21 2.37,4.1 0,0 "/>
+                            </svg>
+
+                        </button>
+                    </span>           
+
+                    <span class="sidebar-title"> User Interface </span> 
+
+                </div>
+
+                <ul id="sidebar_toggle3" class="sidebar-sub-menu-element">
+
+                    <li onclick="openbox(14)">
+                        <div class="line-and-arrow" id="item14" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Visual Identity </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(15)">
+                        <div class="line-and-arrow" id="item15" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Color Styles </span>
+                    </li>
+
+
+
+                    <li onclick="openbox(16)">
+                        <div class="line-and-arrow" id="item16" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Typography </span>
+                    </li>
+
+
+                    <li onclick="openbox(17)">
+                        <div class="line-and-arrow" id="item17" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> Iconography </span>
+                    </li>
+
+
+
+
+                    <li onclick="openbox(18)">
+                        <div class="line-and-arrow" id="item18" hidden>
+
+                            <div class="black-border-active-element "></div>
+                            <span class="pointer-icon">
+                                <div class="arrow-indicator"></div>
+                            </span>
+                            
+                        </div>
+
+                        <span class="menu-icon gray-border-file"></span>
+
+                        <span class="sidebar-title"> UI Components </span>
+                    </li>
+
+                </ul>
+
+
+
+                <!--
+                <h2>Default hidden
+                <input type="button" onclick="$('#sidebar_toggle2').slideToggle();if(this.value=='Show')this.value='Hide';else this.value='Show';" value="Show"></h2>
+
+                <ul id="sidebar_toggle2" style='display:none'>
+                <li data-file="themedir/conf.ini">conf.ini</li>
+                <li data-file="docs/macros.js">macros.js</li>
+                <li data-file="docs/wiki.js">wiki.js</li>
+                </ul>
+                -->
+
+
+
+
+            </div>
+        </div>
+
+ 
+    <div id="sidebar-container-center">
+        <div class="header-gradient">
+            <div class="guerin-future-header">
+                <span class="sidebar-mobile">Contents</span>
+
+
+                <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+                <svg class="guerin-logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="355.43px" height="52.39px" viewBox="0 0 355.43 52.39" xml:space="preserve">
+                
+                <defs>
+                </defs>
+                <g>
+                    <g>
+                        <polygon points="355.43,0.01 355.43,52.39 347.94,52.39 318.01,12.46 318.01,52.39 310.53,52.39 310.53,0.01 318.03,0.01 347.94,39.92 347.94,0.01"/>
+                        <rect x="291.82" y="0" width="7.48" height="52.39"/>
+                        <g>
+                            <g>
+                                <path d="M268.62,29.94l8.23,0l0-29.93l-42.04,0v7.48l4.62,0.01l0,44.9l7.48,0V29.94l12.57,0l15.72,22.45h9.13L268.62,29.94z M246.91,22.46l0-14.96l22.45,0v14.96L246.91,22.46z"/>
+                            </g>
+                        </g>
+                        <polygon points="228.15,0 228.15,7.49 194.48,7.49 194.48,22.46 228.15,22.46 228.15,29.94 194.48,29.94 194.48,44.91 228.15,44.91 228.15,52.39 186.99,52.39 186.99,0"/>
+                        <polygon points="175.86,0 175.86,52.39 134.7,52.39 134.7,0 142.19,0 142.19,44.91 168.38,44.91 168.38,0"/>
+                        <polygon points="123.48,0 123.48,7.49 89.8,7.49 89.8,44.91 115.99,44.91 115.99,29.94 101.03,29.94 101.03,22.46 123.48,22.46 123.48,52.39 82.32,52.39 82.32,0"/>
+                    </g>
+
+
+                        <g>
+                                <rect y="38.1" width="4.76" height="14.29"/>
+                                <polygon points="0,33.33 0,0 42.86,0 42.86,14.29 9.52,14.29 9.52,9.53 38.09,9.53 38.09,4.76 4.76,4.76 4.76,28.58 42.86,28.58 
+                                    42.86,33.33         "/>
+                                <polygon points="9.52,52.38 9.52,38.1 42.86,38.1 42.86,42.86 14.29,42.86 14.29,47.62 47.62,47.62 47.62,23.81 9.52,23.81 
+                                    9.52,19.05 52.38,19.05 52.38,52.38      "/>
+                                <rect x="47.62" width="4.76" height="14.29"/>
+                        </g>
+                </g>
+                </svg>
+
+
+                <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+                <svg class="guerin-logo-svg-compressed" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="52.39px" height="52.39px" viewBox="0 0 52.39 52.39" xml:space="preserve">
+                
+                <defs>
+                </defs>
+                <g>
+
+                        <g>
+                            <rect y="38.1" width="4.76" height="14.29"/>
+                            <polygon points="0,33.33 0,0 42.86,0 42.86,14.29 9.52,14.29 9.52,9.53 38.09,9.53 38.09,4.76 4.76,4.76 4.76,28.58 42.86,28.58 
+                                42.86,33.33         "/>
+                            <polygon points="9.52,52.38 9.52,38.1 42.86,38.1 42.86,42.86 14.29,42.86 14.29,47.62 47.62,47.62 47.62,23.81 9.52,23.81 
+                                9.52,19.05 52.38,19.05 52.38,52.38      "/>
+                            <rect x="47.62" width="4.76" height="14.29"/>
+                        </g>
+                </g>
+                </svg>
+
+
+                <span class="artifact-mobile">Artifact [<span class="counter-artifact">0</span>]</span>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div id="sidebar-container-right" class="artifact-sidebar">
+        <div class="artifact-content">
+
+            <div class="artifact-grid">
+
+              <div class="logo-spacer">
+                  <div class="placer">
+ 
+                      <svg id="working" class="artifact-svg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="238.9px" height="27.78px" viewBox="0 0 238.9 27.78" xml:space="preserve">
+
+                        <defs></defs>
+                        <g>
+                          <g>
+                            <path d="M43.65,0H65.5v27.78h-3.98V15.87H47.63v11.91h-3.98V0z M61.52,11.92V3.99H47.63v7.93H61.52z"/><path d="M94.05,25.8l1.37,1.97H90.6l-1.13-1.59l-0.28-0.39l-1.38-2.01l-0.32-0.42l-1.09-1.55l-0.88-1.3l-0.49-0.67l-1.38-1.97
+                              l-0.14-0.18l-1.27-1.83h-6.66v11.91h-3.95V3.99h-2.47V0h22.28v15.86h-4.34l0.39,0.56l0.99,1.44l0.99,1.41l0.39,0.56l1.41,1.97
+                              l0.18,0.28l1.2,1.69l0.81,1.16L94.05,25.8z M75.58,3.99v7.93H87.5V3.99H75.58z"/><path d="M122.36,0v3.98h-9.94v23.79h-3.95V3.99h-9.94V0H122.36z"/><path d="M127.02,27.78V0H131v27.78H127.02z"/><path d="M157.5,0v3.98h-17.87v7.93h17.87v3.95h-17.87v11.91h-3.98V0H157.5z"/><path d="M162.12,0h21.85v27.78H180V15.87h-13.89v11.91h-3.98V0z M180,11.92V3.99h-13.89v7.93H180z"/><path d="M210.45,0v3.98h-17.87V23.8h17.87v3.98H188.6V0H210.45z"/><path d="M238.9,0v3.98h-9.94v23.79h-3.95V3.99h-9.94V0H238.9z"/>
+                          </g>
+                          
+                          <g>
+                            <g><g><rect x="5.07" y="25.25" class="artifact-gray" width="2.52" height="2.52"/></g><g><rect x="5.07" y="20.2" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 27.7945 15.1282)" class="artifact-gray" width="2.52" height="2.52"/></g><g><path class="artifact-gray" d="M12.65,12.62V10.1H0v2.53h0.01v15.15h2.53v-10.1h7.61v5.05H7.59v2.53h2.53v2.52h2.53v-2.52h0.02V12.62H12.65z M2.54,15.15v-2.53h7.61v2.53H2.54z"/></g></g><g><polygon class="artifact-gray" points="27.79,0 27.79,12.62 25.27,12.62 25.27,2.53 17.69,2.53 17.69,12.62 15.17,12.62 15.17,2.53 0.02,2.53 0.02,0"/></g><g><rect x="0" y="5.05" class="artifact-gray" width="12.64" height="2.52"/></g><g><polygon class="artifact-gray" points="27.79,20.2 27.79,27.78 15.17,27.78 15.17,25.25 25.26,25.25 25.26,22.73 15.17,22.73 15.17,20.2"/></g><g><polygon class="artifact-gray" points="27.79,15.15 27.79,17.67 15.17,17.67 15.17,15.15 20.22,15.15 20.22,5.05 22.74,5.05 22.74,15.15"/></g><g><rect x="20.22" y="17.67" class="artifact-gray" width="2.52" height="0.01"/></g>
+                          </g>
+                        </g>
+                      </svg> 
+
+                      <span style="font-size: 11px; color: black; margin-left: -3px;">[<span class="counter-artifact-dsk">0</span>]<span>
+                  </div>
+              </div>
+
+                <!-- grid-row-end: span calc(5 + 104 + 25 + 20) -->
+                <!-- 5px margin top, (image height), (details height), 20px gap) -->
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (3 / 4)))">
+                    <div class="artifact">
+                        
+                        <div class = "artifact-image" style="aspect-ratio: 3 / 4;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_0658.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (4 / 3)))">
+                    <div class="artifact">
+
+                        <div class = "artifact-image" style="aspect-ratio: 4 / 3;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_7505.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (53 / 75)))">
+                    <div class="artifact">
+                      
+                        <div class = "artifact-image" style="aspect-ratio: 53 / 75;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/Nov%2014%2C%20Doc%201.jpg"
+                              />
+                            </a>
+                        </div>
+
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (3 / 4)))">
+                    <div class="artifact">
+                        
+                        <div class = "artifact-image" style="aspect-ratio: 3 / 4;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_0658.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (4 / 3)))">
+                    <div class="artifact">
+
+                        <div class = "artifact-image" style="aspect-ratio: 4 / 3;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_7505.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (53 / 75)))">
+                    <div class="artifact">
+                      
+                        <div class = "artifact-image" style="aspect-ratio: 53 / 75;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/Nov%2014%2C%20Doc%201.jpg"
+                              />
+                            </a>
+                        </div>
+
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (3 / 4)))">
+                    <div class="artifact">
+                        
+                        <div class = "artifact-image" style="aspect-ratio: 3 / 4;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_0658.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (4 / 3)))">
+                    <div class="artifact">
+
+                        <div class = "artifact-image" style="aspect-ratio: 4 / 3;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/IMG_7505.JPG"
+                              />
+                            </a>
+                        </div>
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="grid-row-end: span calc( var(--arifact-frame-height) + (var(--artifact-img-size)/ (53 / 75)))">
+                    <div class="artifact">
+                      
+                        <div class = "artifact-image" style="aspect-ratio: 53 / 75;"> 
+
+                            <a href="https://unsplash.com/photos/jchFymyKTuA?utm_source=ember_photo_gallery&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                              <img 
+
+                                  src="https://storage.googleapis.com/guerin/tinified/Nov%2014%2C%20Doc%201.jpg"
+                              />
+                            </a>
+                        </div>
+
+
+                        <div class="artifact-details">
+                          
+                          <svg class="artifact-qr-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.3px" height="11.3px" viewBox="0 0 11.3 11.3" xml:space="preserve"><defs></defs>
+                            <g>
+                              <rect y="2.05" class="artifact-gray" width="5.14" height="1.03"/><polygon class="artifact-gray" points="11.3,6.16 11.3,7.19 6.16,7.19 6.16,6.16 8.22,6.16 8.22,2.05 9.25,2.05 9.25,6.16  "/><polygon class="artifact-gray" points="11.3,0 11.3,5.14 10.27,5.14 10.27,1.03 7.19,1.03 7.19,5.14 6.16,5.14 6.16,1.03 0,1.03 0,0  "/><rect x="2.05" y="8.22" class="artifact-gray" width="1.03" height="1.03"/><polygon class="artifact-gray" points="11.3,8.22 11.3,11.3 6.16,11.3 6.16,10.27 10.27,10.27 10.27,9.25 6.16,9.25 6.16,8.22  "/><rect x="2.05" y="10.28" class="artifact-gray" width="1.03" height="1.03"/><path class="artifact-gray" d="M0,4.11v7.19h1.03V7.19h3.08v2.05H3.08v1.03h1.03v1.03h1.03V4.11H0z M4.11,6.16H1.03V5.14h3.08V6.16z"/>
+                            </g>
+                          </svg>
+
+                          <div class="text-box-artifact">
+                            <span>
+                              <p class="title-text-box-artifact">[Artifact] Guerin Website Concept</p>
+                              <p class="details-text-box-artifact">Date: 07.07.2018 | New Haven, CT</p>
+                            </span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<script>
+
+document.querySelector('.counter-artifact').innerHTML = document.querySelectorAll('.artifact').length;
+document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelectorAll('.artifact').length;
+
+
+  const collection = document.querySelector('.artifact-grid').children;
+  for (let i = 0; i < collection.length; i++) {
+
+
+    window.addEventListener('load', (event) => {
+
+      const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
+
+      collection[i].style.setProperty("--progress-gap", changingheights)
+      collection[i].style.gridRowEnd = "span calc(var(--progress-gap) + var(--arifact-frame-height))";
+
+      
+
+      // print height
+      console.log(collection[i].getElementsByTagName("div")[0].clientHeight);
+    });
+
+  }
+
+
+
+      function updateArtifact() {
+
+
+        var artifactItem = Math.floor( Math.max(document.querySelector('.artifact-content').clientWidth || 0) / (document.querySelector('.artifact').clientWidth + 10.01) );
+        document.querySelector('.logo-spacer').style.setProperty("--artifact-gap", artifactItem);
+
+        console.log(artifactItem);
+      }
+
+
+
+      window.addEventListener("load", updateArtifact);
+      window.addEventListener("resize", updateArtifact);
+                
+
+
+</script>
+
+<script type="text/javascript">
+    
+    myID = document.getElementById("sidebar-element-js");
+
+    var myScrollFunc = function() {
+      var y = window.scrollY;
+      if (y >= 80) {
+        myID.className = "sidebar-container-website fixed-position"
+      } else {
+        myID.className = "sidebar-container-website"
+      }
+    };
+
+    window.addEventListener("scroll", myScrollFunc);
+
+</script>
+
+
+
+<script type="text/javascript">
+    
+    var state = true;
+    var state2 = true;
+    x = document.getElementById("active-menu");
+    y = document.getElementById("active-menu2");
+
+    function rotateArrow()
+    {
+        if (state === true) {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state = false;
+        } else {
+            x.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state = true;
+        }
+    }
+
+    function rotateArrow2()
+    {
+        if (state2 === true) {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + -90 +'deg)';
+            state2 = false;
+        } else {
+            y.style.WebkitTransform = 'translate(0, -50%) rotate(' + 0 +'deg)';
+            state2 = true;
+        }
+      
+    }        
+
+</script>
+
+</body>
+</html>
