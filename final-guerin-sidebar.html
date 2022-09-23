@@ -50,6 +50,187 @@ function includeHTML() {
 <style type="text/css">
     
 
+    #guerinnavbar {
+      bottom: 0px; /* Stay on top */
+      transition: bottom 0.4s ease-in-out; /* Transition effect when sliding down (and up) */
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overscroll-behavior-y: none;
+        /* height: 100000px; */
+    }
+
+    .progress-section {
+        width: 100%;
+        height: 5px;
+        display: flex;
+        justify-content: space-between;
+        will-change: transform;
+        transition: 0.3s ease-out;
+        z-index: 999999999;
+        position: absolute;
+        top: 0;
+    }
+
+    .progress-bar-wrap {
+
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+
+    }
+
+    .progress-bar {
+        position: absolute;
+        bottom: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #dfdfdf;
+    }
+
+    .progress-num {
+        display: none;
+    }
+
+    /*
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    */
+
+
+
+
+    #guerinbox {
+        border-left: 1px solid #dfdfdf;
+        border-top: 1px solid #dfdfdf;
+        background-color: rgba(255, 255, 255, 0.7);
+        -webkit-backdrop-filter: blur(50px) brightness(1.5);
+        backdrop-filter: blur(50px) brightness(1.5);
+        /* position: -webkit-sticky;
+        position: sticky; 
+        top: calc(84.7vh + 0px); */
+    }
+
+    #guerinbox {
+        min-height: 92px;
+        height: 92px;
+        width: 280px;
+        align-self: start;
+        justify-self: end;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* original: margin-top: 535.5625px; */
+        /* margin-top: 495.5625px; */
+        margin-bottom: 0px;
+        grid-area: 2/2/3/3;
+        /* filter: invert(1); */
+    }
+
+    .guerinbox-container {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        position: relative;
+    }
+
+    .guerinbox2-container {
+        box-sizing: border-box;
+        display: grid;
+        /* grid-template-rows: minmax(237px,max-content) minmax(2563px,max-content); */
+        grid-template-columns: 0.17fr 0.58fr 0.25fr;
+        height: 0px;
+        /* margin-top: 6px; */
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+    }
+
+
+
+
+    #guerin-logo-page {
+        height: 24.375px;
+        width: 77.515625px;
+        align-self: end;
+        justify-self: start;
+        position: relative;
+        margin-left: 22.03125px;
+        margin-right: 0%;
+        margin-top: 0px;
+        margin-bottom: 35px;
+        grid-area: 1/1/2/2;
+    }
+
+
+    #second-design-text {
+        height: auto;
+        width: 155.015625px;
+        align-self: end;
+        justify-self: start;
+        position: relative;
+        margin-left: 21.578125px;
+        margin-right: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        grid-area: 1/1/2/2;
+
+
+        text-align: left;
+        text-decoration: none;
+        font-size: 9px;
+        font-style: normal;
+        font-family: 'Source Code Pro', monospace;
+        color: #4E4E4E;
+    }
+
+
+
+    #prev-next {
+        height: auto;
+        width: 155.015625px;
+        align-self: start;
+        justify-self: start;
+        position: relative;
+        margin-left: 22px;
+        margin-right: 0%;
+        margin-top: 15.4375px;
+        margin-bottom: 0px;
+        grid-area: 1/1/2/2;
+
+        text-align: left;
+        text-decoration: none;
+        font-size: 11px;
+        font-style: normal;
+        font-family: 'Source Code Pro', monospace;
+        color: #4E4E4E;
+    }
+
+
+    #eleven-grid-logo {
+        height: auto;
+        width: 50px;
+        align-self: stretch;
+        justify-self: end;
+        position: relative;
+        margin-left: 0%;
+        margin-right: 21px;
+        margin-top: 21px;
+        margin-bottom: 21px;
+        grid-area: 1/1/2/2;
+    }
+
+
 .finder-sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -436,6 +617,16 @@ position: sticky;
         /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.33fr !important; */
     }
 
+    .guerinbox2-container {
+        grid-template-columns: 1fr;
+        grid-area: auto;
+    }
+
+    .guerinbox-container {
+        transform: scale(0.7) translate(61px, 20px);
+
+    }
+
     .finder-sidebar {
         border-right: none !important;
     }
@@ -457,10 +648,13 @@ position: sticky;
         /* grid-template-columns: 0.2fr 0.7fr 0.2fr !important; */
 
 
-
-
         /* grid-template-columns: 0.4fr 1.3863567763356475fr 0.33fr !important; */
     }
+
+    .guerinbox2-container {
+        grid-template-columns: 0.19fr 0.65fr 0.16fr;
+    }
+
 
     .artifact-svg-logo {
         height: 15.8px !important;
@@ -736,6 +930,72 @@ position: sticky;
 
 
 <body>
+
+<section id="guerinnavbar" class="guerinbox2-container">
+    <div id="guerinbox" class="guerinbox-container">
+
+
+        <div class="progress-section">
+            <div class="progress-bar-wrap">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-num"></div>
+        </div>
+
+
+
+
+        <div id="eleven-grid-logo" class=""><div data-testid="svgRoot-comp-l2xfw1ii" class="_3bLYT"><!--?xml version="1.0" encoding="UTF-8"?-->
+        <svg preserveAspectRatio="xMidYMid meet" data-bbox="0 0 932.05 932.05" viewBox="0 0 932.05 932.05" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-type="ugc" role="presentation" aria-hidden="true">
+            <g>
+                <defs>
+                    <linearGradient gradientUnits="userSpaceOnUse" y2="804.96" x2="84.66" y1="804.96" id="svgcid--yij0oalvulpd">
+                        <stop offset=".01"></stop>
+                        <stop offset=".19"></stop>
+                        <stop offset=".6"></stop>
+                        <stop offset=".87"></stop>
+                        <stop offset="1"></stop>
+                    </linearGradient>
+                    <linearGradient xlink:href="#svgcid--yij0oalvulpd" y2="296.56" x2="762.53" y1="296.56" id="svgcid-n8v363u67a53"></linearGradient>
+                    <linearGradient xlink:href="#svgcid--yij0oalvulpd" y2="635.49" x2="932.05" y1="635.49" x1="169.42" id="svgcid-6emz4n-fgpn7k"></linearGradient>
+                    <linearGradient xlink:href="#svgcid--yij0oalvulpd" y2="127.14" x2="932.05" y1="127.14" x1="847.29" id="svgcid--4bmsig5xo5yj"></linearGradient>
+                </defs>
+                <path fill="url(#svgcid--yij0oalvulpd)" d="M84.66 677.87v254.18H0V677.87h84.66z"></path>
+                <path fill="url(#svgcid-n8v363u67a53)" d="M0 593.11V0h762.53v254.28H169.42v-84.76h508.35V84.76H84.66v423.69h677.87v84.66H0z"></path>
+                <path fill="url(#svgcid-6emz4n-fgpn7k)" d="M169.42 932.05V677.87h593.11v84.76H254.18v84.76h593.11v-423.7H169.42v-84.75h762.63v593.11H169.42z"></path>
+                <path fill="url(#svgcid--4bmsig5xo5yj)" d="M932.05 0v254.28h-84.76V0h84.76z"></path>
+            </g>
+        </svg>
+        </div></div>
+
+
+
+
+
+        <div id="prev-next" class="_1Q9if" data-testid="richTextElement"><p><span>&lt;— 1/13 NEXT —&gt;</span></p></div>
+
+
+        <div id="guerin-logo-page" class="">
+            <div data-testid="svgRoot-comp-l2xg03sb" class="_3bLYT _2OIRR"><!--?xml version="1.0" encoding="UTF-8"?-->
+                <svg preserveAspectRatio="xMidYMid meet" data-bbox="0 0 1435.78 275.43" viewBox="0 0 1435.78 275.43" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true">
+                    <g>
+                        <path fill="#010101" d="M1435.78.02v275.41h-39.34L1239.06 65.49v209.94h-39.33V.02h39.42l157.29 209.82V.02h39.34z" data-color="1"></path>
+                        <path fill="#010101" d="M1140.71 0v275.41h-39.34V0h39.34z" data-color="1"></path>
+                        <path d="M979.41 157.39h43.26V0h-221v39.35h24.31v236.08h39.32v-118h66.09l82.63 118h48zM865.3 118.05V39.38h118v78.67z" fill="#010101" data-color="1"></path>
+                        <path fill="#010101" d="M766.68 0v39.37H589.64v78.67h177.04v39.34H589.64v78.7h177.04v39.33H550.27V0h216.41z" data-color="1"></path>
+                        <path fill="#010101" d="M491.78 0v275.41H275.4V0h39.37v236.08h137.67V0h39.34z" data-color="1"></path>
+                        <path fill="#010101" d="M216.38 0v39.37H39.34v196.71h137.7v-78.7H98.37v-39.34h118.01v157.37H0V0h216.38z" data-color="1"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div id="second-design-text" class="_1Q9if" data-testid="richTextElement"><p><span>WEB DESIGN, BRANDING, MOTION</span></p></div>
+
+
+
+    </div>
+</section> 
 
 
 <section id="sidebar-element-js" class="sidebar-container-website">
@@ -1659,6 +1919,51 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
     }        
 
 </script>
+
+
+<script type="text/javascript">
+
+    let progressSection = document.querySelector('.progress-section');
+    let progressBar = document.querySelector('.progress-bar');
+    let progressNum = document.querySelector('.progress-num');
+
+    let x, y;
+
+    function updateProgressBar(){
+
+        progressBar.style.width = `${getScrollPercentage()}%`;
+        progressNum.innerText = `${Math.ceil(getScrollPercentage())}%`;
+        requestAnimationFrame(updateProgressBar)
+
+    }
+
+    function getScrollPercentage(){
+        return ((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)
+    }
+
+    updateProgressBar()
+
+</script>
+
+
+<script type="text/javascript">
+    
+    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("guerinnavbar").style.bottom = "0px";
+      } else {
+        document.getElementById("guerinnavbar").style.bottom = "92px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+
+</script>
+
+
+
 
 <script>
     includeHTML();
