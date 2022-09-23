@@ -1232,7 +1232,8 @@ position: sticky;
 
               <div class="logo-spacer">
                   <div class="placer">
- 
+
+                    
                       <svg id="working" class="artifact-svg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="238.9px" height="27.78px" viewBox="0 0 238.9 27.78" xml:space="preserve">
 
                         <defs></defs>
@@ -1251,6 +1252,7 @@ position: sticky;
 
                       <span style="font-size: 11px; color: black; margin-left: -3px;">[<span class="counter-artifact-dsk">0</span>]<span>
                   </div>
+
               </div>
 
                 <!-- grid-row-end: span calc(5 + 104 + 25 + 20) -->
@@ -1561,17 +1563,17 @@ document.querySelector('.counter-artifact').innerHTML = document.querySelectorAl
 document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelectorAll('.artifact').length;
 
 
-
-
       const collection = document.querySelector('.artifact-grid').children;
-      for (let i = 0; i < collection.length; i++) {
+      
+      for (let i = 1; i < collection.length; i++) {
 
+// document.addEventListener("DOMContentLoaded"
 
-        document.addEventListener('DOMContentLoaded', (event) => {
+        window.addEventListener('load', (event) => {
 
           const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
 
-          collection[i].style.setProperty("--progress-gap", changingheights)
+          collection[i].style.setProperty("--progress-gap", changingheights);
           collection[i].style.gridRowEnd = "span calc(var(--progress-gap) + var(--arifact-frame-height))";
 
           
