@@ -636,7 +636,8 @@ position: sticky;
     }
 
     .header-gradient { 
-        display: block !important;
+        /* display: block; */
+        opacity: 0;
     }
 
 }
@@ -850,6 +851,8 @@ position: sticky;
     pointer-events: all;
     position: relative;
     display: none;
+    transition: opacity 250ms ease-in-out;
+    pointer-events: none;
 
 }
 
@@ -1883,6 +1886,7 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
     };
 
     window.addEventListener("scroll", myScrollFunc);
+    window.addEventListener("load", myScrollFunc);
 
 </script>
 
@@ -1950,6 +1954,8 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
     
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     var prevScrollpos = window.pageYOffset;
+    var headerHeight = 63.12 + 300;
+    
     window.onscroll = function() {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
@@ -1958,7 +1964,43 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
         document.getElementById("guerinnavbar").style.bottom = "92px";
       }
       prevScrollpos = currentScrollPos;
+
     }
+
+    function myFunction(g) {
+        var currentScrollPos = window.pageYOffset;
+        
+        if (g.matches) {
+
+            if (currentScrollPos > headerHeight) {
+                document.querySelector(".header-gradient").style.opacity = "1";
+                document.querySelector(".header-gradient").style.display = "block";
+                document.querySelector(".header-gradient").style.pointerEvents = "all";
+
+
+            } else {
+                document.querySelector(".header-gradient").style.opacity = "0";
+                document.querySelector(".header-gradient").style.opacity = "0";
+                // document.querySelector(".header-gradient").style.display = "none";
+            }
+        
+        } else {
+            document.querySelector(".header-gradient").style.opacity = "0";
+            // document.querySelector(".header-gradient").style.display = "none";
+        }
+
+    }
+
+    window.onscroll = function() {
+        var g = window.matchMedia("(max-width: 1150px)")
+        myFunction(g) // Call listener function at run time
+        g.addListener(myFunction) // Attach listener function on state changes
+    }
+
+
+
+
+
 
 </script>
 
