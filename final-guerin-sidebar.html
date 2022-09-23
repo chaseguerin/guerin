@@ -1569,9 +1569,11 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
 // document.addEventListener("DOMContentLoaded"
 
-        window.addEventListener('load', (event) => {
+        // window.addEventListener('load', (event) => {
 
-          const changingheights = collection[i].getElementsByTagName("div")[2].clientHeight;
+
+        function ape() {
+          const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
 
           collection[i].style.setProperty("--progress-gap", changingheights);
           collection[i].style.gridRowEnd = "span calc(var(--progress-gap) + var(--arifact-frame-height))";
@@ -1579,8 +1581,10 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
           
 
           // print height
-          console.log(collection[i].getElementsByTagName("div")[2].clientHeight);
-        });
+          console.log(collection[i].getElementsByTagName("div")[1].clientHeight);
+        }
+        ape();
+        //});
 
       }
 
