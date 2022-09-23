@@ -1561,28 +1561,31 @@ document.querySelector('.counter-artifact').innerHTML = document.querySelectorAl
 document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelectorAll('.artifact').length;
 
 
-  const collection = document.querySelector('.artifact-grid').children;
-  for (let i = 0; i < collection.length; i++) {
 
-
-    // window.addEventListener('load', (event) => {
-
-      const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
-
-      collection[i].style.setProperty("--progress-gap", changingheights)
-      collection[i].style.gridRowEnd = "span calc(var(--progress-gap) + var(--arifact-frame-height))";
-
-      
-
-      // print height
-      console.log(collection[i].getElementsByTagName("div")[0].clientHeight);
-    // });
-
-  }
 
 
 
       function updateArtifact() {
+
+
+      const collection = document.querySelector('.artifact-grid').children;
+      for (let i = 0; i < collection.length; i++) {
+
+
+        // window.addEventListener('load', (event) => {
+
+          const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
+
+          collection[i].style.setProperty("--progress-gap", changingheights)
+          collection[i].style.gridRowEnd = "span calc(var(--progress-gap) + var(--arifact-frame-height))";
+
+          
+
+          // print height
+          console.log(collection[i].getElementsByTagName("div")[0].clientHeight);
+        // });
+
+      }
 
 
         var artifactItem = Math.floor( Math.max(document.querySelector('.artifact-content').clientWidth || 0) / (document.querySelector('.artifact').clientWidth + 10.01) );
@@ -1595,6 +1598,7 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
       window.addEventListener("load", updateArtifact);
       window.addEventListener("resize", updateArtifact);
+      window.addEventListener("scroll", updateArtifact);
                 
 
 
