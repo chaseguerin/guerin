@@ -1969,11 +1969,11 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
     }
 
     function myFunction(g) {
-        var currentScrollPos = window.pageYOffset;
+        /* var currentScrollPos = window.pageYOffset; */
         
         if (g.matches) {
 
-            if (currentScrollPos > headerHeight) {
+            if (prevScrollpos > headerHeight) {
                 document.querySelector(".header-gradient").style.opacity = "1";
                 document.querySelector(".header-gradient").style.display = "block";
                 document.querySelector(".header-gradient").style.transition = "400ms ease-in";
@@ -1994,12 +1994,14 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
     }
 
-    window.onscroll = function() {
+
+    function myScroll() {
         var g = window.matchMedia("(max-width: 1150px)")
         myFunction(g) // Call listener function at run time
         g.addListener(myFunction) // Attach listener function on state changes
     }
 
+    window.addEventListener("scroll", myScroll);
 
 
 
