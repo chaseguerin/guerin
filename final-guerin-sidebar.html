@@ -1563,16 +1563,11 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
 
 
-
-
-      function updateArtifact() {
-
-
       const collection = document.querySelector('.artifact-grid').children;
       for (let i = 0; i < collection.length; i++) {
 
 
-        // window.addEventListener('load', (event) => {
+        document.addEventListener('DOMContentLoaded', (event) => {
 
           const changingheights = collection[i].getElementsByTagName("div")[1].clientHeight;
 
@@ -1583,9 +1578,13 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
           // print height
           console.log(collection[i].getElementsByTagName("div")[0].clientHeight);
-        // });
+        });
 
       }
+
+      function updateArtifact() {
+
+
 
 
         var artifactItem = Math.floor( Math.max(document.querySelector('.artifact-content').clientWidth || 0) / (document.querySelector('.artifact').clientWidth + 10.01) );
@@ -1598,7 +1597,7 @@ document.querySelector('.counter-artifact-dsk').innerHTML = document.querySelect
 
       window.addEventListener("load", updateArtifact);
       window.addEventListener("resize", updateArtifact);
-      window.addEventListener("scroll", updateArtifact);
+      // window.addEventListener("scroll", updateArtifact);
                 
 
 
