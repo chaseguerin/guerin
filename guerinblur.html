@@ -1,0 +1,3370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guerin Blur</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<style type="text/css">
+
+#project-video {
+  transition: all 350ms ease-in-out;
+}
+
+
+  #whiteblur-fade {
+    /* background-color: black; */
+    transition: all .6s ease-in-out;
+  }
+
+.my-class {
+  background-color: #0B0E36;
+
+}
+
+.lightglow {
+  background-color: #b3b3b3 !important;
+}
+
+.blackglow {
+  background-color: black !important;
+}
+
+  .whiteblur {
+	    height: 220px;
+	    width: 220px;
+	    position: absolute;
+	    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+	    filter: saturate(2) blur(40px);
+	    -webkit-filter: saturate(2) blur(20px);
+	    top: 50%;
+	    left: 50%;
+	    overflow: hidden;
+	    border-radius: 50%;
+	    -webkit-border-radius: 0%;
+	    -moz-border-radius: 50%;
+	    border: 35px solid #e1ebff;
+	    /* background-color: none; */
+	    z-index: 2;
+	}
+
+
+	.preview-container-pic {
+	  height: 200px;
+	  width: 200px;
+	  position: absolute;
+	  transform: translate(-50%, -50%) translate3d(0, 0, 0);
+	  /* filter: saturate(3) blur(18px) brightness(1.3); */
+	  filter: saturate(3) blur(18px) brightness(1.3);
+	  -webkit-filter: saturate(3) blur(18px) brightness(1.3);
+	  -moz-filter: saturate(3) blur(18px) brightness(1.3);
+	  top: 50%;
+	  left: 50%;
+	  display: block;
+	  overflow: hidden;
+	  border-radius: 50%;
+	  -webkit-border-radius: 50%; 
+	  -moz-border-radius: 50%; 
+	}
+
+	.thumbnail-img {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  width: 100%;
+	  height: 100%;
+	  display: none;
+	  background: black;
+	}
+
+.preview-img {
+    position: absolute;
+    /* height: 200px; */
+    height: 190px;
+    width: 355px;
+    aspect-ratio: 16 / 9;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    /* background-color: #444fff; */
+    /* background-color: #284dff; */
+    background-color: #111111; 
+
+    display: block;
+
+    /* background: url(/Users/chaseguerin/Downloads/Kendrick Lamar - ELEMENT.mp4); */
+}
+
+
+.preview-img-3 {
+    position: absolute;
+    /* height: 100%; */
+    height: auto;
+    width: 230px;
+    aspect-ratio: 1 / 1;
+    top: 50%;
+    border-radius: 50%;
+    mix-blend-mode: soft-light;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background: url(https://i.stack.imgur.com/RxJfG.jpg) left top no-repeat;
+    box-shadow: 40px 40px 42px 0 white inset, -40px -40px 42px 0 white inset;
+
+    /* z-index: 1; */
+}
+
+
+
+
+.preview-img-2 {
+
+    /* height: 100%; */
+    height: 200px;
+    width: 200px;
+    /* background-color: #444fff; */
+    display: block;
+    background-color: black; 
+    position: relative;
+    border-radius: 20%;
+    /* z-index: 2; */
+    /* mix-blend-mode: multiply; */
+    /* background: url(/Users/chaseguerin/Downloads/Kendrick Lamar - ELEMENT.mp4); */
+
+
+}
+
+.highsandlows {
+    filter: saturate(3) blur(12px) brightness(1.3);
+    -webkit-filter: saturate(3) blur(12px) brightness(1.3);
+    -moz-filter: saturate(3) blur(18px) brightness(1.3);
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) ;
+    left: 50%;
+    z-index: 1;
+    transition: all .9s ease-in-out;
+
+}
+
+
+	.preview-container-pic-3 {
+
+    filter: saturate(3) blur(18px) brightness(1.3);
+    -webkit-filter: saturate(1) blur(0px) brightness(1.3);
+    -moz-filter: saturate(3) blur(18px) brightness(1.3);
+    height: 190px;
+    width: 190px;
+    position: absolute;
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    /* filter: saturate(3) blur(18px) brightness(1.3); */
+    top: 50%;
+    left: 50%;
+    display: block;
+    overflow: hidden;
+    border-radius: 20%;
+
+
+	}
+
+.squareflashing {
+	top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: auto;
+    height: 0px;
+    background-color: white;
+    opacity: .0;
+    z-index: 2;
+    animation: future 2s infinite ease-in;
+}
+
+.squareflashingblue {
+  top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: auto;
+    height: 0px;
+    background-color: #6ba6ff !important;
+    opacity: .0;
+    z-index: 2;
+    animation: future 2s infinite ease-in;
+}
+
+.squareonce {
+	top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: auto;
+    height: 0px;
+    background-color: white;
+    opacity: .0;
+    z-index: 2;
+    animation: futurecool .7s 1 ease-in;
+}
+
+
+
+.enterhere {
+left: 50%;
+    transform: translate(-50%, 0%);
+    top: 15px;
+    position: absolute;
+    color: #1f1f1f;
+    font-size: 21px;
+    text-transform: uppercase;
+    /* animation: movingarr 1.5s infinite ease-in; */
+    font-family: 'Source Code Pro', monospace;
+}
+
+
+.arrow-moving {
+	top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    position: absolute;
+    color: gray;
+    font-size: 38px;
+    animation: movingarr 1.5s infinite ease-in;
+    font-family: 'Source Code Pro', monospace;
+}
+
+
+@keyframes movingarr {
+  0% {
+    right: 0;
+  }
+
+
+  50% {
+    right: 5.4px;
+  }
+
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes future {
+  0% {
+  	opacity: .0;
+  	height: 0px;
+    width: 0px;
+  }
+
+
+  53% {
+  	opacity: .9;
+  	height: 34px;
+    width: 34px;
+  	filter: blur(15px);
+  }
+
+
+  100% {
+  	opacity: .0;
+  	height: 200px;
+    width: 200px;
+  	filter: blur(40px);
+  }
+}
+
+@keyframes futurecool {
+  0% {
+  	opacity: .0;
+  	height: 0px;
+    width: 0px;
+  }
+
+
+  10% {
+  	opacity: .9;
+  	height: 34px;
+    width: 34px;
+  	filter: blur(15px);
+  }
+
+
+  100% {
+  	opacity: .0;
+  	height: 300px;
+    width: 300px;
+  	filter: blur(60px);
+  }
+}
+
+/*
+@keyframes future {
+  0% {
+  	opacity: .0;
+  	height: 0px;
+  }
+
+
+  35% {
+  	opacity: .9;
+  	height: 10px;
+  	filter: blur(15px);
+  }
+
+
+  100% {
+  	opacity: .0;
+  	height: 200px;
+  	filter: blur(40px);
+  }
+}
+*/
+
+
+.outeredge {
+	width: 360px;
+	height: 360px;
+	position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 50%;
+  transform: translate(-25%, -50%);
+}
+
+.blackfill {
+  fill: black;
+  transition: all 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.guerin-project-logo {
+  margin-left: 24.4px; 
+  position: absolute; 
+  bottom: 20px;
+}
+
+.token-project-logo {
+  width: 63px; 
+  height: 63px; 
+  bottom: 0px; 
+  right: calc(25.65px + 2px); 
+  position: absolute;
+}
+
+.project-id {
+
+  font-family: 'source code pro', monospace;  
+  color: #555555; 
+  font-size: 11.7px; 
+  margin-left: 24.4px; 
+  position: absolute; 
+  text-transform: uppercase;
+  bottom: 0;
+
+}
+
+.project-header {
+  grid-area: 1/1/1/4; 
+  position: relative;
+}
+
+.project-body {
+  grid-area: 3/1/3/4; 
+  position: relative;
+}
+
+.project-body-description {
+  width: 250px; 
+  color: #555555;
+  font-family: 'source code pro', monospace; 
+  font-size: 11.7px; 
+  margin-left: 24.4px; 
+  position: absolute; 
+  text-transform: uppercase;
+  top: 0;
+  transition: all 100ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.project-body-contract {
+  color: #989898;
+  text-transform: none;
+}
+
+
+.guerin-project {
+  width: 350px; 
+  height: 350px; 
+  background: #F1F1F1; 
+
+  grid-template-rows: 0.2533fr 0.1531fr 0.5064fr 0.0872fr; 
+  grid-template-columns: 1fr; 
+  display: grid;
+  margin: 30px 0 30px 0;
+  transition: all 400ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+}
+
+.project-carousel { 
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    position: absolute;
+    height: 100vh;
+    width: 550px;
+    margin: 0 40px 0 40px;
+    overflow-x: hidden;
+
+    scroll-snap-type: y mandatory;
+}
+
+.project-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.project-carousel-container {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+
+}
+
+
+
+
+/* @media (min-width: 600px) and (max-width: 1150px) {
+
+}
+*/
+
+@media /* (min-width: 600px) and */ (max-width: 1150px) {
+  .project-carousel { 
+    all: unset;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+  }
+
+
+  .project-carousel-container {
+    all: unset;
+      left: 0;
+      /* bottom: 12.5vh; */
+      bottom: 50%;
+      transform: translate(0, 95.50%) scale(.715);
+      position: absolute;
+      display: flex;
+
+  }
+
+
+  .guerin-project {
+    all: unset;
+    width: 350px; 
+    height: 350px; 
+    background: #F1F1F1; 
+    grid-template-rows: 0.2533fr 0.1531fr 0.5064fr 0.0872fr; 
+    grid-template-columns: 1fr; 
+    display: grid;
+    margin: 0px 40px 0px 40px;
+    transition: all 400ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+  }
+
+
+  .outeredge {
+    all: unset;
+    width: 360px;
+    height: 360px;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -82%) scale(.65); */
+    transform: translate(-50%, -77%) scale(.65);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .blur-gradient-home {
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 100%) !important;
+    z-index: 1;
+  }
+
+  .profile-box-container {
+    transform: scale(0.725) translate(35px, 35px) !important;
+  }
+
+  .enterhere {
+    top: 0 !important;
+    bottom: 15px;
+  }
+
+  .view-arrow-case {
+    color: #ababab !important;
+    bottom: 140px !important;
+  }
+
+  .project-title-container {
+    display: block !important;
+  }
+
+}
+
+@media (min-width: 1150px) and (max-width: 1550px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+}
+
+.project-carousel .guerin-project {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+
+
+.project-carousel-container:before, .project-carousel-container:after {
+    content: '';
+    /* background: #ffffff; */
+    height: 350px;
+    width: 350px;
+    display: grid;
+}
+
+
+
+
+/*
+.guerin-project-whitespace {
+  background: #ffffff;
+  height: 350px;
+  width: 350px;
+  display: grid;
+}
+*/
+
+.random { 
+    /* width: 400px; */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: block;
+    background: white;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-10%, -50%);
+    */
+}
+
+.carousel-general {
+
+  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y proximity;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.carousel-general .random {
+
+  scroll-snap-align: start;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.view-arrow-case {
+  position: absolute;
+  display: grid;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  justify-items: center;
+  grid-gap: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  color: #999999;
+  font-size: 14px;
+}
+
+.gray-arrow-case {
+  animation: movingdownarr 1.5s infinite ease-in;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 110px;
+}
+
+
+@keyframes movingdownarr {
+  0% {
+    bottom: 22px;
+  }
+
+
+  50% {
+    bottom: 17px;
+  }
+
+
+  100% {
+    bottom: 22px;
+  }
+}
+
+.guerin-design-heart {
+  width: 221px;
+  position: absolute;
+  top: 46%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  filter: hue-rotate(202deg) saturate(3.5) blur(20px);
+}
+
+
+#outer {
+    width: 100%;
+    margin: 28px 0 0 0;
+}
+
+.inner {
+    display: inline-block;
+}
+
+
+
+.profilebuttons {
+    margin: 0px 0px 0px 0px;
+    border: none;
+    /* background: rgb(0, 0, 0, .12); */
+    background: black;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+}
+
+
+.ethbutton {
+    margin: 0px 0px 0px 0px;
+    border: none;
+    background: rgb(68, 79, 255, .12);
+    color: #2D00FF;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+}
+
+
+
+
+.profile-box-container {
+    width: 325px;
+    height: 129px;
+    /* border: 1px solid black; */
+    background: #EEEEEE;
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    right: 17px;
+    display: flex;
+    align-items: center;
+    transform: scale(0.87);
+}
+
+.text-title-container {
+    height: 100px;
+    width: 100%;
+    /* background: #ffffff47; */
+    position: relative;
+    margin-left: 3px;
+}
+
+.title-text {
+    font-size: 21px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    margin: 0px 0px 4px 0px;
+}
+
+
+.gray-arrow {
+    font-size: 13px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    margin: 0px -3px 0px 0px;
+    color: #808080;
+    opacity: 1;
+    animation-name: grayarrowanimate;
+    animation-duration: 1.14s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes grayarrowanimate {
+
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+
+}
+
+
+.secondary-accent-text {
+    font-size: 13px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    margin: 0px 0px 0px 0px;
+}
+
+
+.additional-secondary-accent-text {
+    font-size: 13px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    margin: -4px 0px 0px 0px;
+}
+
+
+.profilebuttonsupdate {
+  margin: 0px 0px 0px 0px;
+    border: none;
+    background: rgb(0, 0, 0, .12);
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+}
+
+.ethbuttonupdate {
+
+    margin: 0px 0px 0px 0px;
+    border: none;
+    background: rgb(68, 79, 255, .12);
+    color: #2D00FF;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+
+}
+
+
+.project-body-year {
+  margin-left: 24.4px;
+  color: #191919;
+  position: absolute;
+  font-size: 15.06px;
+  bottom: 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.project-body-cta {
+  margin-right: 24.4px;
+  color: #000000;
+  position: absolute;
+  font-size: 15.06px;
+  bottom: 0;
+  right: 0;
+  font-family: 'Source Code Pro', monospace;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.project-carousel .project-carousel-container .selected{
+  background-color: black;
+}
+
+.project-carousel .project-carousel-container .selected .project-header .guerin-project-logo svg .blackfill,
+.project-carousel .project-carousel-container .selected .project-header .token-project-logo svg .blackfill, 
+.project-carousel .project-carousel-container .selected .project-body .project-body-cta svg .blackfill {
+  fill: white !important;
+}
+
+.project-carousel .project-carousel-container .selected .project-header .project-id {
+  color: #A9A9A9 !important;
+}
+
+.project-carousel .project-carousel-container .selected .project-body .project-body-description {
+  color: #A9A9A9 !important;
+}
+
+.project-carousel .project-carousel-container .selected .project-body .project-body-contract {
+  color: #666666 !important;
+}
+
+.project-carousel .project-carousel-container .selected .project-body .project-body-year {
+  color: #eeeeee !important;
+}
+
+.project-carousel .project-carousel-container .selected .project-body .project-body-cta {
+  color: white !important;
+}
+
+
+.video-of-project {
+  transition: all .9s ease-in-out;
+}
+
+
+.blur-gradient-home {
+
+/*background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 100%); */
+
+position: absolute; 
+width: 100%; 
+height: 100%; 
+background: linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 94%);
+z-index: 1;
+pointer-events: none;
+
+
+}
+
+
+.project-title-container {
+  display: none;
+  left: 0;
+  /* transform: translate(-50%, 0%); */
+  top: -130px;
+  position: absolute;
+  color: #1f1f1f;
+  font-size: 35px;
+  text-transform: uppercase;
+  /* animation: movingarr 1.5s infinite ease-in; */
+  font-family: 'Source Code Pro', monospace;
+  width: 460px;
+  font-weight: 500;
+}
+
+.project-number-container {
+  color: #1f1f1f;
+  font-size: 19px;
+}
+
+
+.guerinlogo-header {
+  position: fixed;
+  top: 37px;
+  left: 37px;
+  z-index: 3;
+}
+
+.mood-header {
+  position: fixed;
+  top: 23.5px;
+  right: 37px;
+  z-index: 3;
+  width: 44px;
+  height: auto;
+}
+
+</style>
+
+</head>
+<body>
+<ul class="carousel-general">
+
+  <li class="random">
+
+<video class="guerin-design-heart" loop autoplay muted>
+  <source src="https://video.wixstatic.com/video/fab5c1_a1783fdcce8b4306a11f8cc64dc59f4d/1080p/mp4/file.mp4" type="video/mp4">
+</video>
+
+    <span style=
+    "
+    position: absolute;
+    top: 49%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-family: 'Source Code Pro', monospace;
+    width: 365px;
+
+    ">
+    <b style="font-size: 28px;">Hi,</b>
+    <br>
+    <br>
+
+    I'm <b>Chase Guerin</b>
+    <br>
+    <span style="color: #666666;"> <b>></b> a <b>product designer</b> [] </span>
+    <br>
+    specializing in <b>branding</b> 
+    <br>
+    <b>design</b> & <b>UI/UX</b> [ ]
+
+
+<div id="outer">
+  <div class="inner">
+    <button type="submit" class="profilebuttons" style="opacity: 0;" onclick="return false;">ABOUT
+
+  <svg version="1.1" style="margin-left: -5px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+  <style type="text/css">
+  </style>
+  <defs>
+  </defs>
+  <g>
+    <polygon style="fill:#ffffff;" points="14.47,7.99 9.05,7.99 12.88,11.83 11.82,12.88 7.98,9.05 7.98,14.47 6.48,14.47 6.48,9.05 2.65,12.88 
+      1.59,11.83 5.43,7.99 0,7.99 0,6.49 5.43,6.49 1.59,2.65 2.65,1.59 6.48,5.43 6.48,0 7.98,0 7.98,5.43 11.82,1.59 12.88,2.65 
+      9.05,6.49 14.47,6.49  "></polygon>
+  </g>
+  </svg>
+
+
+
+    </button>
+  </div>
+
+  <!--
+  <div class="inner">
+
+    <button type="submit" class="ethbutton" onclick="return false;">
+      .ETH
+
+
+  <svg version="1.1" style="margin-left: -3px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+  <style type="text/css">
+    .st1{fill:#2D00FF;}
+  </style>
+  <defs>
+  </defs>
+  <g>
+    <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+    <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
+  </g>
+  </svg>
+  </button>
+  </div>
+-->
+</div>
+
+
+
+    </span>
+
+
+
+
+
+
+
+
+<div class="view-arrow-case">
+  <span style="text-transform: uppercase;"> View Case Studies</span>
+
+  <div style="height: 60px;">
+    <svg class="gray-arrow-case" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="131.8px"
+     height="35.51px" viewBox="0 0 131.8 35.51" xml:space="preserve">
+     <defs></defs><g><polygon style="fill:#E6E6E6;" points="65.9,35.51 0,3.6 1.74,0 65.9,31.07 130.06,0 131.8,3.6  "/></g>
+    </svg>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HEADER STARTS HERE -->
+
+
+
+
+<div class="guerinlogo-header">
+  <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px"
+     height="18.28px" viewBox="0 0 124 18.28" style="overflow:visible;enable-background:new 0 0 124 18.28;" xml:space="preserve">
+  <defs>
+  </defs>
+  <g>
+    <g>
+      <polygon points="124,0 124,18.28 121.39,18.28 110.95,4.35 110.95,18.28 108.34,18.28 108.34,0 110.95,0 121.39,13.93 121.39,0     
+        "/>
+      <rect x="101.81" y="0" width="2.61" height="18.28"/>
+      <g>
+        <g>
+          <path d="M93.71,10.45l2.87,0V0L81.92,0v2.61l1.61,0l0,15.66h2.61l0-7.83l4.39,0l5.48,7.83l3.19,0L93.71,10.45z M86.14,7.83V2.61
+            l7.83,0v5.22L86.14,7.83z"/>
+        </g>
+      </g>
+      <polygon points="79.6,0 79.6,2.61 67.85,2.61 67.85,7.83 79.6,7.83 79.6,10.44 67.85,10.44 67.85,15.67 79.6,15.67 79.6,18.28 
+        65.24,18.28 65.24,0     "/>
+      <polygon points="61.35,0 61.35,18.28 46.99,18.28 46.99,0 49.61,0 49.61,15.67 58.74,15.67 58.74,0    "/>
+      <polygon points="43.08,0 43.08,2.61 31.33,2.61 31.33,15.67 40.47,15.67 40.47,10.44 35.25,10.44 35.25,7.83 43.08,7.83 
+        43.08,18.28 28.72,18.28 28.72,0     "/>
+    </g>
+    <g>
+      <rect y="13.29" width="1.66" height="4.98"/>
+      <polygon points="0,11.63 0,0 14.95,0 14.95,4.99 3.32,4.99 3.32,3.32 13.29,3.32 13.29,1.66 1.66,1.66 1.66,9.97 14.95,9.97 
+        14.95,11.63     "/>
+      <polygon points="3.32,18.28 3.32,13.29 14.95,13.29 14.95,14.95 4.98,14.95 4.98,16.62 16.61,16.62 16.61,8.31 3.32,8.31 
+        3.32,6.65 18.28,6.65 18.28,18.28    "/>
+      <rect x="16.61" y="0" width="1.66" height="4.99"/>
+    </g>
+  </g>
+  </svg>
+</div>
+
+
+
+
+
+<video class="mood-header" onload="play();" preload="auto" autoplay muted loop style="">
+  
+  <!-- <source src="/Users/chaseguerin/Downloads/Mood [Small][Trans][Aura][Insightful]_VP9.webm" type="video/webm"> -->
+
+  <source src="https://video.wixstatic.com/video/fab5c1_bc70dc29c804460ca97c35a2c6609aba/144p/mp4/file.mp4" type="video/quicktime">
+</video>
+
+
+
+<!-- FOOTER STARTS HERE -->
+
+<div class="profile-box-container" onclick="togglePlay()">
+          <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profile-picture-container" style="    height: 101px;  display: block; margin: 13px;"></img>
+
+          <div class="text-title-container">
+            <p class="title-text"> CHASE GUERIN </p>
+            <span class="gray-arrow"> &gt;</span> <span class="secondary-accent-text"> DESIGNER </span>
+            
+            <div class="status-indicator">
+              <p class="additional-secondary-accent-text play-icon"> CS @ COLUMBIA </p> 
+            </div>
+
+            <div style="width: 100%;
+    margin: 19px 0px 0 0px;
+    display: flex;
+    gap: 10px;">
+                  <div class="inner">
+                    <button type="submit" class="profilebuttonsupdate" onclick="return false;">GITHUB
+
+
+
+                  <svg version="1.1" style="margin-left: -3px; margin-right: 1px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                     height="9.75px" viewBox="0 0 10 9.75" style="overflow:visible;enable-background:new 0 0 10 9.75;" xml:space="preserve">
+                  <defs>
+                  </defs>
+                  <path style="fill-rule:evenodd;clip-rule:evenodd; fill: black;" d="M5,0C2.24,0,0,2.24,0,5c0,2.21,1.43,4.08,3.42,4.74C3.67,9.79,3.76,9.64,3.76,9.5c0-0.12,0-0.43-0.01-0.85
+                    c-1.39,0.3-1.68-0.67-1.68-0.67C1.84,7.41,1.51,7.25,1.51,7.25c-0.45-0.31,0.03-0.3,0.03-0.3c0.5,0.04,0.77,0.52,0.77,0.52
+                    c0.45,0.76,1.17,0.54,1.46,0.42c0.05-0.32,0.17-0.54,0.32-0.67C2.98,7.08,1.81,6.65,1.81,4.74C1.81,4.19,2,3.75,2.32,3.4
+                    C2.27,3.27,2.1,2.76,2.37,2.07c0,0,0.42-0.13,1.37,0.51C4.15,2.48,4.58,2.42,5,2.42c0.42,0,0.85,0.06,1.25,0.17
+                    c0.95-0.65,1.37-0.51,1.37-0.51c0.27,0.69,0.1,1.2,0.05,1.32C8,3.75,8.19,4.19,8.19,4.74c0,1.92-1.17,2.34-2.28,2.47
+                    c0.18,0.15,0.34,0.46,0.34,0.93c0,0.67-0.01,1.21-0.01,1.37c0,0.13,0.09,0.29,0.34,0.24C8.57,9.08,10,7.21,10,5C10,2.24,7.76,0,5,0z
+                    "/>
+                  </svg>
+
+
+
+
+
+                    </button>
+                </div>
+
+                
+                  <div class="inner">
+
+                    <button type="submit" class="ethbuttonupdate" onclick="return false;">
+                      .ETH
+
+
+                    <svg version="1.1" style="margin-left: -3px; margin-right: 1px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+                    <style type="text/css">
+                      .st1{fill:#2D00FF;}
+                    </style>
+                    <defs>
+                    </defs>
+                    <g>
+                      <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+                      <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
+                    </g>
+                    </svg>
+                    </button>
+                  </div>
+                
+
+              </div> 
+          </div>
+
+                    <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.48px"
+   height="14.47px" viewBox="0 0 14.48 14.47" style="        position: absolute;
+    bottom: 15.5px;
+    right: 19px;"
+   xml:space="preserve">
+<defs>
+</defs>
+<g>
+  <g>
+    <g>
+      <g>
+        <polygon points="14.48,6.36 14.48,8.11 8.11,8.11 8.11,14.47 6.37,14.47 6.37,8.11 0,8.11 0,6.36 6.37,6.36 6.37,0 8.11,0 
+          8.11,6.36         "/>
+      </g>
+    </g>
+  </g>
+</g>
+</svg>
+
+        </div>
+
+
+
+  </li>
+
+  <li class="random" >
+
+<div class="blur-gradient-home"></div>
+
+
+
+<div class="outeredge">
+
+    <a id="project-tap" href="https://guerinnewyork.com" target="_blank">
+      <button type="submit" style=" width: 170px; height: 170px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; display: block; z-index: 4; border: none; pointer-events: all; cursor: pointer;" onclick="ani();">
+      </button>
+    </a>
+
+    <div class="project-title-container"> 
+      <span class="project-number-container">[<span id="project-number">1</span>]<!-- / 12] --> <span id="project-title-description">Case Study</span></span> 
+      <br>
+      <span id="project-title">Guerin New York</span> 
+
+    </div>
+
+    <div class="enterhere"> 
+
+      <span><i>Tap to</i> <b>Enter</b></span> 
+
+    </div>
+
+
+    <div class="arrow-moving"> 
+
+      <span> < </span> 
+
+    </div>
+
+    
+    
+
+
+
+    <div class="squareflashing" id="touchpress"> </div>
+
+
+
+    <div id="whiteblur-fade" class="whiteblur" onclick=""></div>
+
+    
+
+
+    <div class="video-of-project" >
+      
+      <div id="color-fix"class="highsandlows">
+        <div style=" -webkit-clip-path: url(#svgTextPath);
+    clip-path: url(#svgTextPath);  transform: scale(1.28) translate3d(0, 0, 0); width: 200px; display: flex; justify-content: center;">
+          <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img-2" onload="play();" preload="auto" autoplay muted loop style="">
+      <!--
+            <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
+      -->
+          </video>
+        </div>
+      </div>
+
+
+
+      <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="200px" height="200px" viewBox="0 0 200 200"
+         xml:space="preserve" style="  display: block;  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+      <style type="text/css">
+        .st0{fill:#FF0000; }
+      </style>
+      <defs>
+      </defs>
+          <clipPath id="svgTextPath">
+      <path class="st0" d="M0,0v200h200V0H0z M150.49,150.48H49.52V49.51h100.97V150.48z"/>
+      </clipPath>
+      </svg>
+
+
+
+      <div class="preview-container-pic-3">
+
+
+          <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img" onload="play();" preload="auto" autoplay muted loop>
+      <!--
+            <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
+      -->
+          </video>
+
+      </div> 
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+    <ul class="project-carousel" id="tessst">
+
+      <div class="project-carousel-container">
+
+        
+
+        <li class="guerin-project guerinnewyork-id selected">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" xml:space="preserve">
+                 <defs></defs><polygon class="blackfill" points="63.08,0 63.08,28.67 57.34,28.67 57.34,5.73 40.14,5.73 40.14,28.67 34.41,28.67 34.41,5.73 0,5.73 0,0 "/><polygon class="blackfill" points="28.67,34.4 28.67,45.87 22.94,45.87 22.94,40.14 5.73,40.14 5.73,57.34 22.94,57.34 22.94,51.61 28.67,51.61 
+                28.67,63.08 0,63.08 0,34.4 "/><rect class="blackfill" x="11.47" y="45.87" width="11.47" height="5.74"/><path class="blackfill" d="M34.41,34.4v28.67h5.73V51.61h22.94V34.4H34.41z M57.34,45.87h-17.2v-5.73h17.2V45.87z"/>
+              </svg>
+            </div>
+
+            <div class="guerin-project-logo">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="190.61px" height="18.17px" viewBox="0 0 190.61 18.17" style="overflow:visible;enable-background:new 0 0 190.61 18.17;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M73.81,0.41v13.21c-0.09-0.1-0.14-0.16-0.18-0.22c-1.65-2.29-3.3-4.58-4.95-6.87c-1.44-1.99-2.98-4.13-4.42-6.12h-2.54
+                c0,0,2.96,0,1.27,0c0,0-1.11,0-1.11,0h-0.16V17.8h2.49V4.67c0.08,0.1,0.1,0.12,0.12,0.15c1.69,2.35,3.39,4.7,5.08,7.05
+                c1.4,1.94,2.87,3.99,4.27,5.93h2.59V0.41H73.81z"/>
+              <path class="blackfill" d="M13.45,11.22c-1.37,0-2.73,0-4.1,0c0-0.84,0-1.64,0-2.47c2.27,0,4.55,0,6.8,0c0,0.62,0.03,1.24-0.01,1.86
+                c-0.1,1.48-0.45,2.88-1.31,4.12c-1.24,1.79-2.87,3-5.05,3.33c-2.85,0.42-5.28-0.4-7.27-2.53c-1.07-1.15-1.85-2.46-2.21-3.98
+                C-0.69,7.36,0.81,3.3,4.53,1.09c2.72-1.61,6.83-1.58,9.58,1.06c0.46,0.45,0.9,0.92,1.37,1.39c-0.64,0.6-1.25,1.17-1.87,1.75
+                c-0.1-0.12-0.25-0.32-0.42-0.52c-1.48-1.78-3.36-2.58-5.66-2.14C5.24,3.08,3.7,4.52,2.95,6.67C2.14,9,2.35,11.28,3.92,13.28
+                c0.98,1.24,2.24,2.08,3.85,2.36c2.62,0.45,5.38-1.61,5.68-4.24C13.45,11.35,13.45,11.3,13.45,11.22z"/>
+              <path class="blackfill" d="M47.12,10.73c0,2.34,0,4.7,0,7.07c-0.86,0-1.68,0-2.53,0c0-5.8,0-11.59,0-17.39c0.16,0,0.16,0,0.24,0
+                c1.32,0.01,2.64-0.02,3.97,0.04c1.29,0.06,2.51,0.35,3.52,1.25c0.93,0.84,1.42,1.9,1.53,3.14c0.16,1.75-0.27,3.31-1.61,4.52
+                c-0.27,0.25-0.6,0.46-0.92,0.63c-0.33,0.17-0.69,0.28-1.07,0.44c1.68,2.44,3.36,4.89,5.07,7.37c-0.3,0-0.21,0-0.29,0
+                c-0.84,0-1.67,0-2.51,0c-0.2,0-0.02,0-0.29,0c-1.45-2.21-3.05-4.62-4.5-6.83C47.58,10.73,47.41,10.64,47.12,10.73z M47.13,8.41
+                c0.59-0.03,1.16-0.03,1.72-0.09c1.57-0.16,2.44-1,2.57-2.5c0.09-1.04-0.17-1.96-1.17-2.51c-0.98-0.53-2.05-0.48-3.13-0.46
+                C47.13,4.7,47.13,6.52,47.13,8.41z"/>
+              <path class="blackfill" d="M18.5,0.41c0.84,0,1.66,0,2.53,0c0,0.11,0,0.23,0,0.34c0,3.52,0,7.04,0,10.57c0,0.74,0.09,1.46,0.34,2.16
+                c0.47,1.34,1.69,2.17,3.11,2.21c1.42,0.03,2.52-0.49,3.22-1.73c0.46-0.81,0.54-1.72,0.55-2.63c0.01-2.43,0.01-4.87,0.01-7.3
+                c0-1.09,0-2.17,0-3.26c0-0.1,0-0.21,0-0.34c0.84,0,1.66,0,2.52,0c0,0.11,0,0.21,0,0.31c0,3.62,0,7.24,0,10.86
+                c0,1.37-0.27,2.68-1.05,3.83c-1.5,2.21-3.78,3.09-6.26,2.63c-2.45-0.45-4.34-2.38-4.8-4.83c-0.11-0.56-0.16-1.15-0.17-1.72
+                c-0.01-3.61-0.01-7.22-0.01-10.83C18.49,0.59,18.5,0.51,18.5,0.41z"/>
+              <path class="blackfill" d="M33.22,0.41c3.06,0,6.09,0,9.13,0c0,0.82,0,1.61,0,2.43c-2.2,0-4.38,0-6.58,0c0,1.4,0,2.78,0,4.2c2.12,0,4.24,0,6.38,0
+                c0,0.85,0,1.66,0,2.5c-2.12,0-4.25,0-6.39,0c0,1.95,0,3.87,0,5.82c2.19,0,4.38,0,6.59,0c0,0.83,0,1.63,0,2.44
+                c-3.05,0-6.08,0-9.13,0C33.22,12,33.22,6.21,33.22,0.41z"/>
+              <path class="blackfill" d="M59.28,17.8c-0.83,0-1.66,0-2.5,0c0-5.8,0-11.58,0-17.39c0.83,0,1.65,0,2.5,0C59.28,6.2,59.28,11.99,59.28,17.8z"/>
+              <path class="blackfill" d="M95.97,0.41v13.21c-0.09-0.1-0.14-0.16-0.18-0.22c-1.65-2.29-3.3-4.58-4.95-6.87c-1.44-1.99-2.98-4.13-4.42-6.12h-2.54
+                c0,0,2.96,0,1.27,0c0,0-1.11,0-1.11,0h-0.16V17.8h2.49V4.67c0.08,0.1,0.1,0.12,0.12,0.15c1.69,2.35,3.39,4.7,5.08,7.05
+                c1.4,1.94,2.87,3.99,4.27,5.93h2.59V0.41H95.97z"/>
+              <path class="blackfill" d="M100.42,0.39c3.06,0,6.09,0,9.13,0c0,0.82,0,1.61,0,2.43c-2.2,0-4.38,0-6.58,0c0,1.4,0,2.78,0,4.2c2.12,0,4.24,0,6.38,0
+                c0,0.85,0,1.66,0,2.5c-2.12,0-4.25,0-6.39,0c0,1.95,0,3.87,0,5.82c2.19,0,4.38,0,6.59,0c0,0.83,0,1.63,0,2.44
+                c-3.05,0-6.08,0-9.13,0C100.42,11.98,100.42,6.19,100.42,0.39z"/>
+              <g>
+                <path class="blackfill" d="M120.02,5.79c-0.07,0.29-0.14,0.57-0.21,0.86c-0.39,1.66-0.79,3.33-1.18,4.99c-0.48,2.02-0.97,4.14-1.45,6.16
+                  c-0.12,0-0.04,0-0.12,0c-0.79,0-1.59,0-2.38,0c-0.08,0,0,0-0.13,0c-0.36-1.65-0.73-3.39-1.09-5.03c-0.54-2.44-1.09-4.89-1.63-7.33
+                  c-0.37-1.65-0.75-3.37-1.11-5.02l0,0c0.83,0,1.66,0,2.5,0c0.89,4.02,1.78,8.04,2.67,12.06c0.01,0,0.01,0,0.02,0
+                  c0.95-4.02,1.9-8.04,2.85-12.06c0.83,0,1.66,0,2.5,0c0.95,4,1.89,8,2.84,12c0.01,0,0.01,0,0.02,0c0.06-0.25,0.11-0.49,0.17-0.74
+                  c0.42-1.91,0.85-3.81,1.27-5.72c0.4-1.8,0.83-3.74,1.23-5.54c0.15,0,0,0,0.15,0c0.73,0,1.47,0,2.2,0c0.04,0,0.08,0,0.15,0
+                  c-1.29,5.8-2.57,11.59-3.85,17.39c-0.11,0,0,0-0.11,0c-0.78,0-1.56,0-2.34,0c-0.09,0,0.02,0-0.11,0c-0.75-3.19-1.54-6.5-2.29-9.69
+                  c-0.18-0.75-0.35-1.5-0.53-2.24c-0.01-0.02-0.01-0.05-0.02-0.07C120.03,5.79,120.02,5.79,120.02,5.79z"/>
+              </g>
+              <path class="blackfill" d="M164.2,9.12c-0.03,2.32-0.81,4.33-2.42,6.01c-1.42,1.48-3.12,2.42-5.16,2.71c-1.84,0.27-3.62,0.08-5.29-0.77
+                c-2.42-1.23-4.14-3.08-4.76-5.79c-0.45-1.98-0.4-3.95,0.5-5.8c1.35-2.76,3.52-4.54,6.58-5.11c1.89-0.35,3.76-0.18,5.49,0.72
+                c2.66,1.39,4.39,3.52,4.92,6.53C164.14,8.12,164.16,8.62,164.2,9.12z M155.26,2.65c-0.3,0.02-0.61,0.03-0.91,0.07
+                c-2.34,0.35-3.96,1.66-4.94,3.78c-0.41,0.89-0.52,1.86-0.49,2.83c0.03,1,0.22,1.97,0.73,2.83c1.37,2.31,3.36,3.52,6.09,3.35
+                c1.57-0.1,2.9-0.73,4-1.85c1.64-1.69,2.11-3.73,1.7-6C160.97,5.17,158.66,2.63,155.26,2.65z"/>
+              <path class="blackfill" d="M165.85,0.55c0.06,0,0.12,0,0.17,0c1.01,0,2.02-0.01,3.03,0c1.14,0.02,2.27,0.11,3.34,0.51c1.72,0.65,2.7,1.9,2.96,3.7
+                c0.18,1.22,0,2.38-0.65,3.45c-0.69,1.12-1.69,1.82-2.97,2.12c-0.02,0-0.04,0.01-0.06,0.02c0,0-0.01,0.01-0.03,0.02
+                c1.75,2.41,3.5,4.82,5.27,7.26c-0.07,0-0.12,0-0.17,0c-0.95,0-1.9,0-2.84,0c-0.11,0-0.17-0.04-0.24-0.13
+                c-1.55-2.23-3.1-4.45-4.65-6.68c-0.1-0.14-0.19-0.21-0.36-0.19c-0.07,0.01-0.14,0-0.23,0c0,2.33,0,4.65,0,6.98
+                c-0.87,0-1.72,0-2.58,0C165.85,11.95,165.85,6.26,165.85,0.55z M168.43,8.4c0.33,0,0.65,0,0.98,0c0.54-0.01,1.07-0.06,1.58-0.22
+                c0.73-0.22,1.34-0.61,1.67-1.33c0.21-0.47,0.26-0.96,0.23-1.46c-0.06-1-0.54-1.69-1.47-2.07c-0.52-0.21-1.07-0.3-1.63-0.32
+                c-0.45-0.02-0.9,0-1.36,0C168.43,4.8,168.43,6.59,168.43,8.4z"/>
+              <path class="blackfill" d="M177.9,0.56c0.86,0,1.7,0,2.57,0c0,2.26,0,4.5,0,6.75c0.01,0.01,0.02,0.01,0.03,0.02c0.07-0.07,0.13-0.13,0.2-0.2
+                c1.08-1.11,2.16-2.21,3.23-3.32c1.01-1.04,2.02-2.07,3.03-3.11c0.1-0.11,0.21-0.16,0.36-0.16c1.01,0.01,2.02,0,3.03,0
+                c0.06,0,0.11,0,0.21,0c-2.59,2.6-5.16,5.16-7.73,7.74c2.59,3.11,5.16,6.22,7.77,9.35c-0.09,0-0.15,0-0.2,0c-1.01,0-2.03,0-3.04,0
+                c-0.16,0-0.26-0.05-0.36-0.18c-1.96-2.43-3.93-4.86-5.9-7.29c-0.03-0.04-0.07-0.08-0.11-0.13c-0.17,0.17-0.34,0.33-0.49,0.5
+                c-0.04,0.04-0.03,0.13-0.03,0.19c0,2.23,0,4.45,0,6.68c0,0.07,0,0.13,0,0.21c-0.86,0-1.71,0-2.58,0
+                C177.9,11.95,177.9,6.26,177.9,0.56z"/>
+              <path class="blackfill" d="M133.91,0.55c0.08,0,0.13,0,0.18,0c0.88,0,1.75,0,2.63,0c0.12,0,0.18,0.04,0.24,0.14c1.24,2.18,2.49,4.35,3.73,6.53
+                c0.03,0.04,0.05,0.09,0.09,0.15c0.04-0.05,0.07-0.1,0.09-0.14c1.25-2.17,2.5-4.35,3.74-6.52c0.07-0.11,0.13-0.15,0.26-0.15
+                c0.87,0.01,1.73,0,2.6,0c0.06,0,0.11,0,0.19,0c-0.04,0.07-0.06,0.12-0.09,0.16c-1.81,3.14-3.62,6.28-5.43,9.41
+                c-0.05,0.08-0.08,0.19-0.08,0.29c0,2.33,0,4.66,0,6.99c0,0.07,0,0.14,0,0.22c-0.86,0-1.71,0-2.58,0c0-0.07,0-0.13,0-0.19
+                c0-2.32,0-4.64,0-6.95c0-0.14-0.03-0.27-0.1-0.39c-1.8-3.12-3.59-6.24-5.39-9.37C133.98,0.67,133.96,0.63,133.91,0.55z"/>
+            </g>
+            </svg>
+            </div>
+
+            <span class="project-id">Front-end, Branding, Product</span>
+            <!-- <span class="project-id">ID: 82049804248</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Collaborated closely with multiple manufacturers to develop duffels, handbags, clothes and rigorously assessed each product's quality.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2016
+            </span>
+
+            <a href="https://guerinnewyork.com" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+        <li class="guerin-project yearvisualized-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <polygon class="blackfill" points="28.67,57.35 28.67,63.08 0,63.08 0,51.61 5.74,51.61 5.74,57.35    "/>
+                  <polygon class="blackfill" points="28.67,34.41 28.67,51.61 5.74,51.61 5.74,45.88 22.93,45.88 22.93,40.14 0.01,40.14 0.01,34.41    "/>
+                </g>
+                <g>
+                  <polygon class="blackfill" points="63.08,57.35 63.08,63.08 34.41,63.08 34.41,51.61 40.14,51.61 40.14,57.35    "/>
+                  <polygon class="blackfill" points="63.08,34.41 63.08,51.61 40.14,51.61 40.14,45.88 57.34,45.88 57.34,40.14 34.41,40.14 34.41,34.41 
+                        "/>
+                </g>
+                <g>
+                  <polygon class="blackfill" points="28.67,22.93 28.67,28.67 0,28.67 0,17.21 5.74,17.21 5.74,22.93    "/>
+                  <polygon class="blackfill" points="28.67,0 28.67,17.21 5.74,17.21 5.74,11.47 22.93,11.47 22.93,5.74 0,5.74 0,0    "/>
+                </g>
+                <path class="blackfill" d="M34.41,0v28.67h28.67V0H34.41z M57.34,22.93h-17.2V5.74h17.2V22.93z"/>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <div class="guerin-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="194.81px" height="14.28px" viewBox="0 0 194.81 14.28" style="overflow:visible;enable-background:new 0 0 194.81 14.28;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <path class="blackfill" d="M5.11,0v2.05H2.05v10.19h3.06v2.05H0V0H5.11z"/>
+                <path class="blackfill" d="M21.39,0l-0.83,1.01l-0.18,0.24l-0.65,0.8L19.34,2.5l-0.45,0.56l-0.56,0.69l-0.27,0.33L17.31,5l-0.09,0.09
+                  l-0.82,1.03L16.3,6.25l-0.73,0.89L15.26,7.5v6.78h-2.03V7.5l-0.31-0.36L12.2,6.25l-0.11-0.13l-0.82-1.03L11.18,5l-0.74-0.92
+                  l-0.27-0.33L9.61,3.06L9.15,2.5L8.77,2.05l-0.65-0.8L7.94,1.01L7.11,0h2.63l0.44,0.53l0.4,0.49l0.62,0.76l0.22,0.27l0.8,0.98
+                  l0.04,0.04l0.83,1.01l0.16,0.2l0.67,0.82l0.34,0.43l0.34-0.43l0.67-0.82l0.16-0.2l0.83-1.01l0.04-0.04l0.8-0.98l0.22-0.27
+                  l0.62-0.76l0.4-0.49L18.76,0H21.39z"/>
+                <path class="blackfill" d="M34.62,0v2.05h-9.19v4.08h9.19v2.03h-9.19v4.08h9.19v2.05H23.39V0H34.62z"/>
+                <path class="blackfill" d="M37,0h11.24v14.28h-2.05V8.16h-7.14v6.13H37V0z M46.19,6.13V2.05h-7.14v4.08H46.19z"/>
+                <path class="blackfill" d="M62.92,13.27l0.71,1.01h-2.48l-0.58-0.82l-0.15-0.2l-0.71-1.03l-0.16-0.22l-0.56-0.8l-0.45-0.67l-0.25-0.34
+                  l-0.71-1.01L57.5,9.1l-0.65-0.94h-3.43v6.13h-2.03V2.05h-1.27V0h11.46v8.16h-2.23l0.2,0.29l0.51,0.74l0.51,0.72l0.2,0.29l0.73,1.02
+                  l0.09,0.14l0.62,0.87l0.42,0.6L62.92,13.27z M53.42,2.05v4.08h6.13V2.05H53.42z"/>
+                <path class="blackfill" d="M65.23,0h5.11v14.28h-5.11v-2.05h3.06V2.05h-3.06V0z"/>
+                <path class="blackfill" d="M91,0l-0.36,1.01l-0.36,1.03l-0.29,0.82l-0.07,0.2l-0.36,1.01l-0.38,1.02l-0.22,0.62l-0.14,0.42l-0.36,1.01
+                  l-0.36,1.02l-0.14,0.42l-0.22,0.62l-0.36,1.01L87,11.22l-0.07,0.2l-0.29,0.82l-0.36,1.03l-0.31,0.83l-0.05,0.18h-2.05l-0.05-0.18
+                  l-0.31-0.83l-0.36-1.03l-0.29-0.82l-0.07-0.2l-0.36-1.02l-0.36-1.01l-0.24-0.62l-0.15-0.42l-0.36-1.02l-0.36-1.01L80.8,5.71
+                  l-0.22-0.62l-0.36-1.02l-0.36-1.01l-0.07-0.2l-0.29-0.82l-0.36-1.03L78.77,0h2.16l0.36,1.01l0.36,1.03l0.16,0.45l0.2,0.56
+                  l0.38,1.01l0.36,1.02l0.09,0.27l0.27,0.76l0.36,1.01l0.36,1.02l0.02,0.05l0.34,0.98l0.36,1.01l0.31,0.87l0.31-0.87l0.38-1.01
+                  l0.34-0.98l0.02-0.05l0.36-1.02l0.36-1.01l0.27-0.76l0.09-0.27l0.36-1.02l0.36-1.01l0.2-0.56l0.16-0.45l0.36-1.03L88.83,0H91z"/>
+                <path class="blackfill" d="M93,14.28V0h2.05v14.28H93z"/>
+                <path class="blackfill" d="M108.68,0v2.05h-9.19v4.08h9.19v8.16H97.44v-2.05h9.19V8.16h-9.19V0H108.68z"/>
+                <path class="blackfill" d="M122.29,0v14.28h-11.24V0h2.05v12.24h7.14V0H122.29z"/>
+                <path class="blackfill" d="M124.67,0h11.24v14.28h-2.05V8.16h-7.14v6.13h-2.05V0z M133.86,6.13V2.05h-7.14v4.08H133.86z"/>
+                <path class="blackfill" d="M149.52,12.24v2.05h-11.24V0h2.05v12.24H149.52z"/>
+                <path class="blackfill" d="M151.9,14.28V0h2.05v14.28H151.9z"/>
+                <path class="blackfill" d="M167.58,2.05L159,12.24h8.57v2.05h-11.24v-2.05l8.57-10.19h-8.57V0h11.24V2.05z"/>
+                <path class="blackfill" d="M181.19,0v2.05H172v4.08h9.19v2.03H172v4.08h9.19v2.05h-11.24V0H181.19z"/>
+                <path class="blackfill" d="M192.76,0v2.05h-7.14v10.19h7.14v2.05h-9.19V0H192.76z M192.76,12.24V2.05h2.05v10.19H192.76z"/>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Front-end Development, HTML</span>
+            <!-- <span class="project-id">ID: 05813898364</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Developed an online minimalist analog clock. Supports different time zones & both 12-hour (am/pm) & 24-hour time formats.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2022
+            </span>
+
+            <a href="https://www.chaseguerin.com/yearvisualized" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+        <li class="guerin-project abolish-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <polygon class="blackfill" points="63.08,0 63.08,28.67 57.34,28.67 57.34,5.73 40.14,5.73 40.14,28.67 34.41,28.67 34.41,5.73 0,5.73 0,0 "/>
+              <rect class="blackfill" x="28.67" y="45.87" width="5.74" height="11.47"/>
+              <polygon class="blackfill" points="63.08,34.41 63.08,63.08 34.41,63.08 34.41,57.34 57.34,57.34 57.34,40.14 5.73,40.14 5.73,57.34 28.67,57.34 
+                28.67,63.08 0,63.08 0,34.41 "/>
+              </svg>
+
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 12px !important;">
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+          <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="106.67px" height="53.25px" viewBox="0 0 106.67 53.25" style="overflow:visible;enable-background:new 0 0 106.67 53.25;"
+             xml:space="preserve">
+          <defs>
+          </defs>
+          <path class="blackfill" d="M106.67,33.16l-3.34,3.29l-0.18-0.06c-0.71-0.22-1.61-0.57-2.27-1.39c-0.41-0.5-0.58-1.11-0.51-1.81
+            c0.09-0.79,0.35-1.56,0.8-2.36c0.27-0.48,0.56-1.06,0.63-1.69c0.07-0.56-0.01-1.1-0.24-1.56c-0.23-0.49-0.62-0.88-1.13-1.15
+            c-1.37-0.72-2.76-0.74-4.13-0.06c-0.74,0.36-1.17,0.97-1.3,1.83c-0.22,1.46,0,2.92,0.65,4.44c0.09,0.2,0.18,0.41,0.27,0.62
+            c0.05,0.1,0.09,0.21,0.14,0.32l0.09,0.2l-3.1,3l-0.07-0.64c-0.02-0.13-0.03-0.25-0.05-0.37c-0.04-0.26-0.07-0.51-0.08-0.76
+            c0-0.14-0.01-0.28-0.02-0.42c-0.03-0.68-0.06-1.38-0.04-2.08c0.04-1.16,0.24-2.16,0.62-3.08c0.11-0.25,0.15-0.56,0.18-0.84
+            c0.07-0.69,0.11-1.38,0.15-1.91c0.03-0.55,0.06-1.09,0.06-1.63c-0.01-1.12-0.22-2.17-0.63-3.12c-0.4-0.93-1.03-1.56-1.9-1.94
+            l-0.42-0.18l0.31-0.33c0.69-0.74,1.4-1.47,2.1-2.17c0.15-0.16,0.31-0.32,0.46-0.48l0.29-0.29l0.21,0.34
+            c0.02,0.03,0.03,0.05,0.05,0.08c0.03,0.05,0.07,0.1,0.1,0.17c0.48,0.93,0.77,1.93,0.9,3.04c0.1,0.91,0.04,1.87-0.19,2.94
+            c-0.29,1.41-0.47,2.57-0.57,3.66c-0.01,0.07-0.01,0.15-0.02,0.22c0.49-0.81,1.07-1.48,1.77-2.03c1.08-0.83,2.33-1.27,3.73-1.28
+            c0.84-0.02,1.52,0.09,2.12,0.34c1.13,0.46,1.83,1.25,2.07,2.34c0.2,0.88,0.05,1.65-0.44,2.31c-0.22,0.29-0.45,0.58-0.67,0.86
+            c-0.14,0.18-0.29,0.37-0.43,0.55c-0.05,0.07-0.11,0.14-0.17,0.22c-0.2,0.26-0.41,0.53-0.59,0.8c-0.2,0.3-0.3,0.62-0.31,0.96
+            c-0.01,0.44,0.18,0.74,0.6,0.94c0.34,0.17,0.73,0.26,1.14,0.29c0.95,0.05,1.86-0.1,2.68-0.46c0.05-0.02,0.1-0.03,0.13-0.04
+            c0.01,0,0.02-0.01,0.02-0.01l0.23-0.06L106.67,33.16z"/>
+          <path class="blackfill" d="M81.23,25.44c-0.48,0.38-0.63,0.94-0.41,1.52c0.25,0.67,0.74,1.1,1.5,1.31c0.63,0.17,1.3,0.26,2,0.28
+            c0.19,0.01,0.37,0.01,0.56,0.02c0.66,0.02,1.35,0.03,2.03,0.08c1.34,0.09,2.46,0.43,3.42,1.04c0.73,0.46,1.15,1.08,1.25,1.85
+            c0.1,0.75-0.06,1.48-0.49,2.16c-0.49,0.77-1.21,1.33-2.21,1.71c-1.21,0.46-2.47,0.68-3.85,0.68c-0.22,0-0.45,0-0.68-0.02
+            c-1.62-0.08-3.22-0.51-4.9-1.32c-0.33-0.17-0.66-0.34-0.98-0.5c-0.13-0.07-0.26-0.14-0.38-0.2C78.04,34.02,78,34,77.95,33.97
+            c-0.02-0.01-0.04-0.03-0.06-0.04l-0.34-0.21l0.27-0.29c0.39-0.39,0.7-0.71,1.01-1.02c0.3-0.31,0.62-0.63,1.01-1.03L80.2,31l0.17,0.5
+            c0.01,0.04,0.03,0.08,0.04,0.12c0.03,0.07,0.05,0.14,0.07,0.22c0.66,2.41,3.11,3.1,4.52,3.3c1.2,0.16,2.41,0.01,3.59-0.45
+            c0.51-0.2,0.91-0.47,1.23-0.83c0.23-0.27,0.36-0.53,0.39-0.82c0.02-0.18-0.03-0.32-0.16-0.46c-0.17-0.19-0.39-0.32-0.74-0.45
+            c-0.56-0.21-1.16-0.35-1.78-0.43c-0.65-0.08-1.42-0.16-2.21-0.16c-0.79-0.01-1.47-0.04-2.09-0.11c-1.13-0.12-2.07-0.45-2.88-1.01
+            c-1.16-0.8-1.57-2.37-1.29-3.43c0.16-0.58,0.47-1.11,0.93-1.58c1.09-1.1,2.48-1.71,4.13-1.82c0.21-0.02,0.44-0.03,0.67-0.04
+            c1.97-0.07,3.7,0.3,5.29,1.13c0.76,0.39,1.4,0.89,1.96,1.52l0.2,0.23l-0.22,0.21c-0.4,0.38-0.63,0.6-0.85,0.82
+            c-0.23,0.22-0.47,0.44-0.89,0.84l-0.4,0.38l-0.13-0.54c-0.31-1.36-0.62-1.71-1.3-2.37c-0.63-0.63-1.57-1.03-2.85-1.23
+            C83.72,24.25,82.37,24.52,81.23,25.44z"/>
+          <path class="blackfill" d="M76.3,20.86c-0.09,0.2-0.21,0.38-0.35,0.54c-0.38,0.39-0.92,0.67-1.54,0.77c-0.16,0.02-0.33,0.04-0.49,0.04
+            c-0.44,0-0.86-0.1-1.21-0.29c-0.15-0.08-0.33-0.19-0.47-0.34c-0.51-0.56-0.55-1.14-0.12-1.72c0.46-0.63,1.13-0.98,2.01-1.05h0.24
+            c0.52-0.02,1.03,0.13,1.47,0.45C76.38,19.65,76.56,20.27,76.3,20.86z"/>
+          <path class="blackfill" d="M77.43,32.88l-0.6,0.64c-0.03,0.03-0.06,0.07-0.09,0.1c-0.05,0.06-0.1,0.11-0.16,0.17l-0.19,0.18
+            c-0.63,0.61-1.27,1.24-1.91,1.86c-0.19,0.17-0.33,0.31-0.54,0.32h-0.03c-0.19,0-0.33-0.11-0.53-0.26c-0.89-0.68-1.25-1.61-1.09-2.85
+            c0.1-0.83,0.3-1.68,0.6-2.68c0.27-0.91,0.21-1.83-0.2-2.82c-0.1-0.26-0.22-0.52-0.33-0.77c-0.06-0.15-0.13-0.3-0.2-0.45
+            c-0.03-0.09-0.07-0.18-0.1-0.28C72.04,26,72.02,25.96,72,25.91l-0.09-0.23l3.94-2.86l-0.15,0.79c0,0.04-0.01,0.07-0.01,0.1
+            c-0.01,0.07-0.02,0.14-0.05,0.21c-0.09,0.22-0.17,0.44-0.26,0.65c-0.25,0.65-0.52,1.33-0.79,1.98c-0.27,0.64-0.57,1.41-0.71,2.23
+            c-0.08,0.44-0.09,0.93-0.05,1.5v0.02c0.04,0.49,0.08,0.96,0.22,1.4c0.24,0.76,0.69,1.19,1.37,1.3c0.19,0.04,0.4,0.03,0.62,0.02
+            c0.1,0,0.2-0.01,0.31-0.01c0.02,0,0.05,0,0.1-0.01c0.03,0,0.07-0.01,0.11-0.02L77.43,32.88z"/>
+          <path class="blackfill" d="M70.92,33.15l-2.96,3.12l-0.21-0.11c-0.36-0.19-0.57-0.45-0.75-0.66c-0.5-0.59-0.81-1.27-0.91-2.01
+            c-0.01-0.07-0.02-0.15-0.03-0.22c-0.06-0.4-0.12-0.81-0.08-1.24c0.06-0.73,0.16-1.7,0.4-2.68c0.3-1.16,0.59-2.36,0.89-3.66
+            c0.21-0.94,0.33-1.79,0.37-2.61c0.03-0.78-0.04-1.32-0.25-1.82c-0.2-0.5-0.54-0.84-1.02-1.04c-0.1-0.04-0.19-0.08-0.29-0.13
+            c-0.04-0.02-0.09-0.04-0.13-0.06l-0.42-0.19l3.1-3.1L68.85,17c0.27,0.32,0.46,0.71,0.6,1.24c0.14,0.56,0.14,1.15,0.14,1.62
+            c0.01,1.09-0.31,2.11-0.62,3.09c-0.03,0.09-0.06,0.19-0.08,0.28c-0.11,0.36-0.23,0.72-0.34,1.07c-0.23,0.74-0.48,1.5-0.69,2.26
+            c-0.24,0.85-0.39,1.75-0.44,2.78v0.04c-0.03,0.42-0.05,0.85,0,1.25c0.15,1.09,0.77,1.82,1.84,2.16c0.18,0.06,0.38,0.1,0.59,0.13
+            c0.1,0.02,0.2,0.04,0.3,0.06c0.06,0.01,0.12,0.02,0.17,0.03L70.92,33.15z"/>
+          <path class="blackfill" d="M59.04,30.21l3.75-1.13l-4.87-2.98l5.09-5.76l-7.09,3.19l6.18-10.68l-7.41,8.08L53.2,0l-2.7,22.95l-5.23-5.26l2.71,6.08
+            L32.97,16.9l15.82,13.33l-6.96,8.51l7.86-5.09l-1.88,5.17l2.92-3.3l2.47,17.73l2.04-19.01l16.91,9.14L59.04,30.21z M55.31,28.88
+            c-0.25,0.54-0.71,0.97-1.27,1.18c-0.26,0.11-0.54,0.16-0.84,0.16c-0.81,0-1.52-0.41-1.94-1.04c-0.21-0.31-0.34-0.68-0.38-1.07
+            c-0.01-0.07-0.01-0.15-0.01-0.22c0-0.69,0.29-1.31,0.77-1.73c0.02-0.04,0.05-0.06,0.08-0.08c0,0,0,0,0.01,0
+            c0.4-0.33,0.91-0.53,1.47-0.53c0.3,0,0.58,0.06,0.84,0.16c0.46,0.17,0.85,0.49,1.12,0.9c0.24,0.37,0.38,0.81,0.38,1.28
+            C55.54,28.24,55.46,28.58,55.31,28.88z"/>
+          <path class="blackfill" d="M41.05,30.45c-0.07-0.81-0.31-1.51-0.74-2.14c-0.51-0.75-1.15-1.34-1.7-1.82c-0.55-0.46-1.1-0.95-1.63-1.41l-0.43-0.38
+            c-0.17-0.14-0.34-0.3-0.51-0.44c-0.33-0.3-0.68-0.61-1.03-0.9c-1.41-1.15-3.08-1.76-4.97-1.81c-1.45-0.04-2.9,0.13-4.43,0.52
+            c-2.32,0.58-4.22,1.76-5.67,3.49c-0.33,0.39-0.6,0.67-0.89,0.96c-0.3,0.29-0.6,0.6-0.94,1.01c-0.09,0.11-0.19,0.22-0.29,0.3
+            c-0.03,0.03-0.06,0.04-0.08,0.04c0-0.01-0.01-0.03-0.02-0.07c-0.03-0.13-0.03-0.26-0.02-0.38c0.03-0.27,0.07-0.56,0.14-0.83
+            c0.57-2.13,1.13-3.68,1.98-5.52c0.11-0.23,0.22-0.45,0.32-0.68l0.26-0.55l-0.19-0.15c-0.11-0.1-0.22-0.2-0.34-0.3
+            c-0.26-0.22-0.5-0.43-0.76-0.65c-0.41-0.34-0.77-0.64-1.1-0.92c-0.1-0.08-0.21-0.17-0.32-0.27c-0.25-0.22-0.51-0.45-0.83-0.66
+            l-0.59-0.38l0.12,0.83c0.01,0.07,0.02,0.12,0.03,0.17c0.02,0.18,0.05,0.36,0.07,0.53c0.06,0.38,0.12,0.77,0.15,1.16
+            c0.06,0.72,0.14,1.69,0.17,2.67c0.02,0.51,0.05,0.97,0.08,1.42c0.05,0.97,0.11,1.88,0.04,2.99c0,0.1-0.01,0.19-0.02,0.29
+            c-0.01,0.13-0.02,0.27-0.02,0.41c-0.02,0.39-0.01,0.8,0.16,1.2c0.13,0.29,0.33,0.5,0.58,0.6s0.54,0.09,0.83-0.04
+            c0.07-0.03,0.26-0.13,0.55-0.27c0.16-0.09,0.35-0.18,0.39-0.2c1.72-0.78,3.29-1.21,4.94-1.67c0.64-0.17,1.3-0.35,2-0.56
+            c2.13-0.64,3.91-1.01,5.59-1.17c0.84-0.08,1.82-0.14,2.77,0.02c1.07,0.19,1.58,0.45,2.03,1.26c0.04,0.06,0.12,0.22,0.16,0.3
+            c0.37,0.76,0.74,1.55,1.03,2.34c0.39,1.09,0.31,1.61,0.22,2.22l-0.03,0.21c-0.08,0.49-0.36,0.95-0.9,1.49
+            c-0.44,0.44-0.99,0.77-1.72,1.05c-1.52,0.58-3.12,0.71-4.48,0.77c-0.68,0.03-1.37,0.02-1.89,0c-0.68-0.02-1.4-0.04-2.13-0.11
+            c-0.9-0.08-1.78-0.18-2.67-0.28l-0.22-0.03c-0.64-0.07-0.83-0.09-1.69-0.27c-0.11-0.02-0.46-0.15-0.62-0.29
+            c-0.14-0.12-0.51-0.67-0.65-1.04c-0.29-0.72-0.58-1.43-1.09-2.04c-0.64-0.75-1.35-1.09-2.2-1.03c-0.68,0.05-1.2,0.32-1.54,0.81
+            c-0.22,0.32-0.39,0.64-0.49,0.95c-0.18,0.53-0.3,1.06-0.39,1.51c-0.2,0.92-0.46,1.52-0.87,2.02c-0.22,0.27-0.51,0.41-0.81,0.42
+            c-0.28,0.01-0.56-0.11-0.77-0.34c-0.57-0.61-0.81-1.36-0.73-2.25c0-0.06,0.06-0.17,0.16-0.28c0.16-0.17,0.34-0.33,0.52-0.5
+            c0.07-0.07,0.15-0.14,0.22-0.2c0.22-0.21,0.45-0.42,0.68-0.63l0.49-0.46l-0.14-0.22c-0.02-0.03-0.04-0.06-0.06-0.08
+            c-0.03-0.06-0.06-0.11-0.1-0.16c-0.6-0.89-1.11-1.81-1.52-2.73c-0.33-0.75-0.77-1.43-1.28-2c-0.84-0.92-1.89-1.4-3.12-1.43
+            c-0.78-0.02-1.62,0.08-2.63,0.31c-1.1,0.25-2.2,0.51-3.3,0.76l-1.09,0.25c-0.06,0.01-0.11,0.02-0.16,0.03l-0.56,0.13l0.3,0.39
+            c0.22,0.3,0.47,0.56,0.72,0.81c0.35,0.36,0.69,0.71,0.91,1.13l0.03,0.06l1.19,1l0.18-0.37c0.03-0.07,0.07-0.14,0.11-0.21
+            c0.08-0.16,0.17-0.33,0.23-0.52c0.22-0.67,0.61-1.28,1.16-1.79c0.85-0.8,1.93-1.18,3.21-1.15c0.7,0.02,1.25,0.29,1.61,0.8
+            c0.39,0.55,0.47,1.17,0.25,1.87c-0.41,1.28-1.28,2.15-2.58,2.6c-0.67,0.23-1.25,0.29-1.78,0.21c-0.34-0.06-0.67-0.12-1-0.18
+            c-0.46-0.09-0.94-0.17-1.42-0.24c-0.79-0.12-1.39-0.19-1.95-0.22c-0.66-0.03-1.22,0.35-1.42,0.97c-0.14,0.43-0.15,0.81-0.03,1.15
+            c0.13,0.39,0.27,0.69,0.43,0.95c0.47,0.78,1.11,1.39,1.72,1.94c0.62,0.55,1.16,0.94,1.71,1.23c0.72,0.39,1.36,0.56,2.01,0.53
+            c0.59-0.02,1.2-0.17,1.8-0.46c1.04-0.49,1.9-1.21,2.68-1.92c0.23-0.21,0.46-0.41,0.7-0.63h0.01l0.02,0.04
+            c0.2,0.55,0.42,1.11,0.76,1.63c0.39,0.59,0.93,0.96,1.6,1.11c0.97,0.2,1.92,0.1,2.84-0.3c0.9-0.41,1.49-1.05,1.75-1.93
+            c0.12-0.4,0.2-0.81,0.28-1.21c0.01-0.06,0.02-0.12,0.03-0.19c0.04-0.18,0.06-0.36,0.09-0.54c0.03-0.27,0.07-0.53,0.13-0.78
+            c0.07-0.26,0.17-0.38,0.24-0.4c0.06-0.01,0.21,0.04,0.41,0.23c0.24,0.25,0.46,0.54,0.64,0.86c0.39,0.71,0.74,1.43,1.06,2.14
+            c0.28,0.64,0.71,1.07,1.29,1.31l0.01,0.01h0.01c0.76,0.35,1.6,0.59,2.65,0.74c1.38,0.21,2.74,0.26,4.12,0.29
+            c0.49,0.01,0.98,0.02,1.47,0.02c0.4,0,0.8,0,1.2-0.01h0.94c1,0,2.05-0.08,3.11-0.24c0.78-0.11,1.7-0.27,2.57-0.64
+            c0.46-0.2,0.91-0.41,1.23-0.82c0.28-0.34,0.54-0.7,0.77-1.05c0.15-0.23,0.28-0.5,0.4-0.8C41.02,32.07,41.12,31.31,41.05,30.45z
+             M9.32,33.12c-0.56,0.42-1.25,0.7-2.17,0.87c-0.92,0.18-1.88,0.14-2.81,0.11H4.3c-0.61-0.02-1.13-0.14-1.58-0.37
+            c-0.52-0.26-0.67-0.7-0.44-1.22c0.32-0.71,0.9-1.09,1.77-1.19c0.53-0.06,1.08-0.11,1.61-0.17c0.89-0.09,1.81-0.19,2.72-0.29
+            c0.48-0.06,0.96-0.15,1.43-0.23c0.24-0.04,0.49-0.08,0.74-0.12c0.02-0.01,0.03-0.01,0.05-0.01C10.6,31.61,10.18,32.47,9.32,33.12z"
+            />
+          </svg>
+
+            </div>
+
+            <span class="project-id">Front-end, Branding</span>
+            <!-- <span class="project-id">ID: 97814864738</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Developed front-end, refined logo design, and worked closely alongside its founders on brand identity.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2022
+            </span>
+
+            <a href="https://abolish.co" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+        <li class="guerin-project aporia-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <polygon class="blackfill" points="28.67,0 28.67,28.67 0,28.67 0,0 5.73,0 5.73,22.94 22.93,22.94 22.93,0    "/>
+                  <polygon class="blackfill" points="51.61,5.74 51.61,22.94 63.07,22.94 63.07,28.67 34.4,28.67 34.4,22.94 45.87,22.94 45.87,5.74 34.4,5.74 34.4,0 
+                    63.07,0 63.07,5.74    "/>
+                  <polygon class="blackfill" points="28.67,34.41 28.67,63.08 0,63.08 0,34.41 5.73,34.41 5.73,57.34 22.93,57.34 22.93,34.41    "/>
+                  <rect class="blackfill" x="34.4" y="34.41" width="5.74" height="5.73"/>
+                  <rect class="blackfill" x="57.34" y="34.41" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="40.14" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="45.87" y="45.87" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="40.14" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="34.4" y="57.34" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="57.34" y="57.34" width="5.74" height="5.74"/>
+                </g>
+              </g>
+              </svg>
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 18px;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="99.48px"
+                 height="40.62px" viewBox="0 0 99.48 40.62" style="overflow:visible;enable-background:new 0 0 99.48 40.62;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="blackfill" d="M48.03,26.66c-0.33,0.2-0.8,0.3-1.39,0.3c-0.5,0-0.9-0.14-1.2-0.42c-0.3-0.28-0.44-0.74-0.44-1.38
+                    c-0.53,0.64-1.15,1.1-1.86,1.38c-0.71,0.28-1.47,0.42-2.29,0.42c-0.53,0-1.04-0.06-1.51-0.18c-0.48-0.12-0.89-0.31-1.24-0.57
+                    c-0.35-0.26-0.63-0.59-0.83-1.01c-0.21-0.42-0.31-0.92-0.31-1.52c0-0.67,0.11-1.21,0.34-1.64s0.53-0.77,0.9-1.04
+                    c0.37-0.27,0.8-0.47,1.28-0.6c0.48-0.14,0.97-0.25,1.47-0.34c0.53-0.11,1.04-0.19,1.51-0.24c0.48-0.05,0.9-0.13,1.26-0.23
+                    c0.36-0.1,0.65-0.24,0.87-0.43c0.21-0.19,0.32-0.47,0.32-0.83c0-0.42-0.08-0.77-0.24-1.03c-0.16-0.26-0.36-0.46-0.61-0.59
+                    c-0.25-0.14-0.53-0.23-0.84-0.27c-0.31-0.05-0.62-0.07-0.92-0.07c-0.82,0-1.5,0.16-2.05,0.47c-0.55,0.31-0.84,0.9-0.89,1.77h-1.94
+                    c0.03-0.73,0.18-1.34,0.46-1.84c0.27-0.5,0.64-0.91,1.09-1.22c0.46-0.31,0.98-0.54,1.56-0.67c0.59-0.14,1.21-0.21,1.88-0.21
+                    c0.53,0,1.06,0.04,1.58,0.11c0.52,0.08,1,0.23,1.42,0.47c0.43,0.23,0.77,0.56,1.03,0.99c0.26,0.42,0.39,0.98,0.39,1.66v6.05
+                    c0,0.46,0.03,0.79,0.08,1c0.05,0.21,0.23,0.32,0.54,0.32c0.17,0,0.36-0.03,0.59-0.09V26.66z M44.88,20.62
+                    c-0.24,0.18-0.56,0.31-0.96,0.4c-0.4,0.08-0.81,0.15-1.24,0.2c-0.43,0.05-0.87,0.11-1.31,0.18c-0.44,0.07-0.84,0.18-1.18,0.33
+                    c-0.35,0.15-0.63,0.37-0.85,0.65C39.11,22.66,39,23.04,39,23.52c0,0.32,0.06,0.59,0.19,0.81c0.13,0.22,0.3,0.4,0.5,0.53
+                    c0.21,0.14,0.44,0.23,0.72,0.3c0.27,0.06,0.56,0.09,0.87,0.09c0.64,0,1.18-0.09,1.64-0.26c0.46-0.17,0.83-0.39,1.12-0.66
+                    c0.29-0.27,0.5-0.55,0.64-0.86c0.14-0.31,0.2-0.6,0.2-0.87V20.62z"/>
+                  <path class="blackfill" d="M51.83,14.93v1.59h0.05c0.32-0.65,0.82-1.13,1.5-1.42c0.68-0.3,1.44-0.44,2.25-0.44c0.91,0,1.71,0.17,2.38,0.5
+                    c0.68,0.33,1.24,0.79,1.69,1.36c0.45,0.57,0.79,1.23,1.01,1.97c0.23,0.74,0.34,1.53,0.34,2.37s-0.11,1.63-0.33,2.37
+                    c-0.22,0.75-0.55,1.39-1,1.95c-0.45,0.56-1.01,0.99-1.69,1.31c-0.68,0.32-1.46,0.48-2.36,0.48c-0.29,0-0.61-0.03-0.97-0.09
+                    c-0.36-0.06-0.71-0.16-1.06-0.3c-0.35-0.14-0.68-0.32-0.99-0.56c-0.31-0.24-0.57-0.53-0.79-0.88h-0.05v6.06h-1.94V14.93H51.83z
+                     M58.79,19.11c-0.14-0.52-0.36-0.99-0.66-1.4c-0.3-0.41-0.68-0.74-1.14-0.98c-0.46-0.24-1.01-0.36-1.63-0.36
+                    c-0.65,0-1.21,0.13-1.66,0.39s-0.83,0.6-1.12,1.01c-0.29,0.42-0.5,0.89-0.63,1.42c-0.13,0.53-0.19,1.07-0.19,1.62
+                    c0,0.58,0.07,1.14,0.21,1.67c0.14,0.54,0.35,1.01,0.65,1.42s0.68,0.74,1.15,0.99c0.47,0.25,1.04,0.38,1.71,0.38
+                    c0.67,0,1.23-0.13,1.67-0.39c0.45-0.26,0.81-0.6,1.08-1.03c0.27-0.42,0.47-0.91,0.59-1.46c0.12-0.55,0.18-1.11,0.18-1.69
+                    C59.01,20.17,58.93,19.63,58.79,19.11z"/>
+                  <path class="blackfill" d="M63.06,18.4c0.24-0.75,0.61-1.41,1.09-1.96c0.49-0.55,1.09-0.99,1.8-1.31c0.71-0.32,1.53-0.48,2.46-0.48
+                    c0.94,0,1.76,0.16,2.47,0.48c0.71,0.32,1.3,0.75,1.79,1.31c0.49,0.56,0.85,1.21,1.09,1.96c0.24,0.75,0.36,1.56,0.36,2.43
+                    c0,0.87-0.12,1.67-0.36,2.41c-0.24,0.74-0.61,1.39-1.09,1.95c-0.49,0.55-1.08,0.99-1.79,1.3c-0.71,0.31-1.53,0.47-2.47,0.47
+                    c-0.93,0-1.75-0.16-2.46-0.47c-0.71-0.31-1.31-0.74-1.8-1.3c-0.49-0.56-0.85-1.2-1.09-1.95c-0.24-0.74-0.37-1.55-0.37-2.41
+                    C62.7,19.96,62.82,19.15,63.06,18.4z M65.03,22.73c0.19,0.55,0.45,1.02,0.79,1.39c0.33,0.37,0.72,0.66,1.17,0.85
+                    s0.92,0.3,1.42,0.3c0.5,0,0.97-0.1,1.42-0.3s0.84-0.48,1.17-0.85s0.59-0.84,0.79-1.39c0.19-0.55,0.28-1.19,0.28-1.9
+                    s-0.1-1.35-0.28-1.9c-0.19-0.56-0.45-1.02-0.79-1.4c-0.33-0.38-0.73-0.67-1.17-0.87c-0.45-0.2-0.92-0.3-1.42-0.3
+                    c-0.5,0-0.98,0.1-1.42,0.3c-0.45,0.2-0.84,0.49-1.17,0.87c-0.34,0.38-0.6,0.85-0.79,1.4c-0.19,0.55-0.28,1.19-0.28,1.9
+                    S64.84,22.18,65.03,22.73z"/>
+                  <path class="blackfill" d="M78.16,14.93v2.48h0.05c0.47-0.96,1.05-1.66,1.73-2.12c0.68-0.45,1.55-0.67,2.6-0.64v2.05c-0.78,0-1.44,0.11-1.98,0.32
+                    c-0.55,0.21-0.99,0.52-1.32,0.93c-0.33,0.41-0.58,0.91-0.73,1.49c-0.15,0.58-0.23,1.26-0.23,2.02v5.24h-1.94V14.93H78.16z"/>
+                  <path class="blackfill" d="M84.11,12.81v-2.37h1.94v2.37H84.11z M86.04,14.93V26.7h-1.94V14.93H86.04z"/>
+                  <path class="blackfill" d="M99.48,26.66c-0.33,0.2-0.8,0.3-1.39,0.3c-0.5,0-0.9-0.14-1.2-0.42c-0.3-0.28-0.44-0.74-0.44-1.38
+                    c-0.53,0.64-1.15,1.1-1.86,1.38c-0.71,0.28-1.47,0.42-2.29,0.42c-0.53,0-1.04-0.06-1.51-0.18c-0.48-0.12-0.89-0.31-1.24-0.57
+                    c-0.35-0.26-0.63-0.59-0.83-1.01c-0.21-0.42-0.31-0.92-0.31-1.52c0-0.67,0.11-1.21,0.34-1.64c0.23-0.43,0.53-0.77,0.9-1.04
+                    s0.8-0.47,1.28-0.6c0.48-0.14,0.97-0.25,1.47-0.34c0.53-0.11,1.04-0.19,1.51-0.24c0.48-0.05,0.9-0.13,1.26-0.23
+                    c0.36-0.1,0.65-0.24,0.87-0.43c0.21-0.19,0.32-0.47,0.32-0.83c0-0.42-0.08-0.77-0.24-1.03c-0.16-0.26-0.36-0.46-0.61-0.59
+                    c-0.25-0.14-0.53-0.23-0.84-0.27c-0.31-0.05-0.62-0.07-0.92-0.07c-0.82,0-1.5,0.16-2.05,0.47c-0.55,0.31-0.84,0.9-0.89,1.77h-1.94
+                    c0.03-0.73,0.18-1.34,0.46-1.84c0.27-0.5,0.64-0.91,1.09-1.22c0.46-0.31,0.98-0.54,1.56-0.67c0.59-0.14,1.21-0.21,1.88-0.21
+                    c0.53,0,1.06,0.04,1.58,0.11c0.52,0.08,1,0.23,1.42,0.47c0.43,0.23,0.77,0.56,1.03,0.99c0.26,0.42,0.39,0.98,0.39,1.66v6.05
+                    c0,0.46,0.03,0.79,0.08,1c0.05,0.21,0.23,0.32,0.54,0.32c0.17,0,0.36-0.03,0.59-0.09V26.66z M96.34,20.62
+                    c-0.24,0.18-0.56,0.31-0.96,0.4c-0.4,0.08-0.81,0.15-1.24,0.2c-0.43,0.05-0.87,0.11-1.31,0.18c-0.44,0.07-0.84,0.18-1.18,0.33
+                    c-0.35,0.15-0.63,0.37-0.85,0.65c-0.22,0.28-0.33,0.66-0.33,1.14c0,0.32,0.06,0.59,0.19,0.81c0.13,0.22,0.3,0.4,0.5,0.53
+                    c0.21,0.14,0.44,0.23,0.72,0.3c0.27,0.06,0.56,0.09,0.87,0.09c0.64,0,1.18-0.09,1.64-0.26c0.46-0.17,0.83-0.39,1.12-0.66
+                    c0.29-0.27,0.5-0.55,0.64-0.86c0.14-0.31,0.2-0.6,0.2-0.87V20.62z"/>
+                </g>
+                <path class="blackfill" d="M28.48,11.69l-0.37-0.13l-8.89-3.22l-1.25-0.45l-3.78-1.37L16.56,0l-5.99,2.8L9.61,3.25L7.13,4.41L6.6,5.88L5.99,7.55
+                  L5.87,7.89l-3.04,8.38l-0.61,1.69l-2.04,5.62L0,24.08l0.18,0.07l2.65,0.96l3.16,1.14l1.82,0.66l3.78,1.37l-0.18,0.49l-1.72,4.76
+                  l-2.57,7.09l6-2.81l6.1-2.86l2.78-1.3l3.79-1.78L22,30.5l-2.78-1.01l-1.98-0.72l-3.78-1.37l0.18-0.49l2.22-6.15l3.36-1.57
+                  l8.89-4.17l0.37-0.17l3.8-1.78L28.48,11.69z M13.99,2.8l-1.16,3.22L9.61,4.86L13.99,2.8z M2.22,22.24l0.61-1.69l3.16-8.73
+                  l1.42-3.93l0.73-2.01l4.19,1.51l-0.18,0.5L7.92,19.57l-1.93,0.9l-3.16,1.48L2.22,22.24z M19.22,31.04L22,32.05l-2.78,1.3
+                  l-9.53,4.46l3.27-9.04L19.22,31.04z M28.11,13.41l-8.89,4.16l-4.52,2.12l-2.61,7.22l-6.1-2.21l-3.16-1.14l2.82-1.32l0.34-0.16
+                  l3.09-1.45l3.25-8.96l1.37-3.78l5.52,2l8.89,3.22l0.37,0.13L28.11,13.41z"/>
+              </g>
+              </svg>
+
+            </div>
+
+            <span class="project-id">Mobile UX + UI</span>
+            <!-- <span class="project-id">ID: 30128484106</span> -->
+            
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Passion project with the objective of learning the design processes: rapid prototyping, wire-framing, and interaction design.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2020
+            </span>
+
+            <a href="https://www.figma.com/proto/ef3SGhMQoXTyprU2WQMEXr/aporia?node-id=329%3A8030&scaling=scale-down&page-id=0%3A1&starting-point-node-id=329%3A8030&show-proto-sidebar=1" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+        <li class="guerin-project digitip-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <polygon class="blackfill" points="28.67,0 28.67,28.67 0,28.67 0,0 5.73,0 5.73,22.94 22.93,22.94 22.93,0    "/>
+                  <polygon class="blackfill" points="51.61,5.74 51.61,22.94 63.07,22.94 63.07,28.67 34.4,28.67 34.4,22.94 45.87,22.94 45.87,5.74 34.4,5.74 34.4,0 
+                    63.07,0 63.07,5.74    "/>
+                  <polygon class="blackfill" points="28.67,34.41 28.67,63.08 0,63.08 0,34.41 5.73,34.41 5.73,57.34 22.93,57.34 22.93,34.41    "/>
+                  <rect class="blackfill" x="34.4" y="34.41" width="5.74" height="5.73"/>
+                  <rect class="blackfill" x="57.34" y="34.41" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="40.14" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="45.87" y="45.87" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="40.14" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="34.4" y="57.34" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="57.34" y="57.34" width="5.74" height="5.74"/>
+                </g>
+              </g>
+              </svg>
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 18px;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="109.91px" height="28.03px" viewBox="0 0 109.91 28.03" style="overflow:visible;enable-background:new 0 0 109.91 28.03;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path class="blackfill" d="M0,2.54l0-0.32C0,0.99,0.99,0,2.22,0l16.22,0c1.23,0,2.22,0.99,2.22,2.22v0.32c0,1.23-0.99,2.22-2.22,2.22
+                        H2.22C0.99,4.76,0,3.76,0,2.54z"/>
+                    </g>
+                  </g>
+                  <g>
+                    <path class="blackfill" d="M17.4,9.71c0.54,0,0.98,0.44,0.98,0.98v13.97c0,0.54-0.44,0.98-0.98,0.98H3.37c-0.54,0-0.98-0.44-0.98-0.98
+                      V10.69c0-0.54,0.44-0.98,0.98-0.98H17.4 M17.4,7.32H3.37C1.51,7.32,0,8.83,0,10.69v13.97c0,1.86,1.51,3.37,3.37,3.37H17.4
+                      c1.86,0,3.37-1.51,3.37-3.37V10.69C20.77,8.83,19.26,7.32,17.4,7.32L17.4,7.32z"/>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <polygon class="blackfill" points="8.69,15.98 8.69,16.85 12.47,16.85 12.47,18.13 13.74,18.13 13.74,19.79 12.47,19.79 12.47,21.06 
+                          11.22,21.06 11.22,22.31 9.55,22.31 9.55,21.06 7.03,21.06 7.03,19.39 12.07,19.39 12.07,18.53 8.29,18.53 8.29,17.25 
+                          7.03,17.25 7.03,15.58 8.29,15.58 8.29,14.3 9.55,14.3 9.55,13.04 11.22,13.04 11.22,14.3 13.74,14.3 13.74,15.98           "/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g>
+                  <path class="blackfill" d="M31.62,8.57h3.13c3.8,0,5.87,2.26,5.87,6.27c0,4.03-2.07,6.39-5.79,6.39h-3.2V8.57z M34.64,19.9
+                    c2.88,0,4.3-1.85,4.3-5.06c0-3.19-1.43-4.94-4.3-4.94h-1.39v10H34.64z"/>
+                  <path class="blackfill" d="M43.36,19.86h3.15V9.94h-3.15V8.57h7.91v1.37h-3.15v9.92h3.15v1.37h-7.91V19.86z"/>
+                  <path class="blackfill" d="M54.13,14.9c0-4.09,2.33-6.56,5.62-6.56c1.68,0,2.78,0.79,3.49,1.54l-0.93,1.02
+                    c-0.6-0.64-1.35-1.14-2.57-1.14c-2.37,0-3.92,1.95-3.92,5.1c0,3.19,1.41,5.17,3.88,5.17c0.89,0,1.72-0.27,2.18-0.73V16h-2.51
+                    v-1.33h4.01v5.33c-0.79,0.81-2.14,1.47-3.78,1.47C56.43,21.46,54.13,19.03,54.13,14.9z"/>
+                  <path class="blackfill" d="M66.52,19.86h3.15V9.94h-3.15V8.57h7.91v1.37h-3.15v9.92h3.15v1.37h-7.91V19.86z"/>
+                  <path class="blackfill" d="M81.25,9.94h-4.19V8.57h10v1.37h-4.19v11.29h-1.62V9.94z"/>
+                  <path class="blackfill" d="M89.68,19.86h3.15V9.94h-3.15V8.57h7.91v1.37h-3.15v9.92h3.15v1.37h-7.91V19.86z"/>
+                  <path class="blackfill" d="M101.4,8.57h3.82c2.8,0,4.69,0.95,4.69,3.73c0,2.68-1.91,3.92-4.69,3.92h-2.2v5.02h-1.62V8.57z M105.03,14.9
+                    c2.2,0,3.26-0.81,3.26-2.61c0-1.81-1.08-2.41-3.26-2.41h-2.01v5.02H105.03z"/>
+                </g>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Mobile UI + UX</span>
+            <!-- <span class="project-id">ID: 58766576114</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Operated on the UI/UX with the focus on a retip feature that enables users to reshare their tips, enticing others to join.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2020
+            </span>
+
+            <a href="https://www.figma.com/proto/sCmi3xhESsNVwu94oRvZTG/DIGITIP?node-id=181%3A6578&scaling=scale-down&page-id=0%3A1&starting-point-node-id=181%3A6578&show-proto-sidebar=1" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+        <li class="guerin-project lnhuis-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <rect class="blackfill" width="5.74" height="5.74"/>
+              <polygon class="blackfill" points="28.67,0 28.67,11.47 22.93,11.47 22.93,5.74 11.46,5.74 11.46,0 "/>
+              <polygon class="blackfill" points="40.13,22.93 57.34,22.93 57.34,28.67 34.41,28.67 34.41,0 57.34,0 57.34,5.74 40.13,5.74 "/>
+              <rect y="11.47" class="blackfill" width="5.74" height="5.74"/>
+              <rect x="11.46" y="11.47" class="blackfill" width="11.47" height="5.74"/>
+              <polygon class="blackfill" points="28.67,17.21 28.67,28.67 11.46,28.67 11.46,22.93 22.93,22.93 22.93,17.21 "/>
+              <rect x="57.34" y="5.74" class="blackfill" width="5.74" height="17.2"/>
+              <rect y="22.93" class="blackfill" width="5.74" height="5.74"/>
+              <polygon class="blackfill" points="5.74,40.14 5.74,57.34 63.08,57.34 63.08,63.08 0,63.08 0,34.41 63.08,34.41 63.08,40.14 "/>
+              </svg>
+
+            </div>
+
+            <div class="guerin-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="197.27px" height="38.23px" viewBox="0 0 197.27 38.23" style="overflow:visible;enable-background:new 0 0 197.27 38.23;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="blackfill" d="M63.43,24.66c0-2.78,0-5.47,0-8.15c-0.04-1.18-0.7-2.25-1.73-2.81h10.12c-1.36,0.82-2.11,2.37-1.9,3.94
+                    c0,5.35,0,10.7,0,16.04c0,1.46,0.13,2.93,1.53,3.93h-9.71c2.11-1.42,1.73-3.46,1.76-5.38c0.02-1.91,0-4.17,0-6.34h-7.55v3.78
+                    c0,1.55,0,3.11,0,4.65c-0.09,1.36,0.62,2.64,1.83,3.27H47.7c1.8-1.19,1.78-2.82,1.78-4.47c0-5.03,0-10.06,0-15.1
+                    c0-2.39-0.08-2.58-1.61-4.34h9.92c-1.88,1.13-1.88,2.75-1.85,4.38c0,2.17,0,4.35,0,6.58L63.43,24.66z"/>
+                  <path class="blackfill" d="M38.74,37.69c-1.13,0.44-2.4-0.03-2.97-1.1c-4.15-6.19-8.36-12.31-12.6-18.45c-0.16-0.22-0.33-0.43-0.6-0.78
+                    c-0.04,0.23-0.08,0.45-0.1,0.68c0,4.78,0,9.56,0,14.25c0,2.9,0.29,3.36,2.39,5.3h-5.97c1.12-0.71,1.89-1.85,2.14-3.15
+                    c0.09-0.53,0.14-1.06,0.16-1.6c0-5.16,0-10.34,0-15.53c0.17-1.41-0.46-2.8-1.65-3.58l0.11-0.2h0.91c2.19,0,4.38,0,6.57,0
+                    c0.57-0.06,1.12,0.22,1.41,0.72c2.69,3.99,5.41,7.97,8.14,11.95c0.19,0.29,0.39,0.55,0.67,0.93c0.05-0.16,0.09-0.32,0.11-0.48
+                    c0-2.82,0-5.64-0.07-8.45c0.12-1.85-0.8-3.61-2.39-4.56h5.97c-2.39,1.58-2.39,3.85-2.39,6.1c0,5.6,0,11.22,0,16.82L38.74,37.69z"
+                    />
+                  <path class="blackfill" d="M82.47,20.61h4.99c2.32,0,2.32,0,2.32,2.39c0,3.58,0,7.17,0,10.75c0,1.4-0.13,2.89,1.61,3.92h-7.59v-3.02
+                    h-0.14l-0.39,0.7c-1.18,2.18-3.74,3.22-6.1,2.48c-2.05-0.61-3.42-2.55-3.31-4.68c0-2.82,0-5.63,0-8.45c0-1.45,0.06-2.96-1.74-4
+                    l1.19-0.1c1.84,0,3.69,0,5.53,0c0.9,0,1.11,0.29,1.1,1.19c0,3.45,0,6.91,0,10.35c0,0.32,0,0.63,0,0.96
+                    c-0.02,0.85,0.53,1.62,1.34,1.89c0.89,0.11,1.73-0.44,2-1.3c0.28-0.77,0.44-1.57,0.47-2.39c0.07-2.27,0-4.55,0-6.83
+                    c0-1.4,0-2.81-1.55-3.66L82.47,20.61z"/>
+                  <path class="blackfill" d="M0.04,37.6c1.86-1.12,1.83-2.78,1.84-4.4c0-5.03,0-10.07,0-15.1c0-1.61,0-3.29-1.88-4.41h9.88
+                    c-1.58,1.1-1.48,2.71-1.48,4.3v18.59c5.65,1.04,8.26-2.39,10.12-6.85l0.25,0.12c-0.14,1.28-0.27,2.56-0.42,3.82
+                    s-0.31,2.57-0.48,3.92L0.04,37.6z"/>
+                  <path class="blackfill" d="M102.14,38.23c-0.11-2.39-0.22-4.41-0.31-6.46h0.22c0.43,0.72,0.82,1.46,1.29,2.15
+                    c0.87,1.58,2.31,2.75,4.03,3.29c0.58,0.13,1.19,0.17,1.78,0.1c0.94-0.15,1.68-0.9,1.79-1.85c0.22-0.93-0.24-1.9-1.1-2.32
+                    c-1.09-0.56-2.26-0.98-3.39-1.48c-1.73-0.76-3.37-1.64-4.15-3.58c-1.27-2.74-0.08-5.98,2.66-7.25c0.72-0.33,1.5-0.5,2.29-0.51
+                    c1.11,0.01,2.22,0.16,3.29,0.47c1.05,0.45,2.27,0.27,3.14-0.47v5.73c-0.22-0.33-0.36-0.54-0.48-0.75
+                    c-0.74-1.55-1.95-2.84-3.45-3.68c-0.72-0.31-1.5-0.47-2.28-0.49c-0.79-0.06-1.51,0.44-1.73,1.19c-0.36,0.81-0.08,1.76,0.65,2.26
+                    c0.69,0.44,1.42,0.82,2.17,1.13c1.19,0.6,2.59,1.06,3.79,1.76c2.2,1.21,3.26,3.78,2.56,6.19c-0.53,2.34-2.54,4.06-4.93,4.22
+                    c-1.51,0.05-3.02-0.05-4.52-0.3C104.33,37.42,103.25,37.04,102.14,38.23z"/>
+                  <path class="blackfill" d="M91.94,37.59c1.46-0.92,1.4-2.25,1.4-3.58c0-3.19,0-6.39,0-9.56c0-1.37,0-2.77-1.7-3.72
+                    c0.34-0.06,0.68-0.1,1.02-0.12c1.9,0,3.81,0,5.71,0c0.72,0,0.93,0.2,0.93,0.92c0,3.86,0,7.72,0,11.58c0,0.57,0,1.13,0,1.71
+                    c-0.11,1.14,0.47,2.23,1.47,2.78L91.94,37.59z"/>
+                  <path class="blackfill" d="M96.27,18.7c-1.73,0.1-3.22-1.22-3.32-2.96c-0.01-0.09-0.01-0.19,0-0.28c0.13-1.85,1.73-3.25,3.58-3.12
+                    c1.7,0.12,3.04,1.48,3.13,3.18c0.02,1.74-1.36,3.16-3.1,3.19C96.46,18.71,96.36,18.7,96.27,18.7z"/>
+                </g>
+                <path class="blackfill" d="M142.34,1.09v1.74l0.26-0.23c0.35-0.34,0.87-0.43,1.31-0.24c0.41,0.18,0.64,0.62,0.56,1.06v1.12
+                  c0,0.44,0,0.45,0.44,0.48h0.24c-0.1,0.12-0.16,0.27-0.23,0.27c-0.44,0-0.9,0-1.36,0v-0.3c0.1-0.01,0.2-0.01,0.3,0
+                  c0.22,0,0.31-0.1,0.31-0.31c0-0.47,0-0.93,0-1.39c0.03-0.39-0.26-0.73-0.65-0.76c-0.1-0.01-0.2,0.01-0.3,0.04
+                  c-0.49,0.1-0.84,0.52-0.85,1.02v0.78c0,0.59,0,0.59,0.59,0.63v0.14c0,0.05,0,0.1,0,0.14h-1.51V5.02c0.09-0.01,0.18-0.01,0.27,0
+                  c0.24,0,0.33-0.1,0.33-0.33V1.73c0-0.23-0.08-0.35-0.32-0.33h-0.27V1.09H142.34z"/>
+                <path class="blackfill" d="M191.8,20.06c-0.25-0.04-0.49,0.11-0.56,0.36c-0.42,0.85-0.87,1.7-1.31,2.54c-0.15,0.27-0.33,0.54-0.53,0.78
+                  c-0.24,0.3-0.68,0.35-0.99,0.12c-0.14-0.1-0.23-0.24-0.26-0.41c0-0.18,0.09-0.35,0.23-0.47c0.06,0,0.32,0,0.41,0.12
+                  c0.08,0.12,0,0.35-0.19,0.47c0.13,0.16,0.37,0.19,0.54,0.06c0.02-0.02,0.04-0.04,0.06-0.06c0.2-0.27,0.37-0.55,0.53-0.85
+                  c0,0,0-0.19,0-0.26c-0.37-0.72-0.74-1.45-1.12-2.15c-0.11-0.12-0.26-0.21-0.42-0.26c-0.11-0.16-0.08-0.26,0.17-0.26h1
+                  c0.22,0,0.26,0.1,0.2,0.27h-0.06c-0.59,0-0.59,0-0.31,0.57l0.82,1.64c0.35-0.69,0.66-1.33,0.98-1.95c0.08-0.17,0-0.25-0.16-0.25
+                  h-0.35c-0.11-0.25,0-0.32,0.2-0.32h1.19L191.8,20.06z"/>
+                <path class="blackfill" d="M131.18,5.38c-0.86,0.45-0.87,1.19-0.87,1.94v2.93c0,0.08,0,0.17,0,0.27h4.13V7.35c0-0.75,0-1.51-0.86-1.98
+                  h4.07c-0.87,0.48-0.87,1.19-0.87,1.98v7.17c0,0.14,0,0.29,0,0.42c-0.05,0.61,0.23,1.2,0.74,1.55h-3.95
+                  c0.85-0.45,0.86-1.19,0.86-1.91v-3.58h-4.12c0,0.07,0,0.16,0,0.24c0,1.19,0,2.32,0,3.49c-0.1,0.68,0.21,1.35,0.79,1.72h-3.88l0,0
+                  c0.53-0.35,0.82-0.96,0.75-1.59c0-2.61,0-5.24,0-7.87c0.08-0.63-0.21-1.26-0.75-1.6H131.18z"/>
+                <path class="blackfill" d="M172.89,11.95c0,1.12,0,2.2,0,3.26c0.01,0.47,0.29,0.89,0.72,1.08l0.37,0.22h-4.22l0,0
+                  c0.52-0.33,0.81-0.93,0.75-1.54V6.98c0.08-0.65-0.25-1.28-0.82-1.59h0.31c1.51,0,3,0,4.49,0c0.78-0.02,1.56,0.13,2.27,0.45
+                  c1.15,0.48,1.87,1.63,1.8,2.87c0.05,1.23-0.69,2.36-1.84,2.82c-0.64,0.29-1.34,0.43-2.04,0.43L172.89,11.95z M172.89,11.53
+                  c0.43,0,0.82,0,1.19,0c0.93-0.05,1.71-0.7,1.92-1.6c0.27-0.84,0.27-1.73,0-2.57c-0.16-0.7-0.69-1.25-1.39-1.45
+                  c-0.58-0.1-1.16-0.16-1.74-0.19L172.89,11.53z"/>
+                <path class="blackfill" d="M148.99,16.49h-3.42l-0.08-0.08l0.18-0.06c0.31-0.2,0.49-0.53,0.49-0.9c0-0.47,0-0.93,0-1.39v-3.85
+                  c0.12-0.65-0.15-1.31-0.69-1.68h2.88v1.64l0,0c0.05-0.1,0.09-0.2,0.13-0.3c0.41-1.08,1.53-1.71,2.66-1.51
+                  c0.97,0.09,1.74,0.86,1.82,1.84c0,0.25,0,0.51,0,0.76v3.81c0,0.63,0,1.29,0.61,1.71h-3.52c0.82-0.47,0.72-1.19,0.72-1.88
+                  c0-1.21,0-2.41,0-3.58c0.02-0.22,0.02-0.45,0-0.67c-0.11-0.56-0.64-0.92-1.2-0.82c-0.21,0.04-0.4,0.14-0.54,0.29
+                  c-0.37,0.35-0.57,0.83-0.57,1.34c0,1.45,0,2.89,0,4.35C148.47,15.91,148.67,16.27,148.99,16.49z"/>
+                <path class="blackfill" d="M185.94,12.52c-0.07,0.49-0.17,0.98-0.31,1.46c-0.47,1.5-1.86,2.52-3.43,2.52c-1.59,0.05-3.02-0.95-3.51-2.46
+                  c-0.38-1.04-0.38-2.18,0-3.23c0.67-1.92,2.77-2.93,4.69-2.26c1.23,0.43,2.15,1.48,2.4,2.76C185.85,11.67,185.88,12.05,185.94,12.52
+                  z M180.7,12.41L180.7,12.41c0,0.41,0,0.8,0.06,1.19c0.01,0.2,0.04,0.41,0.07,0.61c0.04,0.56,0.22,1.1,0.53,1.58
+                  c0.25,0.42,0.79,0.56,1.21,0.3c0.13-0.07,0.23-0.18,0.3-0.3c0.18-0.29,0.32-0.6,0.39-0.93c0.33-1.58,0.33-3.2,0-4.78
+                  c-0.07-0.35-0.21-0.67-0.41-0.97c-0.25-0.41-0.78-0.54-1.2-0.3c-0.12,0.07-0.22,0.17-0.3,0.3c-0.2,0.28-0.34,0.6-0.41,0.93
+                  C180.87,10.75,180.79,11.6,180.7,12.41z"/>
+                <path class="blackfill" d="M145.35,12.42c-0.04,0.4-0.11,0.8-0.19,1.19c-0.52,1.97-2.54,3.15-4.51,2.63c-1.33-0.35-2.35-1.41-2.66-2.75
+                  c-0.2-0.78-0.2-1.61,0-2.39c0.49-1.97,2.48-3.18,4.46-2.69c1.36,0.34,2.41,1.42,2.71,2.79C145.26,11.64,145.29,12.02,145.35,12.42z
+                   M143.04,12.42L143.04,12.42c0-0.44,0-0.88-0.07-1.31c-0.01-0.68-0.19-1.35-0.51-1.95c-0.23-0.45-0.78-0.62-1.22-0.39
+                  c-0.17,0.09-0.3,0.22-0.39,0.39c-0.18,0.29-0.31,0.61-0.38,0.94c-0.29,1.41-0.31,2.85-0.07,4.27c0.07,0.5,0.24,0.98,0.49,1.42
+                  c0.22,0.42,0.74,0.59,1.16,0.37c0.16-0.08,0.29-0.21,0.37-0.37c0.18-0.25,0.3-0.54,0.36-0.85c0.08-0.87,0.17-1.71,0.27-2.53V12.42z
+                  "/>
+                <path class="blackfill" d="M160.56,12.09h-4.56c-0.08,1.02,0.26,2.02,0.94,2.78c0.82,0.77,2.1,0.73,2.87-0.09
+                  c0.13-0.13,0.23-0.29,0.32-0.45c0.12-0.21,0.25-0.42,0.39-0.61c0.01,0.06,0.01,0.11,0,0.17c-0.26,1.67-1.83,2.81-3.5,2.56
+                  c-1.74-0.17-3.1-1.57-3.23-3.31c-0.17-1.06,0.04-2.15,0.57-3.08c0.73-1.25,2.15-1.93,3.58-1.7c1.28,0.24,2.26,1.29,2.39,2.59
+                  C160.5,11.33,160.51,11.67,160.56,12.09z M158.43,11.71c0.04-0.81-0.06-1.61-0.29-2.39c-0.08-0.34-0.37-0.6-0.72-0.66
+                  c-0.36-0.03-0.69,0.17-0.84,0.5c-0.39,0.79-0.59,1.67-0.56,2.56L158.43,11.71z"/>
+                <path class="blackfill" d="M162.09,17.34c-0.12,0.19-0.22,0.38-0.3,0.59c-0.09,0.31,0.02,0.64,0.29,0.82c0.3,0.17,0.67,0.13,0.93-0.1
+                  c0.19-0.18,0.33-0.39,0.44-0.62c0.22-0.45,0.39-0.93,0.57-1.41c0.04-0.11,0.04-0.23,0-0.33c-0.97-2.22-1.92-4.46-2.9-6.68
+                  c-0.23-0.41-0.49-0.81-0.76-1.19h3.46c-0.68,0.49-0.44,1.08-0.22,1.65l1.3,3.31l0.19,0.43c0.49-1.42,0.99-2.75,1.4-4.1
+                  c0.18-0.6,0-0.9-0.63-1.35h2.07l0,0c-0.52,0.51-0.9,1.15-1.11,1.85c-0.92,2.48-1.84,4.96-2.78,7.43c-0.2,0.53-0.46,1.04-0.78,1.51
+                  c-0.46,0.64-1.3,0.87-2.02,0.54c-0.6-0.26-0.91-0.93-0.73-1.55c0.14-0.58,0.69-0.97,1.28-0.91L162.09,17.34z"/>
+                <path class="blackfill" d="M186.64,8.63h-0.79v-0.1c0.33-0.14,0.65-0.29,0.96-0.47c0.33-0.2,0.63-0.45,0.88-0.74
+                  c0.25-0.28,0.46-0.59,0.62-0.93c0.16-0.33,0.3-0.68,0.42-1.03h0.07V8.2h2.04c0,0.32,0,0.47-0.37,0.44c-0.54,0-1.08,0-1.62,0
+                  c0,0.13,0,0.24,0,0.35c0,1.64,0,3.26,0,4.9c0,0.26,0.02,0.51,0.07,0.76c0.04,0.32,0.27,0.59,0.59,0.67
+                  c0.33,0.1,0.69-0.03,0.88-0.32c0.19-0.31,0.34-0.64,0.45-0.98c0.06-0.16,0.1-0.33,0.13-0.5c0,0.12,0.11,0.17,0.1,0.2
+                  c-0.03,0.63-0.21,1.25-0.51,1.8c-0.42,0.74-1.27,1.12-2.1,0.96c-0.83-0.05-1.52-0.66-1.67-1.47c-0.08-0.34-0.12-0.7-0.12-1.05
+                  c0-1.64,0-3.26,0-4.9L186.64,8.63z"/>
+                <path class="blackfill" d="M172.28,19.96c0.07-0.07,0.16-0.2,0.2-0.2c0.23,0,0.57-0.2,0.63,0.16c0.25-0.12,0.51-0.2,0.79-0.23
+                  c0.28,0.08,0.54,0.2,0.78,0.36c0.2-0.36,0.66-0.5,1.03-0.31c0.33,0.09,0.56,0.41,0.53,0.75v1.35c0,0.44,0,0.44,0.43,0.49
+                  c0.1,0.33,0,0.38-0.74,0.26c0-0.65,0-1.3,0-1.95c-0.01-0.19-0.09-0.36-0.23-0.49c-0.26-0.22-0.65-0.2-0.88,0.06
+                  c-0.1,0.11-0.15,0.26-0.15,0.41c-0.03,0.48-0.03,0.96,0,1.45c0,0.11,0.19,0.2,0.32,0.29c0.08,0.3,0.07,0.31-0.65,0.24
+                  c-0.01-0.11-0.01-0.22,0-0.32v-1.59c0.05-0.33-0.19-0.64-0.52-0.69c-0.02,0-0.04,0-0.07-0.01c-0.34,0.01-0.61,0.27-0.63,0.61
+                  c0,0.49,0,0.99,0,1.48c0.02,0.1,0.1,0.18,0.19,0.2c0.23,0,0.24,0.13,0.18,0.33c-0.32,0-0.66,0-0.99,0c-0.07,0-0.13-0.14-0.18-0.26
+                  c0.44,0,0.48-0.2,0.47-0.51c-0.01-0.31,0-0.86,0-1.29s0-0.56-0.44-0.48L172.28,19.96z"/>
+                <path class="blackfill" d="M176.85,23.68c0.56-0.14,0.56,0,0.56-0.65v-2.47c0-0.48,0-0.48-0.47-0.5c-0.1-0.33,0.07-0.39,0.78-0.26v0.48
+                  c0.29-0.48,0.86-0.71,1.4-0.57c0.33,0.09,0.63,0.27,0.86,0.51c0.51,0.66,0.43,1.6-0.18,2.16c-0.62,0.51-1.54,0.42-2.05-0.2
+                  c-0.01-0.02-0.03-0.03-0.04-0.05c0,0.47,0,0.88,0,1.3c0,0,0.14,0.13,0.24,0.14c0.1,0.01,0.32,0,0.48,0c0.16,0,0.11,0.1,0.16,0.16
+                  c0.05,0.06-0.1,0.14-0.16,0.14c-0.48,0-0.94,0-1.42,0C176.95,23.89,176.85,23.75,176.85,23.68z M177.74,21.18
+                  c-0.04,0.62,0.43,1.15,1.05,1.19c0.03,0,0.06,0,0.09,0c0.63-0.04,1.12-0.56,1.12-1.19c0.06-0.62-0.39-1.18-1.01-1.25
+                  c-0.62-0.06-1.18,0.39-1.25,1.01C177.73,21.03,177.73,21.1,177.74,21.18z"/>
+                <path class="blackfill" d="M184.12,22.23c0.12,0.07,0.08,0.18-0.06,0.31c-0.39,0.35-0.85,0.19-1.1-0.41c-0.34,0.37-0.82,0.57-1.33,0.56
+                  c-0.39,0.04-0.75-0.22-0.84-0.6c-0.1-0.38,0.13-0.77,0.51-0.87c0.02,0,0.03-0.01,0.05-0.01c0.44-0.14,0.89-0.25,1.35-0.33
+                  c0.26,0,0.31-0.18,0.25-0.41c-0.04-0.25-0.24-0.45-0.49-0.49c-0.34-0.02-0.68-0.02-1.02,0c0.06,0.18,0.14,0.31,0.11,0.37
+                  s-0.2,0.26-0.29,0.26c-0.15-0.03-0.27-0.13-0.33-0.26c-0.07-0.23,0.1-0.41,0.3-0.5c0.44-0.23,0.96-0.29,1.45-0.16
+                  c0.4,0.12,0.66,0.49,0.65,0.91c0,0.41,0,0.82,0,1.19c0,0.18,0.08,0.36,0.2,0.49C183.64,22.41,183.87,22.29,184.12,22.23z
+                   M182.92,21.11c-0.5,0.13-0.99,0.23-1.47,0.39c-0.16,0.09-0.27,0.25-0.31,0.43c0.01,0.16,0.1,0.31,0.24,0.39
+                  c0.42,0.14,0.87,0.04,1.19-0.26c0.35-0.18,0.5-0.59,0.37-0.96H182.92z"/>
+                <path class="blackfill" d="M188.15,22.34v0.25c-0.03,0.01-0.06,0.01-0.08,0h-1.19c-0.23,0-0.25-0.1-0.2-0.27l0,0c0.55,0,0.55,0,0.55-0.61
+                  c0.02-0.37,0.02-0.73,0-1.1c0-0.35-0.29-0.63-0.64-0.63c-0.04,0-0.07,0-0.1,0.01c-0.56,0.01-1.02,0.46-1.02,1.03v0.7
+                  c0,0.56,0,0.56,0.56,0.61c0.01,0.05,0.01,0.1,0,0.14c0,0.05,0,0.1,0,0.14h-1.51v-0.25c0,0,0,0,0.08,0c0.54,0,0.54,0,0.54-0.57V20.6
+                  c0-0.49,0-0.49-0.47-0.51h-0.12c0-0.32,0.16-0.38,0.9-0.26v0.35c0.22-0.16,0.46-0.3,0.72-0.41c0.5-0.22,1.09,0.01,1.3,0.51
+                  c0.06,0.14,0.09,0.29,0.08,0.44c0,0.32,0,0.65,0,0.97C187.6,22.26,187.6,22.26,188.15,22.34z"/>
+                <path class="blackfill" d="M145.79,3.86c0.01,0.43,0.26,0.83,0.65,1.03c0.59,0.26,1.28,0.14,1.74-0.31l0.18,0.2
+                  c-0.55,0.57-1.41,0.71-2.11,0.36c-0.73-0.43-0.98-1.38-0.55-2.11c0.32-0.54,0.92-0.83,1.54-0.75c0.75,0.13,1.27,0.82,1.19,1.58
+                  H145.79z M148.04,3.58c-0.01-0.55-0.46-1-1.01-0.99c-0.01,0-0.02,0-0.02,0c-0.6-0.06-1.14,0.39-1.19,0.99H148.04z"/>
+                <path class="blackfill" d="M170.48,19.66c0.84,0.01,1.52,0.71,1.51,1.55c-0.01,0.84-0.71,1.52-1.55,1.51c-0.83-0.01-1.5-0.69-1.51-1.52
+                  c-0.02-0.83,0.64-1.52,1.47-1.54C170.43,19.66,170.46,19.66,170.48,19.66z M170.48,22.39c0.66,0,1.19-0.53,1.19-1.19
+                  c0-0.66-0.53-1.19-1.19-1.19c-0.66,0-1.19,0.53-1.19,1.19C169.29,21.85,169.82,22.39,170.48,22.39c0.01,0,0.02,0,0.02,0H170.48z"/>
+                <path class="blackfill" d="M168.27,21.95l0.17,0.2c0,0,0,0.06,0,0.07c-0.51,0.49-1.26,0.64-1.92,0.38c-0.66-0.22-1.07-0.87-0.99-1.57
+                  c0.08-0.72,0.66-1.29,1.39-1.35c0.37-0.02,0.74,0.04,1.09,0.19c0.22,0.15,0.38,0.37,0.45,0.62c0,0.11-0.12,0.35-0.24,0.44
+                  c-0.12,0.1-0.35,0-0.38-0.14s0-0.3,0.08-0.55c-0.42-0.36-1.03-0.39-1.48-0.06c-0.56,0.35-0.72,1.09-0.37,1.65
+                  c0.01,0.01,0.02,0.02,0.02,0.04c0.53,0.62,1.47,0.69,2.09,0.16C168.21,22.01,168.24,21.98,168.27,21.95z"/>
+                <path class="blackfill" d="M140.82,2.39c0,0.24,0,0.33-0.2,0.32c-0.86,0-0.7,0.08-0.72,0.75c-0.02,0.25-0.02,0.51,0,0.76
+                  c0.01,0.4,0.31,0.72,0.7,0.78c0.23,0,0.23,0,0.18,0.31c-0.57,0.09-1.1-0.3-1.19-0.86c-0.05-0.4-0.08-0.8-0.07-1.19
+                  c0-0.55,0-0.55-0.55-0.55c-0.19,0-0.36,0-0.26-0.31h0.8V1.19h0.36v1.19H140.82z"/>
+                <path class="blackfill" d="M125.34,0v0.45h-2.33v21.66h2.33v0.45h-2.78V0H125.34z"/>
+                <path class="blackfill" d="M194.49,22.57v-0.45h2.39V0.45h-2.39V0h2.78v22.57H194.49z"/>
+              </g>
+              </svg>
+
+            </div>
+
+            <span class="project-id">Interior Design, Collaborator</span>
+            <!-- <span class="project-id">ID: 92913054642</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Rendered a 1-to-1 model of LN Huis with full-scale measurements of each floor. Worked w/ Sy Gray, Cofounder of the Honey Pot Co.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2022
+            </span>
+
+            <span class="project-body-cta">
+              VIEW PROJECT
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+
+            </span>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+        <li class="guerin-project core-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <rect x="57.35" class="blackfill" width="5.73" height="63.08"/>
+                <polygon class="blackfill" points="51.61,0 51.61,28.67 45.88,28.67 45.88,5.73 5.73,5.73 5.73,57.34 45.88,57.34 45.88,34.41 
+                  51.61,34.41 51.61,63.08 0,63.08 0,0   "/>
+                <rect x="11.47" y="28.67" class="blackfill" width="34.41" height="5.74"/>
+              </g>
+              </svg>
+
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 18px;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81.8px"
+                 height="33.6px" viewBox="0 0 81.8 33.6" style="overflow:visible;enable-background:new 0 0 81.8 33.6;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="blackfill" d="M19.34,17.13L19,17.54c-2.05,2.48-5.07,3.9-8.28,3.9C4.81,21.44,0,16.63,0,10.72C0,4.81,4.81,0,10.72,0
+                    c2.96,0,5.82,1.24,7.84,3.41l0.37,0.39l-1.8,1.68l-0.37-0.39C15.21,3.42,13,2.46,10.72,2.46c-4.55,0-8.26,3.71-8.26,8.26
+                    c0,4.56,3.71,8.26,8.26,8.26c2.48,0,4.8-1.09,6.38-3l0.34-0.42L19.34,17.13z"/>
+                  <g>
+                    <g>
+                      <path class="blackfill" d="M32.36,0c-5.91,0-10.72,4.81-10.72,10.72c0,5.91,4.81,10.72,10.72,10.72c5.92,0,10.73-4.81,10.73-10.72
+                        C43.09,4.81,38.28,0,32.36,0z M32.36,18.98c-4.55,0-8.26-3.7-8.26-8.26c0-4.55,3.71-8.26,8.26-8.26c4.56,0,8.27,3.71,8.27,8.26
+                        C40.63,15.28,36.92,18.98,32.36,18.98z"/>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="25.73" y="25.07" class="blackfill" width="13.37" height="2.46"/>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="28.29" y="31.14" class="blackfill" width="8.25" height="2.46"/>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="blackfill" d="M57.62,13.1c2.56-0.7,4.41-3.04,4.41-5.77c0-3.3-2.68-5.98-5.98-5.98h-8.76v19.5h2.46v-7.54h5.02l5.22,7.54
+                        h3L57.62,13.1z M49.75,10.85V3.81h6.3c1.94,0,3.52,1.58,3.52,3.52s-1.58,3.52-3.52,3.52H49.75z"/>
+                    </g>
+                  </g>
+                  <g>
+                    <polygon class="blackfill" points="69.26,4.01 69.26,9.79 81.8,9.79 81.8,12.25 69.26,12.25 69.26,18.1 81.8,18.1 81.8,20.56 
+                      66.79,20.56 66.79,1.55 81.8,1.55 81.8,4.01      "/>
+                  </g>
+                </g>
+              </g>
+              </svg>
+
+            </div>
+
+            <span class="project-id">Branding, Illustration</span>
+            <!-- <span class="project-id">ID: 04487739241</span> -->
+
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Developed logos for each Core Initiative - unifying all programs under a single brand identity. Collaboration w/ Core Board.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2021
+            </span>
+
+
+
+
+            <a href="https://drive.google.com/drive/folders/1cxHy79duxQ4gEN_giprwd6JC6FkZgJXU" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+        <li class="guerin-project projectx-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <polygon class="blackfill" points="28.67,0 28.67,28.67 0,28.67 0,0 5.73,0 5.73,22.94 22.93,22.94 22.93,0    "/>
+                  <polygon class="blackfill" points="51.61,5.74 51.61,22.94 63.07,22.94 63.07,28.67 34.4,28.67 34.4,22.94 45.87,22.94 45.87,5.74 34.4,5.74 34.4,0 
+                    63.07,0 63.07,5.74    "/>
+                  <polygon class="blackfill" points="28.67,34.41 28.67,63.08 0,63.08 0,34.41 5.73,34.41 5.73,57.34 22.93,57.34 22.93,34.41    "/>
+                  <rect class="blackfill" x="34.4" y="34.41" width="5.74" height="5.73"/>
+                  <rect class="blackfill" x="57.34" y="34.41" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="40.14" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="45.87" y="45.87" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="40.14" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="34.4" y="57.34" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="57.34" y="57.34" width="5.74" height="5.74"/>
+                </g>
+              </g>
+              </svg>
+            </div>
+
+            <div class="guerin-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="150.35px" height="18.19px" viewBox="0 0 150.35 18.19" style="overflow:visible;enable-background:new 0 0 150.35 18.19;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <path class="blackfill" d="M0,0h14.31v10.39H2.61v7.8H0V0z M11.71,7.8V2.61h-9.1V7.8H11.71z"/>
+                <path class="blackfill" d="M33.02,16.9l0.9,1.29h-3.16l-0.74-1.04l-0.18-0.25l-0.9-1.32l-0.21-0.28l-0.72-1.02l-0.58-0.85L27.11,13
+                  l-0.9-1.29l-0.09-0.12l-0.83-1.2h-4.36v7.8h-2.59V2.61h-1.62V0h14.59v10.39h-2.84l0.25,0.37l0.65,0.95l0.65,0.92L30.27,13
+                  l0.92,1.29l0.12,0.18l0.79,1.11l0.53,0.76L33.02,16.9z M20.92,2.61V7.8h7.8V2.61H20.92z"/>
+                <path class="blackfill" d="M35.95,15.58V2.61h2.61v12.97H35.95z M38.56,2.61V0h9.1v2.61H38.56z M38.56,18.19v-2.61h9.1v2.61H38.56z
+                   M47.66,15.58V2.61h2.61v12.97H47.66z"/>
+                <path class="blackfill" d="M67.61,0v18.19H53.3v-7.8h2.61v5.2H65V0H67.61z"/>
+                <path class="blackfill" d="M84.95,0v2.61h-11.7V7.8h11.7v2.58h-11.7v5.2h11.7v2.61H70.64V0H84.95z"/>
+                <path class="blackfill" d="M102.29,0v2.61h-11.7v12.97h11.7v2.61H87.98V0H102.29z"/>
+                <path class="blackfill" d="M120.93,0v2.61h-6.51v15.58h-2.59V2.61h-6.51V0H120.93z"/>
+                <path class="blackfill" d="M149.31,16.9l1.04,1.29H147l-0.53-0.67l-0.53-0.62l-0.79-0.97l-0.28-0.35l-1.02-1.25l-0.05-0.05L142.78,13
+                  l-0.21-0.25l-0.85-1.04l-0.46-0.55l-0.44,0.55l-0.85,1.04L139.75,13l-1.06,1.29l-0.02,0.05l-1.02,1.25l-0.28,0.35l-0.79,0.97
+                  l-0.53,0.62l-0.53,0.67h-3.37l1.06-1.29l0.25-0.3l0.81-1.02l0.49-0.58l0.58-0.72l0.72-0.88L136.4,13l0.97-1.18l0.09-0.12l1.06-1.32
+                  l0.14-0.16l0.92-1.13l-0.92-1.13l-0.14-0.16l-1.06-1.32l-0.09-0.12l-0.97-1.18l-0.35-0.42l-0.72-0.88l-0.58-0.71l-0.49-0.58
+                  l-0.81-1.02l-0.25-0.3L132.16,0h3.37l0.53,0.67l0.53,0.62l0.79,0.97l0.28,0.35l1.02,1.25l0.02,0.05l1.06,1.29l0.21,0.25l0.85,1.04
+                  l0.44,0.55l0.46-0.55l0.85-1.04l0.21-0.25l1.04-1.29l0.05-0.05l1.02-1.25l0.28-0.35l0.79-0.97l0.53-0.62L147,0h3.35l-1.04,1.29
+                  l-0.25,0.3l-0.81,1.02l-0.49,0.58l-0.58,0.71l-0.72,0.88l-0.35,0.42l-0.97,1.18l-0.09,0.12L144,7.8l-0.14,0.16l-0.92,1.13
+                  l0.92,1.13l0.14,0.16l1.06,1.32l0.09,0.12l0.97,1.18l0.35,0.42l0.72,0.88l0.58,0.72l0.49,0.58l0.81,1.02L149.31,16.9z"/>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Mobile UX + UI</span>
+            <!-- <span class="project-id">ID: 80033271904</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Passion project with the aim of being an all-in-one social media app. Designed the UI/UX with Adobe Illustrator and Figma. 
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2020
+            </span>
+
+            <span class="project-body-cta">
+              VIEW PROJECT
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+
+            </span>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+        <li class="guerin-project guerin-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <rect class="blackfill" y="45.87" width="5.73" height="17.2"/>
+                <polygon class="blackfill" points="0,40.14 0,0 51.6,0 51.6,17.21 11.47,17.21 11.47,11.47 45.87,11.47 45.87,5.74 5.73,5.74 5.73,34.41 51.6,34.41 
+                  51.6,40.14  "/>
+                <polygon class="blackfill" points="11.47,63.08 11.47,45.87 51.6,45.87 51.6,51.61 17.2,51.61 17.2,57.35 57.34,57.35 57.34,28.67 11.47,28.67 
+                  11.47,22.94 63.08,22.94 63.08,63.08   "/>
+                <rect class="blackfill" x="57.34" width="5.74" height="17.21"/>
+              </g>
+              </svg>
+
+            </div>
+
+            <div class="guerin-project-logo">
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="139.23px" height="18.17px" viewBox="0 0 139.23 18.17" xml:space="preserve">
+              <defs></defs><g><path class="blackfill" d="M14.29,0v2.61H2.61v12.96h9.08v-5.19H6.5V7.79h7.79v10.38H0V0H14.29z"/><path class="blackfill" d="M31.61,0v18.17H17.31V0h2.61v15.56H29V0H31.61z"/><path class="blackfill" d="M48.92,0v2.61H37.23v5.19h11.69v2.58H37.23v5.19h11.69v2.61H34.62V0H48.92z"/><path class="blackfill" d="M67.59,16.88l0.9,1.29h-3.16l-0.74-1.04l-0.18-0.25l-0.9-1.31l-0.21-0.28l-0.71-1.01l-0.58-0.85l-0.32-0.44
+                  l-0.9-1.29l-0.09-0.12l-0.83-1.2h-4.36v7.79h-2.58V2.61h-1.61V0h14.57v10.38h-2.84l0.25,0.37l0.65,0.95l0.65,0.92l0.25,0.37
+                  l0.92,1.29l0.12,0.18l0.78,1.11l0.53,0.76L67.59,16.88z M55.51,2.61v5.19h7.79V2.61H55.51z"/><path class="blackfill" d="M70.51,18.17V0h2.61v18.17H70.51z"/><path class="blackfill" d="M91.75,0v18.17h-2.61L78.77,4.33v13.83h-2.61V0h2.61l10.38,13.83V0H91.75z"/></g>
+              </svg>
+            </div>
+
+            <span class="project-id">UI/UX, Web Development, HTML</span>
+            <!-- <span class="project-id">ID: 05737129068</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Launched a unique sequence of NFTs linked to significant milestones in a person's life. Building [tokens]: ID, artifact, mood.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2021
+            </span>
+
+            <a href="https://www.chaseguerin.com/id" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+
+
+
+
+        <li class="guerin-project zoomuniversity-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" xml:space="preserve">
+                 <defs></defs><polygon class="blackfill" points="63.08,0 63.08,28.67 57.34,28.67 57.34,5.73 40.14,5.73 40.14,28.67 34.41,28.67 34.41,5.73 0,5.73 0,0 "/><polygon class="blackfill" points="28.67,34.4 28.67,45.87 22.94,45.87 22.94,40.14 5.73,40.14 5.73,57.34 22.94,57.34 22.94,51.61 28.67,51.61 
+                28.67,63.08 0,63.08 0,34.4 "/><rect class="blackfill" x="11.47" y="45.87" width="11.47" height="5.74"/><path class="blackfill" d="M34.41,34.4v28.67h5.73V51.61h22.94V34.4H34.41z M57.34,45.87h-17.2v-5.73h17.2V45.87z"/>
+              </svg>
+
+
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 16px;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="171.35px" height="48.57px" viewBox="0 0 171.35 48.57" style="overflow:visible;enable-background:new 0 0 171.35 48.57;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <g>
+                    <path class="blackfill" d="M63.01,16.29c-0.17,1.06-0.56,3.24-0.8,3.99H50.77l-0.26-0.37c2.78-4.19,5.57-8.53,8.25-12.69h-2.72
+                      c-2.2,0-2.61,0.26-2.96,0.76c-0.28,0.39-0.6,1.04-0.84,2.05l-0.73-0.02c0.06-1.66,0.22-3.17,0.26-4.3h0.56
+                      c0.32,0.52,0.56,0.54,1.23,0.54h8.79l0.17,0.32c-2.72,4.21-5.37,8.31-8.07,12.61c0.71,0.09,1.32,0.13,2.68,0.13
+                      c1.68,0,3.19-0.13,3.82-0.71c0.52-0.5,0.89-1.14,1.34-2.48L63.01,16.29z"/>
+                    <path class="blackfill" d="M78.9,13.12c0,4.66-3.35,7.49-7.4,7.49c-4.32,0-7.32-3.17-7.32-7.32c0-3.71,2.63-7.36,7.58-7.36
+                      C75.68,5.93,78.9,8.85,78.9,13.12z M67.48,12.88c0,3.69,1.64,6.82,4.4,6.82c2.05,0,3.71-2.01,3.71-5.98
+                      c0-4.3-1.75-6.89-4.23-6.89C69.19,6.84,67.48,9.15,67.48,12.88z"/>
+                    <path class="blackfill" d="M95.82,13.12c0,4.66-3.35,7.49-7.4,7.49c-4.32,0-7.32-3.17-7.32-7.32c0-3.71,2.63-7.36,7.58-7.36
+                      C92.61,5.93,95.82,8.85,95.82,13.12z M84.4,12.88c0,3.69,1.64,6.82,4.4,6.82c2.05,0,3.71-2.01,3.71-5.98
+                      c0-4.3-1.75-6.89-4.23-6.89C86.11,6.84,84.4,9.15,84.4,12.88z"/>
+                    <path class="blackfill" d="M108.53,20.29v-0.76c1.62-0.17,1.75-0.32,1.73-2.31l-0.04-8.31h-0.11l-4.77,11.22h-0.6l-4.4-11.01h-0.09
+                      l-0.26,5.63c-0.09,1.79-0.09,2.81,0,3.48c0.09,0.97,0.52,1.17,1.94,1.3v0.76h-5.18v-0.76c1.21-0.11,1.62-0.5,1.75-1.25
+                      c0.13-0.69,0.3-1.81,0.45-4.08l0.35-4.25c0.17-2.46,0.02-2.76-1.83-2.94V6.26h4.47l4.17,9.45l4.23-9.45h4.34v0.76
+                      c-1.73,0.17-1.81,0.35-1.77,2.14l0.19,8.07c0.04,1.99,0.15,2.14,1.83,2.31v0.76H108.53z"/>
+                    <path class="blackfill" d="M64.98,28.95c-1.3,0.11-1.73,0.39-1.81,1.36c-0.06,0.56-0.13,1.51-0.13,3.48v1.99c0,2.48-0.37,4.3-1.58,5.59
+                      c-0.97,1.04-2.37,1.49-3.8,1.49c-1.23,0-2.44-0.3-3.35-1.01c-1.32-1.01-1.9-2.61-1.9-5.07v-5.55c0-2.03-0.17-2.09-1.79-2.27
+                      v-0.43h5.35v0.43c-1.62,0.09-1.79,0.26-1.79,2.27v5.03c0,3.15,1.1,5.57,4.08,5.57c3.35,0,4.06-3.04,4.06-6.32v-1.73
+                      c0-1.94-0.04-2.89-0.15-3.56c-0.11-0.86-0.47-1.12-1.99-1.25v-0.43h4.79V28.95z"/>
+                    <path class="blackfill" d="M80.6,28.95c-1.21,0.09-1.66,0.32-1.77,1.36c-0.04,0.67-0.09,1.62-0.09,3.58v8.85h-0.52l-9.32-11.48h-0.04
+                      v5.66c0,2.03,0.06,3.07,0.13,3.67c0.11,1.17,0.56,1.4,2.01,1.51v0.43h-4.84V42.1c1.25-0.09,1.75-0.35,1.86-1.49
+                      c0.06-0.63,0.13-1.66,0.13-3.69v-4.86c0-1.62-0.06-1.77-0.45-2.27c-0.45-0.56-0.8-0.76-1.88-0.84v-0.43h3.07l9.09,10.97h0.06
+                      v-5.59c0-1.96-0.06-2.91-0.13-3.54c-0.11-1.04-0.58-1.32-2.07-1.4v-0.43h4.77V28.95z"/>
+                    <path class="blackfill" d="M81.9,42.53V42.1c1.73-0.11,1.9-0.28,1.9-2.14v-8.87c0-1.86-0.17-2.01-1.9-2.14v-0.43h5.57v0.43
+                      c-1.75,0.13-1.92,0.28-1.92,2.14v8.87c0,1.86,0.17,2.03,1.92,2.14v0.43H81.9z"/>
+                    <path class="blackfill" d="M102.69,28.95c-1.45,0.17-1.71,0.39-2.5,2.31c-0.65,1.51-2.89,7.04-4.53,11.53h-0.5
+                      c-1.45-3.99-3.11-8.4-4.43-11.81c-0.67-1.73-0.95-1.9-2.22-2.03v-0.43h5.12v0.43c-1.47,0.17-1.58,0.35-1.25,1.3
+                      c0.54,1.55,2.12,5.76,3.63,9.63h0.04c0.95-2.35,2.61-6.63,3.45-9.28c0.41-1.25,0.28-1.4-1.45-1.64v-0.43h4.64V28.95z"/>
+                    <path class="blackfill" d="M114.38,39.25c-0.11,0.71-0.52,2.55-0.73,3.28h-10.12V42.1c1.92-0.15,2.09-0.32,2.09-2.14v-8.79
+                      c0-1.99-0.17-2.07-1.79-2.22v-0.43h9.35c0.02,0.63,0.11,2.05,0.17,2.98l-0.45,0.06c-0.19-0.89-0.43-1.38-0.71-1.79
+                      c-0.35-0.52-0.93-0.67-2.57-0.67h-1.55c-0.63,0-0.69,0.09-0.69,0.69v5.16h2.09c1.96,0,2.07-0.24,2.33-1.64h0.43v4.01h-0.43
+                      c-0.26-1.49-0.41-1.68-2.31-1.68h-2.12v4.27c0,0.99,0.13,1.45,0.52,1.73c0.41,0.3,1.14,0.3,2.2,0.3c1.83,0,2.35-0.22,2.81-0.78
+                      c0.39-0.48,0.76-1.23,1.04-2.01L114.38,39.25z"/>
+                    <path class="blackfill" d="M128.07,42.7c-0.22,0-0.45,0-0.65-0.02c-1.75-0.11-2.61-0.6-3.54-1.94c-0.78-1.1-1.55-2.44-2.2-3.52
+                      c-0.41-0.63-0.76-0.91-1.86-0.93h-0.63v3.67c0,1.83,0.19,2.03,1.88,2.14v0.43h-5.5V42.1c1.73-0.11,1.9-0.28,1.9-2.14v-8.94
+                      c0-1.83-0.17-1.92-1.81-2.07v-0.43h5.2c1.6,0,2.63,0.19,3.43,0.76c0.82,0.54,1.38,1.49,1.38,2.78c0,1.83-1.19,2.98-2.81,3.67
+                      c0.41,0.76,1.32,2.2,1.96,3.17c0.76,1.1,1.27,1.77,1.79,2.33c0.6,0.71,1.04,0.93,1.51,1.06L128.07,42.7z M120.19,35.75
+                      c1.08,0,1.79-0.15,2.35-0.6c0.82-0.65,1.19-1.53,1.19-2.76c0-2.35-1.47-3.3-3.11-3.3c-0.58,0-1.01,0.06-1.19,0.17
+                      c-0.15,0.13-0.24,0.35-0.24,0.99v5.5H120.19z"/>
+                    <path class="blackfill" d="M135.95,31.65c-0.39-1.4-1.06-2.87-2.89-2.87c-1.66,0-2.44,1.19-2.44,2.46c0,1.62,1.06,2.37,2.76,3.28
+                      c1.68,0.91,3.65,1.9,3.65,4.32c0,2.18-1.86,4.01-4.68,4.01c-0.89,0-1.55-0.17-2.05-0.32c-0.56-0.19-0.88-0.35-1.1-0.45
+                      c-0.15-0.39-0.47-2.46-0.56-3.28l0.45-0.13c0.32,1.36,1.36,3.56,3.63,3.56c1.66,0,2.61-1.08,2.61-2.7c0-1.6-1.19-2.37-2.76-3.26
+                      c-1.32-0.73-3.54-1.83-3.54-4.27c0-2.03,1.64-3.8,4.36-3.8c1.1,0,1.96,0.28,2.65,0.47c0.09,0.78,0.22,1.64,0.37,2.89
+                      L135.95,31.65z"/>
+                    <path class="blackfill" d="M138.21,42.53V42.1c1.73-0.11,1.9-0.28,1.9-2.14v-8.87c0-1.86-0.17-2.01-1.9-2.14v-0.43h5.57v0.43
+                      c-1.75,0.13-1.92,0.28-1.92,2.14v8.87c0,1.86,0.17,2.03,1.92,2.14v0.43H138.21z"/>
+                    <path class="blackfill" d="M156.56,31.76c-0.22-0.99-0.43-1.53-0.65-1.9c-0.35-0.56-0.73-0.76-2.48-0.76h-1.51V40
+                      c0,1.68,0.17,1.99,2.14,2.09v0.43h-5.94V42.1c1.88-0.11,2.05-0.39,2.05-2.09V29.1h-1.23c-1.99,0-2.44,0.22-2.74,0.76
+                      c-0.24,0.39-0.43,0.99-0.65,1.9h-0.47c0.11-1.25,0.22-2.63,0.26-3.78h0.32c0.3,0.5,0.6,0.54,1.19,0.54h8.55
+                      c0.56,0,0.76-0.13,1.08-0.54h0.35c0,0.95,0.09,2.5,0.22,3.71L156.56,31.76z"/>
+                    <path class="blackfill" d="M171.35,28.95c-1.49,0.17-1.66,0.41-2.4,1.53c-1.1,1.73-1.83,3.04-2.85,4.96c-0.32,0.63-0.37,0.89-0.37,1.45
+                      v3.04c0,1.86,0.17,2.03,2.07,2.16v0.43h-5.85V42.1c1.83-0.11,2.01-0.28,2.01-2.16v-3c0-0.43-0.06-0.65-0.43-1.3
+                      c-0.63-1.19-1.42-2.66-2.68-4.81c-0.89-1.58-1.06-1.79-2.33-1.88v-0.43h4.99v0.43c-1.49,0.19-1.47,0.43-1.1,1.12
+                      c0.95,1.86,2.05,3.78,2.98,5.42c0.78-1.42,2.03-3.76,2.66-5.09c0.5-1.1,0.37-1.27-1.25-1.45v-0.43h4.55V28.95z"/>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <polygon class="blackfill" points="9.72,10.31 9.72,10.35 9.72,10.35 9.72,10.31      "/>
+                    <polygon class="blackfill" points="10.03,11.75 10.03,11.75 10.03,11.75      "/>
+                    <path class="blackfill" d="M10.04,10.84c0,0-0.01,0.01-0.01,0.01l-0.01,0.01c0-0.01,0-0.01-0.01-0.02c0.01,0,0.01,0,0.02,0H10.04z"/>
+                    <path class="blackfill" d="M33.54,10.25c0-0.01,0-0.02,0-0.04v-0.17l0,0V10.25z"/>
+                    <path class="blackfill" d="M33.54,12.31c0-0.01,0-0.02,0-0.03v0.12h0V12.31z"/>
+                    <path class="blackfill" d="M33.55,11.28c0,0.01,0,0.02-0.01,0.04v-0.08C33.54,11.26,33.55,11.27,33.55,11.28z"/>
+                    <path class="blackfill" d="M25.12,40.47c-0.13,0.16-0.27,0.31-0.4,0.46c-0.73-0.3-1.49-0.49-2.27-0.58c-0.78-0.09-1.56-0.07-2.35,0.06
+                      c0.01-0.01,0.02-0.02,0.02-0.03c0.31-0.37,0.61-0.73,0.92-1.1c0.02-0.02,0.04-0.03,0.06-0.03c0.65,0,1.29,0,1.94,0
+                      c0.03,0,0.04-0.01,0.06-0.03c0.5-0.75,1-1.5,1.5-2.25c0.01-0.01,0.01-0.02,0.02-0.04h-1.47c0.01-0.01,0.02-0.02,0.02-0.03
+                      c0.3-0.34,0.6-0.69,0.88-1.05c0.53-0.69,1-1.42,1.36-2.21c0.01-0.02,0.01-0.04-0.01-0.05c-0.15-0.16-0.29-0.33-0.44-0.49
+                      c-0.04-0.04-0.07-0.08-0.11-0.12c-0.02,0.01-0.04,0.02-0.06,0.03c-0.28,0.15-0.56,0.28-0.86,0.38c-0.61,0.21-1.24,0.28-1.88,0.26
+                      c-0.43-0.01-0.86-0.07-1.29-0.16c-0.6-0.12-1.18-0.29-1.75-0.5c-0.11-0.04-0.22-0.08-0.32-0.12c-0.53,0.98-1.06,1.96-1.59,2.94
+                      c0.28,0.14,0.57,0.28,0.85,0.43c0.16-0.24,0.32-0.48,0.48-0.71c1.34,0.48,2.73,0.66,4.16,0.54c-0.01,0.01-0.01,0.01-0.01,0.02
+                      c-0.25,0.27-0.5,0.55-0.75,0.82c-0.02,0.02-0.03,0.02-0.05,0.02h-1.83c-0.02,0-0.04,0.01-0.05,0.03
+                      c-0.13,0.21-0.27,0.41-0.4,0.61c-0.36,0.55-0.73,1.1-1.09,1.65c0,0.01-0.01,0.01-0.01,0.02h1.33c-0.01,0.01-0.01,0.02-0.02,0.02
+                      c-0.23,0.28-0.46,0.56-0.68,0.84c-0.53,0.68-1,1.39-1.41,2.14c-0.13,0.24-0.24,0.48-0.36,0.72c-0.01,0.01-0.01,0.02,0,0.04
+                      c0.16,0.16,0.33,0.32,0.49,0.49c0.05-0.03,0.1-0.06,0.14-0.09c0.31-0.21,0.64-0.37,0.99-0.49c0.47-0.16,0.95-0.23,1.44-0.23
+                      c0.28,0,0.55,0.01,0.83,0.04c0.4,0.05,0.79,0.13,1.19,0.23c0.53,0.14,1.05,0.31,1.56,0.52c0.03,0.01,0.04,0.01,0.06-0.02
+                      c0.61-0.79,1.22-1.58,1.83-2.37c0.03-0.04,0.06-0.08,0.1-0.13C25.63,40.81,25.37,40.64,25.12,40.47z M22.16,35.39
+                      c-0.18,0.01-0.36,0.01-0.54,0.01c-0.34,0-0.68-0.03-1.03-0.07c-0.59-0.08-1.17-0.21-1.74-0.4c-0.12-0.04-0.24-0.09-0.37-0.13
+                      c0.19-0.34,0.37-0.68,0.56-1.02c0.13,0.04,0.26,0.08,0.38,0.12c0.49,0.15,0.99,0.28,1.5,0.37c0.36,0.06,0.72,0.1,1.08,0.12
+                      c0.4,0.01,0.79,0,1.18-0.06c0.42-0.06,0.83-0.17,1.22-0.32c0.01-0.01,0.03-0.01,0.05-0.02c-0.05,0.09-0.1,0.17-0.15,0.26
+                      c-0.2,0.33-0.41,0.64-0.63,0.95c-0.01,0.02-0.03,0.03-0.05,0.03c-0.26,0.04-0.52,0.09-0.78,0.13
+                      C22.61,35.37,22.38,35.38,22.16,35.39z M20.02,38.07c0.09-0.13,0.17-0.26,0.26-0.39c0.01-0.02,0.02-0.02,0.04-0.02
+                      c0.98,0,1.96,0,2.93,0h0.02c-0.01,0.01-0.01,0.02-0.01,0.03c-0.18,0.28-0.37,0.56-0.56,0.84c-0.01,0.02-0.02,0.02-0.04,0.02
+                      h-2.95C19.82,38.38,19.92,38.23,20.02,38.07z M24.28,41.87c-0.19,0.25-0.39,0.5-0.58,0.75c-0.02,0.02-0.03,0.02-0.05,0.01
+                      c-0.58-0.21-1.17-0.38-1.77-0.5c-0.4-0.08-0.79-0.13-1.2-0.15c-0.33-0.01-0.66,0-0.99,0.03c-0.44,0.05-0.87,0.15-1.28,0.32
+                      c-0.01,0-0.02,0.01-0.04,0.01c0.01-0.01,0.01-0.02,0.01-0.03c0.18-0.29,0.37-0.59,0.55-0.88c0.01-0.01,0.02-0.02,0.04-0.03
+                      c0.37-0.11,0.74-0.21,1.12-0.28c0.32-0.06,0.65-0.1,0.97-0.11c0.2-0.01,0.4-0.01,0.59-0.01c0.35,0.01,0.71,0.04,1.06,0.1
+                      c0.59,0.1,1.16,0.26,1.72,0.48c0.01,0,0.02,0.01,0.04,0.02C24.42,41.7,24.35,41.79,24.28,41.87z"/>
+                    <path class="blackfill" d="M20.65,23.41h-0.07v-0.03C20.61,23.39,20.63,23.4,20.65,23.41z"/>
+                    <path class="blackfill" d="M22.64,23.37c0,0.01-0.01,0.02-0.01,0.04h-0.06C22.59,23.4,22.62,23.38,22.64,23.37z"/>
+                    <g>
+                      <g>
+                        <path class="blackfill" d="M10.03,10.84L10.03,10.84l-0.02,0C10.01,10.85,10.02,10.84,10.03,10.84z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M34.5,17.35c-0.29-0.07-0.58-0.12-0.87-0.17c-0.07-0.01-0.09-0.04-0.09-0.1c0-0.01,0-0.02,0-0.02v-0.09
+                          l0,0V12.4h0v-0.09c0-0.01,0-0.02,0-0.03c0.01-0.06,0.04-0.09,0.11-0.1c0.31-0.05,0.63-0.1,0.94-0.17
+                          c0.25-0.05,0.45-0.18,0.47-0.47c0.01-0.1,0.01-0.2,0.02-0.31c0.01-0.35-0.28-0.6-0.58-0.67c-0.27-0.06-0.54-0.12-0.81-0.16
+                          c-0.12-0.02-0.14-0.06-0.15-0.15c0-0.01,0-0.02,0-0.04v-0.17l0,0V6.62h-0.62c-0.02,0-0.03,0-0.05,0c-0.01,0-0.03,0-0.04,0
+                          c-0.12,0-0.2-0.04-0.28-0.12c-0.19-0.19-0.39-0.37-0.59-0.56c-0.16-0.16-0.33-0.23-0.57-0.23c-2.1,0.01-4.21,0.01-6.31,0.01
+                          c-0.49,0-0.98,0.01-1.47,0.08c-0.55,0.08-1.03,0.3-1.46,0.65c-0.11,0.09-0.21,0.21-0.32,0.31c-0.14,0.12-0.28,0.11-0.43,0
+                          c-0.2-0.15-0.4-0.31-0.62-0.45c-0.54-0.34-1.12-0.59-1.78-0.59c-2.37,0-4.74,0-7.11,0c-0.06,0-0.13,0.03-0.18,0.07
+                          c-0.21,0.2-0.41,0.41-0.6,0.62c-0.13,0.15-0.27,0.21-0.47,0.2c-0.31-0.02-0.62,0-0.94,0h0v3.69c0,0,0,0,0,0v0.04h0
+                          c-0.03,0.01-0.05,0.02-0.07,0.03c-0.28,0.06-0.56,0.13-0.84,0.18c-0.53,0.1-0.69,0.45-0.66,0.87c0.02,0.29,0.13,0.5,0.43,0.57
+                          c0.17,0.04,0.33,0.07,0.5,0.1c0.21,0.04,0.42,0.08,0.63,0.11v4.62c0,0,0,0,0,0v0.23c0,0.01,0,0.02,0,0.03
+                          c-0.01,0.06-0.05,0.08-0.1,0.09c-0.27,0.06-0.53,0.12-0.8,0.17c-0.52,0.09-0.69,0.45-0.66,0.85c0.03,0.39,0.13,0.52,0.52,0.61
+                          c0.29,0.07,0.59,0.12,0.88,0.16c0.11,0.01,0.15,0.05,0.16,0.13c0,0.01,0,0.03,0,0.05c0,0,0,0,0,0v4.26h10.18
+                          c0.3,0,0.45,0.12,0.49,0.41c0.06,0.4,0.19,0.44,0.52,0.53c0.45,0.12,0.92,0.11,1.38,0.06c0.08-0.01,0.16-0.05,0.22-0.1
+                          c0.14-0.1,0.22-0.25,0.25-0.42c0.05-0.26,0.18-0.44,0.45-0.48c0.06-0.01,0.12-0.01,0.18-0.01h10.15v-4.19h0v-0.08
+                          c0-0.01,0-0.03,0-0.04c0-0.09,0.03-0.12,0.14-0.14c0.31-0.04,0.61-0.1,0.91-0.16c0.26-0.05,0.45-0.19,0.47-0.48
+                          c0.01-0.1,0.01-0.2,0.01-0.29C35.09,17.67,34.79,17.42,34.5,17.35z M10.04,17.63c-0.11,0.12-0.2,0.23-0.3,0.34
+                          C9.73,17.98,9.72,17.99,9.72,18c-0.03,0.04-0.04,0.08-0.03,0.12c0,0.01,0.01,0.01,0.01,0.02c0,0.02,0.01,0.03,0.02,0.05
+                          c0.01,0.01,0.02,0.03,0.04,0.04c0.09,0.09,0.18,0.18,0.27,0.27c0,0,0.01,0.01,0.01,0.01c-0.01,0-0.01,0-0.02,0
+                          c-0.1-0.01-0.2-0.02-0.3-0.03c-0.2-0.02-0.39-0.04-0.58-0.06c-0.15-0.02-0.29-0.06-0.43-0.1c-0.12-0.03-0.16-0.13-0.16-0.25
+                          c0-0.12,0.05-0.22,0.17-0.25c0.26-0.06,0.52-0.13,0.78-0.17c0.07-0.01,0.15-0.02,0.23-0.02C9.82,17.64,9.92,17.64,10.04,17.63
+                          L10.04,17.63L10.04,17.63z M10.03,10.85l-0.01,0.01c0,0,0,0,0,0c-0.1,0.11-0.18,0.21-0.27,0.3c-0.01,0.01-0.02,0.02-0.03,0.04
+                          c-0.05,0.07-0.05,0.14,0,0.2c0.01,0.02,0.03,0.04,0.05,0.05c0.09,0.09,0.19,0.17,0.26,0.28c0,0,0,0,0,0c0,0,0,0,0,0
+                          c-0.1-0.02-0.21-0.03-0.31-0.05c-0.32-0.05-0.64-0.09-0.97-0.15c-0.13-0.02-0.21-0.11-0.21-0.26c0-0.13,0.05-0.23,0.17-0.26
+                          c0.26-0.07,0.52-0.13,0.78-0.17c0.07-0.01,0.15-0.02,0.23-0.02c0.09-0.01,0.19-0.01,0.29-0.01c0.01,0,0.01,0,0.02,0h0.01
+                          C10.03,10.85,10.03,10.85,10.03,10.85z M22.31,6.8c0.42-0.34,0.93-0.55,1.58-0.65c0.03,0,0.06,0,0.09,0h7.29v15.21h-1.74
+                          c-1.44,0-2.92,0-4.38,0.01c-0.35,0-0.72,0.06-1.06,0.12c-0.28,0.05-0.56,0.12-0.83,0.19c-0.13,0.03-0.25,0.06-0.38,0.09
+                          c-0.02,0-0.04,0-0.05,0.01l-0.07,0.01l-0.03-0.19c-0.01-0.1-0.03-0.21-0.04-0.31c-0.02-0.22-0.12-0.41-0.27-0.59
+                          c-0.09-0.1-0.21-0.2-0.32-0.28c-0.06-0.05-0.13-0.1-0.19-0.16c-0.04-0.03-0.06-0.08-0.09-0.15c-0.01-0.03-0.01-0.07-0.01-0.1
+                          c0-0.01,0-0.02,0-0.03v-2.68c0-3.17,0-6.35,0-9.52C21.81,7.39,21.97,7.07,22.31,6.8z M21.67,20.53
+                          c0.41,0.2,0.66,0.54,0.74,0.99c0.02,0.14-0.07,0.37-0.22,0.57c-0.16,0.2-0.35,0.33-0.53,0.33c-0.01,0-0.03,0-0.05,0
+                          c-0.35,0-0.62-0.23-0.68-0.59c-0.01-0.09-0.02-0.17-0.03-0.26c0-0.04-0.01-0.08-0.01-0.12c0.01-0.27,0.06-0.5,0.17-0.7
+                          C21.2,20.5,21.44,20.41,21.67,20.53z M12.13,6.15h1.95c1.58,0,3.17,0,4.75,0h0.01c0.47,0,0.95,0.1,1.44,0.32
+                          c0.34,0.15,0.6,0.31,0.82,0.5c0.23,0.21,0.35,0.46,0.35,0.76V19.9c0,0.11,0,0.2-0.16,0.28c-0.42,0.23-0.63,0.51-0.66,0.89
+                          c-0.01,0.15-0.03,0.31-0.05,0.45c-0.01,0.07-0.02,0.13-0.02,0.2l-0.01,0.06l-0.06-0.01c-0.1-0.02-0.2-0.05-0.3-0.08
+                          c-0.22-0.06-0.46-0.12-0.69-0.16l-0.07-0.01c-0.39-0.07-0.79-0.14-1.18-0.14c-1.45-0.01-2.92-0.01-4.34-0.01h-1.78V6.15z
+                           M10.78,22.22l-0.02-0.16c0-0.03-0.01-0.06-0.01-0.08v-0.49c0-4.6,0-9.2,0-13.8c0-0.1,0.06-0.2,0.12-0.26
+                          c0.19-0.19,0.38-0.37,0.57-0.55l0.3-0.28v14.45c0,0.13-0.03,0.21-0.11,0.29c-0.18,0.19-0.37,0.38-0.56,0.57L10.78,22.22z
+                           M11.1,22.59l0.09-0.12c0.02-0.02,0.03-0.04,0.05-0.06l0.12-0.13c0.15-0.15,0.3-0.31,0.45-0.46c0.05-0.05,0.13-0.09,0.2-0.09
+                          c0.48,0,0.97,0,1.45,0c1.63,0,3.32-0.01,4.97,0.01c0.6,0.01,1.38,0.07,2.05,0.49c0.08,0.05,0.16,0.11,0.24,0.16l0.15,0.1
+                          l-0.04,0.1H11.1z M22.63,23.41c-0.05,0.18-0.07,0.34-0.13,0.49c-0.07,0.21-0.28,0.23-0.45,0.26c-0.35,0.05-0.7,0.05-1.04-0.06
+                          c-0.33-0.11-0.42-0.23-0.42-0.59v-0.13c0.02,0.01,0.05,0.02,0.07,0.03c0.04,0.02,0.07,0.04,0.11,0.05
+                          c0.05,0.02,0.1,0.04,0.15,0.06c0.04,0.01,0.07,0.02,0.1,0.04c0.04,0.01,0.08,0.02,0.11,0.03c0.01,0,0.01,0,0.02,0
+                          c0.04,0.01,0.07,0.02,0.11,0.02c0,0,0.01,0,0.01,0c0.06,0.01,0.11,0.02,0.16,0.02c0.01,0,0.03,0,0.04,0
+                          c0.05,0,0.1,0.01,0.15,0.01c0.12,0,0.23-0.01,0.35-0.03c0.02,0,0.04-0.01,0.06-0.01c0.11-0.02,0.21-0.06,0.32-0.1
+                          c0.04-0.01,0.07-0.03,0.11-0.05c0.04-0.02,0.07-0.03,0.11-0.05c0.02-0.01,0.05-0.02,0.07-0.04
+                          C22.64,23.38,22.63,23.39,22.63,23.41z M22.18,22.59l0.15-0.12c0.18-0.14,0.37-0.29,0.61-0.34c0.47-0.11,0.94-0.22,1.41-0.32
+                          c0.24-0.05,0.46-0.07,0.66-0.07c1.76-0.01,3.63-0.01,6.04,0c0.09,0,0.19,0.03,0.24,0.09c0.18,0.16,0.34,0.32,0.53,0.49
+                          l0.29,0.28H22.18z M32.47,7.29c0,0.01,0,0.01,0,0.02v14.96l-0.09-0.08c-0.04-0.04-0.09-0.08-0.13-0.12
+                          c-0.08-0.08-0.16-0.16-0.25-0.22c-0.27-0.2-0.38-0.44-0.38-0.85c0.01-3.84,0.01-7.75,0.01-11.53v-3.1l0.26,0.24
+                          c0.18,0.16,0.34,0.32,0.5,0.47c0.04,0.03,0.05,0.08,0.06,0.12C32.48,7.24,32.48,7.27,32.47,7.29z M33.47,11.14
+                          c-0.09-0.09-0.18-0.18-0.3-0.29c0.07,0,0.13,0.01,0.2,0.01c0.06,0,0.12,0.01,0.18,0.01c0.05,0,0.11,0.01,0.16,0.01
+                          c0.28,0.01,0.56,0.05,0.82,0.17c0.12,0.05,0.18,0.13,0.17,0.26c0,0.12-0.06,0.22-0.18,0.25c-0.19,0.05-0.39,0.09-0.58,0.11
+                          c-0.13,0.02-0.26,0.03-0.39,0.04c-0.06,0-0.11,0.01-0.17,0.01c-0.06,0-0.11,0.01-0.17,0.01c0.09-0.1,0.18-0.21,0.28-0.32
+                          c0.01-0.01,0.02-0.02,0.03-0.03c0-0.01,0.01-0.01,0.01-0.01c0-0.01,0.01-0.01,0.01-0.02c0-0.01,0.01-0.02,0.01-0.02v-0.08
+                          C33.53,11.21,33.5,11.17,33.47,11.14z M34.5,18.34c-0.24,0.05-0.47,0.08-0.71,0.12c-0.09,0.01-0.17,0.02-0.25,0.03
+                          c-0.1,0.01-0.21,0.02-0.31,0.03c0.08-0.09,0.18-0.19,0.27-0.3c0.02-0.02,0.03-0.04,0.04-0.05c0.05-0.07,0.05-0.12,0-0.19
+                          c-0.01-0.02-0.04-0.04-0.06-0.07c-0.09-0.09-0.18-0.16-0.25-0.27c0.1,0,0.21,0.01,0.31,0.01c0.05,0,0.1,0.01,0.15,0.01
+                          c0.28,0.01,0.56,0.05,0.83,0.16c0.12,0.05,0.19,0.13,0.18,0.27C34.7,18.22,34.63,18.32,34.5,18.34z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M32.91,6.62h0.62C33.32,6.62,33.12,6.61,32.91,6.62z"/>
+                        <path class="blackfill" d="M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M10.04,17.63L10.04,17.63L10.04,17.63L10.04,17.63z
+                           M10.02,18.5c0,0,0,0.01,0,0.01c0.01,0,0.01,0,0.02,0C10.03,18.51,10.03,18.51,10.02,18.5z M10.03,10.84c-0.01,0-0.01,0-0.02,0
+                          c0,0.01,0.01,0.01,0.01,0.02l0.01-0.01c0,0,0-0.01,0.01-0.01H10.03z M10.03,11.75C10.03,11.75,10.03,11.75,10.03,11.75
+                          C10.03,11.75,10.03,11.75,10.03,11.75C10.03,11.75,10.03,11.75,10.03,11.75z M32.86,6.62L32.86,6.62c0.02,0,0.03,0,0.05,0
+                          H32.86z M32.91,6.62h0.62C33.32,6.62,33.12,6.61,32.91,6.62z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57
+                          c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57c-0.01-0.01-0.03-0.01-0.05-0.02
+                          C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08C21.74,20.62,21.7,20.6,21.65,20.57z M21.65,20.57
+                          c-0.01-0.01-0.03-0.01-0.05-0.02C21.62,20.56,21.63,20.57,21.65,20.57c0.05,0.02,0.1,0.05,0.14,0.08
+                          C21.74,20.62,21.7,20.6,21.65,20.57z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M33.54,11.24v0.08c0-0.01,0.01-0.03,0.01-0.04C33.55,11.27,33.54,11.26,33.54,11.24z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M22.07,21.49c0.02,0.15-0.2,0.49-0.42,0.5c-0.2,0.01-0.37-0.11-0.4-0.32c-0.01-0.07-0.02-0.15-0.02-0.22
+                          c0-0.14,0.03-0.27,0.1-0.4c0.07-0.13,0.19-0.19,0.32-0.12C21.88,21.04,22.03,21.23,22.07,21.49z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M20.65,23.41h-0.07v-0.03C20.61,23.39,20.63,23.4,20.65,23.41z"/>
+                        <path class="blackfill" d="M22.64,23.37c0,0.01-0.01,0.02-0.01,0.04h-0.06C22.59,23.4,22.62,23.38,22.64,23.37z"/>
+                      </g>
+                      <g>
+                        <g>
+                          <path class="blackfill" d="M16.19,11.38c-0.07,0.15-0.1,0.34-0.21,0.41c-0.11,0.07-0.29,0.02-0.45,0.02h-2.36
+                            c0.08-0.17,0.15-0.33,0.23-0.49c0.01-0.03,0.08-0.04,0.12-0.04c0.52,0,1.03,0,1.55,0h0.13c-0.07-0.1-0.16-0.2-0.21-0.31
+                            c-0.07-0.16,0-0.31,0.04-0.47c0.04-0.15,0.09-0.29,0.09-0.44c0.01-0.28-0.17-0.48-0.45-0.49c-0.2,0-0.39,0.02-0.59,0.04
+                            c-0.19,0.02-0.36,0-0.51-0.14c0.09-0.18,0.17-0.34,0.26-0.51c0.29,0.19,0.59,0.11,0.9,0.08c0.46-0.05,0.99,0.13,1.14,0.67
+                            c0.07,0.26,0.03,0.52-0.05,0.78c-0.04,0.11-0.07,0.23-0.1,0.34c-0.04,0.21,0.01,0.31,0.21,0.41
+                            C16.01,11.3,16.1,11.34,16.19,11.38z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M16.49,17.46c0,0.01,0,0.02,0,0.03c-0.15,0.37-0.15,0.37-0.54,0.37h-2.17c0.07-0.15,0.12-0.29,0.19-0.42
+                            c0.02-0.03,0.09-0.06,0.13-0.06c0.46,0,0.92,0,1.38,0h0.17c-0.28-0.18-0.28-0.4-0.22-0.65c0.04-0.12,0.07-0.25,0.1-0.37
+                            c0.05-0.27-0.13-0.5-0.4-0.51c-0.18,0-0.36,0.02-0.54,0.05c-0.17,0.02-0.33,0-0.46-0.14c0.04-0.08,0.07-0.15,0.11-0.22
+                            c0.04-0.07,0.08-0.15,0.12-0.23c0.27,0.19,0.55,0.1,0.84,0.08c0.48-0.04,1,0.19,1.04,0.78c0.01,0.15-0.04,0.31-0.06,0.46
+                            c-0.01,0.06-0.03,0.11-0.05,0.17c-0.13,0.36-0.08,0.49,0.32,0.64C16.46,17.44,16.47,17.45,16.49,17.46z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M20.71,11.06c-0.02,0.15,0.03,0.31,0.05,0.48c-0.27,0.12-0.55,0.25-0.83,0.38
+                            c-0.09-0.44-0.02-0.84,0.08-1.24c0.05-0.18,0.1-0.37,0.12-0.55c0.02-0.27-0.16-0.53-0.5-0.54c-0.22-0.01-0.43,0.02-0.65,0.04
+                            c-0.18,0.02-0.34,0-0.49-0.13c0.04-0.08,0.08-0.17,0.12-0.26c0.04-0.09,0.09-0.17,0.13-0.27c0.23,0.15,0.48,0.15,0.74,0.11
+                            c0.37-0.06,0.72-0.05,1.05,0.17c0.32,0.22,0.4,0.54,0.35,0.9C20.84,10.46,20.75,10.76,20.71,11.06z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M20.59,17.09c-0.02,0.12-0.01,0.26,0.03,0.38c0.03,0.11,0,0.14-0.09,0.18c-0.17,0.07-0.34,0.16-0.51,0.24
+                            c-0.05,0.02-0.09,0.04-0.14,0.05c-0.1-0.39-0.01-0.75,0.07-1.12c0.04-0.17,0.07-0.35,0.1-0.53c0.03-0.22-0.16-0.45-0.43-0.46
+                            c-0.19-0.01-0.39,0.01-0.58,0.04c-0.18,0.03-0.33-0.01-0.47-0.12c0.08-0.16,0.16-0.31,0.24-0.47c0.2,0.15,0.43,0.15,0.66,0.11
+                            c0.31-0.05,0.6-0.05,0.89,0.11c0.36,0.2,0.44,0.55,0.39,0.89C20.7,16.63,20.62,16.86,20.59,17.09z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M17.92,10.21c-0.05,0.26-0.17,0.44-0.44,0.51c-0.15,0.04-0.3,0.12-0.48,0.19
+                            c0.03-0.15,0.05-0.28,0.08-0.4c0.03-0.15,0.07-0.29,0.1-0.44C17.2,9.89,17.14,9.74,17,9.62c-0.07-0.05-0.14-0.12-0.23-0.19
+                            c0.18-0.16,0.34-0.32,0.53-0.5c0.19,0.18,0.4,0.35,0.56,0.56C18.03,9.71,17.96,9.97,17.92,10.21z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M18.06,16.39c0,0.03-0.02,0.06-0.03,0.09c-0.04,0.16-0.12,0.28-0.3,0.33c-0.17,0.05-0.32,0.13-0.51,0.21
+                            c0.04-0.19,0.08-0.35,0.11-0.52c0.02-0.11,0.05-0.22,0.06-0.32c0.01-0.18-0.12-0.28-0.24-0.38c-0.04-0.03-0.08-0.06-0.12-0.1
+                            c0.16-0.15,0.31-0.29,0.48-0.45c0.17,0.16,0.35,0.3,0.49,0.48C18.16,15.92,18.1,16.16,18.06,16.39z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M26.11,10.34c-0.13,0.16-0.31,0.28-0.46,0.42c-0.07,0.07-0.14,0.13-0.2,0.21
+                            c-0.12,0.16-0.12,0.34-0.04,0.54c-0.28,0.13-0.57,0.27-0.87,0.41c-0.13-0.28-0.11-0.55,0.06-0.78
+                            c0.15-0.2,0.33-0.37,0.52-0.53c0.23-0.21,0.43-0.42,0.4-0.75c-0.01-0.1-0.04-0.2-0.06-0.3h-1.38
+                            c0.27,0.42,0.13,0.83,0.03,1.25c-0.17,0.7-0.33,1.39-0.29,2.11c0,0.04,0,0.08,0,0.11c0.05,0.24,0.05,0.24-0.18,0.35
+                            c-0.18,0.09-0.37,0.18-0.56,0.27c-0.12-0.56-0.08-1.09,0.03-1.61c0.13-0.63,0.29-1.26,0.42-1.89
+                            c0.05-0.27,0.04-0.54-0.27-0.67c0.09-0.18,0.17-0.33,0.23-0.46c0.26,0.01,0.49,0.04,0.72,0.04c0.64,0,1.27,0,1.91,0
+                            c0.09,0,0.14,0.02,0.17,0.12C26.41,9.59,26.4,9.99,26.11,10.34z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M25.45,16.55c-0.14,0.15-0.31,0.28-0.46,0.42c-0.17,0.15-0.24,0.33-0.17,0.56
+                            c0.01,0.02-0.03,0.08-0.06,0.1c-0.23,0.11-0.46,0.22-0.69,0.32c-0.13-0.21-0.12-0.5,0.06-0.73c0.17-0.2,0.36-0.37,0.55-0.55
+                            c0.25-0.22,0.3-0.46,0.22-0.79c-0.01-0.03-0.06-0.07-0.09-0.07c-0.38-0.01-0.77,0-1.16,0c0.04,0.12,0.08,0.22,0.1,0.33
+                            c0.05,0.28-0.03,0.55-0.1,0.81c-0.15,0.61-0.29,1.22-0.27,1.85c0,0.08,0.01,0.17,0.03,0.24c0.03,0.09,0.01,0.12-0.07,0.16
+                            c-0.21,0.1-0.41,0.2-0.62,0.3c-0.11-0.46-0.09-0.92,0.01-1.38c0.12-0.6,0.26-1.19,0.39-1.78c0.06-0.27,0-0.42-0.24-0.64
+                            c0.07-0.14,0.15-0.28,0.21-0.4c0.2,0.02,0.38,0.04,0.56,0.05c0.61,0,1.21,0,1.82,0c0.09,0,0.14,0.02,0.17,0.12
+                            C25.75,15.87,25.74,16.24,25.45,16.55z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M29.81,10.21c-0.05,0.35-0.15,0.71-0.14,1.06c0.01,0.24-0.07,0.32-0.27,0.39
+                            c-0.18,0.07-0.36,0.16-0.57,0.26c-0.01-0.18-0.05-0.34-0.03-0.5c0.05-0.34,0.14-0.67,0.2-1.01c0.02-0.15,0.03-0.31,0.01-0.46
+                            c-0.02-0.16-0.13-0.29-0.3-0.33c-0.15-0.03-0.31-0.04-0.47-0.03c-0.09,0-0.15,0.06-0.18,0.17c-0.15,0.48-0.18,0.97-0.16,1.47
+                            c0.01,0.13-0.02,0.22-0.15,0.27c-0.08,0.03-0.15,0.08-0.22,0.12c-0.21,0.15-0.44,0.24-0.71,0.21c-0.14-0.02-0.29,0-0.46,0
+                            c0.08-0.16,0.15-0.31,0.23-0.45c0.02-0.03,0.07-0.05,0.11-0.05c0.13-0.01,0.27,0,0.41,0c0.01-0.58,0.15-1.12,0.37-1.65
+                            c-0.16-0.05-0.31-0.1-0.49-0.15c0.09-0.19,0.18-0.36,0.26-0.53c0.32,0.14,0.65,0.15,0.99,0.11c0.34-0.04,0.68-0.06,1.01,0.07
+                            C29.77,9.36,29.87,9.77,29.81,10.21z"/>
+                        </g>
+                        <g>
+                          <path class="blackfill" d="M28.71,17.27c-0.01,0.04-0.01,0.08,0,0.11c0.05,0.16,0,0.24-0.16,0.3c-0.19,0.07-0.37,0.17-0.59,0.27
+                            c-0.01-0.16-0.05-0.31-0.03-0.45c0.04-0.3,0.12-0.59,0.17-0.89c0.02-0.15,0.03-0.3,0.02-0.45c-0.02-0.21-0.21-0.31-0.39-0.33
+                            c-0.08-0.01-0.16-0.01-0.24,0c-0.12,0.01-0.2,0.06-0.24,0.2c-0.12,0.43-0.15,0.86-0.13,1.3c0,0.11-0.03,0.17-0.12,0.22
+                            c-0.15,0.07-0.3,0.17-0.45,0.24c-0.04,0.02-0.09,0.04-0.13,0.04c-0.22,0-0.45,0-0.69,0c0.07-0.17,0.14-0.32,0.21-0.47
+                            c0.01-0.02,0.06-0.03,0.09-0.04c0.12,0,0.24,0,0.38,0c-0.01-0.51,0.13-0.98,0.33-1.43c-0.15-0.05-0.29-0.1-0.44-0.15
+                            c0.08-0.17,0.16-0.32,0.24-0.48c0.23,0.11,0.48,0.15,0.74,0.13c0.13-0.01,0.26-0.02,0.39-0.04c0.34-0.05,0.66,0.01,0.94,0.22
+                            c0.23,0.18,0.3,0.43,0.26,0.7C28.83,16.63,28.76,16.95,28.71,17.27z"/>
+                        </g>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M9.72,19.14C9.72,19.14,9.72,19.14,9.72,19.14l0-0.05C9.72,19.1,9.72,19.12,9.72,19.14z"/>
+                        <path class="blackfill" d="M10.04,18.52c-0.01,0-0.01,0-0.02,0c0,0,0-0.01,0-0.01C10.03,18.51,10.03,18.51,10.04,18.52z"/>
+                        <path class="blackfill" d="M9.72,16.83v0.23c0,0.01,0,0.02,0,0.03L9.72,16.83C9.72,16.83,9.72,16.83,9.72,16.83z"/>
+                        <polygon class="blackfill" points="10.04,17.63 10.04,17.63 10.04,17.63          "/>
+                        <polygon class="blackfill" points="10.03,11.75 10.03,11.75 10.03,11.75          "/>
+                        <polygon class="blackfill" points="9.72,10.31 9.72,10.35 9.72,10.35 9.72,10.31          "/>
+                        <path class="blackfill" d="M10.04,10.84c0,0-0.01,0.01-0.01,0.01l-0.01,0.01c0-0.01,0-0.01-0.01-0.02c0.01,0,0.01,0,0.02,0H10.04z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M10.04,18.52c-0.01,0-0.01,0-0.02,0c0,0,0-0.01,0-0.01C10.03,18.51,10.03,18.51,10.04,18.52z"/>
+                        <polygon class="blackfill" points="10.04,17.63 10.04,17.63 10.04,17.63          "/>
+                      </g>
+                      <g>
+                        <polygon class="blackfill" points="10.03,11.75 10.03,11.75 10.03,11.75          "/>
+                        <path class="blackfill" d="M10.04,10.84c0,0-0.01,0.01-0.01,0.01l-0.01,0.01c0-0.01,0-0.01-0.01-0.02c0.01,0,0.01,0,0.02,0H10.04z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M20.65,23.41h-0.07v-0.03C20.61,23.39,20.63,23.4,20.65,23.41z"/>
+                        <path class="blackfill" d="M22.64,23.37c0,0.01-0.01,0.02-0.01,0.04h-0.06C22.59,23.4,22.62,23.38,22.64,23.37z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M32.91,6.62c-0.02,0-0.03,0-0.05,0v0H32.91z"/>
+                        <path class="blackfill" d="M33.54,10.04v0.21c0-0.01,0-0.02,0-0.04L33.54,10.04L33.54,10.04z"/>
+                        <path class="blackfill" d="M33.54,12.28v0.12h0v-0.09C33.54,12.3,33.54,12.29,33.54,12.28z"/>
+                        <path class="blackfill" d="M33.54,16.96v0.12c0-0.01,0-0.02,0-0.02L33.54,16.96L33.54,16.96z"/>
+                        <path class="blackfill" d="M33.54,19.1v0.12h0v-0.08C33.54,19.12,33.54,19.11,33.54,19.1z"/>
+                      </g>
+                      <g>
+                        <path class="blackfill" d="M22.07,21.49c0.02,0.15-0.2,0.49-0.42,0.5c-0.2,0.01-0.37-0.11-0.4-0.32c-0.01-0.07-0.02-0.15-0.02-0.22
+                          c0-0.14,0.03-0.27,0.1-0.4c0.07-0.13,0.19-0.19,0.32-0.12C21.88,21.04,22.03,21.23,22.07,21.49z"/>
+                      </g>
+                    </g>
+                  </g>
+                  <path class="blackfill" d="M43.14,0H0v0.28c0,4.6,0,9.19,0,13.78c0,1.39,0.02,2.78,0.17,4.17c0.13,1.23,0.32,2.45,0.58,3.67
+                    c0.75,3.45,2.01,6.71,3.73,9.79c1.63,2.92,3.63,5.57,5.9,8.02c3.24,3.48,6.95,6.38,11.05,8.79c0.04,0.02,0.08,0.04,0.13,0.07
+                    c0.06-0.04,0.12-0.06,0.17-0.1c0.8-0.5,1.61-0.99,2.4-1.51c3.57-2.39,6.81-5.17,9.65-8.41c2.39-2.73,4.39-5.71,5.96-8.99
+                    c1.72-3.6,2.79-7.38,3.21-11.35c0.12-1.16,0.18-2.32,0.18-3.49C43.13,9.91,43.13,4.82,43.14,0z M32.17,39.38
+                    c-3.09,3.27-6.59,6.04-10.44,8.36c-0.05,0.03-0.1,0.06-0.16,0.09c-0.05-0.02-0.1-0.05-0.14-0.07c-4.16-2.48-7.88-5.47-11.09-9.04
+                    c1.2-1.21,7.02-7.03,11.1-11.1c0.03-0.03,0.09-0.09,0.13-0.13c0.04,0.04,0.1,0.1,0.13,0.13c4.07,4.07,9.88,9.89,11.09,11.1
+                    C32.59,38.93,32.38,39.16,32.17,39.38z M42.5,6.83h-7.91v2.69c0.66,0.17,0.97,0.33,1.28,0.85c0.17,0.27,0.25,0.59,0.25,0.91v0.13
+                    c0,0.33-0.08,0.64-0.24,0.89c-0.27,0.44-0.71,0.7-1.3,0.77c0,0.54,0,1.09,0,1.63v0.55h7.91c-0.01,1.22-0.1,2.43-0.25,3.63
+                    c-0.51,4.02-1.71,7.83-3.58,11.43c-0.27,0.52-0.55,1.03-0.84,1.53c-2.27-2.27-4.91-4.92-7.4-7.41h-6.75
+                    c-0.26,0.6-1.16,0.95-1.81,1.01c0,0-0.53,0.02-0.81-0.01c-0.36-0.06-1.24-0.19-1.58-1.01h-6.73c-2.49,2.5-5.14,5.15-7.42,7.43
+                    c-0.82-1.41-1.54-2.86-2.16-4.38c-0.88-2.15-1.54-4.36-1.97-6.65C1,19.82,0.86,18.8,0.77,17.78c-0.08-0.84-0.11-1.68-0.12-2.52
+                    h8.03v-2.17c-1.03-0.17-1.41-0.8-1.53-1.32c-0.05-0.21-0.06-0.44-0.02-0.68l0.01-0.03c0.2-0.93,0.64-1.36,1.56-1.54V6.83H0.64
+                    c0-1.21,0-2.43,0-3.64c0-0.77,0-1.54,0-2.32V0.65H42.5V6.83z"/>
+                </g>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Front-end, Branding, Product</span>
+            <!-- <span class="project-id">ID: 42461607854</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Designed/ Developed brand identity and collaborated closely with multiple manufacturers to produce zoom university apparel.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2020
+            </span>
+
+            <span class="project-body-cta">
+              VIEW PROJECT
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+
+            </span>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+        <li class="guerin-project omni-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <polygon class="blackfill" points="28.67,0 28.67,28.67 0,28.67 0,0 5.73,0 5.73,22.94 22.93,22.94 22.93,0    "/>
+                  <polygon class="blackfill" points="51.61,5.74 51.61,22.94 63.07,22.94 63.07,28.67 34.4,28.67 34.4,22.94 45.87,22.94 45.87,5.74 34.4,5.74 34.4,0 
+                    63.07,0 63.07,5.74    "/>
+                  <polygon class="blackfill" points="28.67,34.41 28.67,63.08 0,63.08 0,34.41 5.73,34.41 5.73,57.34 22.93,57.34 22.93,34.41    "/>
+                  <rect class="blackfill" x="34.4" y="34.41" width="5.74" height="5.73"/>
+                  <rect class="blackfill" x="57.34" y="34.41" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="40.14" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="40.14" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="45.87" y="45.87" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="40.14" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="51.61" y="51.61" width="5.73" height="5.73"/>
+                  <rect class="blackfill" x="34.4" y="57.34" width="5.74" height="5.74"/>
+                  <rect class="blackfill" x="57.34" y="57.34" width="5.74" height="5.74"/>
+                </g>
+              </g>
+              </svg>
+            </div>
+
+            <div class="guerin-project-logo" >
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="71.82px"
+                 height="21.37px" viewBox="0 0 71.82 21.37" style="overflow:visible;enable-background:new 0 0 71.82 21.37;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="blackfill" d="M18.21,0h3.77l2.77,8.73l0.96,3.32h0.13l0.93-3.32L29.56,0h3.78v21.37h-2.99V11.8c0-2.16,0.35-6.22,0.51-8.16
+                    h-0.1l-1.3,4.57l-2.72,7.47h-2.05l-2.67-7.57l-1.3-4.57h-0.1c0.21,1.94,0.51,6,0.51,8.16v9.64H18.2L18.21,0z"/>
+                  <path class="blackfill" d="M38.11,0h3.51l6.21,12.71l1.99,4.5h0.08c-0.13-2.15-0.44-4.72-0.44-7.03V0h3.12v21.37h-3.46L42.89,8.67
+                    l-1.99-4.5h-0.09c0.13,2.23,0.44,4.66,0.44,6.96v10.25h-3.13V0z"/>
+                  <path class="blackfill" d="M58.09,18.62h5.18V2.73h-5.18V0h13.73v2.73h-5.18v15.88h5.18v2.76H58.09V18.62z"/>
+                  <rect class="blackfill" width="13.2" height="21.37"/>
+                </g>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Mobile UI + UX</span>
+            <!-- <span class="project-id">ID: 00415929333</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Operated on the UI/ UX for a peer-to-peer grocery/electronic goods delivery, pick-up, and freelance service.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+
+            <span class="project-body-year">
+              2020
+            </span>
+
+            <a href="https://www.figma.com/proto/7rgOKqzRQqG34rs7ulcYqe/OMNI?node-id=42%3A860&scaling=scale-down&page-id=0%3A1&starting-point-node-id=42%3A860" style="color: white; text-transform: none;" target="_blank">
+            <span class="project-body-cta">
+              
+              VIEW PROJECT
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                   height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                  14.76,5.72 "/>
+                </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+        <li class="guerin-project theia-id">
+
+          <div class="project-header">
+            <div class="token-project-logo">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <polygon class="blackfill" points="63.08,0 63.08,63.08 57.33,63.08 57.33,5.74 34.41,5.74 34.41,63.08 28.67,63.08 28.67,5.74 5.73,5.74 
+                5.73,63.08 0,63.08 0,0 "/>
+              </svg>
+
+            </div>
+
+            <div class="guerin-project-logo" style="bottom: 18px;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="147.88px" height="35.09px" viewBox="0 0 147.88 35.09" style="overflow:visible;enable-background:new 0 0 147.88 35.09;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <g>
+                    <path class="blackfill" d="M28.02,35.09c9.69,0,17.54-7.85,17.54-17.54S37.71,0,28.02,0c-4.58,0-8.76,1.76-11.88,4.64
+                      c5.33,2.22,9.07,7.48,9.07,13.61c0,5.71-3.25,10.67-8.01,13.11C20.19,33.7,23.94,35.09,28.02,35.09z"/>
+                    <path class="blackfill" style="fill-rule:evenodd;clip-rule:evenodd;" d="M21.05,18.25c0,5.81-4.71,10.53-10.53,10.53S0,24.06,0,18.25S4.71,7.72,10.53,7.72S21.05,12.43,21.05,18.25z
+                       M16.84,18.25c0,3.49-2.83,6.32-6.32,6.32s-6.32-2.83-6.32-6.32c0-3.49,2.83-6.32,6.32-6.32S16.84,14.76,16.84,18.25z"/>
+                    <path class="blackfill" d="M57.08,10.48H49.9V7.02h18.31v3.47h-7.18v16.03h-3.94V10.48z"/>
+                    <path class="blackfill" d="M72.42,7.02h3.95v7.68h12.1V7.02h3.96v19.49h-3.96v-8.44h-12.1v8.44h-3.95V7.02z"/>
+                    <path class="blackfill" d="M114.5,7.02H97.94v19.49h16.83v-3.45h-12.88v-4.84h11.18v-3.26h-11.18v-4.48h12.62V7.02z"/>
+                    <path class="blackfill" d="M118.65,7.02h3.97v19.49h-3.97V7.02z"/>
+                    <path class="blackfill" d="M138.47,7.02h-4.18l-9.13,19.49h4.16l7.11-15.39l7.32,15.39h4.14L138.47,7.02z"/>
+                  </g>
+                </g>
+              </g>
+              </svg>
+
+
+            </div>
+
+            <span class="project-id">Motion Design</span>
+            <!-- <span class="project-id">ID: 29758188037</span> -->
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="project-body">
+            <span class="project-body-description">
+              Developed motion graphics for a decentralized social investment protocol that aims to onboard creatives and builders onto web3.
+              <br>
+              <br>
+              <br>
+
+              <span class="project-body-contract">
+                CONTRACT:
+                <br>
+                0xhe8298738916caw56781h38ba59jor8726379490
+              </span>
+
+            </span>
+ 
+            <span class="project-body-year">
+              2022
+            </span>
+
+            <span class="project-body-cta">
+              VIEW PROJECT
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+
+            </span>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+
+        </li>
+
+      </div>
+
+    </ul>
+
+
+<!-- 
+  <li class="random" style="background: blue !important;"></div>
+
+
+  <li class="random" style="background: green !important;"></div> -->
+
+</ul>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    "use strict";
+  console.clear()
+
+  {
+    const selector = 'project-carousel'
+    const selected = 'selected'
+
+
+    var ul = document.getElementById("tessst");
+
+    const scrollports = document.getElementsByClassName(selector)
+
+    //const scrollports = document.getElementById("tessst"); 
+
+    for (const scrollport of scrollports) {
+     scrollport.addEventListener('scroll', debounce(check, 55) /* simulate scrollend event */ )
+
+     scrollport.addEventListener('scroll', debounce(checkTwo, 10) /* simulate scrollend event */ )
+    }
+
+
+
+var items = ul.getElementsByTagName("li");
+
+
+
+
+/* 
+var ul = document.getElementById("tessst");
+var items = ul.getElementsByTagName("li");
+for (var i = 0; i < items.length; ++i) {
+  // do something with items[i], which is a <li> element
+}
+
+*/
+
+    async function checkTwo(e) {
+
+      const rect = e.target.getBoundingClientRect();
+      /* const centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2) */
+      var centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
+
+      if (window.innerWidth > 1150) {
+        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
+      }
+      
+      if (window.innerWidth < 1150) { 
+
+        if (window.innerHeight > 577) { 
+          centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.4 /* 1.25 */)
+        }
+        else { 
+          centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.2 /* 1.25 */)
+        }
+      }
+
+
+
+      if( (centerCell.parentElement.parentElement.tagName == 'LI' && centerCell.parentElement.parentElement.classList.contains('guerin-project')) ) {
+
+        
+        for (const cell of e.target.getElementsByClassName(selected)) {
+          cell.classList.remove(selected)
+        } 
+        centerCell.parentElement.parentElement.classList.add(selected)
+
+
+        console.log(window.innerHeight); // or
+
+
+
+          document.getElementById('whiteblur-fade').classList.add("my-class");
+          // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "black")
+
+          await delay(500);
+
+
+          document.getElementById('whiteblur-fade').classList.remove("my-class");
+          // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "none")
+      } else {
+
+      }
+    
+    }
+
+
+    function check(e) {
+
+      const rect = e.target.getBoundingClientRect();
+      var centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
+      
+      if (window.innerWidth > 1150) {
+        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
+      }
+      
+      if (window.innerWidth < 1150) { 
+
+        if (window.innerHeight > 577) { 
+          centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.4 /* 1.25 */)
+        }
+        else { 
+          centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.2 /* 1.25 */)
+        }
+      }
+
+      var projectVideo = document.querySelectorAll("[id='project-video']");
+/*
+      for (const cell of e.target.getElementsByClassName(selected)) {
+        cell.classList.remove(selected)
+      }
+
+
+
+*/
+
+
+      if( (centerCell.parentElement.parentElement.tagName == 'LI' && centerCell.parentElement.parentElement.classList.contains('guerin-project')))  {
+
+        $('#project-number').html( $( ".selected" ).index( 'li') - 1);
+
+        if (centerCell.parentElement.parentElement.classList.contains('abolish-id') ) {
+          document.getElementById('project-title').innerHTML = "Abolish";
+          // document.getElementById('project-title-description').innerHTML = "Front-end, Branding";    
+          document.getElementById('project-tap').setAttribute('href', 'https://www.abolish.co');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_85c4d35cc79847a3ad03ac665701e0aa/360p/mp4/file.mp4');
+          }
+        } 
+
+        if (centerCell.parentElement.parentElement.classList.contains('guerinnewyork-id')) {
+          document.getElementById('project-title').innerHTML = "Guerin New York";
+          // document.getElementById('project-title-description').innerHTML = "Front-end, Branding, Product";
+          document.getElementById('project-tap').setAttribute('href', 'https://www.guerinnewyork.com');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4');
+          }
+        }
+
+
+        if (centerCell.parentElement.parentElement.classList.contains('lnhuis-id')) {
+          document.getElementById('project-title').innerHTML = "LN Huis";
+          // document.getElementById('project-title-description').innerHTML = "Interior Design, Collaborator";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.add('blackglow');
+          document.getElementById('project-video').classList.add('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_0bfd1fadd32d4465a038762592042358/480p/mp4/file.mp4');
+          }
+        }
+
+
+        if (centerCell.parentElement.parentElement.classList.contains('guerin-id') ) {
+          document.getElementById('project-title').innerHTML = "Guerin";
+          // document.getElementById('project-title-description').innerHTML = "U/UX, Web Development, HTML";
+          document.getElementById('project-tap').setAttribute('href', 'https://www.chaseguerin.com/id');
+
+          document.getElementById('touchpress').classList.add('blackglow');
+          document.getElementById('project-video').classList.add('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_150513cb164448ab85b3622ead932a26/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('yearvisualized-id') ) {
+          document.getElementById('project-title').innerHTML = "[Year] Visualized";
+          // document.getElementById('project-title-description').innerHTML = "Front-end Development, HTML";
+          document.getElementById('project-tap').setAttribute('href', 'https://www.chaseguerin.com/yearvisualized');
+
+          document.getElementById('touchpress').classList.add('blackglow');
+          document.getElementById('project-video').classList.add('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_37e7879fb9ef42eab80d61b2bc66a6ba/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('aporia-id') ) {
+          document.getElementById('project-title').innerHTML = "Aporia";
+          // document.getElementById('project-title-description').innerHTML = "Mobile UX + UI";
+          document.getElementById('project-tap').setAttribute('href', 'https://www.joinaporia.com');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_0693351a668447ec845b88d07766e825/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('projectx-id') ) {
+          document.getElementById('project-title').innerHTML = "Project X";
+          // document.getElementById('project-title-description').innerHTML = "Mobile UX + UI";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_23480089aa494532a8f5fee1e6bc03ae/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('digitip-id') ) {
+          document.getElementById('project-title').innerHTML = "Digitip";
+          // document.getElementById('project-title-description').innerHTML = "Mobile UX + UI";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_55a5f85e16a647fda04dcf746bf84372/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('zoomuniversity-id') ) {
+          document.getElementById('project-title').innerHTML = "Zoom University";
+          // document.getElementById('project-title-description').innerHTML = "Front-end, Branding, Product";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_195910a319df47629be47c93cbc370d6/360p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('omni-id') ) {
+          document.getElementById('project-title').innerHTML = "Omni";
+          // document.getElementById('project-title-description').innerHTML = "Mobile UX + UI";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_05750c5d4b844c049f17ba71b9d3c971/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('theia-id') ) {
+          document.getElementById('project-title').innerHTML = "Theia";
+          // document.getElementById('project-title-description').innerHTML = "Motion Design";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.remove('blackglow');
+          document.getElementById('project-video').classList.remove('lightglow');
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_2848173329f44b5d96c196c069cf4839/720p/mp4/file.mp4');
+          }
+        }
+
+        if (centerCell.parentElement.parentElement.classList.contains('core-id') ) {
+          document.getElementById('project-title').innerHTML = "Core";
+          // document.getElementById('project-title-description').innerHTML = "Branding, Illustration";
+          document.getElementById('project-tap').setAttribute('href', '');
+
+          document.getElementById('touchpress').classList.add('blackglow');
+          document.getElementById('project-video').classList.add('lightglow');
+          document.getElementById("color-fix").style.webkitFilter = "saturate(1.5) blur(12px) brightness(1.3)";
+          for (var i = 0; i < projectVideo.length; i++) {
+            projectVideo[i].setAttribute('src', 'https://video.wixstatic.com/video/fab5c1_faf352d89c1048babe69f53115537619/480p/mp4/file.mp4');
+          }
+        } else {
+          document.getElementById("color-fix").style.webkitFilter = "";
+        }
+
+        console.log(centerCell.parentElement.parentElement.className)
+
+      }
+
+      // document.getElementById("tessst")
+    }
+  }
+
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this,
+        args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+const ani = async () => {
+
+	const element = document.getElementById('touchpress')
+
+
+  element.classList.remove('squareonce'); // start animation
+  element.classList.remove('squareflashingblue'); // reset animation
+	element.classList.remove('squareflashing'); // reset animation
+  
+	void element.offsetWidth; // trigger reflow
+	element.classList.add('squareonce'); // start animation
+  await delay(3000);
+	element.classList.remove('squareonce'); // reset animation
+	void element.offsetWidth; // trigger reflow
+	element.classList.add('squareflashingblue'); // reset animation
+  await delay(8200);
+  element.classList.remove('squareflashingblue'); // reset animation
+  void element.offsetWidth; // trigger reflow
+  element.classList.add('squareflashing'); // reset animation
+}
+
+</script>
+</body>
+</html>
