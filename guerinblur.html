@@ -21,11 +21,14 @@
     transition: all .6s ease-in-out;
   }
 
-/*
+.another-class {
+  background-color: transparent !important; 
+}
+
 .my-class {
   background-color: #0B0E36;
 }
-*/
+
 
 .lightglow {
   background-color: #b3b3b3 !important;
@@ -3113,16 +3116,17 @@ for (var i = 0; i < items.length; ++i) {
         console.log(window.innerHeight); // or
 
 
-
-          //document.getElementById('whiteblur-fade').classList.add("my-class");
-          document.getElementById('whiteblur-fade').style.backgroundColor = "#0B0E36";
+          document.getElementById('whiteblur-fade').classList.remove("another-class");
+          document.getElementById('whiteblur-fade').classList.add("my-class");
+          // document.getElementById('whiteblur-fade').style.backgroundColor = "#0B0E36";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "black")
 
           await delay(500);
 
 
-          //document.getElementById('whiteblur-fade').classList.remove("my-class");
-          document.getElementById('whiteblur-fade').style.backgroundColor = "transparent";
+          // document.getElementById('whiteblur-fade').classList.remove("my-class");
+          document.getElementById('whiteblur-fade').classList.add("another-class");
+          // document.getElementById('whiteblur-fade').style.backgroundColor = "transparent";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "none")
       } else {
 
