@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Guerin Blur</title>
+	<title>Chase Guerin</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -17,14 +17,15 @@
 
 
   #whiteblur-fade {
-    /* background-color: black; */
+    /* background-color: none; */
     transition: all .6s ease-in-out;
   }
 
+/*
 .my-class {
   background-color: #0B0E36;
-
 }
+*/
 
 .lightglow {
   background-color: #b3b3b3 !important;
@@ -436,9 +437,15 @@ left: 50%;
 
 }
 
-
-
-
+.g-introduction {
+    position: absolute;
+    top: 49%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-family: 'Source Code Pro', monospace;
+    width: 365px;
+}
 /* @media (min-width: 600px) and (max-width: 1150px) {
 
 }
@@ -450,13 +457,16 @@ left: 50%;
       left: 50%;
       transform: translate(-50%, 0%);
       position: absolute;
-      height: 100vh;
+      /* height: 100vh; */
+      height: 100%;
       width: 100%;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
   }
 
-
+.g-introduction {
+    transform: translate(-50%, -50%) scale(.85) !important;
+}
   .project-carousel-container {
     all: unset;
       left: 0;
@@ -514,7 +524,8 @@ left: 50%;
 
   .view-arrow-case {
     color: #ababab !important;
-    bottom: 140px !important;
+    /* bottom: 140px !important; */
+    bottom: 200px !important;
   }
 
   .project-title-container {
@@ -690,7 +701,7 @@ ul {
     height: 129px;
     /* border: 1px solid black; */
     background: #EEEEEE;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     bottom: 30px;
     right: 17px;
@@ -910,17 +921,7 @@ pointer-events: none;
   <source src="https://video.wixstatic.com/video/fab5c1_a1783fdcce8b4306a11f8cc64dc59f4d/1080p/mp4/file.mp4" type="video/mp4">
 </video>
 
-    <span style=
-    "
-    position: absolute;
-    top: 49%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    font-size: 25px;
-    font-family: 'Source Code Pro', monospace;
-    width: 365px;
-
-    ">
+    <span class="g-introduction">
     <b style="font-size: 28px;">Hi,</b>
     <br>
     <br>
@@ -3111,13 +3112,15 @@ for (var i = 0; i < items.length; ++i) {
 
 
 
-          document.getElementById('whiteblur-fade').classList.add("my-class");
+          //document.getElementById('whiteblur-fade').classList.add("my-class");
+          document.getElementById('whiteblur-fade').style.backgroundColor = "#0B0E36";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "black")
 
           await delay(500);
 
 
-          document.getElementById('whiteblur-fade').classList.remove("my-class");
+          //document.getElementById('whiteblur-fade').classList.remove("my-class");
+          document.getElementById('whiteblur-fade').style.backgroundColor = "transparent";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "none")
       } else {
 
