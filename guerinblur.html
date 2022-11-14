@@ -469,8 +469,7 @@ body {
       left: 50%;
       transform: translate(-50%, 0%);
       position: absolute;
-      height: 100%;
-      padding-bottom: env(safe-area-inset-bottom); 
+      height: 97vh; 
       /* height: 100%; */
       width: 100%;
       overflow-y: hidden;
@@ -494,13 +493,11 @@ body {
 
 
 .random {
-  height: 100vh !important;
-  padding-bottom: env(safe-area-inset-bottom);
+  height: 97vh !important;
+
 }
 .carousel-general {
-  height: 100vh !important;
-
-  padding-bottom: env(safe-area-inset-bottom);
+  height: 97vh !important;
 }
 
 
@@ -542,7 +539,8 @@ body {
 
   .profile-box-container {
     transform: scale(0.725) translate(35px, 35px) !important;
-    bottom: 44px !important;
+    /* bottom: 100px !important; */
+    bottom: env(safe-area-inset-bottom);
   }
 
   #enterhere {
