@@ -15,34 +15,6 @@
 
 </script>
 
-<script type="text/javascript">
-  function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-const ani = async () => {
-
-  const element = document.getElementById('touchpress')
-
-
-  element.classList.remove('squareonce'); // start animation
-  element.classList.remove('squareflashingblue'); // reset animation
-  element.classList.remove('squareflashing'); // reset animation
-  
-  void element.offsetWidth; // trigger reflow
-  element.classList.add('squareonce'); // start animation
-  await delay(3000);
-  element.classList.remove('squareonce'); // reset animation
-  void element.offsetWidth; // trigger reflow
-  element.classList.add('squareflashingblue'); // reset animation
-  await delay(8200);
-  element.classList.remove('squareflashingblue'); // reset animation
-  void element.offsetWidth; // trigger reflow
-  element.classList.add('squareflashing'); // reset animation
-}
-
-</script>
-
 <style type="text/css">
 
 #project-video {
@@ -1271,7 +1243,24 @@ pointer-events: none;
 
 
 
-    <a id="project-tap" href="https://guerinnewyork.com" target="_blank" onclick="ani();">
+    <a id="project-tap" href="https://guerinnewyork.com" target="_blank" 
+    onclick="javascript:(async () => {
+      const element = document.getElementById('touchpress')
+      element.classList.remove('squareonce'); // start animation
+      element.classList.remove('squareflashingblue'); // reset animation
+      element.classList.remove('squareflashing'); // reset animation
+      
+      void element.offsetWidth; // trigger reflow
+      element.classList.add('squareonce'); // start animation
+      await sleep(3000);
+      element.classList.remove('squareonce'); // reset animation
+      void element.offsetWidth; // trigger reflow
+      element.classList.add('squareflashingblue'); // reset animation
+      await sleep(8200);
+      element.classList.remove('squareflashingblue'); // reset animation
+      void element.offsetWidth; // trigger reflow
+      element.classList.add('squareflashing'); // reset animation
+    })()">
       <button type="submit" style=" width: 170px; height: 170px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; display: block; z-index: 4; border: none; pointer-events: all; cursor: pointer;" >
       </button>
     </a>
@@ -3294,14 +3283,14 @@ for (var i = 0; i < items.length; ++i) {
 
 
           // document.getElementById('whiteblur-fade').classList.remove("another-class");
-          // document.getElementById('whiteblur-fade').classList.add("my-class");
+          document.getElementById('whiteblur-fade').classList.add("my-class");
           // document.getElementById('whiteblur-fade').style.backgroundColor = "#0B0E36";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "black")
 
-          //await delay(500);
+          await sleep(500);
 
 
-          // document.getElementById('whiteblur-fade').classList.remove("my-class");
+          document.getElementById('whiteblur-fade').classList.remove("my-class");
           // document.getElementById('whiteblur-fade').classList.add("another-class");
           // document.getElementById('whiteblur-fade').style.backgroundColor = "transparent";
           // console.log(document.getElementById('whiteblur-fade').style.backgroundColor = "none")
@@ -3552,7 +3541,32 @@ for (var i = 0; i < items.length; ++i) {
 
 
 
+<!-- 
+<script type="text/javascript">
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
+const ani = async () => {
+
+	const element = document.getElementById('touchpress')
+
+
+  element.classList.remove('squareonce'); // start animation
+  element.classList.remove('squareflashingblue'); // reset animation
+	element.classList.remove('squareflashing'); // reset animation
+  
+	void element.offsetWidth; // trigger reflow
+	element.classList.add('squareonce'); // start animation
+  await delay(3000);
+	element.classList.remove('squareonce'); // reset animation
+	void element.offsetWidth; // trigger reflow
+	element.classList.add('squareflashingblue'); // reset animation
+  await delay(8200);
+  element.classList.remove('squareflashingblue'); // reset animation
+  void element.offsetWidth; // trigger reflow
+  element.classList.add('squareflashing'); // reset animation
+}
+</script>
+-->
 
 </body>
 </html>
