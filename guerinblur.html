@@ -16,7 +16,9 @@
 </script>
 
 <script type="text/javascript">
-const delay = ms => new Promise(res => setTimeout(res, ms));
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 const ani = async () => {
 
