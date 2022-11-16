@@ -3220,6 +3220,18 @@ pointer-events: none;
 
 var items = ul.getElementsByTagName("li");
 
+
+
+
+/* 
+var ul = document.getElementById("tessst");
+var items = ul.getElementsByTagName("li");
+for (var i = 0; i < items.length; ++i) {
+  // do something with items[i], which is a <li> element
+}
+
+*/
+
     async function checkTwo(e) {
 
       const rect = e.target.getBoundingClientRect();
@@ -3503,13 +3515,13 @@ var items = ul.getElementsByTagName("li");
 
 
 <script>
-function copyText() {
-
-    /* Copy text into clipboard */
-    navigator.clipboard.writeText
-        ("chaseguerin.eth | 0x1e5Ae0Dabb590Ae0f7C53AE5C3E3Dc5Ea64A348F");
-}
-</script>
+        function copyText() {
+      
+            /* Copy text into clipboard */
+            navigator.clipboard.writeText
+                ("chaseguerin.eth | 0x1e5Ae0Dabb590Ae0f7C53AE5C3E3Dc5Ea64A348F");
+        }
+    </script>
 
 
 
@@ -3517,7 +3529,7 @@ function copyText() {
 <script type="text/javascript">
 
 
-async function ani {
+async function ani() {
 
 	const element = document.getElementById('touchpress')
 
@@ -3528,11 +3540,11 @@ async function ani {
   
 	void element.offsetWidth; // trigger reflow
 	element.classList.add('squareonce'); // start animation
-  await sleep(3000);
+  await delay(3000);
 	element.classList.remove('squareonce'); // reset animation
 	void element.offsetWidth; // trigger reflow
 	element.classList.add('squareflashingblue'); // reset animation
-  await sleep(8200);
+  await delay(8200);
   element.classList.remove('squareflashingblue'); // reset animation
   void element.offsetWidth; // trigger reflow
   element.classList.add('squareflashing'); // reset animation
