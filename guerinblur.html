@@ -834,7 +834,7 @@ ul {
     position: absolute;
     /* z-index: 51; */
     bottom: -6px;
-    right: 17px;
+    right: 32px;
     display: flex;
     align-items: center;
     transform: scale(0.87);
@@ -1066,7 +1066,10 @@ pointer-events: none;
   width: 100%;
   height: 100vh;
   position: absolute;
-
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 350ms ease-in-out;
 
 
 /* for mobile */
@@ -1351,6 +1354,8 @@ transition: all 200ms ease-in-out;
 
     if (toggleMenu == false) {
       document.getElementById('menu-gradient').style.opacity = "1";
+      document.getElementById('menu-overlay').style.opacity = "1";
+
       document.getElementById('g-menu-content').style.pointerEvents = "all";
       document.querySelector('.guerin-menu').style.height = "32.5px";
       document.querySelector('.guerin-menu').style.width = "32.5px";
@@ -1458,6 +1463,7 @@ transition: all 200ms ease-in-out;
 
     else {
       document.getElementById('menu-gradient').style.opacity = "0";
+      document.getElementById('menu-overlay').style.opacity = "0";
       document.getElementById('g-menu-content').style.pointerEvents = "none";
 
 	if (window.innerWidth < 951) {
@@ -1807,7 +1813,8 @@ transition: all 200ms ease-in-out;
 <body>
 
 
-<div id="menu-gradient">
+<div id="menu-gradient"></div>
+
   <div id="menu-overlay">
     
   	<div id="g-menu-content" style="/* pointer-events: all; */">
@@ -1907,7 +1914,7 @@ transition: all 200ms ease-in-out;
 
   			<div class="video-of-project">
   			      
-  			    <div id="color-fix" style="filter: saturate(3) blur(12px) brightness(1.3);
+  			    <div style="filter: saturate(3) blur(12px) brightness(1.3);
   				-webkit-filter: saturate(3) blur(12px);
   				-moz-filter: saturate(3) blur(18px) brightness(1.3);
   				position: absolute;
@@ -2467,7 +2474,6 @@ transition: all 200ms ease-in-out;
   	</div>
 
   </div>
-</div>
 <!-- Menu -->
 
 <svg id="fixed-guerin-menu" onclick="menuActive();" class="guerin-menu" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px"
