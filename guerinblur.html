@@ -1111,8 +1111,10 @@ bottom: 36px;
 .guerin-menu {
   cursor: pointer; 
   position: absolute; 
-  top: 36px;
+  top: 33px;
   right: 87px;
+  width: 33px;
+  height: 33px;
   z-index: 56;
   transition: all 200ms ease-in-out;
 }
@@ -1147,7 +1149,8 @@ bottom: 36px;
 }
 
 .locksvg-menu {
-  fill: black;
+  /* fill: black; */
+  fill: #a2a2a2;
   transition: all 200ms ease-in-out;
 }
 
@@ -1181,6 +1184,7 @@ bottom: 36px;
   position: absolute;
   top: 72px;
   left: 50%;
+  z-index: 56;
   transform: translate(-50%, 0);
   width: 471px;
   flex-wrap: wrap;
@@ -1213,11 +1217,11 @@ transition: all 200ms ease-in-out;
 
 .guerinhuis {
   position: absolute;
-  top: 50px;
+  top: 44px;
   right: 50%;
   height: 300px;
   width: 300px;
-  transform: scale(.6) translate(-150%, -50%);
+  transform: scale(.52) translate(-150%, -50%);
 }
 
 @media /* (min-width: 600px) and */ (max-width: 550px) {
@@ -1233,8 +1237,15 @@ transition: all 200ms ease-in-out;
 	}
 
 	#artifact-btn-nav {
+		/* Before social link
 		padding-left: 27px !important;
 		padding-right: 27px !important;
+		*/
+
+		padding-left: 24px !important;
+		padding-right: 24px !important;
+
+
 	}
 
 	#about-btn-nav {
@@ -1256,8 +1267,14 @@ transition: all 200ms ease-in-out;
 	}
 
 	#social-btn-nav {
+
+		/* Before social link
 		padding-left: 18px !important;
 		padding-right: 18px !important;
+		*/
+
+		padding-left: 15px !important;
+		padding-right: 15px !important;
 	}
 
 	.changing-menu {
@@ -1330,6 +1347,12 @@ transition: all 200ms ease-in-out;
 	      document.querySelector('.guerin-menu').style.width = "29.5px";
       }
 
+      addEventListener('resize', (event) => { 
+	      if (window.innerWidth < 550) {
+		      document.querySelector('.guerin-menu').style.height = "29.5px";
+		      document.querySelector('.guerin-menu').style.width = "29.5px";
+	      }
+      })
 
 
 
@@ -1339,6 +1362,7 @@ transition: all 200ms ease-in-out;
       addEventListener('resize', (event) => { 
         if (window.innerWidth < 951) {
           if (toggleProfile == true) {
+
           document.querySelector('.changing-menu').style.bottom = "calc(150px - 36px)";
           document.querySelector('.mobile-id-menu-nav').style.bottom = "150px";
           // document.querySelector('.guerin-menu').style.bottom = "199px";
@@ -1409,8 +1433,11 @@ transition: all 200ms ease-in-out;
     else {
       document.getElementById('menu-overlay').style.opacity = "0";
       document.getElementById('g-menu-content').style.pointerEvents = "none";
-      document.querySelector('.guerin-menu').style.height = "35px";
-      document.querySelector('.guerin-menu').style.width = "35px";
+
+	if (window.innerWidth < 951) {
+		document.querySelector('.guerin-menu').style.height = "35px";
+		document.querySelector('.guerin-menu').style.width = "35px";
+	}
       document.querySelector('.guerin-menu').style.bottom = "36px";
 
       document.querySelector('.mobile-id-menu-nav').style.opacity = "0";
@@ -1427,6 +1454,8 @@ transition: all 200ms ease-in-out;
 
       addEventListener('resize', (event) => { 
         if (window.innerWidth < 951) {
+
+
           // hide profile
           document.querySelector('.changing-menu').style.bottom = "calc(150px - 114px - 36px)";
           document.querySelector('.mobile-id-menu-nav').style.bottom = "36px";
@@ -1625,6 +1654,8 @@ transition: all 200ms ease-in-out;
       document.getElementById('social-guerin-icons').style.transition = "all 400ms ease-in-out";
       document.getElementById('social-btn-nav').style.background = "#808080";
       document.getElementById('social-btn-nav').style.color = "#E6E6E6";
+      document.querySelector('.locksvg-menu').style.fill = "#E6E6E6";
+      
 
 
 
@@ -1692,6 +1723,7 @@ transition: all 200ms ease-in-out;
       document.getElementById('social-guerin-icons').style.transition = "all 400ms ease-in-out";
       document.getElementById('social-btn-nav').style.background = "#F2F2F2";
       document.getElementById('social-btn-nav').style.color = "#4D4D4D";
+      document.querySelector('.locksvg-menu').style.fill = "#a2a2a2";
 
       addEventListener('resize', (event) => { 
         if (window.innerWidth < 951) {
@@ -1986,15 +2018,17 @@ transition: all 200ms ease-in-out;
 
 	            Artifact
 
+<!--
 	              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.79px"
 	                 height="13.1px" viewBox="0 0 11.79 13.1" style="display: none; overflow:visible;enable-background:new 0 0 11.79 13.1; height: 9px;
 	                 margin-right: -8px;
 	                 margin-left: -2px;" xml:space="preserve">
+
 	              <defs>
 	              </defs>
 	              <path class="locksvg-menu" d="M9.83,3.93V0H1.97v3.93H0v9.17h11.79V3.93H9.83z M6.55,10.48H5.24V6.55h1.31V10.48z M8.52,3.93H3.28V1.31h5.24V3.93z"/>
 	              </svg>
-
+-->
 	        </button>
 
 
@@ -2009,6 +2043,20 @@ transition: all 200ms ease-in-out;
 	        <button type="submit" id="social-btn-nav" class="guerin-menu-nav" style="padding-left: 24px; padding-right: 24px;" onclick="socialMove();">
 
 	            Social
+
+	            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="5px"
+					 height="9px" viewBox="0 0 5 9" style="overflow:visible;enable-background:new 0 0 5 9;" xml:space="preserve">
+				<defs>
+				</defs>
+				<g>
+					<g class="locksvg-menu">
+						<polygon points="1,1 1,3 0,3 0,0 5,0 5,3 4,3 4,1 		"/>
+						<polygon points="5,9 0,9 0,6 1,6 1,8 4,8 4,6 5,6 		"/>
+						<rect x="2" y="3" width="1" height="3"/>
+					</g>
+				</g>
+				</svg>
 
 	        </button>
 
