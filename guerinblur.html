@@ -4877,8 +4877,8 @@ setInterval(update, 500);
     
     if (window.innerWidth < 950) { 
 
-      if (window.innerHeight > 620) { 
-        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.35 /* 1.25 */)
+      if (window.innerHeight > 620 /* 577 */) { 
+        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.35 /* 1.4 or 1.25 */)
       }
       else { 
         centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.2 /* 1.25 */)
@@ -4917,8 +4917,8 @@ setInterval(update, 500);
     
     if (window.innerWidth < 950) { 
 
-      if (window.innerHeight > 577) { 
-        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.4 /* 1.25 */)
+      if (window.innerHeight > 620 /* 577 */) { 
+        centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.35 /* 1.4 or 1.25 */)
       }
       else { 
         centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.2 /* 1.25 */)
