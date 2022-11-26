@@ -3076,7 +3076,7 @@ calc(var(--menu-gradient-opaque))
           </button>
         </a>
 
-        <div class="project-title-container"> 
+        <div class="project-title-container" id="project-home"> 
           <span class="project-number-container">[<span id="project-number">1</span>]<!-- / 12] --> <span id="project-title-description">Project</span></span> 
           <br>
           <span id="project-title">Guerin New York</span> 
@@ -5053,10 +5053,9 @@ calc(var(--menu-gradient-opaque))
 function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
-      seamless.scrollIntoView(document.getElementById("project-tap"), {
+      seamless.scrollIntoView(document.getElementById("project-home"), {
         behavior: "smooth",
-        block: "center",
-        inline: "center",
+
     });
 }
 
