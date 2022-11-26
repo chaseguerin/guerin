@@ -485,7 +485,7 @@ left: 50%;
 */
 
 body {
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
   /* height: calc(100vh - calc(100vh - 100%)) !important;
 
   /* height: -webkit-fill-available !important; */
@@ -526,7 +526,7 @@ body {
 
 }
 .carousel-general {
-  height: 100vh !important;
+  /* height: 100vh !important; */
 }
 
 
@@ -713,8 +713,8 @@ body {
 
   /* scroll-snap-type: y mandatory; */
   scroll-snap-type: y proximity;
-  height: 100vh;
-  overflow-x: hidden;
+  /* height: 100vh; */
+  /* overflow-x: hidden; */
 }
 
 .carousel-general .random {
@@ -1354,487 +1354,6 @@ transition: all 200ms ease-in-out;
 </style>
 
 
-<script>
-  /*!
- * viewport-units-buggyfill v0.6.2
- * @web: https://github.com/rodneyrehm/viewport-units-buggyfill/
- * @author: Rodney Rehm - http://rodneyrehm.de/en/
- */
-
-(function() {
-  (function(root, factory) {
-    'use strict';
-    if (typeof define === 'function' && define.amd) {
-      // AMD. Register as an anonymous module.
-      define([], factory);
-    } else if (typeof exports === 'object') {
-      // Node. Does not work with strict CommonJS, but
-      // only CommonJS-like enviroments that support module.exports,
-      // like Node.
-      module.exports = factory();
-    } else {
-      // Browser globals (root is window)
-      root.viewportUnitsBuggyfill = factory();
-    }
-  }(this, function() {
-    'use strict';
-    /* global document, window, navigator, location, XMLHttpRequest, XDomainRequest, CustomEvent */
-
-    var initialized = false;
-    var options;
-    var userAgent = window.navigator.userAgent;
-    var viewportUnitExpression = /([+-]?[0-9.]+)(vh|vw|vmin|vmax)/g;
-    var urlExpression = /(https?:)?\/\//
-    var forEach = [].forEach;
-    var dimensions;
-    var declarations;
-    var styleNode;
-    var isBuggyIE = /MSIE [0-9]\./i.test(userAgent);
-    var isOldIE = /MSIE [0-8]\./i.test(userAgent);
-    var isOperaMini = userAgent.indexOf('Opera Mini') > -1;
-
-    var isMobileSafari = /(iPhone|iPod|iPad).+AppleWebKit/i.test(userAgent) && (function() {
-      // Regexp for iOS-version tested against the following userAgent strings:
-      // Example WebView UserAgents:
-      // * iOS Chrome on iOS8: "Mozilla/5.0 (iPad; CPU OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/39.0.2171.50 Mobile/12B410 Safari/600.1.4"
-      // * iOS Facebook on iOS7: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 [FBAN/FBIOS;FBAV/12.1.0.24.20; FBBV/3214247; FBDV/iPhone6,1;FBMD/iPhone; FBSN/iPhone OS;FBSV/7.1.1; FBSS/2; FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/5]"
-      // Example Safari UserAgents:
-      // * Safari iOS8: "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"
-      // * Safari iOS7: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A4449d Safari/9537.53"
-      var iOSversion = userAgent.match(/OS (\d+)/);
-      // viewport units work fine in mobile Safari and webView on iOS 8+
-      return iOSversion && iOSversion.length > 1 && parseInt(iOSversion[1]) < 10;
-    })();
-
-    var isBadStockAndroid = (function() {
-      // Android stock browser test derived from
-      // http://stackoverflow.com/questions/24926221/distinguish-android-chrome-from-stock-browser-stock-browsers-user-agent-contai
-      var isAndroid = userAgent.indexOf(' Android ') > -1;
-      if (!isAndroid) {
-        return false;
-      }
-
-      var isStockAndroid = userAgent.indexOf('Version/') > -1;
-      if (!isStockAndroid) {
-        return false;
-      }
-
-      var versionNumber = parseFloat((userAgent.match('Android ([0-9.]+)') || [])[1]);
-      // anything below 4.4 uses WebKit without *any* viewport support,
-      // 4.4 has issues with viewport units within calc()
-      return versionNumber <= 4.4;
-    })();
-
-    // added check for IE10, IE11 and Edge < 20, since it *still* doesn't understand vmax
-    // http://caniuse.com/#feat=viewport-units
-    if (!isBuggyIE) {
-      isBuggyIE = !!navigator.userAgent.match(/MSIE 10\.|Trident.*rv[ :]*1[01]\.| Edge\/1\d\./);
-    }
-
-    // Polyfill for creating CustomEvents on IE9/10/11
-    // from https://github.com/krambuhl/custom-event-polyfill
-    try {
-      // eslint-disable-next-line no-new, no-use-before-define
-      new CustomEvent('test');
-    } catch (e) {
-      var CustomEvent = function(event, params) {
-        var evt;
-        params = params || {
-          bubbles: false,
-          cancelable: false,
-          detail: undefined,
-        };
-
-        evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-        return evt;
-      };
-      CustomEvent.prototype = window.Event.prototype;
-      window.CustomEvent = CustomEvent; // expose definition to window
-    }
-
-    function debounce(func, wait) {
-      var timeout;
-      return function() {
-        var context = this;
-        var args = arguments;
-        var callback = function() {
-          func.apply(context, args);
-        };
-
-        clearTimeout(timeout);
-        timeout = setTimeout(callback, wait);
-      };
-    }
-
-    // from http://stackoverflow.com/questions/326069/how-to-identify-if-a-webpage-is-being-loaded-inside-an-iframe-or-directly-into-t
-    function inIframe() {
-      try {
-        return window.self !== window.top;
-      } catch (e) {
-        return true;
-      }
-    }
-
-    function initialize(initOptions) {
-      if (initialized) {
-        return;
-      }
-
-      if (initOptions === true) {
-        initOptions = {
-          force: true,
-        };
-      }
-
-      options = initOptions || {};
-      options.isMobileSafari = isMobileSafari;
-      options.isBadStockAndroid = isBadStockAndroid;
-
-      if (options.ignoreVmax && !options.force && !isOldIE) {
-        // modern IE (10 and up) do not support vmin/vmax,
-        // but chances are this unit is not even used, so
-        // allow overwriting the "hacktivation"
-        // https://github.com/rodneyrehm/viewport-units-buggyfill/issues/56
-        isBuggyIE = false;
-      }
-
-      if (isOldIE || (!options.force && !isMobileSafari && !isBuggyIE && !isBadStockAndroid && !isOperaMini && (!options.hacks || !options.hacks.required(options)))) {
-        // this buggyfill only applies to mobile safari, IE9-10 and the Stock Android Browser.
-        if (window.console && isOldIE) {
-          console.info('viewport-units-buggyfill requires a proper CSSOM and basic viewport unit support, which are not available in IE8 and below');
-        }
-
-        return {
-          init: function() {},
-        };
-      }
-
-      // fire a custom event that buggyfill was initialize
-      window.dispatchEvent(new CustomEvent('viewport-units-buggyfill-init'));
-
-      options.hacks && options.hacks.initialize(options);
-
-      initialized = true;
-      styleNode = document.createElement('style');
-      styleNode.id = 'patched-viewport';
-      document[options.appendToBody ? 'body' : 'head'].appendChild(styleNode);
-
-      // Issue #6: Cross Origin Stylesheets are not accessible through CSSOM,
-      // therefore download and inject them as <style> to circumvent SOP.
-      importCrossOriginLinks(function() {
-        var _refresh = debounce(refresh, options.refreshDebounceWait || 100);
-        // doing a full refresh rather than updateStyles because an orientationchange
-        // could activate different stylesheets
-        window.addEventListener('orientationchange', _refresh, true);
-        // orientationchange might have happened while in a different window
-        window.addEventListener('pageshow', _refresh, true);
-
-        if (options.force || isBuggyIE || inIframe()) {
-          window.addEventListener('resize', _refresh, true);
-          options._listeningToResize = true;
-        }
-
-        options.hacks && options.hacks.initializeEvents(options, refresh, _refresh);
-
-        refresh();
-      });
-    }
-
-    function updateStyles() {
-      styleNode.textContent = getReplacedViewportUnits();
-      // move to the end in case inline <style>s were added dynamically
-      styleNode.parentNode.appendChild(styleNode);
-      // fire a custom event that styles were updated
-      window.dispatchEvent(new CustomEvent('viewport-units-buggyfill-style'));
-    }
-
-    function refresh() {
-      if (!initialized) {
-        return;
-      }
-
-      findProperties();
-
-      // iOS Safari will report window.innerWidth and .innerHeight as 0 unless a timeout is used here.
-      // TODO: figure out WHY innerWidth === 0
-      setTimeout(function() {
-        updateStyles();
-      }, 1);
-    }
-
-    // http://stackoverflow.com/a/23613052
-    function processStylesheet(ss) {
-      // cssRules respects same-origin policy, as per
-      // https://code.google.com/p/chromium/issues/detail?id=49001#c10.
-      try {
-        if (!ss.cssRules) { return; }
-      } catch (e) {
-        if (e.name !== 'SecurityError') { throw e; }
-        return;
-      }
-      // ss.cssRules is available, so proceed with desired operations.
-      var rules = [];
-      for (var i = 0; i < ss.cssRules.length; i++) {
-        var rule = ss.cssRules[i];
-        rules.push(rule);
-      }
-      return rules;
-    }
-
-    function findProperties() {
-      declarations = [];
-      forEach.call(document.styleSheets, function(sheet) {
-        var cssRules = processStylesheet(sheet);
-
-        if (!cssRules || sheet.ownerNode.id === 'patched-viewport' || sheet.ownerNode.getAttribute('data-viewport-units-buggyfill') === 'ignore') {
-          // skip entire sheet because no rules are present, it's supposed to be ignored or it's the target-element of the buggyfill
-          return;
-        }
-
-        if (sheet.media && sheet.media.mediaText && window.matchMedia && !window.matchMedia(sheet.media.mediaText).matches) {
-          // skip entire sheet because media attribute doesn't match
-          return;
-        }
-
-        forEach.call(cssRules, findDeclarations);
-      });
-
-      return declarations;
-    }
-
-    function findDeclarations(rule) {
-      if (rule.type === 7) {
-        var value;
-
-        // there may be a case where accessing cssText throws an error.
-        // I could not reproduce this issue, but the worst that can happen
-        // this way is an animation not running properly.
-        // not awesome, but probably better than a script error
-        // see https://github.com/rodneyrehm/viewport-units-buggyfill/issues/21
-        try {
-          value = rule.cssText;
-        } catch (e) {
-          return;
-        }
-
-        viewportUnitExpression.lastIndex = 0;
-        if (viewportUnitExpression.test(value) && !urlExpression.test(value)) {
-          // KeyframesRule does not have a CSS-PropertyName
-          declarations.push([rule, null, value]);
-          options.hacks && options.hacks.findDeclarations(declarations, rule, null, value);
-        }
-
-        return;
-      }
-
-      if (!rule.style) {
-        if (!rule.cssRules) {
-          return;
-        }
-
-        forEach.call(rule.cssRules, function(_rule) {
-          findDeclarations(_rule);
-        });
-
-        return;
-      }
-
-      forEach.call(rule.style, function(name) {
-        var value = rule.style.getPropertyValue(name);
-        // preserve those !important rules
-        if (rule.style.getPropertyPriority(name)) {
-          value += ' !important';
-        }
-
-        viewportUnitExpression.lastIndex = 0;
-        if (viewportUnitExpression.test(value)) {
-          declarations.push([rule, name, value]);
-          options.hacks && options.hacks.findDeclarations(declarations, rule, name, value);
-        }
-      });
-    }
-
-    function getReplacedViewportUnits() {
-      dimensions = getViewport();
-
-      var css = [];
-      var buffer = [];
-      var open;
-      var close;
-
-      declarations.forEach(function(item) {
-        var _item = overwriteDeclaration.apply(null, item);
-        var _open = _item.selector.length ? (_item.selector.join(' {\n') + ' {\n') : '';
-        var _close = new Array(_item.selector.length + 1).join('\n}');
-
-        if (!_open || _open !== open) {
-          if (buffer.length) {
-            css.push(open + buffer.join('\n') + close);
-            buffer.length = 0;
-          }
-
-          if (_open) {
-            open = _open;
-            close = _close;
-            buffer.push(_item.content);
-          } else {
-            css.push(_item.content);
-            open = null;
-            close = null;
-          }
-
-          return;
-        }
-
-        if (_open && !open) {
-          open = _open;
-          close = _close;
-        }
-
-        buffer.push(_item.content);
-      });
-
-      if (buffer.length) {
-        css.push(open + buffer.join('\n') + close);
-      }
-
-      // Opera Mini messes up on the content hack (it replaces the DOM node's innerHTML with the value).
-      // This fixes it. We test for Opera Mini only since it is the most expensive CSS selector
-      // see https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
-      if (isOperaMini) {
-        css.push('* { content: normal !important; }');
-      }
-
-      return css.join('\n\n');
-    }
-
-    function overwriteDeclaration(rule, name, value) {
-      var _value;
-      var _selectors = [];
-
-      _value = value.replace(viewportUnitExpression, replaceValues);
-
-      if (options.hacks) {
-        _value = options.hacks.overwriteDeclaration(rule, name, _value);
-      }
-
-      if (name) {
-        // skipping KeyframesRule
-        _selectors.push(rule.selectorText);
-        _value = name + ': ' + _value + ';';
-      }
-
-      var _rule = rule.parentRule;
-      while (_rule) {
-        if (_rule.media) {
-          _selectors.unshift('@media ' + _rule.media.mediaText);
-        } else if (_rule.conditionText) {
-          _selectors.unshift('@supports ' + _rule.conditionText);
-        }
-
-        _rule = _rule.parentRule;
-      }
-
-      return {
-        selector: _selectors,
-        content: _value,
-      };
-    }
-
-    function replaceValues(match, number, unit) {
-      var _base = dimensions[unit];
-      var _number = parseFloat(number) / 100;
-      return (_number * _base) + 'px';
-    }
-
-    function getViewport() {
-      var vh = window.innerHeight;
-      var vw = window.innerWidth;
-
-      return {
-        vh: vh,
-        vw: vw,
-        vmax: Math.max(vw, vh),
-        vmin: Math.min(vw, vh),
-      };
-    }
-
-    function importCrossOriginLinks(next) {
-      var _waiting = 0;
-      var decrease = function() {
-        _waiting--;
-        if (!_waiting) {
-          next();
-        }
-      };
-
-      forEach.call(document.styleSheets, function(sheet) {
-        if (!sheet.href || origin(sheet.href) === origin(location.href) || sheet.ownerNode.getAttribute('data-viewport-units-buggyfill') === 'ignore') {
-          // skip <style> and <link> from same origin or explicitly declared to ignore
-          return;
-        }
-
-        _waiting++;
-        convertLinkToStyle(sheet.ownerNode, decrease);
-      });
-
-      if (!_waiting) {
-        next();
-      }
-    }
-
-    function origin(url) {
-      return url.slice(0, url.indexOf('/', url.indexOf('://') + 3));
-    }
-
-    function convertLinkToStyle(link, next) {
-      getCors(link.href, function() {
-        var style = document.createElement('style');
-        style.media = link.media;
-        style.setAttribute('data-href', link.href);
-        style.textContent = this.responseText;
-        link.parentNode.replaceChild(style, link);
-        next();
-      }, next);
-    }
-
-    function getCors(url, success, error) {
-      var xhr = new XMLHttpRequest();
-      if ('withCredentials' in xhr) {
-        // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open('GET', url, true);
-      } else if (typeof XDomainRequest !== 'undefined') {
-        // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open('GET', url);
-      } else {
-        throw new Error('cross-domain XHR not supported');
-      }
-
-      xhr.onload = success;
-      xhr.onerror = error;
-      xhr.send();
-      return xhr;
-    }
-
-    return {
-      version: '0.6.1',
-      findProperties: findProperties,
-      getCss: getReplacedViewportUnits,
-      init: initialize,
-      refresh: refresh,
-    };
-  }));
-})();
-  
-</script>
-<script>
-  window.viewportUnitsBuggyfill.init();
-
-
-
-</script>
 
 
 <script type="text/javascript">
@@ -3110,359 +2629,336 @@ calc(var(--menu-gradient-opaque))
 
 
 
-
-
-
-
-
-
 <ul class="carousel-general">
 
   <li class="random">
 
-<video class="guerin-design-heart" loop autoplay defaultMuted playsinline muted>
-  <source src="https://video.wixstatic.com/video/fab5c1_a1783fdcce8b4306a11f8cc64dc59f4d/1080p/mp4/file.mp4" type="video/mp4">
-</video>
-
-    <span class="g-introduction">
-    <b style="font-size: 28px;">Hi,</b>
-    <br>
-    <br>
-
-    I'm <b>Chase Guerin</b>
-    <br>
-    <span style="color: #666666;"> <b>></b> a <b>product designer</b> [] </span>
-    <br>
-    specializing in <b>branding</b> 
-    <br>
-    <b>design</b> & <b>UI/UX</b> [ ]
-
-
-<div id="outer">
-  <div class="inner">
-    <button type="submit" class="profilebuttons" style="opacity: 0;" onclick="return false;">ABOUT
-
-  <svg version="1.1" style="margin-left: -5px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
-  <style type="text/css">
-  </style>
-  <defs>
-  </defs>
-  <g>
-    <polygon style="fill:#ffffff;" points="14.47,7.99 9.05,7.99 12.88,11.83 11.82,12.88 7.98,9.05 7.98,14.47 6.48,14.47 6.48,9.05 2.65,12.88 
-      1.59,11.83 5.43,7.99 0,7.99 0,6.49 5.43,6.49 1.59,2.65 2.65,1.59 6.48,5.43 6.48,0 7.98,0 7.98,5.43 11.82,1.59 12.88,2.65 
-      9.05,6.49 14.47,6.49  "></polygon>
-  </g>
-  </svg>
-
-
-
-    </button>
-  </div>
-
-  <!--
-  <div class="inner">
-
-    <button type="submit" class="ethbutton" onclick="return false;">
-      .ETH
-
-
-  <svg version="1.1" style="margin-left: -3px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
-  <style type="text/css">
-    .st1{fill:#2D00FF;}
-  </style>
-  <defs>
-  </defs>
-  <g>
-    <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
-    <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
-  </g>
-  </svg>
-  </button>
-  </div>
--->
-</div>
-
-
-
-    </span>
-
-
-
-
-
-
-
-
-<div class="view-arrow-case">
-  <span style="text-transform: uppercase;"> View Projects</span>
-
-  <div style="height: 60px;">
-    <svg class="gray-arrow-case" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="131.8px"
-     height="35.51px" viewBox="0 0 131.8 35.51" xml:space="preserve">
-     <defs></defs><g><polygon style="fill:#E6E6E6;" points="65.9,35.51 0,3.6 1.74,0 65.9,31.07 130.06,0 131.8,3.6  "/></g>
-    </svg>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- HEADER STARTS HERE -->
-
-
-
-<!--
-<div class="guerinlogo-header">
-
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px"
-     height="18.28px" viewBox="0 0 124 18.28" style="overflow:visible;enable-background:new 0 0 124 18.28;" xml:space="preserve">
-  <defs>
-  </defs>
-  <g>
-    <g>
-      <polygon points="124,0 124,18.28 121.39,18.28 110.95,4.35 110.95,18.28 108.34,18.28 108.34,0 110.95,0 121.39,13.93 121.39,0     
-        "/>
-      <rect x="101.81" y="0" width="2.61" height="18.28"/>
-      <g>
-        <g>
-          <path d="M93.71,10.45l2.87,0V0L81.92,0v2.61l1.61,0l0,15.66h2.61l0-7.83l4.39,0l5.48,7.83l3.19,0L93.71,10.45z M86.14,7.83V2.61
-            l7.83,0v5.22L86.14,7.83z"/>
-        </g>
-      </g>
-      <polygon points="79.6,0 79.6,2.61 67.85,2.61 67.85,7.83 79.6,7.83 79.6,10.44 67.85,10.44 67.85,15.67 79.6,15.67 79.6,18.28 
-        65.24,18.28 65.24,0     "/>
-      <polygon points="61.35,0 61.35,18.28 46.99,18.28 46.99,0 49.61,0 49.61,15.67 58.74,15.67 58.74,0    "/>
-      <polygon points="43.08,0 43.08,2.61 31.33,2.61 31.33,15.67 40.47,15.67 40.47,10.44 35.25,10.44 35.25,7.83 43.08,7.83 
-        43.08,18.28 28.72,18.28 28.72,0     "/>
-    </g>
-    <g>
-      <rect y="13.29" width="1.66" height="4.98"/>
-      <polygon points="0,11.63 0,0 14.95,0 14.95,4.99 3.32,4.99 3.32,3.32 13.29,3.32 13.29,1.66 1.66,1.66 1.66,9.97 14.95,9.97 
-        14.95,11.63     "/>
-      <polygon points="3.32,18.28 3.32,13.29 14.95,13.29 14.95,14.95 4.98,14.95 4.98,16.62 16.61,16.62 16.61,8.31 3.32,8.31 
-        3.32,6.65 18.28,6.65 18.28,18.28    "/>
-      <rect x="16.61" y="0" width="1.66" height="4.99"/>
-    </g>
-  </g>
-  </svg>
-</div>
-
-
-
-
-
-<video class="mood-header" onload="play();" preload="auto" loop autoplay defaultMuted playsinline muted style="">
-  
-  <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm">
-
-  <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime">
-
-</video>
--->
-
-
-
-
-<!-- FOOTER STARTS HERE -->
-
-<div class="profile-box-container">
-  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profile-picture-container" style="height: 101px; display: block; margin: 13px;"></img>
-
-  <div class="text-title-container">
-    <p class="title-text"> CHASE GUERIN </p>
-    <span class="gray-arrow"> &gt;</span> <span class="secondary-accent-text"> DESIGNER </span>
-            
-    <div class="status-indicator">
-      <p class="additional-secondary-accent-text play-icon"> CS @ COLUMBIA </p> 
-    </div>
-
-    <div style="width: 100%; margin: 19px 0px 0 0px; display: flex; gap: 10px;">
+    <video class="guerin-design-heart" loop autoplay defaultMuted playsinline muted>
+      <source src="https://video.wixstatic.com/video/fab5c1_a1783fdcce8b4306a11f8cc64dc59f4d/1080p/mp4/file.mp4" type="video/mp4">
+    </video>
+
+        <span class="g-introduction">
+        <b style="font-size: 28px;">Hi,</b>
+        <br>
+        <br>
+
+        I'm <b>Chase Guerin</b>
+        <br>
+        <span style="color: #666666;"> <b>></b> a <b>product designer</b> [] </span>
+        <br>
+        specializing in <b>branding</b> 
+        <br>
+        <b>design</b> & <b>UI/UX</b> [ ]
+
+
+    <div id="outer">
       <div class="inner">
-        <a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
-          <button type="submit" class="profilebuttonsupdate" >GITHUB
-            <svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
-               height="9.75px" viewBox="0 0 10 9.75" style="overflow:visible;enable-background:new 0 0 10 9.75;" xml:space="preserve">
-            <defs>
-            </defs>
-            <path style="fill-rule:evenodd;clip-rule:evenodd; fill: black;" d="M5,0C2.24,0,0,2.24,0,5c0,2.21,1.43,4.08,3.42,4.74C3.67,9.79,3.76,9.64,3.76,9.5c0-0.12,0-0.43-0.01-0.85
-              c-1.39,0.3-1.68-0.67-1.68-0.67C1.84,7.41,1.51,7.25,1.51,7.25c-0.45-0.31,0.03-0.3,0.03-0.3c0.5,0.04,0.77,0.52,0.77,0.52
-              c0.45,0.76,1.17,0.54,1.46,0.42c0.05-0.32,0.17-0.54,0.32-0.67C2.98,7.08,1.81,6.65,1.81,4.74C1.81,4.19,2,3.75,2.32,3.4
-              C2.27,3.27,2.1,2.76,2.37,2.07c0,0,0.42-0.13,1.37,0.51C4.15,2.48,4.58,2.42,5,2.42c0.42,0,0.85,0.06,1.25,0.17
-              c0.95-0.65,1.37-0.51,1.37-0.51c0.27,0.69,0.1,1.2,0.05,1.32C8,3.75,8.19,4.19,8.19,4.74c0,1.92-1.17,2.34-2.28,2.47
-              c0.18,0.15,0.34,0.46,0.34,0.93c0,0.67-0.01,1.21-0.01,1.37c0,0.13,0.09,0.29,0.34,0.24C8.57,9.08,10,7.21,10,5C10,2.24,7.76,0,5,0z
-              "/>
-            </svg>
-          </button>
-        </a>
-      </div>
+        <button type="submit" class="profilebuttons" style="opacity: 0;" onclick="return false;">ABOUT
 
-      <div class="inner">
-        <button type="submit" class="ethbuttonupdate" onclick="copyText();">.ETH
-          <svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
-            <style type="text/css">
-              .st1{fill:#2D00FF;}
-            </style>
-            <defs>
-            </defs>
-            <g>
-              <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
-              <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
-            </g>
-          </svg>
-        </button>
-      </div>
-    </div> 
-  </div>
-
-  <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.48px"
-     height="14.47px" viewBox="0 0 14.48 14.47" style="        position: absolute;
-      bottom: 15.5px;
-      right: 19px;"
-     xml:space="preserve">
-  <defs>
-  </defs>
-  <g>
-    <g>
-      <g>
-        <g>
-          <polygon points="14.48,6.36 14.48,8.11 8.11,8.11 8.11,14.47 6.37,14.47 6.37,8.11 0,8.11 0,6.36 6.37,6.36 6.37,0 8.11,0 
-            8.11,6.36         "/>
-        </g>
-      </g>
-    </g>
-  </g>
-  </svg>
-
-</div>
-
-
-
-  </li>
-
-  <li class="random" >
-
-<div class="blur-gradient-home"></div>
-
-
-
-<div class="outeredge">
-
-
-
-
-    <a id="project-tap" href="https://guerinnewyork.com" target="_blank" 
-    onclick="ani();">
-      <button type="submit" style=" width: 170px; height: 170px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; display: block; z-index: 4; border: none; pointer-events: all; cursor: pointer;" >
-      </button>
-    </a>
-
-    <div class="project-title-container"> 
-      <span class="project-number-container">[<span id="project-number">1</span>]<!-- / 12] --> <span id="project-title-description">Project</span></span> 
-      <br>
-      <span id="project-title">Guerin New York</span> 
-
-    </div>
-
-    <div id="enterhere"> 
-
-      <span><i>Tap to</i> <b>Enter</b></span> 
-
-    </div>
-
-
-    <div class="arrow-moving"> 
-
-      <span> < </span> 
-
-    </div>
-
-    
-    
-
-
-
-    <div class="squareflashing" id="touchpress"> </div>
-
-
-
-    <div id="whiteblur-fade" class="whiteblur" onclick=""></div>
-
-    
-
-
-    <div class="video-of-project" >
-      
-      <div id="color-fix"class="highsandlows">
-        <div style=" -webkit-clip-path: url(#svgTextPath);
-    clip-path: url(#svgTextPath);  transform: scale(1.28) translate3d(0, 0, 0); width: 200px; display: flex; justify-content: center;">
-          <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img-2" onload="play();" preload="auto" autoplay muted defaultMuted playsinline loop style="">
-      <!--
-            <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
-      -->
-          </video>
-        </div>
-      </div>
-
-
-
-      <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         width="200px" height="200px" viewBox="0 0 200 200"
-         xml:space="preserve" style="  display: block;  position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);">
+      <svg version="1.1" style="margin-left: -5px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
       <style type="text/css">
-        .st0{fill:#FF0000; }
       </style>
       <defs>
       </defs>
-          <clipPath id="svgTextPath">
-      <path class="st0" d="M0,0v200h200V0H0z M150.49,150.48H49.52V49.51h100.97V150.48z"/>
-      </clipPath>
+      <g>
+        <polygon style="fill:#ffffff;" points="14.47,7.99 9.05,7.99 12.88,11.83 11.82,12.88 7.98,9.05 7.98,14.47 6.48,14.47 6.48,9.05 2.65,12.88 
+          1.59,11.83 5.43,7.99 0,7.99 0,6.49 5.43,6.49 1.59,2.65 2.65,1.59 6.48,5.43 6.48,0 7.98,0 7.98,5.43 11.82,1.59 12.88,2.65 
+          9.05,6.49 14.47,6.49  "></polygon>
+      </g>
       </svg>
 
 
 
-      <div class="preview-container-pic-3">
+        </button>
+      </div>
 
-
-          <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img" onload="play();" preload="auto" autoplay defaultMuted playsinline muted loop>
       <!--
-            <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
-      -->
-          </video>
+      <div class="inner">
 
-      </div> 
+        <button type="submit" class="ethbutton" onclick="return false;">
+          .ETH
 
+
+      <svg version="1.1" style="margin-left: -3px; margin-right: 1px; width: 13px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+      <style type="text/css">
+        .st1{fill:#2D00FF;}
+      </style>
+      <defs>
+      </defs>
+      <g>
+        <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+        <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
+      </g>
+      </svg>
+      </button>
+      </div>
+    -->
     </div>
 
-</div>
+
+
+        </span>
+
+
+
+    <div class="view-arrow-case">
+      <span style="text-transform: uppercase;"> View Projects</span>
+
+      <div style="height: 60px;">
+        <svg class="gray-arrow-case" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="131.8px"
+         height="35.51px" viewBox="0 0 131.8 35.51" xml:space="preserve">
+         <defs></defs><g><polygon style="fill:#E6E6E6;" points="65.9,35.51 0,3.6 1.74,0 65.9,31.07 130.06,0 131.8,3.6  "/></g>
+        </svg>
+      </div>
+    </div>
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- HEADER STARTS HERE -->
+
+
+
+    <!--
+    <div class="guerinlogo-header">
+
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px"
+         height="18.28px" viewBox="0 0 124 18.28" style="overflow:visible;enable-background:new 0 0 124 18.28;" xml:space="preserve">
+      <defs>
+      </defs>
+      <g>
+        <g>
+          <polygon points="124,0 124,18.28 121.39,18.28 110.95,4.35 110.95,18.28 108.34,18.28 108.34,0 110.95,0 121.39,13.93 121.39,0     
+            "/>
+          <rect x="101.81" y="0" width="2.61" height="18.28"/>
+          <g>
+            <g>
+              <path d="M93.71,10.45l2.87,0V0L81.92,0v2.61l1.61,0l0,15.66h2.61l0-7.83l4.39,0l5.48,7.83l3.19,0L93.71,10.45z M86.14,7.83V2.61
+                l7.83,0v5.22L86.14,7.83z"/>
+            </g>
+          </g>
+          <polygon points="79.6,0 79.6,2.61 67.85,2.61 67.85,7.83 79.6,7.83 79.6,10.44 67.85,10.44 67.85,15.67 79.6,15.67 79.6,18.28 
+            65.24,18.28 65.24,0     "/>
+          <polygon points="61.35,0 61.35,18.28 46.99,18.28 46.99,0 49.61,0 49.61,15.67 58.74,15.67 58.74,0    "/>
+          <polygon points="43.08,0 43.08,2.61 31.33,2.61 31.33,15.67 40.47,15.67 40.47,10.44 35.25,10.44 35.25,7.83 43.08,7.83 
+            43.08,18.28 28.72,18.28 28.72,0     "/>
+        </g>
+        <g>
+          <rect y="13.29" width="1.66" height="4.98"/>
+          <polygon points="0,11.63 0,0 14.95,0 14.95,4.99 3.32,4.99 3.32,3.32 13.29,3.32 13.29,1.66 1.66,1.66 1.66,9.97 14.95,9.97 
+            14.95,11.63     "/>
+          <polygon points="3.32,18.28 3.32,13.29 14.95,13.29 14.95,14.95 4.98,14.95 4.98,16.62 16.61,16.62 16.61,8.31 3.32,8.31 
+            3.32,6.65 18.28,6.65 18.28,18.28    "/>
+          <rect x="16.61" y="0" width="1.66" height="4.99"/>
+        </g>
+      </g>
+      </svg>
+    </div>
+
+
+
+
+
+    <video class="mood-header" onload="play();" preload="auto" loop autoplay defaultMuted playsinline muted style="">
+      
+      <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm">
+
+      <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime">
+
+    </video>
+    -->
+
+
+
+
+    <!-- FOOTER STARTS HERE -->
+
+    <div class="profile-box-container">
+      <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profile-picture-container" style="height: 101px; display: block; margin: 13px;"></img>
+
+      <div class="text-title-container">
+        <p class="title-text"> CHASE GUERIN </p>
+        <span class="gray-arrow"> &gt;</span> <span class="secondary-accent-text"> DESIGNER </span>
+                
+        <div class="status-indicator">
+          <p class="additional-secondary-accent-text play-icon"> CS @ COLUMBIA </p> 
+        </div>
+
+        <div style="width: 100%; margin: 19px 0px 0 0px; display: flex; gap: 10px;">
+          <div class="inner">
+            <a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
+              <button type="submit" class="profilebuttonsupdate" >GITHUB
+                <svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                   height="9.75px" viewBox="0 0 10 9.75" style="overflow:visible;enable-background:new 0 0 10 9.75;" xml:space="preserve">
+                <defs>
+                </defs>
+                <path style="fill-rule:evenodd;clip-rule:evenodd; fill: black;" d="M5,0C2.24,0,0,2.24,0,5c0,2.21,1.43,4.08,3.42,4.74C3.67,9.79,3.76,9.64,3.76,9.5c0-0.12,0-0.43-0.01-0.85
+                  c-1.39,0.3-1.68-0.67-1.68-0.67C1.84,7.41,1.51,7.25,1.51,7.25c-0.45-0.31,0.03-0.3,0.03-0.3c0.5,0.04,0.77,0.52,0.77,0.52
+                  c0.45,0.76,1.17,0.54,1.46,0.42c0.05-0.32,0.17-0.54,0.32-0.67C2.98,7.08,1.81,6.65,1.81,4.74C1.81,4.19,2,3.75,2.32,3.4
+                  C2.27,3.27,2.1,2.76,2.37,2.07c0,0,0.42-0.13,1.37,0.51C4.15,2.48,4.58,2.42,5,2.42c0.42,0,0.85,0.06,1.25,0.17
+                  c0.95-0.65,1.37-0.51,1.37-0.51c0.27,0.69,0.1,1.2,0.05,1.32C8,3.75,8.19,4.19,8.19,4.74c0,1.92-1.17,2.34-2.28,2.47
+                  c0.18,0.15,0.34,0.46,0.34,0.93c0,0.67-0.01,1.21-0.01,1.37c0,0.13,0.09,0.29,0.34,0.24C8.57,9.08,10,7.21,10,5C10,2.24,7.76,0,5,0z
+                  "/>
+                </svg>
+              </button>
+            </a>
+          </div>
+
+          <div class="inner">
+            <button type="submit" class="ethbuttonupdate" onclick="copyText();">.ETH
+              <svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+                <style type="text/css">
+                  .st1{fill:#2D00FF;}
+                </style>
+                <defs>
+                </defs>
+                <g>
+                  <polygon class="st1" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+                  <rect x="7.89" y="6.58" class="st1" width="6.58" height="1.32"></rect>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div> 
+      </div>
+
+      <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.48px"
+         height="14.47px" viewBox="0 0 14.48 14.47" style="        position: absolute;
+          bottom: 15.5px;
+          right: 19px;"
+         xml:space="preserve">
+      <defs>
+      </defs>
+      <g>
+        <g>
+          <g>
+            <g>
+              <polygon points="14.48,6.36 14.48,8.11 8.11,8.11 8.11,14.47 6.37,14.47 6.37,8.11 0,8.11 0,6.36 6.37,6.36 6.37,0 8.11,0 
+                8.11,6.36         "/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </svg>
+
+    </div>
+  </li>
+
+  <li class="random" >
+
+    <div class="blur-gradient-home"></div>
+
+    <div class="outeredge">
+
+
+
+
+        <a id="project-tap" href="https://guerinnewyork.com" target="_blank" 
+        onclick="ani();">
+          <button type="submit" style=" width: 170px; height: 170px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; display: block; z-index: 4; border: none; pointer-events: all; cursor: pointer;" >
+          </button>
+        </a>
+
+        <div class="project-title-container"> 
+          <span class="project-number-container">[<span id="project-number">1</span>]<!-- / 12] --> <span id="project-title-description">Project</span></span> 
+          <br>
+          <span id="project-title">Guerin New York</span> 
+
+        </div>
+
+        <div id="enterhere"> 
+
+          <span><i>Tap to</i> <b>Enter</b></span> 
+
+        </div>
+
+
+        <div class="arrow-moving"> 
+
+          <span> < </span> 
+
+        </div>
+
+        
+        
+
+
+
+        <div class="squareflashing" id="touchpress"> </div>
+
+
+
+        <div id="whiteblur-fade" class="whiteblur" onclick=""></div>
+
+        
+
+
+        <div class="video-of-project" >
+          
+          <div id="color-fix"class="highsandlows">
+            <div style=" -webkit-clip-path: url(#svgTextPath);
+        clip-path: url(#svgTextPath);  transform: scale(1.28) translate3d(0, 0, 0); width: 200px; display: flex; justify-content: center;">
+              <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img-2" onload="play();" preload="auto" autoplay muted defaultMuted playsinline loop style="">
+          <!--
+                <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
+          -->
+              </video>
+            </div>
+          </div>
+
+
+
+          <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="200px" height="200px" viewBox="0 0 200 200"
+             xml:space="preserve" style="  display: block;  position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);">
+          <style type="text/css">
+            .st0{fill:#FF0000; }
+          </style>
+          <defs>
+          </defs>
+              <clipPath id="svgTextPath">
+          <path class="st0" d="M0,0v200h200V0H0z M150.49,150.48H49.52V49.51h100.97V150.48z"/>
+          </clipPath>
+          </svg>
+
+
+
+          <div class="preview-container-pic-3">
+
+
+              <video id="project-video" src="https://video.wixstatic.com/video/fab5c1_1806d668cc574464ad0b467111e730e8/360p/mp4/file.mp4" type="video/mp4" class="preview-img" onload="play();" preload="auto" autoplay defaultMuted playsinline muted loop>
+          <!--
+                <source src="/Users/chaseguerin/Downloads/abolish video for website.mov" type="video/mp4">
+          -->
+              </video>
+
+          </div> 
+
+        </div>
+    </div>
 
     <ul class="project-carousel" id="tessst">
 
@@ -3594,9 +3090,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
 
         <li class="guerin-project yearvisualized-id">
 
@@ -3709,9 +3203,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
 
         <li class="guerin-project abolish-id">
 
@@ -3868,7 +3360,6 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
         <li class="guerin-project aporia-id">
@@ -4019,9 +3510,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
 
         <li class="guerin-project digitip-id">
 
@@ -4151,9 +3640,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
 
         <li class="guerin-project lnhuis-id">
 
@@ -4364,7 +3851,6 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
         <li class="guerin-project core-id">
@@ -4485,7 +3971,6 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
         <li class="guerin-project projectx-id">
@@ -4598,9 +4083,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
 
         <li class="guerin-project guerin-id">
 
@@ -4674,12 +4157,7 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
-
-
-
-
 
         <li class="guerin-project zoomuniversity-id">
 
@@ -5098,7 +4576,6 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
         <li class="guerin-project omni-id">
@@ -5202,7 +4679,6 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
         <li class="guerin-project theia-id">
@@ -5266,7 +4742,7 @@ calc(var(--menu-gradient-opaque))
               </span>
 
             </span>
- 
+
             <span class="project-body-year">
               2022
             </span>
@@ -5298,17 +4774,16 @@ calc(var(--menu-gradient-opaque))
           </div>
 
           <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
-
         </li>
 
       </div>
-
     </ul>
 
+  </li>
 
   <!-- 
-    <li class="random" style="background: blue !important;"></div>
-    <li class="random" style="background: green !important;"></div> 
+  <li class="random" style="background: blue !important;"></div>
+  <li class="random" style="background: green !important;"></div> 
   -->
 
 </ul>
