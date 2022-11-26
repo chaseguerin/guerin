@@ -485,13 +485,10 @@ left: 50%;
 */
 
 body {
+  overflow: hidden !important;
+  height: calc(100vh - calc(100vh - 100%)) !important;
 
-    min-height: 100vh !important;
-  min-height: -webkit-fill-available !important;
-}
-
-html {
-  height: -webkit-fill-available !important;
+  /* height: -webkit-fill-available !important; */
 }
 
 
