@@ -5053,7 +5053,13 @@ calc(var(--menu-gradient-opaque))
 function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
-  seamless.scrollBy(window, { behavior: "smooth", top: 1300, left: 0 });
+  // seamless.scrollBy(window, { behavior: "smooth", top: 1300, left: 0 });
+
+    window.scrollTo({
+    top: 1300,
+    left: 0,
+    behavior: 'smooth'
+  });
 }
 
 function update() {
