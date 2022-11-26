@@ -1365,6 +1365,9 @@ window.onload = function(e){
 }
 */
 
+if (window.innerHeight === window.screen.height && navigator.userAgent.match(/instagram/i)) {
+  document.querySelector('.guerin-menu').style.bottom = "200px";
+}
 
   var toggleMenu = false;
   var toggleProfile = false;
@@ -1929,7 +1932,6 @@ calc(var(--menu-gradient-opaque))
 </head>
 <body>
 
-<div style="width: 100%; height: 100%; overflow-y: scroll;">
 
 <div id="menu-gradient"></div>
 
@@ -4833,7 +4835,7 @@ calc(var(--menu-gradient-opaque))
 
 </ul>
 
-</div>
+
 <!--
 <script type="text/javascript">
   Math.floor(moment.unix(dateTimeUtc.unix() + offset).utc().format("hh") % 13);
