@@ -484,11 +484,12 @@ left: 50%;
 }
 */
 
+
 body {
   overflow: hidden !important;
-  /* height: calc(100vh - calc(100vh - 100%)) !important; */
-position: fixed;
-  height: -webkit-fill-available !important; 
+  
+  position: fixed;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
 }
 
@@ -1363,7 +1364,9 @@ window.onload = function(e){
     window.scrollBy(0,40);
 }
 */
-
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.body.style.setProperty('--vh', `${vh}px`);
 
   var toggleMenu = false;
   var toggleProfile = false;
