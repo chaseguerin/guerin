@@ -273,6 +273,76 @@ left: 50%;
 }
 
 
+
+
+@keyframes movingarrLeft {
+  0% {
+    left: 5px;
+  }
+
+
+  50% {
+    left: 10px;
+  }
+
+
+  100% {
+    left: 5px;
+  }
+}
+
+
+@keyframes movingarrRight {
+  0% {
+    right: 5px;
+  }
+
+
+  50% {
+    right: 10px;
+  }
+
+
+  100% {
+    right: 5px;
+  }
+}
+
+@keyframes movingarrTop {
+  0% {
+    top: 5px;
+  }
+
+
+  50% {
+    top: 10px;
+  }
+
+
+  100% {
+    top: 5px;
+  }
+}
+
+
+@keyframes movingarrBottom {
+  0% {
+    bottom: 5px;
+  }
+
+
+  50% {
+    bottom: 10px;
+  }
+
+
+  100% {
+    bottom: 5px;
+  }
+}
+
+
+
 @keyframes movingarr {
   0% {
     right: 0;
@@ -1375,6 +1445,142 @@ transition: all 200ms ease-in-out;
 		height: 29.5px !important;
 		transform: translateY(-5px);
 	}
+}
+
+
+#movingArrow-right-container {
+left: 50%;
+transform: translate(-30%, 0px);
+position: absolute;
+width: 550px;
+margin: 0px 40px;
+height: 30px;
+z-index: 1;
+bottom: 0px;
+display: block;
+pointer-events: none; 
+background: none; 
+
+
+/* mobile 
+height: 350px; width: 30px; pointer-events: none; background: none; bottom: 50%;
+      transform: translate(0, 95.50%); 
+      position: absolute; z-index: 1; right: 0;
+      */
+
+}
+
+
+@media (max-width: 950px) { 
+
+  #movingArrow-right-container {
+    height: 350px !important; 
+    width: 30px !important; 
+    margin: 0px !important;
+    bottom: 50% !important;
+    transform: translate(0, 95.50%) !important; 
+    left: unset !important;
+    right: 0 !important;
+  }
+
+  #movingArrow-left-container {
+    height: 350px !important; 
+    width: 30px !important; 
+    margin: 0px !important;
+    bottom: 50% !important;
+    transform: translate(0, 95.50%) !important; 
+    top: unset !important;
+    left: 0 !important;
+  }
+
+
+  #movingArrow-right {
+
+    top: 50% !important;
+    left: unset !important;
+    bottom: unset !important;
+    transform: translateY(-50%) !important;
+    right: 7px !important; 
+    animation: movingarrRight 2.0s infinite ease-in !important;
+  }
+
+
+  #movingArrow-left {
+
+    top: 50% !important;
+    left: unset !important;
+    bottom: unset !important;
+    transform: translateY(-50%) !important;
+    left: 7px !important; 
+    animation: movingarrLeft 2.0s infinite ease-in !important;
+
+  }
+
+}
+
+
+
+#movingArrow-left-container {
+left: 50%;
+transform: translate(-30%, 0px);
+position: absolute;
+width: 550px;
+margin: 0px 40px;
+height: 30px;
+z-index: 1;
+top: 0px;
+display: none;
+pointer-events: none; 
+background: none; 
+
+/* mobile 
+display: none; height: 350px; width: 30px; pointer-events: none; background: none; bottom: 50%;
+      transform: translate(0, 95.50%); 
+      position: absolute; z-index: 1; left: 0;
+      */
+}
+
+#movingArrow-right {
+
+
+height: 52px;
+position: fixed;
+left: 50%;
+transform: translateX(-50%) rotate(90deg);
+bottom: 7px;
+animation: movingarrBottom 2.0s infinite ease-in;
+width: 13px;
+
+/* mobile 
+  height: 52px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 7px; animation: movingarrRight 2.0s infinite ease-in;
+  width: 13px;
+*/
+}
+
+
+#movingArrow-left {
+  
+height: 52px;
+position: fixed;
+left: 50%;
+transform: translateX(-50%) rotate(90deg);
+top: 7px;
+animation: movingarrTop 2.0s infinite ease-in;
+width: 13px;
+
+/* mobile 
+  height: 52px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 7px; animation: movingarrLeft 2.0s infinite ease-in;
+  width: 13px;
+
+  */
 }
 
 
@@ -2987,7 +3193,41 @@ calc(var(--menu-gradient-opaque))
         </div>
     </div>
 
+
+
+
+      <div id="movingArrow-left-container" >
+
+        <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+        <svg id="movingArrow-left" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.51px"
+           height="131.8px" viewBox="0 0 35.51 131.8" 
+           xml:space="preserve">
+
+        <defs>
+        </defs>
+        <g>
+          <polygon style="fill:#CCCCCC;" points="31.91,0 35.51,1.74 4.44,65.9 35.51,130.06 31.91,131.8 0,65.9   "/>
+        </g>
+        </svg>
+      </div>
+
+      <div id="movingArrow-right-container" >
+          <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+          <svg id="movingArrow-right" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.51px"
+             height="131.8px" viewBox="0 0 35.51 131.8" 
+             xml:space="preserve">
+          <defs>
+          </defs>
+          <g>
+            <polygon style="fill:#CCCCCC;" points="3.6,131.8 0,130.06 31.07,65.9 0,1.74 3.6,0 35.51,65.9  "/>
+          </g>
+          </svg>
+      </div>
+
+
     <ul class="project-carousel" id="tessst">
+
+
 
       <div class="project-carousel-container">
 
@@ -4932,6 +5172,26 @@ setInterval(update, 500);
     if( (centerCell.parentElement.parentElement.tagName == 'LI' && centerCell.parentElement.parentElement.classList.contains('guerin-project')))  {
 
       $('#project-number').html( $( ".selected" ).index( 'li') - 1);
+
+
+      // console.log(document.getElementsByClassName("guerin-project").length)
+
+      if (document.getElementById('project-number').innerHTML == 1) {
+        document.getElementById('movingArrow-left-container').style.display = "none";
+        
+      }
+
+      if (document.getElementById('project-number').innerHTML != 1) {
+        document.getElementById('movingArrow-left-container').style.display = "block";
+      }
+
+      if (document.getElementById('project-number').innerHTML == document.getElementsByClassName("guerin-project").length) {
+        document.getElementById('movingArrow-right-container').style.display = "none";
+      }
+
+      if (document.getElementById('project-number').innerHTML != document.getElementsByClassName("guerin-project").length) {
+        document.getElementById('movingArrow-right-container').style.display = "block";
+      }
 
       if (centerCell.parentElement.parentElement.classList.contains('abolish-id') ) {
         document.getElementById('project-title').innerHTML = "Abolish";
