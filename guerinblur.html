@@ -1363,11 +1363,12 @@ transition: all 200ms ease-in-out;
 window.onload = function(e){ 
     window.scrollBy(0,40);
 }
-*/
+
 
 if (window.innerHeight === window.screen.height && navigator.userAgent.match(/instagram/i)) {
   document.querySelector('.guerin-menu').style.bottom = "200px";
 }
+*/
 
   var toggleMenu = false;
   var toggleProfile = false;
@@ -1391,7 +1392,7 @@ if (window.innerHeight === window.screen.height && navigator.userAgent.match(/in
       document.getElementById('g-menu-content').style.pointerEvents = "all";
       document.querySelector('.guerin-menu').style.height = "32.5px";
       document.querySelector('.guerin-menu').style.width = "32.5px";
-      // document.querySelector('.guerin-menu').style.bottom = "85px";
+      document.querySelector('.guerin-menu').style.bottom = "85px";
       document.querySelector('.mobile-id-menu-nav').style.opacity = "1";
       document.querySelector('.mobile-id-menu-nav').style.pointerEvents = "all";
       document.getElementById('menu-button').style.fill = "black";
