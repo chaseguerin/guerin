@@ -7,7 +7,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densityDpi=device-dpi">
+
 <script type="text/javascript">
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -484,7 +485,6 @@ left: 50%;
 }
 */
 
-
 html, body, #outer-wrap {
   position: absolute;
   top: 0;
@@ -493,15 +493,6 @@ html, body, #outer-wrap {
   right: 0;
   overflow: hidden !important;
 }
-
-/*
-body {
-  overflow: hidden !important;
-  height: calc(100vh - calc(100vh - 100%)) !important;
-
-  height: -webkit-fill-available !important;
-}
-*/
 
 
 @media /* (min-width: 600px) and */ (max-width: 950px) {
@@ -1957,7 +1948,7 @@ calc(var(--menu-gradient-opaque))
 </head>
 <body>
 
-
+<div id="outer-wrap">
 <div id="menu-gradient"></div>
 
   <div id="menu-overlay">
@@ -4860,7 +4851,7 @@ calc(var(--menu-gradient-opaque))
 
 </ul>
 
-
+</div>
 <!--
 <script type="text/javascript">
   Math.floor(moment.unix(dateTimeUtc.unix() + offset).utc().format("hh") % 13);
