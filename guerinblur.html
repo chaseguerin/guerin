@@ -524,7 +524,7 @@ body {
 
 }
 .carousel-general {
-  height: 97vh !important;
+  height: 100vh !important;
 }
 
 
@@ -619,8 +619,8 @@ body {
 
   #menu-gradient {
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 75%) !important; */
-
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 71%, rgba(255, 255, 255, 0) 71%, rgba(255, 255, 255, 1) 84%, rgba(255, 255, 255, 1) 80%) !important;
+ 
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 1) 81%) !important; 
   }
 
   .guerin-menu-time {
@@ -1097,19 +1097,19 @@ padding-bottom: env(safe-area-inset-bottom);
 
   /* background: linear-gradient(180deg, rgba(255, 255, 255, 1) 16%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0) 52%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 84%); */
 
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 99%);
+
+background: linear-gradient(180deg, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 1) 99%); 
 
 
 /* for mobile */
 /* background: linear-gradient(180deg, rgba(255, 255, 0, 0) 50%, rgba(255, 255, 0, 255) 50%, rgba(255, 255, 0, 0.02) 50%, rgba(255, 255, 0, 1) 75%); */
 
-
-
+bottom: 0;
   pointer-events: none;
   opacity: 0;
   position: absolute;
   z-index: 2;
-  transition: all 350ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .guerin-menu-nav {
@@ -1344,19 +1344,24 @@ transition: all 200ms ease-in-out;
 
 <script type="text/javascript">
 
-
   var toggleMenu = false;
   var toggleProfile = false;
   var toggleSocialIcons = false;
 
 
 
-// I need too fix menuActive() when resizing my browser
+
+
+// I need to fix menuActive() when resizing my browser
   function menuActive() {
+
 
     if (toggleMenu == false) {
       document.getElementById('menu-gradient').style.opacity = "1";
+
+
       document.getElementById('menu-overlay').style.opacity = "1";
+    
 
       document.getElementById('g-menu-content').style.pointerEvents = "all";
       document.querySelector('.guerin-menu').style.height = "32.5px";
@@ -1394,6 +1399,11 @@ transition: all 200ms ease-in-out;
         if (window.innerWidth < 951) {
           if (toggleProfile == true) {
 
+
+
+          
+          
+
           document.querySelector('.changing-menu').style.bottom = "calc(150px - 36px)";
           document.querySelector('.mobile-id-menu-nav').style.bottom = "150px";
           // document.querySelector('.guerin-menu').style.bottom = "199px";
@@ -1403,6 +1413,9 @@ transition: all 200ms ease-in-out;
           }
 
           if (toggleSocialIcons == true) {
+
+
+
           document.querySelector('.changing-menu').style.bottom = "calc(160px - 36px)";
           document.querySelector('.mobile-id-menu-nav').style.bottom = "160px";
           // document.querySelector('.guerin-menu').style.bottom = "209px";
@@ -1413,6 +1426,9 @@ transition: all 200ms ease-in-out;
           }
 
           if (toggleProfile == true && toggleSocialIcons == true) {
+
+
+
           document.querySelector('.changing-menu').style.bottom = "calc(270px - 36px)";
           document.querySelector('.mobile-id-menu-nav').style.bottom = "270px";
           // document.querySelector('.guerin-menu').style.bottom = "319px";
@@ -1426,6 +1442,9 @@ transition: all 200ms ease-in-out;
 
       if (window.innerWidth < 951) {
         if (toggleProfile == true) {
+
+
+
         document.querySelector('.changing-menu').style.bottom = "calc(150px - 36px)";
         document.querySelector('.mobile-id-menu-nav').style.bottom = "150px";
         document.querySelector('.guerin-menu').style.bottom = "199px";
@@ -1435,6 +1454,9 @@ transition: all 200ms ease-in-out;
         }
 
         if (toggleSocialIcons == true) {
+
+
+
         document.querySelector('.changing-menu').style.bottom = "calc(160px - 36px)";
         document.querySelector('.mobile-id-menu-nav').style.bottom = "160px";
         document.querySelector('.guerin-menu').style.bottom = "209px";
@@ -1445,6 +1467,9 @@ transition: all 200ms ease-in-out;
         }
 
         if (toggleProfile == true && toggleSocialIcons == true) {
+
+
+
         document.querySelector('.changing-menu').style.bottom = "calc(270px - 36px)";
         document.querySelector('.mobile-id-menu-nav').style.bottom = "270px";
         document.querySelector('.guerin-menu').style.bottom = "319px";
@@ -1572,6 +1597,10 @@ transition: all 200ms ease-in-out;
   }
 
   function hideProfile() {
+
+
+
+
     if (toggleProfile == false) {
       document.getElementById('profile-i-btn').style.background = "#808080";
       document.getElementById('i-btn-nav').style.background = "#808080";
@@ -1806,7 +1835,71 @@ transition: all 200ms ease-in-out;
   }
 
 
+window.addEventListener("resize", gradientUpdate);
 
+
+function gradientUpdate() {
+
+
+
+
+
+
+/*
+:root {
+  --menu-gradient-translucent: 60%;
+  --menu-gradient-opaque: 81%;
+}
+
+calc(var(--menu-gradient-translucent))
+calc(var(--menu-gradient-opaque))
+*/
+
+
+
+  if (window.innerWidth < 951) {
+
+    //normal gradient
+    /* document.getElementById('menu-gradient').style.background = "linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 1) 81%)"; */
+
+
+
+
+    document.getElementById('menu-gradient').style.paddingBottom = "0px";
+
+    if (toggleSocialIcons == true) {
+    //social gradient
+    /* document.getElementById('menu-gradient').style.background = "linear-gradient(180deg, rgba(255, 255, 255, 0) 47%, rgba(255, 255, 255, 1) 68%)"; */
+
+    document.getElementById('menu-gradient').style.paddingBottom = "624px";
+
+    }
+
+    if (toggleProfile == true) {
+    //profile gradient
+    /* document.getElementById('menu-gradient').style.background = "linear-gradient(180deg, rgba(255, 255, 255, 0) 49%, rgba(255, 255, 255, 1) 70%)"; */
+
+    document.getElementById('menu-gradient').style.paddingBottom = "640px";
+
+
+    }
+
+    if (toggleProfile == true && toggleSocialIcons == true) {
+    //profile & social gradient
+    /* document.getElementById('menu-gradient').style.background = "linear-gradient(180deg, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 55%)"; */
+
+    document.getElementById('menu-gradient').style.paddingBottom = "1224px";
+    }
+
+  } else {
+
+
+
+    document.getElementById('menu-gradient').style.paddingBottom = "0px";
+
+    
+  }
+}
 
 </script>
 
@@ -2038,7 +2131,7 @@ transition: all 200ms ease-in-out;
   	          </button>
   	        </a>
 
-  		    <div class="guerin-square-menu-nav no-display-class" id="profile-i-btn" onclick="hideProfile();">
+  		    <div class="guerin-square-menu-nav no-display-class" id="profile-i-btn" onclick="hideProfile(); gradientUpdate();">
   		        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33px"
   		           height="33px" viewBox="0 0 33 33" style="overflow:visible;enable-background:new 0 0 33 33;" xml:space="preserve">
   		        <defs>
@@ -2082,7 +2175,7 @@ transition: all 200ms ease-in-out;
   	          </button>
   	        </a>
 
-  	        <button type="submit" id="social-btn-nav" class="guerin-menu-nav" style="padding-left: 24px; padding-right: 24px;" onclick="socialMove();">
+  	        <button type="submit" id="social-btn-nav" class="guerin-menu-nav" style="padding-left: 24px; padding-right: 24px;" onclick="socialMove(); gradientUpdate();">
 
   	            Social
 
@@ -2478,7 +2571,7 @@ transition: all 200ms ease-in-out;
   </div>
 <!-- Menu -->
 
-<svg id="fixed-guerin-menu" onclick="menuActive();" class="guerin-menu" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px"
+<svg id="fixed-guerin-menu" onclick="menuActive(); gradientUpdate();" class="guerin-menu" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px"
    height="35px" viewBox="0 0 35 35" style="overflow:visible;enable-background:new 0 0 35 35;" xml:space="preserve">
 <defs>
 </defs>
@@ -2495,7 +2588,7 @@ transition: all 200ms ease-in-out;
 </g>
 </svg>
 
-<div class="mobile-id-menu-nav" id="i-btn-nav" onclick="hideProfile();">
+<div class="mobile-id-menu-nav" id="i-btn-nav" onclick="hideProfile(); gradientUpdate();">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33px"
      height="33px" viewBox="0 0 33 33" id="i-svg-nav" style="overflow:visible;enable-background:new 0 0 33 33;" xml:space="preserve">
   <defs>
@@ -2687,7 +2780,7 @@ transition: all 200ms ease-in-out;
 
 <!-- FOOTER STARTS HERE -->
 
-<div class="profile-box-container" onclick="togglePlay()">
+<div class="profile-box-container">
   <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profile-picture-container" style="height: 101px; display: block; margin: 13px;"></img>
 
   <div class="text-title-container">
