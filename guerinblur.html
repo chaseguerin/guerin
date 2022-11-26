@@ -277,17 +277,17 @@ left: 50%;
 
 @keyframes movingarrLeft {
   0% {
-    left: 10px;
-  }
-
-
-  50% {
     left: 5px;
   }
 
 
-  100% {
+  50% {
     left: 10px;
+  }
+
+
+  100% {
+    left: 5px;
   }
 }
 
@@ -835,6 +835,7 @@ ul {
   font-weight: 500;
   color: #999999;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .gray-arrow-case {
@@ -1448,28 +1449,6 @@ transition: all 200ms ease-in-out;
 }
 
 
-#movingArrow-right-container {
-left: 50%;
-transform: translate(-30%, 0px);
-position: absolute;
-width: 550px;
-margin: 0px 40px;
-height: 30px;
-z-index: 1;
-bottom: 0px;
-display: block;
-pointer-events: none; 
-background: none; 
-
-
-/* mobile 
-height: 350px; width: 30px; pointer-events: none; background: none; bottom: 50%;
-      transform: translate(0, 95.50%); 
-      position: absolute; z-index: 1; right: 0;
-      */
-
-}
-
 
 @media (max-width: 950px) { 
 
@@ -1519,68 +1498,54 @@ height: 350px; width: 30px; pointer-events: none; background: none; bottom: 50%;
 }
 
 
+#movingArrow-right-container {
+  left: 50%;
+  transform: translate(-30%, 0px);
+  position: absolute;
+  width: 550px;
+  margin: 0px 40px;
+  height: 30px;
+  z-index: 1;
+  bottom: 0px;
+  pointer-events: none; 
+  background: none; 
+  transition: all 400ms ease-in-out;
+}
 
 #movingArrow-left-container {
-left: 50%;
-transform: translate(-30%, 0px);
-position: absolute;
-width: 550px;
-margin: 0px 40px;
-height: 30px;
-z-index: 1;
-top: 0px;
-display: none;
-pointer-events: none; 
-background: none; 
-
-/* mobile 
-display: none; height: 350px; width: 30px; pointer-events: none; background: none; bottom: 50%;
-      transform: translate(0, 95.50%); 
-      position: absolute; z-index: 1; left: 0;
-      */
+  left: 50%;
+  transform: translate(-30%, 0px);
+  position: absolute;
+  width: 550px;
+  margin: 0px 40px;
+  height: 30px;
+  z-index: 1;
+  top: 0px;
+  opacity: 0;
+  pointer-events: none; 
+  background: none; 
+  transition: all 400ms ease-in-out;
 }
 
 #movingArrow-right {
-
-
-height: 52px;
-position: fixed;
-left: 50%;
-transform: translateX(-50%) rotate(90deg);
-bottom: 7px;
-animation: movingarrBottom 2.0s infinite ease-in;
-width: 13px;
-
-/* mobile 
   height: 52px;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 7px; animation: movingarrRight 2.0s infinite ease-in;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  bottom: 7px;
+  animation: movingarrBottom 2.0s infinite ease-in;
   width: 13px;
-*/
 }
 
 
 #movingArrow-left {
-  
-height: 52px;
-position: fixed;
-left: 50%;
-transform: translateX(-50%) rotate(90deg);
-top: 7px;
-animation: movingarrTop 2.0s infinite ease-in;
-width: 13px;
-
-/* mobile 
   height: 52px;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 7px; animation: movingarrLeft 2.0s infinite ease-in;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  top: 7px;
+  animation: movingarrTop 2.0s infinite ease-in;
   width: 13px;
-
-  */
 }
 
 
@@ -2934,7 +2899,7 @@ calc(var(--menu-gradient-opaque))
 
 
 
-    <div class="view-arrow-case">
+    <div class="view-arrow-case" onclick="viewElement();">
       <span style="text-transform: uppercase;"> View Projects</span>
 
       <div style="height: 50px;">
@@ -3096,7 +3061,7 @@ calc(var(--menu-gradient-opaque))
     </div>
   </li>
 
-  <li class="random" >
+  <li class="random" id="project-home">
 
     <div class="blur-gradient-home"></div>
 
@@ -5072,7 +5037,28 @@ calc(var(--menu-gradient-opaque))
 
 
 
+<!-- please replace the `latest` with specific version -->
+<script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
+
+
 <script type="text/javascript">
+
+
+
+
+
+
+
+
+function viewElement() {
+  //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
+
+      seamless.scrollIntoView(document.getElementById("project-home"), {
+        behavior: "smooth",
+
+    });
+}
+
 function update() {
     var dateTimeUtc = moment().utc();
     document.querySelector(".updateTest").innerHTML = dateTimeUtc.tz('America/New_York').format("hh:mm:ssA");
@@ -5112,11 +5098,11 @@ setInterval(update, 500);
     /* const centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2) */
     var centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
 
-    if (window.innerWidth > 950) {
+    if (document.body.clientWidth /* window.innerWidth */ > 950) {
       centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
     }
     
-    if (window.innerWidth < 950) { 
+    if (document.body.clientWidth /* window.innerWidth */ < 950) { 
 
       if (window.innerHeight > 620 /* 577 */) { 
         centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.35 /* 1.4 or 1.25 */)
@@ -5152,11 +5138,11 @@ setInterval(update, 500);
     const rect = e.target.getBoundingClientRect();
     var centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
     
-    if (window.innerWidth > 950) {
+    if (document.body.clientWidth /* window.innerWidth */ > 950) {
       centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 2 /* 1.25 */)
     }
     
-    if (window.innerWidth < 950) { 
+    if (document.body.clientWidth /* window.innerWidth */ < 950) { 
 
       if (window.innerHeight > 620 /* 577 */) { 
         centerCell = document.elementFromPoint(rect.left + e.target.offsetWidth / 2, rect.top + e.target.offsetHeight / 1.35 /* 1.4 or 1.25 */)
@@ -5177,20 +5163,20 @@ setInterval(update, 500);
       // console.log(document.getElementsByClassName("guerin-project").length)
 
       if (document.getElementById('project-number').innerHTML == 1) {
-        document.getElementById('movingArrow-left-container').style.display = "none";
+        document.getElementById('movingArrow-left-container').style.opacity = "0";
         
       }
 
       if (document.getElementById('project-number').innerHTML != 1) {
-        document.getElementById('movingArrow-left-container').style.display = "block";
+        document.getElementById('movingArrow-left-container').style.opacity = "1";
       }
 
       if (document.getElementById('project-number').innerHTML == document.getElementsByClassName("guerin-project").length) {
-        document.getElementById('movingArrow-right-container').style.display = "none";
+        document.getElementById('movingArrow-right-container').style.opacity = "0";
       }
 
       if (document.getElementById('project-number').innerHTML != document.getElementsByClassName("guerin-project").length) {
-        document.getElementById('movingArrow-right-container').style.display = "block";
+        document.getElementById('movingArrow-right-container').style.opacity = "1";
       }
 
       if (centerCell.parentElement.parentElement.classList.contains('abolish-id') ) {
