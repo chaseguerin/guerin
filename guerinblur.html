@@ -38,14 +38,6 @@ async function ani() {
 
 <style type="text/css">
 
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-html {
-  height: -webkit-fill-available;
-}
-
 #project-video {
   transition: all 350ms ease-in-out;
 }
@@ -460,7 +452,6 @@ left: 50%;
     transform: translate(-30%, -50%);
     position: absolute;
     height: 100vh;
-    height: -webkit-fill-available;
     width: 550px;
     margin: 0 40px 0 40px;
     overflow-x: hidden;
@@ -495,6 +486,8 @@ left: 50%;
 
 body {
   overflow: hidden !important;
+    min-height: 100vh !important;
+  min-height: -webkit-fill-available !important;
 }
 
 
@@ -505,7 +498,7 @@ body {
       left: 50%;
       transform: translate(-50%, 0%);
       position: absolute;
-      height: -webkit-fill-available;
+      height: 97vh; 
       /* height: 100%; */
       width: 100%;
       overflow-y: hidden;
@@ -529,12 +522,11 @@ body {
 
 
 .random {
-  height: -webkit-fill-available !important; 
+  height: 97vh !important;
 
 }
 .carousel-general {
   height: 100vh !important;
-  height: -webkit-fill-available !important;
 }
 
 
@@ -708,7 +700,6 @@ body {
     /* width: 400px; */
     width: 100%;
     height: 100vh;
-    height: -webkit-fill-available;
     position: relative;
     display: block;
     background: white;
@@ -723,7 +714,6 @@ body {
   /* scroll-snap-type: y mandatory; */
   scroll-snap-type: y proximity;
   height: 100vh;
-  height: -webkit-fill-available;
   overflow-x: hidden;
 }
 
@@ -1079,7 +1069,6 @@ pointer-events: none;
   /* width: 100%; */
   width: 100%;
   height: 100vh;
-  height: -webkit-fill-available;
   position: absolute;
   z-index: 2;
   opacity: 0;
@@ -1100,7 +1089,6 @@ padding-bottom: env(safe-area-inset-bottom);
   /* width: 100%; */
   width: 98.73%;
   height: 100vh;
-  height: -webkit-fill-available;
   /*
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 6%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.02) 50%, rgba(0, 0, 0, 1) 94%);
   */
