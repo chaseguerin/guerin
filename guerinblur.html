@@ -5063,14 +5063,16 @@ async function viewElement() {
     });
 
 
-  await sleep(10);
+  await sleep(1000);
 
   document.body.style.scrollSnapType = "y proximity";
-        seamless.scrollIntoView(document.getElementById("project-home"), {
+        
+        /*seamless.scrollIntoView(document.getElementById("project-home"), {
         behavior: "smooth",
         block: "end",
         inline: "end",
     });
+    */
 
 
 }
