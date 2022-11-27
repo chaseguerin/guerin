@@ -5073,7 +5073,7 @@ position: absolute;">
 window.addEventListener("scroll", updateScrollType);
 
 function updateScrollType() {
-  if(/iPad/i.test(navigator.userAgent)){
+  if(/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad'){
     document.body.style.scrollSnapType = "unset";
   }
 }
@@ -5091,7 +5091,7 @@ async function viewElement() {
     document.body.style.scrollSnapType = "y proximity";
 
     // document.write("mobile device");
-  } else if (/iPad/i.test(navigator.userAgent)){
+  } else if (/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad'){
 
     document.body.style.scrollSnapType = "unset";
     seamless.scrollBy(window, { behavior: "smooth", top: document.getElementById("project-home").clientHeight /*790 */, left: 0 });
