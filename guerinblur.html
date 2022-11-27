@@ -5056,6 +5056,8 @@ async function viewElement() {
   seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
   await sleep(1);
   document.body.style.scrollSnapType = "y proximity";
+  await sleep(100);
+  document.body.style.scrollSnapType = "y proximity";
 }
 
 function update() {
