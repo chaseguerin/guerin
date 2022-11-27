@@ -3179,7 +3179,10 @@ calc(var(--menu-gradient-opaque))
 
 
 <div style="
-height: 97vh;
+height: 100vh;
+height: -moz-available;          /* WebKit-based browsers will ignore this. */
+height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+height: fill-available;
 width: 100%;
 background: none;
 pointer-events: none;
