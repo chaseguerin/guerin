@@ -5080,17 +5080,20 @@ position: absolute;">
 window.addEventListener("load", updateScrollType);
 
 function updateScrollType() {
-
   if(/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad'){
     document.body.style.scrollSnapType = "unset";
-  }
 
-  if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad'){
 
     for (var i = 0; i < document.getElementsByClassName("random").length; i++) {
      document.getElementsByClassName("random")[i].style.height = "-webkit-fill-available";
      document.getElementsByClassName("random")[i].style.height = "-moz-available";
      document.getElementsByClassName("random")[i].style.height = "fill-available";
+
+/*
+-moz-available
+-webkit-fill-available
+fill-available
+*/
     }
 
   }
