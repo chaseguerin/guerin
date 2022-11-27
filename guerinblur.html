@@ -5052,10 +5052,14 @@ calc(var(--menu-gradient-opaque))
 
 async function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
+
   document.body.style.scrollSnapType = "unset";
+  await sleep(1);
+  document.body.style.scrollSnapType = "unset";
+  await sleep(10);
   seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
   await sleep(1);
-  void document.body.offsetWidth; // trigger reflow
+  document.body.style.scrollSnapType = "y proximity";
   await sleep(1);
   document.body.style.scrollSnapType = "y proximity";
 }
