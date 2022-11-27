@@ -5053,8 +5053,10 @@ calc(var(--menu-gradient-opaque))
 async function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
+// console.log(document.getElementById("project-home").clientHeight);
+
   document.body.style.scrollSnapType = "unset";
- seamless.scrollBy(window, { behavior: "smooth", top: 790, left: 0 });
+ seamless.scrollBy(window, { behavior: "smooth", top: document.getElementById("project-home").clientHeight /*790 */, left: 0 });
 
 /*
       seamless.scrollIntoView(document.getElementById("project-home"), {
