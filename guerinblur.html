@@ -790,9 +790,6 @@ body {
     height: 100vh;
     
 
-    height: fill-available;
-
-
     min-height: 621px;
     position: relative;
     display: block;
@@ -5085,6 +5082,15 @@ window.addEventListener("load", updateScrollType);
 function updateScrollType() {
   if(/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad'){
     document.body.style.scrollSnapType = "unset";
+
+
+    for (var i = 0; i < document.getElementsByName("random").length; i++) {
+     document.getElementsByName("random")[i].style.height = "-webkit-fill-available";
+     document.getElementsByName("random")[i].style.height = "-moz-available";
+     document.getElementsByName("random")[i].style.height = "fill-available";
+
+    }
+
   }
 }
 
