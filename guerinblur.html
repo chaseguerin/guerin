@@ -2884,7 +2884,7 @@ calc(var(--menu-gradient-opaque))
         <span style="color: #666666;"> <b style="animation-name: grayarrowanimate;
 animation-duration: 1.14s;
 animation-iteration-count: infinite;
-animation-timing-function: linear;">></b> a <b><span><a class="typewrite" data-period="4000" data-type='[ "product designer", "creative developer", "visual designer", "videographer" ]'></a></span></b> <div style="
+animation-timing-function: linear;">></b> a <b><span><a class="typewrite" data-period="3000" data-type='[ "product designer", "creative developer", "visual designer", "videographer" ]'>product designer</a></span></b> <div style="
 background-color: #c7c7c7; display: inline-block;
 /* animation: blink 0.9s steps(2, start) infinite; */ height: 17px;
   width: calc(10.50657780874822px / 1.1444);"> </div> </span>
@@ -5100,9 +5100,9 @@ position: absolute;">
         this.el = el;
         this.loopNum = 0;
         this.period = parseInt(period, 10) || 3000;
-        this.txt = '';
+        this.txt = 'product designer';
         this.tick();
-        this.isDeleting = false;
+        this.isDeleting = true;
     };
 
     TxtType.prototype.tick = function() {
