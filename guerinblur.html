@@ -3061,7 +3061,7 @@ calc(var(--menu-gradient-opaque))
     </div>
   </li>
 
-  <li class="random" >
+  <li class="random" id="project-home">
 
     <div class="blur-gradient-home"></div>
 
@@ -3076,7 +3076,7 @@ calc(var(--menu-gradient-opaque))
           </button>
         </a>
 
-        <div class="project-title-container" id="project-home"> 
+        <div class="project-title-container" > 
           <span class="project-number-container">[<span id="project-number">1</span>]<!-- / 12] --> <span id="project-title-description">Project</span></span> 
           <br>
           <span id="project-title">Guerin New York</span> 
@@ -5045,7 +5045,9 @@ calc(var(--menu-gradient-opaque))
 
 
 
-
+addEventListener('scroll', (event) => { 
+  document.body.style.scrollSnapType = "y proximity";
+})
 
 
 
@@ -5054,15 +5056,17 @@ async function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
   document.body.style.scrollSnapType = "unset";
-  await sleep(1);
-  document.body.style.scrollSnapType = "unset";
-  await sleep(10);
-  seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
-  await sleep(1);
-  document.body.style.scrollSnapType = "y proximity";
-  await sleep(1);
-  document.body.style.scrollSnapType = "y proximity";
+ // seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
+
+      seamless.scrollIntoView(document.getElementById("project-home"), {
+        behavior: "smooth",
+        block: "end",
+        inline: "end",
+    });
+
+
 }
+
 
 function update() {
     var dateTimeUtc = moment().utc();
