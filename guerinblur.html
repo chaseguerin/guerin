@@ -5084,10 +5084,16 @@ function updateScrollType() {
     document.body.style.scrollSnapType = "unset";
 
 
-    for (var i = 0; i < document.getElementsByName("random").length; i++) {
-     document.getElementsByName("random")[i].style.height = "-webkit-fill-available";
+    for (var i = 0; i < document.getElementsByClassName("random").length; i++) {
+     document.getElementsByClassName("random")[i].style.height = "-webkit-fill-available";
+     document.getElementsByClassName("random")[i].style.height = "-moz-available";
+     document.getElementsByClassName("random")[i].style.height = "fill-available";
 
-
+/*
+-moz-available
+-webkit-fill-available
+fill-available
+*/
     }
 
   }
