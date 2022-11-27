@@ -2881,10 +2881,10 @@ calc(var(--menu-gradient-opaque))
 
         I'm <b>Chase Guerin</b>
         <br>
-        <span style="color: #666666;"> <b style="animation-name: grayarrowanimate;
-animation-duration: 1.14s;
-animation-iteration-count: infinite;
-animation-timing-function: linear;">></b> a <b><span><a class="typewrite" data-period="3000" data-type='[ "product designer", "creative developer", "visual designer", "videographer" ]'>product designer</a></span></b> <div style="
+        <span style="color: #666666;"> <b id="blinking-arrow" style="transition: all 300ms ease-in-out;
+
+animation: grayarrowanimate 1.14s linear infinite; 
+">></b> a <b><span><a class="typewrite" data-period="3000" data-type='[ "product designer", "creative developer", "visual designer", "videographer" ]'>product designer</a></span></b> <div id="blinking-golden-ratio" style="
 background-color: #c7c7c7; display: inline-block;
 /* animation: blink 0.9s steps(2, start) infinite; */ height: 17px;
   width: calc(10.50657780874822px / 1.1444);"> </div> </span>
@@ -2892,7 +2892,6 @@ background-color: #c7c7c7; display: inline-block;
         specializing in <b>branding</b> 
         <br>
         <b>design</b> & <b>UI/UX</b> [ ]
-
 
     <div id="outer">
       <div class="inner">
@@ -5105,7 +5104,7 @@ position: absolute;">
         this.isDeleting = true;
     };
 
-    TxtType.prototype.tick = function() {
+    TxtType.prototype.tick = async function() {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
 
@@ -5115,17 +5114,48 @@ position: absolute;">
         this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        this.el.innerHTML = this.txt;
 
         var that = this;
         var delta = 150 - Math.random() * 100;
 
-        if (this.isDeleting) { delta /= 2; }
+        if (this.isDeleting) { delta /= 2; 
+
+document.getElementById("blinking-arrow").style.animation = "grayarrowanimate 1.14s linear infinite";
+// document.getElementById("blinking-arrow").style.animation = "none";
+
+document.getElementById("blinking-golden-ratio").style.animation = "none";
+
+// document.getElementById("blinking-golden-ratio").style.animation = "blink 0.9s steps(2, start) infinite";
+
+        }
 
         if (!this.isDeleting && this.txt === fullTxt) {
+
+// document.getElementById("blinking-arrow").style.animation = "grayarrowanimate 1.14s linear infinite";
+
+// document.getElementById("blinking-golden-ratio").style.animation = "none";
+
+document.getElementById("blinking-golden-ratio").style.animation = "blink 0.9s steps(2, start) infinite";
+
+
         delta = this.period;
         this.isDeleting = true;
+
+await sleep(1250);
+document.getElementById("blinking-arrow").style.animation = "none";
+
         } else if (this.isDeleting && this.txt === '') {
+
+
+document.getElementById("blinking-arrow").style.animation = "grayarrowanimate 1.14s linear infinite";
+// document.getElementById("blinking-arrow").style.animation = "none";
+
+document.getElementById("blinking-golden-ratio").style.animation = "none";
+
+// document.getElementById("blinking-golden-ratio").style.animation = "blink 0.9s steps(2, start) infinite";
+
+
         this.isDeleting = false;
         this.loopNum++;
         delta = 500;
