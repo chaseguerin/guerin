@@ -782,11 +782,18 @@ body {
 }
 */
 
+.random:nth-child(1) {
+
+    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    height: fill-available;
+
+}
+
 .random { 
     /* width: 400px; */
     width: 100%;
-    /* height: 100vh; */
-    height: calc(100vh - calc(100vh - 100%));
+    height: 100vh;
     min-height: 621px;
     position: relative;
     display: block;
