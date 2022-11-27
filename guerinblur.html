@@ -1596,17 +1596,23 @@ transform: translate(-50%, -50%) scale(.675) !important;
 
 
 @keyframes backgroundChange {
+
   0% {
-    background: #0a4bff;
+    background: #002863;
   }
+
   50% {
-    background: #000079;
-    -webkit-filter: blur(74px);
+    background: #0028FF;
+    -webkit-filter: blur(95px) contrast(3);
+    -webkit-backdrop-filter: blur(3px) saturate(0);
   }
-  0% {
+
+  100% {
     background: #0a4bff;
   }
+
 }
+
 
 
 #apple-container {
@@ -1633,10 +1639,10 @@ transition: all 350ms ease-in-out;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 25px;
+    font-size: 27px;
     font-weight: 600;
-    width: 305px;
-    text-align: left;
+    width: 315px;
+    text-align: center;
 }
 
 .apple2 {
@@ -2955,8 +2961,11 @@ calc(var(--menu-gradient-opaque))
   <div class="apple2"></div>
 
   <span class="apple"> 
-    Chaseguerin.eth 
+    Ethereum Address 
     <br> 
+    Chaseguerin.eth
+    <br>
+    <br>
     Copied to clipboard 
   </span>
 </div>
