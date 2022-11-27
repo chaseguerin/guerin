@@ -5077,32 +5077,25 @@ position: absolute;">
 
 
 async function viewElement() {
-  //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
-// console.log(document.getElementById("project-home").clientHeight);
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    // true for mobile device
 
-  document.body.style.scrollSnapType = "unset";
- seamless.scrollBy(window, { behavior: "smooth", top: document.getElementById("project-home").clientHeight /*790 */, left: 0 });
+    document.body.style.scrollSnapType = "unset";
+    seamless.scrollBy(window, { behavior: "smooth", top: document.getElementById("project-home").clientHeight /*790 */, left: 0 });
+    await sleep(600);
+    document.body.style.scrollSnapType = "y proximity";
 
-/*
-      seamless.scrollIntoView(document.getElementById("project-home"), {
-        behavior: "smooth",
-        block: "end",
-        inline: "end",
-    });
-*/
+    // document.write("mobile device");
+  }else{
+    // false for not mobile device
 
-  await sleep(600);
-
-  document.body.style.scrollSnapType = "y proximity";
-        
-        /*seamless.scrollIntoView(document.getElementById("project-home"), {
-        behavior: "smooth",
-        block: "end",
-        inline: "end",
-    });
-    */
-
+    document.body.style.scrollSnapType = "unset";
+    seamless.scrollBy(window, { behavior: "smooth", top: document.getElementById("project-home").clientHeight /*790 */, left: 0 });
+    await sleep(5);
+    document.body.style.scrollSnapType = "y proximity";
+    // document.write("not mobile device");
+  }
 
 }
 
