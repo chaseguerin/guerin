@@ -5054,7 +5054,7 @@ async function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
 
   document.body.style.scrollSnapType = "unset";
- seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
+ seamless.scrollBy(window, { behavior: "smooth", top: 800, left: 0 });
 
 /*
       seamless.scrollIntoView(document.getElementById("project-home"), {
@@ -5064,7 +5064,7 @@ async function viewElement() {
     });
 */
 
-  await sleep(1000);
+  await sleep(10000);
 
   document.body.style.scrollSnapType = "y proximity";
         
