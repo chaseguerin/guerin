@@ -5045,9 +5045,7 @@ calc(var(--menu-gradient-opaque))
 
 
 
-addEventListener('scroll', (event) => { 
-  document.body.style.scrollSnapType = "y proximity";
-})
+
 
 
 
@@ -5059,6 +5057,16 @@ async function viewElement() {
  // seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
 
       seamless.scrollIntoView(document.getElementById("project-home"), {
+        behavior: "smooth",
+        block: "end",
+        inline: "end",
+    });
+
+
+  await sleep(10);
+
+  document.body.style.scrollSnapType = "y proximity";
+        seamless.scrollIntoView(document.getElementById("project-home"), {
         behavior: "smooth",
         block: "end",
         inline: "end",
