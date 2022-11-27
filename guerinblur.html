@@ -5055,11 +5055,9 @@ function viewElement() {
 
   // seamless.scrollBy(window, { behavior: "smooth", top: 1300, left: 0 });
 
-    window.scrollTo({
-    top: 1300,
-    left: 0,
-    behavior: 'smooth'
-  });
+setTimeout(function () {
+            window.scrollTo(0, 800);
+        },2);
 }
 
 function update() {
