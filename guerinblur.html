@@ -5055,8 +5055,8 @@ async function viewElement() {
   document.body.style.scrollSnapType = "unset";
   seamless.scrollBy(window, { behavior: "smooth", top: 1200, left: 0 });
   await sleep(1);
-  document.body.style.scrollSnapType = "y proximity";
-  await sleep(100);
+  void document.body.offsetWidth; // trigger reflow
+  await sleep(1);
   document.body.style.scrollSnapType = "y proximity";
 }
 
