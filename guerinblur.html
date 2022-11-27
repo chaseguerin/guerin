@@ -1181,9 +1181,10 @@ pointer-events: none;
   width: 100%;
   /* height: 100vh; */
   /*height: calc(100vh - 72px - calc(100vh - 100%));*/
-      height: -moz-available;          /* WebKit-based browsers will ignore this. */
-    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    height: fill-available;
+
+      height: calc(-moz-available - 72px);          /* WebKit-based browsers will ignore this. */
+    height: calc(-webkit-fill-available - 72px);  /* Mozilla-based browsers will ignore this. */
+    height: calc(fill-available - 72px);
   position: fixed;
   z-index: 2;
   opacity: 0;
