@@ -542,13 +542,13 @@ left: 50%;
 }
 
 .g-introduction {
-    position: absolute;
-    top: 49%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    font-size: 25px;
-    font-family: 'Source Code Pro', monospace;
-    width: 365px;
+  position: absolute;
+  top: 49%;
+  left: 52.60%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-family: 'Source Code Pro', monospace;
+  width: 379px;
 }
 /* @media (min-width: 600px) and (max-width: 1150px) {
 
@@ -1573,6 +1573,20 @@ transition: all 200ms ease-in-out;
   width: 13px;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 </style>
 
@@ -2867,7 +2881,13 @@ calc(var(--menu-gradient-opaque))
 
         I'm <b>Chase Guerin</b>
         <br>
-        <span style="color: #666666;"> <b>></b> a <b>product designer</b> [] </span>
+        <span style="color: #666666;"> <b style="animation-name: grayarrowanimate;
+animation-duration: 1.14s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;">></b> a <b><span><a class="typewrite" data-period="4000" data-type='[ "product designer", "creative developer", "visual designer", "videographer" ]'></a></span></b> <div style="
+background-color: #c7c7c7; display: inline-block;
+/* animation: blink 0.9s steps(2, start) infinite; */ height: 17px;
+  width: calc(10.50657780874822px / 1.1444);"> </div> </span>
         <br>
         specializing in <b>branding</b> 
         <br>
@@ -5072,6 +5092,64 @@ position: absolute;">
 
 <!-- please replace the `latest` with specific version -->
 <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
+
+
+<script type="text/javascript">
+  var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 3000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 150 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+
+    };
+</script>
+
+
 
 
 <script type="text/javascript">
