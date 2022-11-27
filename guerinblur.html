@@ -812,7 +812,7 @@ body .random {
 body {
 
   /* scroll-snap-type: y mandatory; */
-  /* scroll-snap-type: y proximity; */
+  scroll-snap-type: y proximity;
   /* height: 100vh; */
   /* overflow-x: hidden; */
 }
@@ -5052,12 +5052,9 @@ calc(var(--menu-gradient-opaque))
 
 function viewElement() {
   //document.getElementById("project-home").scrollIntoView({behavior: "smooth"});
-
-  // seamless.scrollBy(window, { behavior: "smooth", top: 1300, left: 0 });
-
-setTimeout(function () {
-            window.scrollTo(0, 800);
-        },2);
+document.body.style.scrollSnapType = "unset";
+  seamless.scrollBy(window, { behavior: "smooth", top: 1300, left: 0 });
+  
 }
 
 function update() {
