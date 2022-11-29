@@ -1601,6 +1601,12 @@ transform: translate(-50%, -50%) scale(.675) !important;
     background: #0a4480;
   }
 
+  10% {
+    background: #000070;
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+
   50% {
     background: #0028FF;
     -webkit-filter: blur(110px) contrast(1.5);
@@ -1649,7 +1655,8 @@ transition: all 350ms ease-in-out;
     height: 394px;
     width: 394px;
     background: #0a4bff;
-    animation: backgroundChange 4.14s linear infinite;
+    animation: backgroundChange 4.14s ease-in-out infinite;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2967,12 +2974,30 @@ calc(var(--menu-gradient-opaque))
     <br>
     <br>
     Copied to clipboard -->
-    <span style="font-size: 20px; color: #eeeeee;">Ethereum Address</span>
+                  <svg version="1.1" style="margin-left: 0px;
+margin-right: -9px;
+height: 100%;
+margin-bottom: 1px;
+width: 11px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+                <defs>
+                </defs>
+                <g>
+                  <polygon style="fill:#eeeeee;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+                  <rect x="7.89" y="6.58" style="fill:#eeeeee;"  width="6.58" height="1.32"></rect>
+                </g>
+              </svg>
+              <span style="font-size: 20px; color: #eeeeee; font-weight: 500;">Ethereum Address</span>
     <br> 
     Chaseguerin.eth
     <br>
     <br>
-    <span style="font-size: 26px;">Copied to Clipboard</span>
+    <span style="font-size: 26px;
+font-weight: 600;
+bottom: -20px;
+position: absolute;
+width: 100%;
+left: 50%;
+transform: translateX(-50%);">Copied to Clipboard</span>
   </span>
 </div>
 
