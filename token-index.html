@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Token Index - Chase Guerin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<style type="text/css">
+
+.blackfill {
+  fill: black;
+  transition: all 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.guerin-token-logo {
+  right: calc(25.65px + 2px);
+  position: absolute; 
+  bottom: 20px;
+}
+
+.token-logo {
+  width: 63px; 
+  height: 63px; 
+  bottom: 0px; 
+  left: 24.4px; 
+  position: absolute;
+}
+
+.token-id {
+
+  font-family: 'source code pro', monospace;  
+  color: #555555; 
+  font-size: 11.7px; 
+  right: calc(25.65px + 2px);
+  position: absolute; 
+  text-transform: uppercase;
+  bottom: 0;
+
+}
+
+.token-header {
+  grid-area: 1/1/1/4; 
+  position: relative;
+}
+
+.token-body {
+  grid-area: 3/1/3/4; 
+  position: relative;
+}
+
+.token-body-description {
+  width: 250px; 
+  color: #555555;
+  font-family: 'source code pro', monospace; 
+  font-size: 11.7px; 
+  margin-left: 24.4px; 
+  position: absolute; 
+  text-transform: uppercase;
+  top: 0;
+  transition: all 100ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.token-body-contract {
+  color: #989898;
+  text-transform: none;
+  transform: scale(.98) translate(-3px, 0);
+  position: absolute;
+}
+
+
+.guerin-token {
+  width: 350px; 
+  height: 350px; 
+  background: #F1F1F1; 
+
+  grid-template-rows: 0.2533fr 0.1531fr 0.5064fr 0.0872fr; 
+  grid-template-columns: 1fr; 
+  display: grid;
+  transition: all 400ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  filter: invert();
+  position: relative;
+}
+
+.token-carousel { 
+/* top: 50%; */
+/* left: 50%; */
+/* transform: scale(.93) translateY(-64px); */
+position: relative;
+/* height: 100vh; */
+/* max-height: calc(1050px - 130px); */
+width: 100%;
+/* margin: 0 40px 0 40px; */
+/* overflow-x: hidden; */
+display: grid;
+grid-gap: 40px;
+/* margin: 155px 0 25px 0; */
+grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+justify-content: center;
+}
+
+
+
+
+body {
+  margin: 0;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+.token-body-year {
+  margin-left: 24.4px;
+  color: #191919;
+  position: absolute;
+  font-size: 15.06px;
+  bottom: 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.token-body-cta {
+  margin-right: 24.4px;
+  color: #000000;
+  position: absolute;
+  font-size: 15.06px;
+  bottom: 0;
+  right: 0;
+  font-family: 'Source Code Pro', monospace;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.token-carousel .token-carousel-container .selected{
+  background-color: black;
+}
+
+.token-carousel .token-carousel-container .selected .token-header .guerin-token-logo svg .blackfill,
+.token-carousel .token-carousel-container .selected .token-header .token-logo svg .blackfill, 
+.token-carousel .token-carousel-container .selected .token-body .token-body-cta svg .blackfill {
+  fill: white !important;
+}
+
+.token-carousel .token-carousel-container .selected .token-header .token-id {
+  color: #A9A9A9 !important;
+}
+
+.token-carousel .token-carousel-container .selected .token-body .token-body-description {
+  color: #A9A9A9 !important;
+}
+
+.token-carousel .token-carousel-container .selected .token-body .token-body-contract {
+  color: #666666 !important;
+}
+
+.token-carousel .token-carousel-container .selected .token-body .token-body-year {
+  color: #eeeeee !important;
+}
+
+.token-carousel .token-carousel-container .selected .token-body .token-body-cta {
+  color: white !important;
+}
+
+
+.token-index-wrapper {
+  transform: scale(.93);
+}
+
+.token-logo-grid {
+  height: 104px;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+  justify-content: center;
+  margin-bottom: 31px;
+  margin-top: 44px;
+  position: relative;
+}
+
+.token-logo-wrapper {
+  height: 100%; 
+  width: 320px;
+  background: none; 
+  grid-template-rows: 0.2533fr 0.1531fr 0.5064fr 0.0872fr;
+  grid-template-columns: 1fr;
+  display: grid;
+  transition: all 400ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  position: relative;
+}
+
+
+#apple-container {
+width: 570px;
+height: 570px;
+pointer-events: none;
+opacity: 0;
+position: fixed;
+top: 50%;
+left: 50%;
+display: none;
+transform: translate(-50%, -50%);
+z-index: 30;
+transition: all 350ms ease-in-out;
+/* -webkit-backdrop-filter: blur(3px); */
+/* border-radius: 50%; */
+
+}
+
+
+
+
+.apple {
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 27px;
+    font-weight: 600;
+    width: 315px;
+    text-align: center;
+}
+
+.apple2 {
+    height: 394px;
+    width: 394px;
+    background: #C39700;
+    /* animation: backgroundChange 4.14s ease-in-out infinite; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* z-index: 99; */
+    filter: blur(64px);
+    -webkit-filter: blur(64px);
+    -moz-filter: blur(64px);
+    -webkit-backdrop-filter: blur(3px) saturate(0);
+    border-radius: 35%;
+}
+
+</style> 
+
+</head>
+
+
+<body>
+
+
+<div id="apple-container">
+
+<div style="height: 360px;
+    width: 360px;
+    position: absolute;
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    filter: saturate(2) blur(40px);
+    -webkit-filter: saturate(2) blur(90px);
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 85px solid #b3c6d2;
+    z-index: 2;"></div>
+  <div class="apple2"></div>
+
+  <span class="apple"> 
+    <!-- Ethereum Address 
+    <br> 
+    Chaseguerin.eth
+    <br>
+    <br>
+    Copied to clipboard -->
+                  <svg version="1.1" style="margin-left: 0px;
+margin-right: -9px;
+height: 100%;
+margin-bottom: 1px;
+width: 11px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+                <defs>
+                </defs>
+                <g>
+                  <polygon style="fill:#eeeeee;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+                  <rect x="7.89" y="6.58" style="fill:#eeeeee;"  width="6.58" height="1.32"></rect>
+                </g>
+              </svg>
+              <span style="font-size: 20px; color: #eeeeee; font-weight: 500;">Ethereum Address</span>
+    <br> 
+    <span id="eth-add">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+    <br>
+    <br>
+    <span style="font-size: 26px;
+font-weight: 600;
+bottom: -20px;
+position: absolute;
+width: 100%;
+left: 50%;
+transform: translateX(-50%);">Copied to Clipboard</span>
+  </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="token-index-wrapper">
+<ul class="token-logo-grid">
+  <li class="token-logo-wrapper">
+
+  <div style="position: absolute;
+              top: 0;
+              left: 0;
+              height: 104px;
+              width: 320px;
+              ">
+
+    <video loop autoplay defaultMuted playsinline muted style="width: 134px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -24px;">
+      <source src="/Users/chaseguerin/Downloads/Guerin Token/guerintoken_final-2.mp4" type="video/mp4">
+    </video>
+
+    <span style="    text-transform: uppercase;
+    font-size: 16.5px;
+    font-family: 'Source Code Pro', monospace;
+    top: 22px;
+    position: absolute;
+    left: 90px;
+    font-weight: 600;">Guerin</span>
+
+    <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="582.25px" height="60.36px" viewBox="0 0 582.25 60.36" style="
+        width: 216px;
+        left: 90px;
+        position: absolute;
+        bottom: 4px;"
+       xml:space="preserve">
+    <defs>
+    </defs>
+    <g>
+      <g>
+        <path style="fill:#000000;" d="M51.78,0v8.66h-21.6v51.71H21.6V8.66H0V0H51.78z"/>
+        <path style="fill:#000000;" d="M61.89,51.7V8.66h8.66V51.7H61.89z M70.55,8.66V0h30.18v8.66H70.55z M70.55,60.36V51.7h30.18v8.66H70.55z
+           M100.73,51.7V8.66h8.66V51.7H100.73z"/>
+        <path style="fill:#000000;" d="M168.22,56.07l2.99,4.29h-10.49l-2.45-3.45l-0.61-0.84l-2.99-4.37l-0.69-0.92l-2.37-3.37l-1.92-2.83
+          l-1.07-1.46l-2.99-4.29l-0.31-0.38l-0.54-0.77l-2.22-3.22h-14.48v25.89h-8.58V0h8.58v25.89h14.48l2.22-3.22l0.54-0.77l0.31-0.38
+          l2.99-4.29l1.07-1.46l1.92-2.83l2.37-3.37l0.69-0.92l2.99-4.37l0.61-0.84L160.71,0h10.49l-2.99,4.29l-1.3,1.84l-1.76,2.53
+          l-2.6,3.68l-0.38,0.61l-3.06,4.29l-0.84,1.22l-2.15,3.06l-2.14,3.14l-0.84,1.23l-3.06,4.29l3.06,4.29l0.84,1.23l2.14,3.14
+          l2.15,3.06l0.84,1.23l3.06,4.29l0.38,0.61l2.6,3.68l1.76,2.53L168.22,56.07z"/>
+        <path style="fill:#000000;" d="M227.12,0v8.66h-38.84v17.24h38.84v8.58h-38.84V51.7h38.84v8.66h-47.49V0H227.12z"/>
+        <path style="fill:#000000;" d="M288.94,0v60.36h-8.66L245.82,14.4v45.96h-8.66V0h8.66l34.47,45.96V0H288.94z"/>
+        <path style="fill:#000000;" d="M326.17,60.36V0h8.66v60.36H326.17z"/>
+        <path style="fill:#000000;" d="M396.72,0v60.36h-8.66L353.59,14.4v45.96h-8.66V0h8.66l34.47,45.96V0H396.72z"/>
+        <path style="fill:#000000;" d="M445.67,0v8.66h-30.18V51.7h30.18v8.66h-38.84V0H445.67z M445.67,51.7V8.66h8.66V51.7H445.67z"/>
+        <path style="fill:#000000;" d="M511.85,0v8.66h-38.84v17.24h38.84v8.58h-38.84V51.7h38.84v8.66h-47.49V0H511.85z"/>
+        <path style="fill:#000000;" d="M578.8,56.07l3.45,4.29h-11.11l-1.76-2.22l-1.76-2.07l-2.6-3.22l-0.92-1.15l-3.37-4.14l-0.15-0.15l-3.45-4.29
+          l-0.69-0.84l-2.83-3.45L552.07,37l-1.46,1.84l-2.83,3.45l-0.69,0.84l-3.52,4.29l-0.08,0.15l-3.37,4.14l-0.92,1.15l-2.6,3.22
+          l-1.76,2.07l-1.76,2.22h-11.18l3.52-4.29l0.84-1l2.68-3.37l1.61-1.91l1.92-2.38l2.38-2.91l1.15-1.38l3.22-3.91l0.31-0.38
+          l3.52-4.37l0.46-0.54l3.06-3.75l-3.06-3.75l-0.46-0.54l-3.52-4.37l-0.31-0.38l-3.22-3.91l-1.15-1.38l-2.38-2.91l-1.92-2.37
+          l-1.61-1.92l-2.68-3.37l-0.84-1L521.89,0h11.18l1.76,2.22l1.76,2.07l2.6,3.22l0.92,1.15l3.37,4.14l0.08,0.15l3.52,4.29l0.69,0.84
+          l2.83,3.45l1.46,1.84l1.53-1.84l2.83-3.45l0.69-0.84l3.45-4.29l0.15-0.15l3.37-4.14l0.92-1.15l2.6-3.22l1.76-2.07L571.14,0h11.11
+          l-3.45,4.29l-0.84,1l-2.68,3.37l-1.61,1.92l-1.92,2.37l-2.38,2.91l-1.15,1.38l-3.22,3.91l-0.31,0.38l-3.52,4.37l-0.46,0.54
+          l-3.06,3.75l3.06,3.75l0.46,0.54l3.52,4.37l0.31,0.38l3.22,3.91l1.15,1.38l2.38,2.91l1.92,2.38l1.61,1.91l2.68,3.37L578.8,56.07z"
+          />
+      </g>
+    </g>
+    </svg>
+
+
+    </div>
+  </li>
+</ul>
+
+    <ul class="token-carousel" id="tessst">
+
+        <li class="guerin-token artifact-id selected">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.12px"
+               height="63.08px" viewBox="0 0 63.12 63.08" style="overflow:visible;enable-background:new 0 0 63.12 63.08;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <g>
+                <rect x="11.52" y="57.34" class="blackfill" width="5.73" height="5.73"/>
+                
+                  <rect x="11.52" y="45.87" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 63.1197 34.3553)" class="blackfill" width="5.73" height="5.73"/>
+                <path class="blackfill" d="M28.73,28.67v-5.74H0v5.74h0.03v34.4h5.74V40.14h17.27v11.47h-5.79v5.74h5.74v5.72h5.74v-5.72h0.04V28.67
+                  H28.73z M5.76,34.4v-5.74h17.27v5.74H5.76z"/>
+              </g>
+              <polygon class="blackfill" points="63.12,0 63.12,28.67 57.38,28.67 57.38,5.74 40.18,5.74 40.18,28.67 34.45,28.67 34.45,5.74 
+                0.05,5.74 0.05,0  "/>
+              <rect x="0" y="11.48" class="blackfill" width="28.72" height="5.72"/>
+              <polygon class="blackfill" points="63.11,45.87 63.11,63.08 34.45,63.08 34.45,57.34 57.37,57.34 57.37,51.61 34.45,51.61 34.45,45.87  
+                "/>
+              <polygon class="blackfill" points="63.11,34.41 63.11,40.12 34.44,40.12 34.44,34.41 45.93,34.41 45.93,11.47 51.65,11.47 51.65,34.41  
+                "/>
+              <rect x="45.93" y="40.12" class="blackfill" width="5.72" height="0.01"/>
+            </g>
+            </svg>
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="128.92px" height="18.34px" viewBox="0 0 128.92 18.34" style="overflow:visible;enable-background:new 0 0 128.92 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M0,0h14.43v18.34H11.8v-7.87H2.63v7.87H0V0z M11.8,7.87V2.63H2.63v5.24H11.8z"/>
+              <path class="blackfill" d="M33.28,17.03l0.91,1.3H31l-0.74-1.05l-0.19-0.26l-0.91-1.33l-0.21-0.28l-0.72-1.02l-0.58-0.86l-0.33-0.44
+                l-0.91-1.3l-0.09-0.12l-0.84-1.21h-4.4v7.87h-2.61V2.63h-1.63V0h14.71v10.47H28.7l0.26,0.37l0.65,0.95l0.65,0.93l0.26,0.37
+                l0.93,1.3l0.12,0.19l0.79,1.12l0.54,0.77L33.28,17.03z M21.09,2.63v5.24h7.87V2.63H21.09z"/>
+              <path class="blackfill" d="M51.97,0v2.63h-6.56v15.71H42.8V2.63h-6.56V0H51.97z"/>
+              <path class="blackfill" d="M55.05,18.34V0h2.63v18.34H55.05z"/>
+              <path class="blackfill" d="M75.18,0v2.63h-11.8v5.24h11.8v2.61h-11.8v7.87h-2.63V0H75.18z"/>
+              <path class="blackfill" d="M78.23,0h14.43v18.34h-2.63v-7.87h-9.17v7.87h-2.63V0z M90.03,7.87V2.63h-9.17v5.24H90.03z"/>
+              <path class="blackfill" d="M110.14,0v2.63h-11.8v13.08h11.8v2.63H95.71V0H110.14z"/>
+              <path class="blackfill" d="M128.92,0v2.63h-6.56v15.71h-2.61V2.63h-6.56V0H128.92z"/>
+            </g>
+            </svg>
+
+            </div>
+
+            <span class="token-id">ID: 80613197606</span>
+            
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              All content types, including but not limited to, text, audio, video, image, animation, or a combination.
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2021
+            </span>
+
+            <a style="color: white; text-transform: none;" target="_blank">
+            <span class="token-body-cta">
+              
+              <!-- VIEW TOKEN -->
+
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+
+              <!--
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11.79px"
+                 height="13.1px" viewBox="0 0 11.79 13.1" style="overflow:visible;enable-background:new 0 0 11.79 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <path class="blackfill" d="M9.83,3.93V0H1.97v3.93H0v9.17h11.79V3.93H9.83z M6.55,10.48H5.24V6.55h1.31V10.48z M8.52,3.93H3.28V1.31h5.24V3.93z"/>
+              </svg>
+              -->
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token ID-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <polygon class="blackfill" points="63.08,0 63.08,17.2 57.34,17.2 57.34,5.73 45.88,5.73 45.88,0  "/>
+                <polygon class="blackfill" points="17.2,0 17.2,5.73 5.73,5.73 5.73,17.2 0,17.2 0,0  "/>
+                <rect x="17.2" y="17.2" class="blackfill" width="5.73" height="28.67"/>
+                <polygon class="blackfill" points="34.41,40.14 40.14,40.14 40.14,45.88 28.67,45.88 28.67,17.2 40.14,17.2 40.14,22.94 34.41,22.94  "/>
+                <rect x="40.14" y="22.94" class="blackfill" width="5.73" height="17.2"/>
+                <polygon class="blackfill" points="17.2,57.34 17.2,63.08 0,63.08 0,45.88 5.73,45.88 5.73,57.34  "/>
+                <polygon class="blackfill" points="63.08,45.88 63.08,63.08 45.88,63.08 45.88,57.34 57.34,57.34 57.34,45.88  "/>
+              </g>
+              </svg>
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20.13px"
+               height="18.34px" viewBox="0 0 20.13 18.34" style="overflow:visible;enable-background:new 0 0 20.13 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M0,18.34V0h2.63v18.34H0z"/>
+              <path class="blackfill" d="M17.5,0v2.63H8.33v13.08h9.17v2.63H5.7V0H17.5z M17.5,15.71V2.63h2.63v13.08H17.5z"/>
+            </g>
+            </svg>
+
+
+            </div>
+
+            <span class="token-id">ID: 56543164663</span>
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              A unique sequence of tokenized assets linked to/ documenting significant milestones/events in Guerin's personal life. 
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2021
+            </span>
+
+            <a style="color: white; text-transform: none;" target="_blank">
+            <span class="token-body-cta">
+              <!-- [LOCKED] -->
+
+              <!--
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+              -->
+
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token mood-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="blackfill" d="M17.2,17.2v28.67h28.67V17.2H17.2z M40.14,40.14h-17.2v-17.2h17.2V40.14z"/>
+                  
+                    <rect x="28.67" y="-5.73" transform="matrix(-4.456631e-11 1 -1 -4.456631e-11 34.4073 -28.6728)" class="blackfill" width="5.73" height="17.2"/>
+                  
+                    <rect x="28.67" y="51.61" transform="matrix(-4.472530e-11 1 -1 -4.472530e-11 91.7528 28.6727)" class="blackfill" width="5.73" height="17.2"/>
+                  <rect x="0" y="22.94" class="blackfill" width="5.73" height="17.2"/>
+                  <rect x="57.35" y="22.94" class="blackfill" width="5.73" height="17.2"/>
+                </g>
+              </g>
+              </svg>
+
+
+
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70.8px"
+                 height="18.34px" viewBox="0 0 70.8 18.34" style="overflow:visible;enable-background:new 0 0 70.8 18.34;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <path class="blackfill" d="M18.34,0v18.34h-2.61V2.63h-5.24v15.71H7.87V2.63H2.63v15.71H0V0H18.34z"/>
+                <path class="blackfill" d="M21.41,15.71V2.63h2.63v13.08H21.41z M24.04,2.63V0h9.17v2.63H24.04z M24.04,18.34v-2.63h9.17v2.63H24.04z
+                   M33.21,15.71V2.63h2.63v13.08H33.21z"/>
+                <path class="blackfill" d="M38.89,15.71V2.63h2.63v13.08H38.89z M41.52,2.63V0h9.17v2.63H41.52z M41.52,18.34v-2.63h9.17v2.63H41.52z
+                   M50.69,15.71V2.63h2.63v13.08H50.69z"/>
+                <path class="blackfill" d="M68.17,0v2.63H59v13.08h9.17v2.63h-11.8V0H68.17z M68.17,15.71V2.63h2.63v13.08H68.17z"/>
+              </g>
+              </svg>
+
+
+
+            </div>
+
+            <span class="token-id">ID: 03680441697</span>
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              A tokenized asset that relfects Guerin's state of mind or quality of feeling at a specific instance. Used in conjunction with ID-Token.
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2021
+            </span>
+
+            <a style="color: white; text-transform: none;" target="_blank">
+            <span class="token-body-cta">
+              
+              <!-- [LOCKED] -->
+
+              <!--
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+              -->
+
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token num-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+               height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <polygon class="blackfill" points="28.67,22.94 28.67,28.67 0,28.67 0,22.94 11.47,22.94 11.47,11.47 0,11.47 0,5.73 11.47,5.73 11.47,0 
+                17.2,0 17.2,22.94   "/>
+              <polygon class="blackfill" points="63.08,51.61 63.08,57.35 57.35,57.35 57.35,63.08 51.61,63.08 51.61,57.35 34.41,57.35 34.41,51.61 
+                40.14,51.61 40.14,45.88 45.88,45.88 45.88,51.61 51.61,51.61 51.61,45.88 45.88,45.88 45.88,40.14 51.61,40.14 51.61,34.41 
+                57.35,34.41 57.35,51.61   "/>
+              <polygon class="blackfill" points="28.67,34.41 28.67,45.87 22.93,45.87 22.93,40.14 0,40.14 0,34.41  "/>
+              <rect x="5.73" y="45.88" class="blackfill" width="17.2" height="5.74"/>
+              <polygon class="blackfill" points="28.67,51.61 28.67,63.08 0,63.08 0,57.35 22.93,57.35 22.93,51.61  "/>
+              <g>
+                <polygon class="blackfill" points="63.08,22.94 63.08,28.67 34.41,28.67 34.41,17.21 40.14,17.21 40.14,22.94    "/>
+                <polygon class="blackfill" points="63.08,0 63.08,17.21 40.14,17.21 40.14,11.47 57.34,11.47 57.34,5.74 34.41,5.74 34.41,0    "/>
+              </g>
+            </g>
+            </svg>
+
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="54.62px"
+               height="18.34px" viewBox="0 0 54.62 18.34" style="overflow:visible;enable-background:new 0 0 54.62 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M15.73,0v18.34H13.1L2.63,4.37v13.96H0V0h2.63L13.1,13.96V0H15.73z"/>
+              <path class="blackfill" d="M33.23,0v18.34H18.81V0h2.63v15.71h9.17V0H33.23z"/>
+              <path class="blackfill" d="M54.62,0v18.34h-2.61V2.63h-5.24v15.71h-2.63V2.63h-5.24v15.71h-2.63V0H54.62z"/>
+            </g>
+            </svg>
+
+
+
+            </div>
+
+            <span class="token-id">ID: 60322741144</span>
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              A 4-digit form, where the ordering of digits is read from upper left-to-right to lower left-to-right. Used in [Year] Visualized & Video.
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2021
+            </span>
+
+            <a style="color: white; text-transform: none;">
+            <span class="token-body-cta">
+              
+              <!-- VIEW TOKEN -->
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token g-token-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+               height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <polygon class="blackfill" points="63.08,0 63.08,45.88 45.87,45.88 45.87,40.15 57.34,40.15 57.34,5.74 22.93,5.74 22.93,17.21 
+                17.2,17.21 17.2,0   "/>
+              <rect x="22.93" y="17.21" class="blackfill" width="17.21" height="5.73"/>
+              <polygon class="blackfill" points="40.14,40.15 40.14,63.08 0,63.08 0,22.94 22.93,22.94 22.93,40.15 17.2,40.15 17.2,28.68 5.73,28.68 
+                5.73,57.35 34.4,57.35 34.4,45.88 22.93,45.88 22.93,40.15  "/>
+              <rect x="40.14" y="22.94" class="blackfill" width="5.73" height="17.21"/>
+            </g>
+            </svg>
+
+              
+
+            </div>
+
+            <div class="guerin-token-logo">
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="87.79px"
+               height="18.34px" viewBox="0 0 87.79 18.34" style="overflow:visible;enable-background:new 0 0 87.79 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M15.73,0v2.63H9.17v15.71H6.56V2.63H0V0H15.73z"/>
+              <path class="blackfill" d="M18.81,15.71V2.63h2.63v13.08H18.81z M21.44,2.63V0h9.17v2.63H21.44z M21.44,18.34v-2.63h9.17v2.63H21.44z
+                 M30.6,15.71V2.63h2.63v13.08H30.6z"/>
+              <path class="blackfill" d="M51.11,17.03l0.91,1.3h-3.19l-0.74-1.05l-0.19-0.26l-0.91-1.33l-0.21-0.28l-0.72-1.02l-0.58-0.86l-0.33-0.44
+                l-0.91-1.3l-0.09-0.12l-0.16-0.23l-0.67-0.98h-4.4v7.87h-2.61V0h2.61v7.87h4.4l0.67-0.98l0.16-0.23l0.09-0.12l0.91-1.3l0.33-0.44
+                l0.58-0.86l0.72-1.02l0.21-0.28L47.9,1.3l0.19-0.26L48.83,0h3.19l-0.91,1.3l-0.4,0.56l-0.54,0.77l-0.79,1.12l-0.12,0.19l-0.93,1.3
+                l-0.26,0.37l-0.65,0.93l-0.65,0.95l-0.26,0.37l-0.93,1.3l0.93,1.3l0.26,0.37l0.65,0.95l0.65,0.93l0.26,0.37l0.93,1.3l0.12,0.19
+                l0.79,1.12l0.54,0.77L51.11,17.03z"/>
+              <path class="blackfill" d="M69.01,0v2.63h-11.8v5.24h11.8v2.61h-11.8v5.24h11.8v2.63H54.58V0H69.01z"/>
+              <path class="blackfill" d="M87.79,0v18.34h-2.63L74.69,4.37v13.96h-2.63V0h2.63l10.47,13.96V0H87.79z"/>
+            </g>
+            </svg>
+
+
+            </div>
+
+            <span class="token-id">ID: 20052971595</span>
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              A functional building block, structural element, or concept created by Guerin. Token Examples: [Artifact, ID, Mood, Num, ...]
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2022
+            </span>
+
+            <a style="color: white; text-transform: none;">
+            <span class="token-body-cta">
+              
+              <!-- VIEW TOKEN -->
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token token-index-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <rect class="blackfill" width="40.15" height="5.73"/>
+                <rect y="11.47" class="blackfill" width="28.68" height="5.73"/>
+                <rect x="40.15" y="17.2" class="blackfill" width="17.2" height="5.74"/>
+                <rect y="22.94" class="blackfill" width="17.21" height="5.73"/>
+                <rect x="34.41" y="22.94" class="blackfill" width="5.74" height="17.2"/>
+                <rect y="34.4" class="blackfill" width="17.21" height="5.74"/>
+                <rect x="57.35" y="22.94" class="blackfill" width="5.73" height="17.2"/>
+                <rect x="40.15" y="40.14" class="blackfill" width="17.2" height="5.73"/>
+                <rect y="45.87" cclass="blackfill" width="28.68" height="5.74"/>
+                <rect y="57.34" class="blackfill" width="40.15" height="5.74"/>
+              </g>
+              </svg>
+
+
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="176.91px" height="18.34px" viewBox="0 0 176.91 18.34" style="overflow:visible;enable-background:new 0 0 176.91 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M15.73,0v2.63H9.17v15.71H6.56V2.63H0V0H15.73z"/>
+              <path class="blackfill" d="M18.81,15.71V2.63h2.63v13.08H18.81z M21.44,2.63V0h9.17v2.63H21.44z M21.44,18.34v-2.63h9.17v2.63H21.44z
+                 M30.6,15.71V2.63h2.63v13.08H30.6z"/>
+              <path class="blackfill" d="M51.11,17.03l0.91,1.3h-3.19l-0.74-1.05l-0.19-0.26l-0.91-1.33l-0.21-0.28l-0.72-1.02l-0.58-0.86l-0.33-0.44
+                l-0.91-1.3l-0.09-0.12l-0.16-0.23l-0.67-0.98h-4.4v7.87h-2.61V0h2.61v7.87h4.4l0.67-0.98l0.16-0.23l0.09-0.12l0.91-1.3l0.33-0.44
+                l0.58-0.86l0.72-1.02l0.21-0.28L47.9,1.3l0.19-0.26L48.83,0h3.19l-0.91,1.3l-0.4,0.56l-0.54,0.77l-0.79,1.12l-0.12,0.19l-0.93,1.3
+                l-0.26,0.37l-0.65,0.93l-0.65,0.95l-0.26,0.37l-0.93,1.3l0.93,1.3l0.26,0.37l0.65,0.95l0.65,0.93l0.26,0.37l0.93,1.3l0.12,0.19
+                l0.79,1.12l0.54,0.77L51.11,17.03z"/>
+              <path class="blackfill" d="M69.01,0v2.63h-11.8v5.24h11.8v2.61h-11.8v5.24h11.8v2.63H54.58V0H69.01z"/>
+              <path class="blackfill" d="M87.79,0v18.34h-2.63L74.69,4.37v13.96h-2.63V0h2.63l10.47,13.96V0H87.79z"/>
+              <path class="blackfill" d="M99.11,18.34V0h2.63v18.34H99.11z"/>
+              <path class="blackfill" d="M120.54,0v18.34h-2.63L107.44,4.37v13.96h-2.63V0h2.63l10.47,13.96V0H120.54z"/>
+              <path class="blackfill" d="M135.41,0v2.63h-9.17v13.08h9.17v2.63h-11.8V0H135.41z M135.41,15.71V2.63h2.63v13.08H135.41z"/>
+              <path class="blackfill" d="M155.52,0v2.63h-11.8v5.24h11.8v2.61h-11.8v5.24h11.8v2.63H141.1V0H155.52z"/>
+              <path class="blackfill" d="M175.86,17.03l1.05,1.3h-3.37L173,17.66l-0.54-0.63l-0.79-0.98l-0.28-0.35l-1.02-1.26l-0.05-0.05l-1.05-1.3
+                l-0.21-0.26l-0.86-1.05l-0.47-0.56l-0.44,0.56l-0.86,1.05l-0.21,0.26l-1.07,1.3l-0.02,0.05l-1.02,1.26l-0.28,0.35l-0.79,0.98
+                l-0.54,0.63l-0.54,0.67h-3.4l1.07-1.3l0.26-0.3l0.81-1.02l0.49-0.58l0.58-0.72l0.72-0.88l0.35-0.42l0.98-1.19l0.09-0.12l1.07-1.33
+                l0.14-0.16l0.93-1.14l-0.93-1.14L165,7.87l-1.07-1.33l-0.09-0.12l-0.98-1.19l-0.35-0.42l-0.72-0.88l-0.58-0.72l-0.49-0.58
+                l-0.81-1.02l-0.26-0.3L158.58,0h3.4l0.54,0.67l0.54,0.63l0.79,0.98l0.28,0.35l1.02,1.26l0.02,0.05l1.07,1.3l0.21,0.26l0.86,1.05
+                l0.44,0.56l0.47-0.56l0.86-1.05l0.21-0.26l1.05-1.3l0.05-0.05l1.02-1.26l0.28-0.35l0.79-0.98L173,0.67L173.54,0h3.37l-1.05,1.3
+                l-0.26,0.3l-0.81,1.02l-0.49,0.58l-0.58,0.72L173,4.82l-0.35,0.42l-0.98,1.19l-0.09,0.12l-1.07,1.33l-0.14,0.16l-0.93,1.14
+                l0.93,1.14l0.14,0.16l1.07,1.33l0.09,0.12l0.98,1.19l0.35,0.42l0.72,0.88l0.58,0.72l0.49,0.58l0.81,1.02L175.86,17.03z"/>
+            </g>
+            </svg>
+
+
+            </div>
+
+            <span class="token-id">ID: 16772539657</span>
+
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              An alphabetical/ numerical arrangement of functional building blocks, structural elements, and concepts created by Guerin. 
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2022
+            </span>
+
+
+
+
+            <a style="color: white; text-transform: none;" target="_blank">
+            <span class="token-body-cta">
+              
+              <!-- [LOCKED] -->
+
+              <!--
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.6px"
+                 height="13.1px" viewBox="0 0 15.6 13.1" style="overflow:visible;enable-background:new 0 0 15.6 13.1;" xml:space="preserve"><defs></defs><polygon class="blackfill" points="15.6,6.55 14.76,7.38 9.04,13.1 7.87,11.93 12.43,7.37 0,7.37 0,5.71 12.41,5.71 7.87,1.17 9.04,0 
+                14.76,5.72 "/>
+              </svg>
+              -->
+
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+        <li class="guerin-token token-vault-id">
+
+          <div class="token-header">
+            <div class="token-logo">
+
+
+              <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="63.08px"
+                 height="63.08px" viewBox="0 0 63.08 63.08" style="overflow:visible;enable-background:new 0 0 63.08 63.08;"
+                 xml:space="preserve">
+              <defs>
+              </defs>
+              <g>
+                <path class="blackfill" d="M0,22.94v40.14h40.14V22.94H0z M34.41,57.35H5.73V28.67h28.67V57.35z"/>
+                <polygon class="blackfill" points="63.08,0 63.08,45.88 45.88,45.88 45.88,40.14 57.35,40.14 57.35,5.73 22.94,5.73 22.94,17.2 
+                  17.2,17.2 17.2,0  "/>
+              </g>
+              </svg>
+
+
+
+            </div>
+
+            <div class="guerin-token-logo">
+
+            <!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In  -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="185.06px" height="18.34px" viewBox="0 0 185.06 18.34" style="overflow:visible;enable-background:new 0 0 185.06 18.34;"
+               xml:space="preserve">
+            <defs>
+            </defs>
+            <g>
+              <path class="blackfill" d="M15.73,0v2.63H9.17v15.71H6.56V2.63H0V0H15.73z"/>
+              <path class="blackfill" d="M18.81,15.71V2.63h2.63v13.08H18.81z M21.44,2.63V0h9.17v2.63H21.44z M21.44,18.34v-2.63h9.17v2.63H21.44z
+                 M30.6,15.71V2.63h2.63v13.08H30.6z"/>
+              <path class="blackfill" d="M51.11,17.03l0.91,1.3h-3.19l-0.74-1.05l-0.19-0.26l-0.91-1.33l-0.21-0.28l-0.72-1.02l-0.58-0.86l-0.33-0.44
+                l-0.91-1.3l-0.09-0.12l-0.16-0.23l-0.67-0.98h-4.4v7.87h-2.61V0h2.61v7.87h4.4l0.67-0.98l0.16-0.23l0.09-0.12l0.91-1.3l0.33-0.44
+                l0.58-0.86l0.72-1.02l0.21-0.28L47.9,1.3l0.19-0.26L48.83,0h3.19l-0.91,1.3l-0.4,0.56l-0.54,0.77l-0.79,1.12l-0.12,0.19l-0.93,1.3
+                l-0.26,0.37l-0.65,0.93l-0.65,0.95l-0.26,0.37l-0.93,1.3l0.93,1.3l0.26,0.37l0.65,0.95l0.65,0.93l0.26,0.37l0.93,1.3l0.12,0.19
+                l0.79,1.12l0.54,0.77L51.11,17.03z"/>
+              <path class="blackfill" d="M69.01,0v2.63h-11.8v5.24h11.8v2.61h-11.8v5.24h11.8v2.63H54.58V0H69.01z"/>
+              <path class="blackfill" d="M87.79,0v18.34h-2.63L74.69,4.37v13.96h-2.63V0h2.63l10.47,13.96V0H87.79z"/>
+              <path class="blackfill" d="M114.33,0l-0.47,1.3l-0.47,1.33l-0.37,1.05l-0.09,0.26l-0.47,1.3l-0.49,1.3l-0.28,0.79l-0.19,0.54l-0.47,1.3
+                l-0.47,1.3l-0.19,0.54l-0.28,0.79l-0.47,1.3l-0.47,1.3l-0.09,0.26l-0.37,1.05l-0.47,1.33l-0.4,1.07l-0.07,0.23h-2.63l-0.07-0.23
+                l-0.4-1.07l-0.47-1.33l-0.37-1.05l-0.09-0.26l-0.47-1.3l-0.47-1.3l-0.3-0.79l-0.19-0.54l-0.47-1.3l-0.47-1.3l-0.19-0.54l-0.28-0.79
+                l-0.47-1.3l-0.47-1.3l-0.09-0.26l-0.37-1.05L99.08,1.3L98.62,0h2.77l0.47,1.3l0.47,1.33l0.21,0.58l0.26,0.72l0.49,1.3l0.47,1.3
+                l0.12,0.35l0.35,0.98l0.47,1.3l0.47,1.3l0.02,0.07l0.44,1.26l0.47,1.3l0.4,1.12l0.4-1.12l0.49-1.3l0.44-1.26l0.02-0.07l0.47-1.3
+                l0.47-1.3l0.35-0.98l0.12-0.35l0.47-1.3l0.47-1.3l0.26-0.72l0.21-0.58l0.47-1.33l0.47-1.3H114.33z"/>
+              <path class="blackfill" d="M116.89,0h14.43v18.34h-2.63v-7.87h-9.17v7.87h-2.63V0z M128.69,7.87V2.63h-9.17v5.24H128.69z"/>
+              <path class="blackfill" d="M148.8,0v18.34h-14.43V0H137v15.71h9.17V0H148.8z"/>
+              <path class="blackfill" d="M166.28,15.71v2.63h-14.43V0h2.63v15.71H166.28z"/>
+              <path class="blackfill" d="M185.06,0v2.63h-6.56v15.71h-2.61V2.63h-6.56V0H185.06z"/>
+            </g>
+            </svg>
+
+
+            </div>
+
+            <span class="token-id">ID: 93466536232</span>
+          </div>
+
+          <!-- <div style="grid-area: 2/1/2/4; position: relative;"></div> -->
+
+          <div class="token-body">
+            <span class="token-body-description">
+              An assortment, in any particular order, of functional building blocks, structural elements, and concepts created by Guerin. 
+              <br>
+              <br>
+              <br>
+
+              <span class="token-body-contract">
+                CONTRACT:
+                <br>
+                <span onclick="copyWalletAddress();" style="cursor: pointer;">0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba</span>
+              </span>
+
+            </span>
+
+            <span class="token-body-year">
+              2022
+            </span>
+
+            <a style="color: white; text-transform: none;">
+            <span class="token-body-cta">
+              
+              <!-- VIEW TOKEN -->
+
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.1px" height="13.1px" viewBox="0 0 13.1 13.1" style="overflow:visible;enable-background:new 0 0 13.1 13.1;" xml:space="preserve">
+              <defs>
+              </defs>
+              <g style="fill: rgb(80, 80, 80);">
+                <polygon points="13.1,0 13.1,9.53 9.53,9.53 9.53,8.34 11.91,8.34 11.91,1.19 4.76,1.19 4.76,3.57 3.57,3.57 3.57,0  
+                  " style=""></polygon>
+                <rect x="4.76" y="3.57" width="3.57" height="1.19"></rect>
+                <polygon points="8.34,8.34 8.34,13.1 0,13.1 0,4.76 4.76,4.76 4.76,8.34 3.57,8.34 3.57,5.96 1.19,5.96 1.19,11.91 
+                  7.14,11.91 7.14,9.53 4.76,9.53 4.76,8.34  "></polygon>
+                <rect x="8.34" y="4.76" width="1.19" height="3.57"></rect>
+              </g>
+              </svg>
+
+            </span>
+            </a>
+
+          </div>
+
+          <!-- <div style="grid-area: 4/1/4/4; position: relative;"></div> -->
+        </li>
+
+
+    </ul>
+
+
+</div>
+
+<script type="text/javascript">
+
+  var truncate = function (fullStr, strLen, separator) {
+      if (fullStr.length <= strLen) return fullStr;
+      
+      separator = separator || '...';
+      
+      var sepLen = separator.length,
+          charsToShow = strLen - sepLen,
+          frontChars = Math.ceil(charsToShow/1),
+          backChars = Math.floor(charsToShow/1);
+      
+      return fullStr.substr(0, frontChars) + 
+             separator + 
+             fullStr.substr(fullStr.length - backChars);
+  };
+
+  var tStr = document.getElementById('eth-add').innerHTML;
+
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function copyWalletAddress(element) {
+    /* Copy text into clipboard */
+    navigator.clipboard.writeText
+        (document.getElementById('eth-add').innerHTML);
+
+    document.getElementById('eth-add').innerHTML = truncate(tStr, 8);
+    document.getElementById('apple-container').style.display = "block";
+    await sleep(10);
+    document.getElementById('apple-container').style.opacity = "1";
+    
+    await sleep(2000);
+    document.getElementById('apple-container').style.opacity = "0";
+    await sleep(350);
+    document.getElementById('apple-container').style.display = "none";
+  }
+
+</script>
+
+  </body>
+</html>
