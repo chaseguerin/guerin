@@ -242,7 +242,7 @@
         /* Mozilla-based browsers will ignore this. */
         height: calc(fill-available - 72px);
         position: fixed;
-        z-index: 2;
+        z-index: 56;
         opacity: 0;
         pointer-events: none;
         transition: all 350ms ease-in-out;
@@ -372,7 +372,7 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        z-index: 56;
+        /* z-index: 56; */
         transform: translate(-50%, 0);
         width: 471px;
         flex-wrap: wrap;
@@ -1163,10 +1163,10 @@
           </div>
         </div>
         <div class="changing-menu">
-          <a href="https://chaseguerin.com/id" target="_blank">
+          <a href="https://chaseguerin.com/id">
             <button type="submit" class="guerin-menu-nav" id="id-btn-nav"> ID </button>
           </a>
-          <a href="https://chaseguerin.com/work" target="_blank">
+          <a href="https://chaseguerin.com/work">
             <button type="submit" class="guerin-menu-nav" id="work-btn-nav" style="padding-left: 41px; padding-right: 41px;"> Work </button>
           </a>
           <!-- <a href="https://chaseguerin.com/token-index" target="_blank"> -->
@@ -1197,7 +1197,7 @@
                  margin-left: -2px;" xml:space="preserve"><defs></defs><path class="locksvg-menu" d="M9.83,3.93V0H1.97v3.93H0v9.17h11.79V3.93H9.83z M6.55,10.48H5.24V6.55h1.31V10.48z M8.52,3.93H3.28V1.31h5.24V3.93z"/></svg>
               -->
           </button>
-          <a href="https://chaseguerin.com/resume" target="_blank" id="resume-a-nav">
+          <a href="https://chaseguerin.com/resume" id="resume-a-nav">
             <button type="submit" class="guerin-menu-nav" id="resume-btn-nav" style="padding-left: 23px; padding-right: 23px;"> Resume </button>
           </a>
           <button type="submit" id="social-btn-nav" class="guerin-menu-nav" style="padding-left: 24px; padding-right: 24px;" onclick="socialMove(); gradientUpdate();"> Social
