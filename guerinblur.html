@@ -1844,7 +1844,17 @@ window.onload = function(e){
       document.getElementById('menu-button').style.fill = "#E6E6E6";
       document.getElementById('menu-text-button').style.fill = "black";
 
+      if (window.innerWidth < 550) {
+        document.querySelector('.guerin-menu').style.height = "32.5px";
+        document.querySelector('.guerin-menu').style.width = "32.5px";
+      }
 
+      addEventListener('resize', (event) => { 
+        if (window.innerWidth < 550) {
+          document.querySelector('.guerin-menu').style.height = "32.5px";
+          document.querySelector('.guerin-menu').style.width = "32.5px";
+        }
+      })
 
 
 
@@ -3603,7 +3613,7 @@ position: absolute;">
 
           <div class="project-body">
             <span class="project-body-description">
-              Developed an online minimalist analog clock. Supports different time zones & both 12-hour (am/pm) & 24-hour time formats.
+              Developed an online minimalist digital clock. Supports different time zones & both 12-hour (am/pm) & 24-hour time formats.
               <br>
               <br>
               <br>
