@@ -499,7 +499,7 @@
       }
 
       @media (max-width: 950px) {
-        #apple-container {
+        #applemenu-container {
           transform: translate(-50%, -50%) scale(.675) !important;
         }
       }
@@ -543,7 +543,7 @@
         }
       }
 
-      #apple-container {
+      #applemenu-container {
         width: 570px;
         height: 570px;
         pointer-events: none;
@@ -559,7 +559,7 @@
         /* border-radius: 50%; */
       }
 
-      .apple {
+      .applemenu {
         color: white;
         font-family: 'Source Code Pro', monospace;
         position: absolute;
@@ -572,7 +572,7 @@
         text-align: center;
       }
 
-      .apple2 {
+      .applemenu2 {
         height: 394px;
         width: 394px;
         background: #0a4bff;
@@ -946,6 +946,70 @@
     </script>
   </head>
   <body>
+
+
+
+
+
+
+    <!-- HEADER STARTS HERE -->
+
+
+
+    <!--
+    <div class="guerinlogo-header">
+
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px"
+         height="18.28px" viewBox="0 0 124 18.28" style="overflow:visible;enable-background:new 0 0 124 18.28;" xml:space="preserve">
+      <defs>
+      </defs>
+      <g>
+        <g>
+          <polygon points="124,0 124,18.28 121.39,18.28 110.95,4.35 110.95,18.28 108.34,18.28 108.34,0 110.95,0 121.39,13.93 121.39,0     
+            "/>
+          <rect x="101.81" y="0" width="2.61" height="18.28"/>
+          <g>
+            <g>
+              <path d="M93.71,10.45l2.87,0V0L81.92,0v2.61l1.61,0l0,15.66h2.61l0-7.83l4.39,0l5.48,7.83l3.19,0L93.71,10.45z M86.14,7.83V2.61
+                l7.83,0v5.22L86.14,7.83z"/>
+            </g>
+          </g>
+          <polygon points="79.6,0 79.6,2.61 67.85,2.61 67.85,7.83 79.6,7.83 79.6,10.44 67.85,10.44 67.85,15.67 79.6,15.67 79.6,18.28 
+            65.24,18.28 65.24,0     "/>
+          <polygon points="61.35,0 61.35,18.28 46.99,18.28 46.99,0 49.61,0 49.61,15.67 58.74,15.67 58.74,0    "/>
+          <polygon points="43.08,0 43.08,2.61 31.33,2.61 31.33,15.67 40.47,15.67 40.47,10.44 35.25,10.44 35.25,7.83 43.08,7.83 
+            43.08,18.28 28.72,18.28 28.72,0     "/>
+        </g>
+        <g>
+          <rect y="13.29" width="1.66" height="4.98"/>
+          <polygon points="0,11.63 0,0 14.95,0 14.95,4.99 3.32,4.99 3.32,3.32 13.29,3.32 13.29,1.66 1.66,1.66 1.66,9.97 14.95,9.97 
+            14.95,11.63     "/>
+          <polygon points="3.32,18.28 3.32,13.29 14.95,13.29 14.95,14.95 4.98,14.95 4.98,16.62 16.61,16.62 16.61,8.31 3.32,8.31 
+            3.32,6.65 18.28,6.65 18.28,18.28    "/>
+          <rect x="16.61" y="0" width="1.66" height="4.99"/>
+        </g>
+      </g>
+      </svg>
+    </div>
+
+
+
+
+
+    <video class="mood-header" onload="play();" preload="auto" loop autoplay defaultMuted playsinline muted style="">
+      
+      <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm">
+
+      <source src="https://storage.googleapis.com/guerin/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime">
+
+    </video>
+    -->
+
+
+
+
+
+
     <div id="menu-gradient"></div>
     <div id="menu-overlay">
       <div id="g-menu-content" style="/* pointer-events: all; */">
@@ -1482,7 +1546,7 @@
         </g>
       </svg>
     </div>
-    <div id="apple-container">
+    <div id="applemenu-container">
       <div style="height: 360px;
     width: 360px;
     position: absolute;
@@ -1496,8 +1560,8 @@
     -moz-border-radius: 50%;
     border: 85px solid #b3c6d2;
     z-index: 2;"></div>
-      <div class="apple2"></div>
-      <span class="apple">
+      <div class="applemenu2"></div>
+      <span class="applemenu">
         <!-- Ethereum Address 
     <br> 
     Chaseguerin.eth
@@ -1532,6 +1596,9 @@ transform: translateX(-50%);">Copied to Clipboard</span>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
     <script type="text/javascript">
+      import moment from 'moment';
+      import 'moment-timezone';
+
       function update() {
         var dateTimeUtc = moment().utc();
         document.querySelector(".updateTest").innerHTML = dateTimeUtc.tz('America/New_York').format("hh:mm:ssA");
@@ -1544,13 +1611,13 @@ transform: translateX(-50%);">Copied to Clipboard</span>
       async function copyText() {
         /* Copy text into clipboard */
         navigator.clipboard.writeText("chaseguerin.eth | 0x254d4fF60b164ec86DE4c2379D56a8F0bEd1cFba");
-        document.getElementById('apple-container').style.display = "block";
+        document.getElementById('applemenu-container').style.display = "block";
         await sleep(10);
-        document.getElementById('apple-container').style.opacity = "1";
+        document.getElementById('applemenu-container').style.opacity = "1";
         await sleep(2000);
-        document.getElementById('apple-container').style.opacity = "0";
+        document.getElementById('applemenu-container').style.opacity = "0";
         await sleep(350);
-        document.getElementById('apple-container').style.display = "none";
+        document.getElementById('applemenu-container').style.display = "none";
       }
     </script>
   </body>
