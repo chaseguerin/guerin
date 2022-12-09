@@ -183,6 +183,9 @@ ul {
   margin-bottom: 31px;
   margin-top: 44px;
   position: relative;
+
+  /* just added */
+  transform: scale(.96);
 }
 
 .token-logo-wrapper {
@@ -194,6 +197,9 @@ ul {
   display: grid;
   transition: all 400ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
   position: relative;
+
+  /* just added */
+  transform: translate(-21px, 2px);
 }
 
 
@@ -261,7 +267,8 @@ transition: all 350ms ease-in-out;
     transform: scale(.93) translateY(-11px) !important;
   }
   .token-logo-grid {
-    margin-bottom: 3px !important;
+    /* margin-bottom: 3px !important; */
+    margin-bottom: 13px !important;
     margin-top: 0px !important;
     transform: scale(.9) !important;
   }
@@ -418,12 +425,12 @@ position: fixed; opacity: 1; z-index: 1; transition: 400ms ease-in; display: blo
     </g>
     </svg>
 
-    <span style="left: 318px;
+    <span id="token-number" style="left: 318px;
 position: absolute;
 bottom: 20px;
 font-family: 'Source Code Pro', monospace;
 text-align: right;
-font-size: 13px;">[7]</span>
+font-size: 13px;">[0]</span>
 
 
     </div>
@@ -1214,6 +1221,9 @@ font-size: 13px;">[7]</span>
 </div>
 
 <script type="text/javascript">
+
+
+document.getElementById('token-number').innerText = "[" + document.getElementsByClassName("guerin-token").length + "]"; 
 
   var truncate = function (fullStr, strLen, separator) {
       if (fullStr.length <= strLen) return fullStr;
