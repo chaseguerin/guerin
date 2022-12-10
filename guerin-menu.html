@@ -1610,9 +1610,12 @@ transform: translateX(-50%);">Copied to Clipboard</span>
 <script type="text/javascript">
 if ((window.location.href) == 'https://www.chaseguerin.com/id') {
      console.log("success!");
+     document.querySelector(".guerinlogo-header").style.display = "none";
+     document.querySelector(".mood-header").style.display = "none";
 } else {
      console.log("failed!");
-     console.log(document.URL);
+     document.querySelector(".guerinlogo-header").style.display = "block";
+     document.querySelector(".mood-header").style.display = "block";
      
 }
 </script>
