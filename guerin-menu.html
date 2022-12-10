@@ -1605,6 +1605,21 @@ transform: translateX(-50%);">Copied to Clipboard</span>
     <script src='https://momentjs.com/downloads/moment-timezone-with-data.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
+
+
+    <script type="text/javascript">
+
+      $(window).on('hashchange', function(e){
+          var origEvent = e.originalEvent;
+          resultdata = origEvent.newURL;
+          var black = resultdata.match(/id/);
+          if (black){
+            console.log(black);
+            
+          }
+      });
+    </script>
+    </script>
     <script type="text/javascript">
 
       function update() {
