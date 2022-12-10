@@ -588,6 +588,16 @@
         -moz-filter: blur(64px);
         border-radius: 35%;
       }
+
+      .light-version {
+        fill: white;
+      }
+
+      .dark-version {
+        fill: black;
+      }
+
+
     </style>
     <script type="text/javascript">
       var toggleMenu = false;
@@ -964,7 +974,7 @@
          height="18.28px" viewBox="0 0 124 18.28" style="overflow:visible;enable-background:new 0 0 124 18.28;" xml:space="preserve">
       <defs>
       </defs>
-      <g>
+      <g id="element-container">
         <g>
           <polygon points="124,0 124,18.28 121.39,18.28 110.95,4.35 110.95,18.28 108.34,18.28 108.34,0 110.95,0 121.39,13.93 121.39,0     
             "/>
@@ -1601,6 +1611,31 @@ transform: translateX(-50%);">Copied to Clipboard</span>
     <script src='https://momentjs.com/downloads/moment-timezone-with-data.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
+
+    <script type="text/javascript">
+      const elementContainer = document.getElementById('element-container');
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+
+      // Retrieve the pixel data for the images behind the element
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+      // Calculate the average brightness of the images
+      let brightness = 0;
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        brightness += imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2];
+      }
+      brightness = brightness / (imageData.data.length / 4);
+
+      // Switch between the dark and light versions of the element
+      if (brightness >= 128) {
+        elementContainer.classList.add('light-version');
+      } else {
+        elementContainer.classList.add('dark-version');
+      }
+    </script>
+
+
     <script type="text/javascript">
 
       function update() {
