@@ -1628,6 +1628,7 @@ transform: translateX(-50%);">Copied to Clipboard</span>
       brightness = brightness / (imageData.data.length / 4);
 
       // Switch between the dark and light versions of the element
+      console.log(brightness);
       if (brightness >= 60) {
         elementContainer.classList.add('light-version');
       } else {
