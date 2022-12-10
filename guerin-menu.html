@@ -1607,18 +1607,14 @@ transform: translateX(-50%);">Copied to Clipboard</span>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (window.location.href.indexOf("id") > -1) {
+      alert("your url contains the name franky");
+    }
+  });
+</script>
 
-      $(window).on('hashchange', function(e){
-          var origEvent = e.originalEvent;
-          resultdata = origEvent.newURL;
-          var black = resultdata.match(/id/);
-          if (black){
-            console.log(black);
-            
-          }
-      });
-    </script>
     </script>
     <script type="text/javascript">
 
