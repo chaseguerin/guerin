@@ -509,6 +509,11 @@
       }
 
       @media (max-width: 950px) {
+
+        .mood-mobile-adjust {
+          transform: translate(-50%, -50%) scale(.8) !important;
+        }
+
         .current-mood-wrapper {
           position: relative !important;
           width: unset !important; 
@@ -738,6 +743,13 @@
         left: 45%;
         top: 50%;
         transform: translate(0, -43%);
+      }
+
+      .mood-mobile-adjust {
+        position: absolute; 
+        left: 50%; 
+        top: 50%; 
+        transform: translate(-50%, -50%);
       }
 
     </style>
@@ -1160,7 +1172,7 @@
 
 
 <div id="mood-container" style="z-index: 1;">
-  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+  <div class="mood-mobile-adjust">
     <div class="current-mood-wrapper">
       <span class="top-current-mood-title">Chase's Mood</span>
         <video class="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style="">
