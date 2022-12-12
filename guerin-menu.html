@@ -634,7 +634,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        filter: blur(4px);
       }
 
       .mood-title {
@@ -1982,16 +1981,28 @@ transform: translateX(-50%);">Copied to Clipboard</span>
   var toggleMood = false;
   var elList = document.querySelectorAll('.all-moods');
 
+
+if(/Chrome|Firefox|Opera/i.test(navigator.userAgent)){
+  window.addEventListener("load", async function() {
+    document.getElementById('current-mood').style.filter = "blur(4px)";
+
+    for (var i = 0, len = elList.length; i < len; i++) {
+      elList[i].style.filter = "blur(2px)";
+    }
+  });
+}
+
 if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad')){
 
   window.addEventListener("load", async function() {
     // await sleep(100);
 
-    document.getElementById('current-mood').style.filter = "blur(100px)";
+    document.getElementById('current-mood').style.filter = "blur(0px)";
     for (var i = 0, len = elList.length; i < len; i++) {
       //work with checkboxes[i]
       //await sleep(1000);
       //await sleep(100);
+      // elList[i].style.filter = "blur(0px)";
       elList[i].play();
       //await sleep(100);
       // await sleep(1);
