@@ -3,24 +3,7 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-
-      const moods = [
-
-      // High Positive
-      'Inner_Phi', 'Insightful', 'Adventurous', 'Happy', 'Passionate', 'Energetic',
-
-      // Low Positive
-      'Peaceful', 'Hopeful', 'Calm', 'Life_Stock_Green',
-
-      // High Negative 
-      'Resentment', 'Mad', 'Life_Stock_Red',
-
-      // Low Negative
-      'Regret', 'Sorrow', 'Fearful', 'Confused'
-
-      ];
-
-
+      const avgMood = true;
 
       // High Positive
       let Inner_Phi // = true
@@ -65,48 +48,147 @@
       ;
 
 
+      const myAvgMood = (values) => {
+          let i, pickedValue,
+                  randomNr = Math.random(),
+                  threshold = 0;
+
+          for (i = 0; i < values.length; i++) {
+              if (values[i].probability === '*') {
+                  continue;
+              }
+
+              threshold += values[i].probability;
+              if (threshold > randomNr) {
+                      pickedValue = values[i].value;
+                      break;
+              }
+
+              if (!pickedValue) {
+                  //nothing found based on probability value, so pick element marked with wildcard
+                  pickedValue = values.filter((value) => value.probability === '*');
+              }
+          }
+
+          return pickedValue;
+      }
+
+      let testValues = [{
+          value : 'Inner_Phi',
+          probability: 0.18
+      },
+      {
+          value : 'Insightful',
+          probability: 0.18
+      },
+      {
+          value : 'Adventurous',
+          probability: 0.07
+      },
+      {
+          value : 'Happy',
+          probability: 0.11
+      },
+      {
+          value : 'Passionate',
+          probability: 0.01
+      },
+      {
+          value : 'Energetic',
+          probability: 0.02
+      },
+      {
+          value : 'Peaceful',
+          probability: 0.07
+      },
+      {
+          value : 'Hopeful',
+          probability: 0.04
+      },
+      {
+          value : 'Calm',
+          probability: 0.14
+      },
+      {
+          value : 'Life_Stock_Green',
+          probability: 0.06
+      },
+      {
+          value : 'Resentment',
+          probability: 0.01
+      },
+      {
+          value : 'Mad',
+          probability: 0.01
+      },
+      {
+          value : 'Life_Stock_Red',
+          probability: 0.02
+      },
+      {
+          value : 'Regret',
+          probability: 0.01
+      },
+      {
+          value : 'Sorrow',
+          probability: 0.02
+      },
+      {
+          value : 'Fearful',
+          probability: 0.01
+      },
+      {
+          value : 'Confused',
+          probability: 0.04
+      }]
+
+
       $('document').ready(function(){
 
-      var randomMood = Math.floor(Math.random() * moods.length);
+      // var randomMood = Math.floor(Math.random() * moods.length);
+      // let myCurrMood = moods[randomMood];
 
-      let myCurrMood = moods[randomMood];
+      if (avgMood == true) {
+        let myCurrMood = myAvgMood(testValues);
+        console.log(myCurrMood);
 
-      if (moods[randomMood] == 'Inner_Phi') {
-        Inner_Phi = true;
-      } else if (moods[randomMood] == 'Insightful') {
-        Insightful = true;
-      } else if (moods[randomMood] == 'Adventurous') {
-        Adventurous = true;
-      } else if (moods[randomMood] == 'Happy') {
-        Happy = true;
-      } else if (moods[randomMood] == 'Passionate') {
-        Passionate = true;
-      } else if (moods[randomMood] == 'Peaceful') {
-        Peaceful = true;
-      } else if (moods[randomMood] == 'Hopeful') {
-        Hopeful = true;
-      } else if (moods[randomMood] == 'Calm') {
-        Calm = true;
-      } else if (moods[randomMood] == 'Life_Stock_Green') {
-        Life_Stock_Green = true;
-      } else if (moods[randomMood] == 'Resentment') {
-        Resentment = true;
-      } else if (moods[randomMood] == 'Mad') {
-        Mad = true;
-      } else if (moods[randomMood] == 'Life_Stock_Red') {
-        Life_Stock_Red = true;
-      } else if (moods[randomMood] == 'Regret') {
-        Regret = true;
-      } else if (moods[randomMood] == 'Sorrow') {
-        Sorrow = true;
-      } else if (moods[randomMood] == 'Fearful') {
-        Fearful = true;
-      } else if (moods[randomMood] == 'Confused') {
-        Confused = true;
-      } else if (moods[randomMood] == 'Energetic') {
-        Energetic = true;
-      } else {
-        
+        if (myCurrMood == 'Inner_Phi') {
+          Inner_Phi = true;
+        } else if (myCurrMood == 'Insightful') {
+          Insightful = true;
+        } else if (myCurrMood == 'Adventurous') {
+          Adventurous = true;
+        } else if (myCurrMood == 'Happy') {
+          Happy = true;
+        } else if (myCurrMood == 'Passionate') {
+          Passionate = true;
+        } else if (myCurrMood == 'Peaceful') {
+          Peaceful = true;
+        } else if (myCurrMood == 'Hopeful') {
+          Hopeful = true;
+        } else if (myCurrMood == 'Calm') {
+          Calm = true;
+        } else if (myCurrMood == 'Life_Stock_Green') {
+          Life_Stock_Green = true;
+        } else if (myCurrMood == 'Resentment') {
+          Resentment = true;
+        } else if (myCurrMood == 'Mad') {
+          Mad = true;
+        } else if (myCurrMood == 'Life_Stock_Red') {
+          Life_Stock_Red = true;
+        } else if (myCurrMood == 'Regret') {
+          Regret = true;
+        } else if (myCurrMood == 'Sorrow') {
+          Sorrow = true;
+        } else if (myCurrMood == 'Fearful') {
+          Fearful = true;
+        } else if (myCurrMood == 'Confused') {
+          Confused = true;
+        } else if (myCurrMood == 'Energetic') {
+          Energetic = true;
+        } else {
+
+        }
       }
 
 
