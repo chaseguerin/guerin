@@ -2011,7 +2011,8 @@ window.addEventListener("load", async function() {
       await sleep(10);
       document.getElementById('mood-container').style.opacity = "1";
       document.getElementById('mood-container').style.pointerEvents = "all";
-      await sleep(100);
+      await sleep(5);
+      // await sleep(300);
       elList.forEach(el => el.play());
       toggleMood = true;
 
