@@ -626,7 +626,7 @@
       }
 
 
-      .current-mood {
+      #current-mood {
         z-index: 3;
         width: 282px;
         height: auto;
@@ -634,6 +634,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        filter: blur(4px);
       }
 
       .mood-title {
@@ -1120,7 +1121,7 @@
 
 
 
-
+  <a href="https://chaseguerin.com" style="text-decoration: none;">
     <div class="guerinlogo-header">
 
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px"
@@ -1155,7 +1156,7 @@
       </g>
       </svg>
     </div>
-
+  </a>
 
   <div class="mood-header" onclick="myMood();">
     <video style="        width: 42px;
@@ -1174,7 +1175,7 @@
   <div class="mood-mobile-adjust">
     <div class="current-mood-wrapper">
       <span class="top-current-mood-title">Chase's Mood</span>
-        <video class="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style="">
+        <video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style="">
           
           <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm">
 
@@ -1981,26 +1982,28 @@ transform: translateX(-50%);">Copied to Clipboard</span>
   var toggleMood = false;
   var elList = document.querySelectorAll('.all-moods');
 
+if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad')){
 
+  window.addEventListener("load", async function() {
+    // await sleep(100);
 
-window.addEventListener("load", async function() {
-  // await sleep(100);
+    document.getElementById('current-mood').style.filter = "blur(100px)";
+    for (var i = 0, len = elList.length; i < len; i++) {
+      //work with checkboxes[i]
+      //await sleep(1000);
+      //await sleep(100);
+      elList[i].play();
+      //await sleep(100);
+      // await sleep(1);
 
-  for (var i = 0, len = elList.length; i < len; i++) {
-    //work with checkboxes[i]
-    //await sleep(1000);
-    //await sleep(100);
-    elList[i].play();
-    //await sleep(100);
-    // await sleep(1);
+      elList[i].pause();
+    }
 
-    elList[i].pause();
-  }
+    // elList.forEach(el => el.play());
+    // elList.forEach(el => el.pause());
+  });
 
-  // elList.forEach(el => el.play());
-  // elList.forEach(el => el.pause());
-});
-
+}
 
 
   async function myMood() {
@@ -2013,7 +2016,9 @@ window.addEventListener("load", async function() {
       document.getElementById('mood-container').style.pointerEvents = "all";
       await sleep(5);
       // await sleep(300);
-      elList.forEach(el => el.play());
+      if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) || (navigator.platform == 'MacIntel' && navigator.maxTouchPoints > 0) || navigator.platform == 'iPad')){
+        elList.forEach(el => el.play());
+      }
       toggleMood = true;
 
 
@@ -2028,14 +2033,10 @@ window.addEventListener("load", async function() {
   }
 
 
-/*
+
 
 // Resentment 
 document.getElementById("resentment-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("resentment-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2049,10 +2050,6 @@ document.getElementById("mad-mood").addEventListener("mouseover", function() {
   this.play();
 });
 
-document.getElementById("mad-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("mad-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2060,10 +2057,6 @@ document.getElementById("mad-mood").addEventListener("mouseleave",function() {
 
 // Adventurous 
 document.getElementById("adventurous-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("adventurous-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2077,10 +2070,6 @@ document.getElementById("golden-ratio-mood").addEventListener("mouseover", funct
   this.play();
 });
 
-document.getElementById("golden-ratio-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("golden-ratio-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2088,10 +2077,6 @@ document.getElementById("golden-ratio-mood").addEventListener("mouseleave",funct
 
 // Life Stock Red 
 document.getElementById("life-stock-red-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("life-stock-red-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2105,10 +2090,6 @@ document.getElementById("passionate-mood").addEventListener("mouseover", functio
   this.play();
 });
 
-document.getElementById("passionate-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("passionate-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2116,10 +2097,6 @@ document.getElementById("passionate-mood").addEventListener("mouseleave",functio
 
 // Insightful 
 document.getElementById("insightful-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("insightful-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2133,10 +2110,6 @@ document.getElementById("happy-mood").addEventListener("mouseover", function() {
   this.play();
 });
 
-document.getElementById("happy-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("happy-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2144,10 +2117,6 @@ document.getElementById("happy-mood").addEventListener("mouseleave",function() {
 
 // Confused 
 document.getElementById("confused-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("confused-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2161,10 +2130,6 @@ document.getElementById("fearful-mood").addEventListener("mouseover", function()
   this.play();
 });
 
-document.getElementById("fearful-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("fearful-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2172,10 +2137,6 @@ document.getElementById("fearful-mood").addEventListener("mouseleave",function()
 
 // Life Stock Green 
 document.getElementById("life-stock-green-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("life-stock-green-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2189,10 +2150,6 @@ document.getElementById("peaceful-mood").addEventListener("mouseover", function(
   this.play();
 });
 
-document.getElementById("peaceful-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("peaceful-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2200,10 +2157,6 @@ document.getElementById("peaceful-mood").addEventListener("mouseleave",function(
 
 // Regret 
 document.getElementById("regret-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("regret-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2217,10 +2170,6 @@ document.getElementById("sorrow-mood").addEventListener("mouseover", function() 
   this.play();
 });
 
-document.getElementById("sorrow-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("sorrow-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
@@ -2231,20 +2180,13 @@ document.getElementById("hopeful-mood").addEventListener("mouseover", function()
   this.play();
 });
 
-document.getElementById("hopeful-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("hopeful-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
 
+
 // Calm 
 document.getElementById("calm-mood").addEventListener("mouseover", function() {
-  this.play();
-});
-
-document.getElementById("calm-mood").addEventListener("click", function() {
   this.play();
 });
 
@@ -2258,15 +2200,11 @@ document.getElementById("energetic-mood").addEventListener("mouseover", function
   this.play();
 });
 
-document.getElementById("energetic-mood").addEventListener("click", function() {
-  this.play();
-});
-
 document.getElementById("energetic-mood").addEventListener("mouseleave",function() {
   this.pause();
 });
 
-*/
+
 
 </script>
 
