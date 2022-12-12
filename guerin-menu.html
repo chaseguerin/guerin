@@ -1,6 +1,310 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      const moods = [
+
+      // High Positive
+      'Inner_Phi', 'Insightful', 'Adventurous', 'Happy', 'Passionate', 'Energetic',
+
+      // Low Positive
+      'Peaceful', 'Hopeful', 'Calm', 'Life_Stock_Green',
+
+      // High Negative 
+      'Resentment', 'Mad', 'Life_Stock_Red',
+
+      // Low Negative
+      'Regret', 'Sorrow', 'Fearful', 'Confused'
+
+      ];
+
+
+
+      // High Positive
+      let Inner_Phi // = true
+      ;
+      let Insightful // = true
+      ;
+      let Adventurous // = true
+      ;
+      let Happy // = true
+      ;
+      let Passionate // = true
+      ;
+      let Energetic // = true
+      ;
+
+      // Low Positive
+      let Peaceful // = true
+      ;
+      let Hopeful // = true
+      ;
+      let Calm // = true
+      ;
+      let Life_Stock_Green // = true
+      ;
+
+      // High Negative 
+      let Resentment // = true 
+      ;
+      let Mad // = true
+      ;
+      let Life_Stock_Red // = true
+      ;
+
+      // Low Negative
+      let Regret // = true
+      ;
+      let Sorrow // = true
+      ;
+      let Fearful // = true
+      ;
+      let Confused // = true
+      ;
+
+
+      $('document').ready(function(){
+
+      var randomMood = Math.floor(Math.random() * moods.length);
+
+      let myCurrMood = moods[randomMood];
+
+      if (moods[randomMood] == 'Inner_Phi') {
+        Inner_Phi = true;
+      } else if (moods[randomMood] == 'Insightful') {
+        Insightful = true;
+      } else if (moods[randomMood] == 'Adventurous') {
+        Adventurous = true;
+      } else if (moods[randomMood] == 'Happy') {
+        Happy = true;
+      } else if (moods[randomMood] == 'Passionate') {
+        Passionate = true;
+      } else if (moods[randomMood] == 'Peaceful') {
+        Peaceful = true;
+      } else if (moods[randomMood] == 'Hopeful') {
+        Hopeful = true;
+      } else if (moods[randomMood] == 'Calm') {
+        Calm = true;
+      } else if (moods[randomMood] == 'Life_Stock_Green') {
+        Life_Stock_Green = true;
+      } else if (moods[randomMood] == 'Resentment') {
+        Resentment = true;
+      } else if (moods[randomMood] == 'Mad') {
+        Mad = true;
+      } else if (moods[randomMood] == 'Life_Stock_Red') {
+        Life_Stock_Red = true;
+      } else if (moods[randomMood] == 'Regret') {
+        Regret = true;
+      } else if (moods[randomMood] == 'Sorrow') {
+        Sorrow = true;
+      } else if (moods[randomMood] == 'Fearful') {
+        Fearful = true;
+      } else if (moods[randomMood] == 'Confused') {
+        Confused = true;
+      } else if (moods[randomMood] == 'Energetic') {
+        Energetic = true;
+      } else {
+        
+      }
+
+
+
+
+
+        if (Inner_Phi == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BGolden%20Ratio%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BGolden%20Ratio%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Inner &#x03D5;</span>';
+
+          document.getElementById('golden-ratio-mood').style.opacity = ".2";
+          document.getElementById('golden-ratio-mood-title').style.fontWeight = "600";
+          document.getElementById('golden-ratio-mood-title').style.color = "black";
+        }
+
+
+        if (Insightful == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Insightful</span>';
+
+          document.getElementById('insightful-mood').style.opacity = ".2";
+          document.getElementById('insightful-mood-title').style.fontWeight = "600";
+          document.getElementById('insightful-mood-title').style.color = "black";
+        }
+
+        if (Adventurous == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BAdventurous%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BAdventurous%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Adventurous</span>';
+
+          document.getElementById('adventurous-mood').style.opacity = ".2";
+          document.getElementById('adventurous-mood-title').style.fontWeight = "600";
+          document.getElementById('adventurous-mood-title').style.color = "black";
+        }
+
+
+        if (Happy == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHappy%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHappy%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Happy</span>';
+
+          document.getElementById('happy-mood').style.opacity = ".2";
+          document.getElementById('happy-mood-title').style.fontWeight = "600";
+          document.getElementById('happy-mood-title').style.color = "black";
+        }
+
+
+        if (Passionate == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPassionate%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPassionate%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Passionate</span>';
+
+          document.getElementById('passionate-mood').style.opacity = ".2";
+          document.getElementById('passionate-mood-title').style.fontWeight = "600";
+          document.getElementById('passionate-mood-title').style.color = "black";
+        }
+
+
+        if (Peaceful == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPeaceful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPeaceful%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Peaceful</span>';
+
+          document.getElementById('peaceful-mood').style.opacity = ".2";
+          document.getElementById('peaceful-mood-title').style.fontWeight = "600";
+          document.getElementById('peaceful-mood-title').style.color = "black";
+        }
+
+
+        if (Hopeful == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHopeful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHopeful%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Hopeful</span>';
+
+          document.getElementById('hopeful-mood').style.opacity = ".2";
+          document.getElementById('hopeful-mood-title').style.fontWeight = "600";
+          document.getElementById('hopeful-mood-title').style.color = "black";
+        }
+
+
+        if (Calm == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Calm</span>';
+
+          document.getElementById('calm-mood').style.opacity = ".2";
+          document.getElementById('calm-mood-title').style.fontWeight = "600";
+          document.getElementById('calm-mood-title').style.color = "black";
+        }
+
+
+        if (Life_Stock_Green == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BGreen%20Long%20term%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BGreen%20Long%20term%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Life Stock [G]</span>';
+        
+          document.getElementById('life-stock-green-mood').style.opacity = ".2";
+          document.getElementById('life-stock-green-mood-title').style.fontWeight = "600";
+          document.getElementById('life-stock-green-mood-title').style.color = "black";
+        }
+
+
+        if (Resentment == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BResentment%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BResentment%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Resentment</span>';
+
+          document.getElementById('resentment-mood').style.opacity = ".2";
+          document.getElementById('resentment-mood-title').style.fontWeight = "600";
+          document.getElementById('resentment-mood-title').style.color = "black";
+        }
+
+
+        if (Mad == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BMad%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BMad%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Mad</span>';
+
+          document.getElementById('mad-mood').style.opacity = ".2";
+          document.getElementById('mad-mood-title').style.fontWeight = "600";
+          document.getElementById('mad-mood-title').style.color = "black";
+        }
+
+
+        if (Life_Stock_Red == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BRed%20Long%20term%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BRed%20Long%20term%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Life Stock [R]</span>';
+        
+          document.getElementById('life-stock-red-mood').style.opacity = ".2";
+          document.getElementById('life-stock-red-mood-title').style.fontWeight = "600";
+          document.getElementById('life-stock-red-mood-title').style.color = "black";
+        }
+
+
+        if (Regret == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BRegret%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BRegret%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Regret</span>';
+
+          document.getElementById('regret-mood').style.opacity = ".2";
+          document.getElementById('regret-mood-title').style.fontWeight = "600";
+          document.getElementById('regret-mood-title').style.color = "black";
+        }
+
+
+        if (Sorrow == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BSorrow%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BSorrow%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Sorrow</span>';
+
+          document.getElementById('sorrow-mood').style.opacity = ".2";
+          document.getElementById('sorrow-mood-title').style.fontWeight = "600";
+          document.getElementById('sorrow-mood-title').style.color = "black";
+        }
+
+
+        if (Fearful == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BFearful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BFearful%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Fearful</span>';
+
+          document.getElementById('fearful-mood').style.opacity = ".2";
+          document.getElementById('fearful-mood-title').style.fontWeight = "600";
+          document.getElementById('fearful-mood-title').style.color = "black";
+        }
+
+
+        if (Confused == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BConfused%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BConfused%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Confused</span>';
+
+          document.getElementById('confused-mood').style.opacity = ".2";
+          document.getElementById('confused-mood-title').style.fontWeight = "600";
+          document.getElementById('confused-mood-title').style.color = "black";
+        }
+
+
+        if (Energetic == true) {
+          document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BEnergetic%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D.mov" type="video/quicktime"></video>';
+
+          document.getElementById('mood-selector').innerHTML = '<video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BEnergetic%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style=""><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D.mov" type="video/quicktime"></video><span class="bottom-current-mood-title">Energetic</span>';
+
+          document.getElementById('energetic-mood').style.opacity = ".2";
+          document.getElementById('energetic-mood-title').style.fontWeight = "600";
+          document.getElementById('energetic-mood-title').style.color = "black";
+        }
+
+
+
+      });
+
+    </script>
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -12,6 +316,7 @@
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
     </script>
+
     <style type="text/css">
       @media
 
@@ -519,7 +824,7 @@
           width: unset !important; 
           margin: unset !important;
           right: unset !important;
-          top: 40% unset !important;
+          top: unset !important;
           transform: translateY(100px) scale(.85) !important;
         }
 
@@ -623,6 +928,10 @@
         width: 90px;
         height: auto;
         cursor: pointer;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
 
 
@@ -660,7 +969,7 @@
         font-size: 25px;
         font-weight: 600;
         text-transform: uppercase;
-        width: 111px;
+        width: 281px;
         text-align: center;
       }
 
@@ -748,7 +1057,16 @@
         position: absolute; 
         left: 50%; 
         top: 50%; 
-        transform: translate(-50%, -50%);
+        /* width: 100%; */
+        /* transform: translate(-50%, -50%); */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .current-mood-header {
+        width: 42px;
+        height: auto;
       }
 
     </style>
@@ -1158,14 +1476,18 @@
   </a>
 
   <div class="mood-header" onclick="myMood();">
-    <video style="        width: 42px;
-        height: auto;" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted>
-      
-      <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm">
+    <div id="mood-selector-header">
 
-      <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime">
+      <!-- 
+        <video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted>
+          
+          <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm">
 
-    </video>
+          <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime">
+
+        </video>
+      -->
+    </div>
   </div>
 
 
@@ -1174,6 +1496,8 @@
   <div class="mood-mobile-adjust">
     <div class="current-mood-wrapper">
       <span class="top-current-mood-title">Chase's Mood</span>
+
+      <div id="mood-selector">
         <video id="current-mood" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" autoplay loop  defaultMuted playsinline muted style="">
           
           <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm">
@@ -1181,7 +1505,8 @@
           <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime">
 
         </video>
-      <span class="bottom-current-mood-title">Calm</span>
+        <span class="bottom-current-mood-title">Calm</span>
+      </div>
     </div>
 
 
@@ -1205,7 +1530,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D.mov" type="video/quicktime">
 
             </video>
-            <span class="mood-title">Resentment</span>
+            <span id="resentment-mood-title" class="mood-title">Resentment</span>
           </div>
                 
 
@@ -1217,7 +1542,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D.mov" type="video/quicktime">
 
             </video>
-            <span class="mood-title">Mad</span>
+            <span id="mad-mood-title" class="mood-title">Mad</span>
           </div>
 
 
@@ -1228,7 +1553,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D.mov" type="video/quicktime">
 
             </video>
-            <span class="mood-title">Adventurous</span>
+            <span id="adventurous-mood-title" class="mood-title">Adventurous</span>
           </div>
 
 
@@ -1238,7 +1563,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BGolden%20Ratio%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Inner &#x03D5;</span>
+            <span id="golden-ratio-mood-title" class="mood-title">Inner &#x03D5;</span>
           </div>
 
 
@@ -1248,7 +1573,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Life Stock [R]</span>
+            <span id="life-stock-red-mood-title" class="mood-title">Life Stock [R]</span>
           </div>
 
 
@@ -1258,7 +1583,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Passionate</span>
+            <span id="passionate-mood-title" class="mood-title">Passionate</span>
           </div>
 
 
@@ -1268,7 +1593,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Insightful</span>
+            <span id="insightful-mood-title" class="mood-title">Insightful</span>
           </div>
 
 
@@ -1278,7 +1603,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Happy</span>
+            <span id="happy-mood-title" class="mood-title">Happy</span>
           </div>
 
 
@@ -1288,7 +1613,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Confused</span>
+            <span id="confused-mood-title" class="mood-title">Confused</span>
           </div>
 
 
@@ -1298,7 +1623,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Fearful</span>
+            <span id="fearful-mood-title" class="mood-title">Fearful</span>
           </div>
 
 
@@ -1308,7 +1633,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Life Stock [G]</span>
+            <span id="life-stock-green-mood-title" class="mood-title">Life Stock [G]</span>
           </div>
 
 
@@ -1318,7 +1643,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Peaceful</span>
+            <span id="peaceful-mood-title" class="mood-title">Peaceful</span>
           </div>
 
 
@@ -1328,7 +1653,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Regret</span>
+            <span id="regret-mood-title" class="mood-title">Regret</span>
           </div>
 
 
@@ -1338,7 +1663,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Sorrow</span>
+            <span id="sorrow-mood-title" class="mood-title">Sorrow</span>
           </div>
 
 
@@ -1348,17 +1673,18 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Hopeful</span>
+            <span id="hopeful-mood-title" class="mood-title">Hopeful</span>
           </div>
 
 
           <div style="position: relative;">
-            <video id="calm-mood" class="all-moods" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="metadata" loop   defaultMuted playsinline muted style="opacity: .2;">
+
+            <video id="calm-mood" class="all-moods" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="metadata" loop   defaultMuted playsinline muted style="">
               
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title" style="font-weight: 600; color: black;">Calm</span>
+            <span id="calm-mood-title" class="mood-title">Calm</span>
           </div>
 
 
@@ -1368,7 +1694,7 @@
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D_VP9.webm" type="video/webm">
               <source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D.mov" type="video/quicktime">
             </video>
-            <span class="mood-title">Energetic</span>
+            <span id="energetic-mood-title" class="mood-title">Energetic</span>
           </div>
 
         </div>
@@ -1971,7 +2297,6 @@ left: 50%;
 transform: translateX(-50%);">Copied to Clipboard</span>
       </span>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src='https://momentjs.com/downloads/moment.js'></script>
     <script src='https://momentjs.com/downloads/moment-timezone-with-data.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
