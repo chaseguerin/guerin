@@ -12,11 +12,11 @@ let Inner_Phi // = true
 ;
 let Insightful // = true
 ;
-let Adventurous  = true
+let Adventurous // = true
 ;
 let Happy // = true
 ;
-let Passionate // = true
+let Passionate  = true
 ;
 let Energetic // = true
 ;
