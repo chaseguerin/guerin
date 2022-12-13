@@ -21,11 +21,11 @@ let Energetic // = true
 ;
 
 // Low Positive
-let Peaceful = true
+let Peaceful // = true
 ;
 let Hopeful // = true
 ;
-let Calm // = true
+let Calm  = true
 ;
 let Life_Stock_Green // = true
 ;
@@ -207,7 +207,7 @@ if (avgMood == true) {
   }
 
 
-  if (Insightful == true) {
+  else if (Insightful == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BInsightful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BInsightful%5D.mov" type="video/quicktime"></video>';
 
@@ -218,7 +218,7 @@ if (avgMood == true) {
     document.getElementById('insightful-mood-title').style.color = "black";
   }
 
-  if (Adventurous == true) {
+  else if (Adventurous == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BAdventurous%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BAdventurous%5D.mov" type="video/quicktime"></video>';
 
@@ -230,7 +230,7 @@ if (avgMood == true) {
   }
 
 
-  if (Happy == true) {
+  else if (Happy == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHappy%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHappy%5D.mov" type="video/quicktime"></video>';
 
@@ -242,7 +242,7 @@ if (avgMood == true) {
   }
 
 
-  if (Passionate == true) {
+  else if (Passionate == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPassionate%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPassionate%5D.mov" type="video/quicktime"></video>';
 
@@ -254,7 +254,7 @@ if (avgMood == true) {
   }
 
 
-  if (Peaceful == true) {
+  else if (Peaceful == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BPeaceful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BPeaceful%5D.mov" type="video/quicktime"></video>';
 
@@ -266,7 +266,7 @@ if (avgMood == true) {
   }
 
 
-  if (Hopeful == true) {
+  else if (Hopeful == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BHopeful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BHopeful%5D.mov" type="video/quicktime"></video>';
 
@@ -278,7 +278,7 @@ if (avgMood == true) {
   }
 
 
-  if (Calm == true) {
+  else if (Calm == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BCalm%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BCalm%5D.mov" type="video/quicktime"></video>';
 
@@ -290,7 +290,7 @@ if (avgMood == true) {
   }
 
 
-  if (Life_Stock_Green == true) {
+  else if (Life_Stock_Green == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BGreen%20Long%20term%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BG%5D.mov" type="video/quicktime"></video>';
 
@@ -302,7 +302,7 @@ if (avgMood == true) {
   }
 
 
-  if (Resentment == true) {
+  else if (Resentment == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BResentment%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BResentment%5D.mov" type="video/quicktime"></video>';
 
@@ -314,7 +314,7 @@ if (avgMood == true) {
   }
 
 
-  if (Mad == true) {
+  else if (Mad == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BMad%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BMad%5D.mov" type="video/quicktime"></video>';
 
@@ -326,7 +326,7 @@ if (avgMood == true) {
   }
 
 
-  if (Life_Stock_Red == true) {
+  else if (Life_Stock_Red == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BLife%20as%20a%20Stock%5D%5BRed%20Long%20term%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BLife%20Stock%5D%5BR%5D.mov" type="video/quicktime"></video>';
 
@@ -338,7 +338,7 @@ if (avgMood == true) {
   }
 
 
-  if (Regret == true) {
+  else if (Regret == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BRegret%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BRegret%5D.mov" type="video/quicktime"></video>';
 
@@ -350,7 +350,7 @@ if (avgMood == true) {
   }
 
 
-  if (Sorrow == true) {
+  else if (Sorrow == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BSorrow%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BSorrow%5D.mov" type="video/quicktime"></video>';
 
@@ -362,7 +362,7 @@ if (avgMood == true) {
   }
 
 
-  if (Fearful == true) {
+  else if (Fearful == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BFearful%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BFearful%5D.mov" type="video/quicktime"></video>';
 
@@ -374,7 +374,7 @@ if (avgMood == true) {
   }
 
 
-  if (Confused == true) {
+  else if (Confused == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BConfused%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BConfused%5D.mov" type="video/quicktime"></video>';
 
@@ -386,7 +386,7 @@ if (avgMood == true) {
   }
 
 
-  if (Energetic == true) {
+  else if (Energetic == true) {
     resetMood();
     document.getElementById('mood-selector-header').innerHTML = '<video class="current-mood-header" poster="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/Mood%20%5BSmall%5D%5BTrans%5D%5BAura%5D%5BEnergetic%5D.png" preload="auto" loop autoplay defaultMuted playsinline muted><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D_VP9.webm" type="video/webm"><source src="https://storage.googleapis.com/guerin/Mood%20%5BAura%5D%20Working/%5BAura%5D%5BEnergetic%5D.mov" type="video/quicktime"></video>';
 
@@ -395,6 +395,8 @@ if (avgMood == true) {
     document.getElementById('energetic-mood').style.opacity = ".2";
     document.getElementById('energetic-mood-title').style.fontWeight = "600";
     document.getElementById('energetic-mood-title').style.color = "black";
+  } else {
+    
   }
 
 
