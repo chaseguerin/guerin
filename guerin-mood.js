@@ -154,32 +154,32 @@ if (avgMood == true) {
 
 // High Positive
     
-    // Inner_Phi
-    // Insightful
-    // Adventurous
-    // Happy
-    // Passionate
-    Energetic
+    // 'Inner_Phi'
+    // 'Insightful'
+    // 'Adventurous'
+    // 'Happy'
+    // 'Passionate'
+    'Energetic'
 
 // Low Positive
     
-    // Peaceful
-    // Hopeful
-    // Calm
-    // Life_Stock_Green
+    // 'Peaceful'
+    // 'Hopeful'
+    // 'Calm'
+    // 'Life_Stock_Green'
 
 // High Negative
     
-    // Resentment
-    // Mad
-    // Life_Stock_Red
+    // 'Resentment'
+    // 'Mad'
+    // 'Life_Stock_Red'
 
 // Low Negative
     
-    // Regret
-    // Sorrow
-    // Fearful
-    // Confused
+    // 'Regret'
+    // 'Sorrow'
+    // 'Fearful'
+    // 'Confused'
     ;
 
   console.log(myCurrMood);
