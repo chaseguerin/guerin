@@ -1,6 +1,5 @@
-// mood 
 
-// $('document').ready(function(){
+$('document').ready(function(){
 
 const avgMood = false;
 
@@ -18,7 +17,7 @@ let Happy // = true
 ;
 let Passionate // = true
 ;
-let Energetic  = true
+let Energetic // = true
 ;
 
 // Low Positive
@@ -36,7 +35,7 @@ let Resentment // = true
 ;
 let Mad // = true
 ;
-let Life_Stock_Red // = true
+let Life_Stock_Red  = true
 ;
 
 // Low Negative
@@ -473,5 +472,6 @@ if (avgMood == true) {
 
 
   // setTimeout(arguments.callee, 40000);
+  setTimeout(arguments.callee, 10000);
 
-// });
+});
