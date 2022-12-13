@@ -23,9 +23,9 @@ let Energetic // = true
 // Low Positive
 let Peaceful // = true
 ;
-let Hopeful // = true
+let Hopeful  = true
 ;
-let Calm  = true
+let Calm // = true
 ;
 let Life_Stock_Green // = true
 ;
