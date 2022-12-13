@@ -12,7 +12,7 @@ let Inner_Phi // = true
 ;
 let Insightful // = true
 ;
-let Adventurous // = true
+let Adventurous  = true
 ;
 let Happy // = true
 ;
@@ -36,7 +36,7 @@ let Resentment // = true
 ;
 let Mad // = true
 ;
-let Life_Stock_Red  = true
+let Life_Stock_Red // = true
 ;
 
 // Low Negative
