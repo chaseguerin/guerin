@@ -1,6 +1,6 @@
 // mood 
 
-$('document').ready(function(){
+// $('document').ready(function(){
 
 const avgMood = false;
 
@@ -474,4 +474,4 @@ if (avgMood == true) {
 
   // setTimeout(arguments.callee, 40000);
 
-});
+// });
