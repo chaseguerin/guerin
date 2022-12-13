@@ -156,10 +156,10 @@ if (avgMood == true) {
     
     // 'Inner_Phi'
     // 'Insightful'
-    // 'Adventurous'
+     'Adventurous'
     // 'Happy'
     // 'Passionate'
-    'Energetic'
+    // 'Energetic'
 
 // Low Positive
     
