@@ -25,7 +25,7 @@ let Peaceful // = true
 ;
 let Hopeful // = true
 ;
-let Calm // = true
+let Calm  = true
 ;
 let Life_Stock_Green // = true
 ;
@@ -35,7 +35,7 @@ let Resentment // = true
 ;
 let Mad // = true
 ;
-let Life_Stock_Red  = true
+let Life_Stock_Red // = true
 ;
 
 // Low Negative
@@ -472,6 +472,6 @@ if (avgMood == true) {
 
 
   // setTimeout(arguments.callee, 40000);
-  setTimeout(arguments.callee, 10000);
+  setTimeout(arguments.callee, 15000);
 
 });
