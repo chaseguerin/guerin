@@ -22,9 +22,9 @@ let Energetic // = true
 ;
 
 // Low Positive
-let Peaceful  = true
+let Peaceful // = true
 ;
-let Hopeful // = true
+let Hopeful  = true
 ;
 let Calm // = true
 ;
