@@ -11,7 +11,7 @@ let Inner_Phi // = true
 ;
 let Insightful // = true
 ;
-let Adventurous // = true
+let Adventurous  = true
 ;
 let Happy // = true
 ;
@@ -25,7 +25,7 @@ let Peaceful // = true
 ;
 let Hopeful // = true
 ;
-let Calm  = true
+let Calm // = true
 ;
 let Life_Stock_Green // = true
 ;
