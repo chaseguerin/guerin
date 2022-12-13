@@ -16,13 +16,13 @@ let Adventurous // = true
 ;
 let Happy // = true
 ;
-let Passionate  = true
+let Passionate // = true
 ;
 let Energetic // = true
 ;
 
 // Low Positive
-let Peaceful // = true
+let Peaceful  = true
 ;
 let Hopeful // = true
 ;
