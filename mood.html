@@ -10,7 +10,7 @@
       // if avgMood = true, a mood will be selected based on the probabilities of its occurrence
 
       // High Positive
-      let Inner_Phi  = true
+      let Inner_Phi // = true
       ;
       let Insightful // = true
       ;
@@ -24,7 +24,7 @@
       ;
 
       // Low Positive
-      let Peaceful // = true
+      let Peaceful  = true
       ;
       let Hopeful // = true
       ;
@@ -477,6 +477,22 @@
               document.getElementById("mood-selector-header-2").innerHTML = document.getElementById("mood-selector-header").innerHTML;
 
           }
+
+          if ((window.location.href) == 'file:///Users/chaseguerin/Downloads/project-guerinnewyork.html') {
+
+              document.getElementById("mood-selector-header-2").innerHTML = document.getElementById("mood-selector-header").innerHTML;
+
+          }
+
+
+          if ((window.location.href) == 'https://www.chaseguerin.com/yearvisualized' || (window.location.href) == 'https://www.yearvisualized.com') {
+               console.log("success!");
+
+               document.querySelector(".mood-header").style.display = "none";
+
+               
+          }
+
 
         // setTimeout(arguments.callee, 40000);
 
