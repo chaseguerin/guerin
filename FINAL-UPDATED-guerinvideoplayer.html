@@ -2064,7 +2064,7 @@
 									</svg>
 								</button>
 
-								<button id="openSesame" class="mobile-full-screen-btn">
+								<button class="mobile-full-screen-btn">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
 										 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
 										<defs></defs>
@@ -2980,29 +2980,58 @@
 		}
 
 
-document.getElementByID('openSesame').addEventListener('click', function (event) {
-  event.stopPropagation();
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-  } else {
-    videoToggleFullScreenMode();
-  }
-});
-
-
-document.addEventListener('fullscreenchange', function () {
-  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-});
 
 		function videoToggleFullScreenMode() {
 
+		    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+		        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+		        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+		        (document.msFullscreenElement && document.msFullscreenElement !== null);
 
-  if (guerinVideoContainer.requestFullscreen) {
-    guerinVideoContainer.requestFullscreen();
-  } else {
-    video.webkitEnterFullscreen();
-  }
+		    if (!isInFullScreen) {
+		        if (guerinVideoContainer.requestFullscreen) {
+		            guerinVideoContainer.requestFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (guerinVideoContainer.mozRequestFullScreen) {
+		            guerinVideoContainer.mozRequestFullScreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (guerinVideoContainer.webkitRequestFullScreen) {
+		            guerinVideoContainer.webkitRequestFullScreen();
+		            // guerinVideoContainer.webkitEnterFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (docElm.msRequestFullscreen) {
+		            guerinVideoContainer.msRequestFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else {
+		        	video.webkitEnterFullscreen();
+		        	guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        }
+		    } else {
+		        if (document.exitFullscreen) {
+		            document.exitFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (document.webkitExitFullscreen) {
+		            document.webkitExitFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (document.mozCancelFullScreen) {
+		            document.mozCancelFullScreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else if (document.msExitFullscreen) {
+		            document.msExitFullscreen();
+		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        } else {
+		        	video.webkitEnterFullscreen();
+		        	guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		        }
+		    }
 
+			/*
+			if (document.fullscreenElement == null) {
+				guerinVideoContainer.requestFullscreen();
+			} else {
+				document.exitFullscreen();
+			}
+			*/
 		}
 
 		function videoToggleMiniPlayerMode() {
