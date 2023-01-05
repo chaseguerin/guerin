@@ -2488,6 +2488,7 @@
 		// Timeline
 		videoTimelineContainer.addEventListener("mousemove", videoHandleTimelineUpdate);
 		videoTimelineContainer.addEventListener("mousedown", videoToggleScrubbing);
+		videoTimelineContainer.addEventListener("touchstart", videoToggleScrubbing);
 
 		document.addEventListener("mouseup", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
