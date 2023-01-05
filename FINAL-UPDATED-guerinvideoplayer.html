@@ -2362,6 +2362,10 @@
 	    })
 	</script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
 	<script type="text/javascript">
 		
 
@@ -2488,16 +2492,40 @@
 		// Timeline
 		videoTimelineContainer.addEventListener("mousemove", videoHandleTimelineUpdate);
 		videoTimelineContainer.addEventListener("mousedown", videoToggleScrubbing);
+		
+
+
+
+
+
+$('.video-timeline-container').on('mousedown touchstart', function(e) {
+    paused = video.paused;
+    if (!paused) video.pause();
+    videoToggleScrubbing(e);
+    $(document).on('mousemove touchmove', videoToggleScrubbing);
+    $(document).on('mouseup touchend', function() {
+        $(document).off('mousemove touchmove');
+        $(document).off('mouseup touchend');
+        if (!paused) video.play();
+    });
+});
+
+
+
+
+
+
+/*
 		videoTimelineContainer.addEventListener("touchstart", videoToggleScrubbing);
 		videoTimelineContainer.addEventListener("touchmove", videoHandleTimelineUpdate);
-
+*/
 		document.addEventListener("mouseup", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
 		})
 		document.addEventListener("mousemove", e => {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
-
+/*
 		document.addEventListener("touchmove", e => {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
@@ -2505,7 +2533,7 @@
 		document.addEventListener("touchend", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
 		})
-
+*/
 
 		// Playback Speed
 		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
