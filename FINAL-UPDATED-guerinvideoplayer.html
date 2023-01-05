@@ -2590,7 +2590,27 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 
   if (guerinVideoContainer.requestFullscreen) {
     guerinVideoContainer.requestFullscreen();
-  } else {
+  } 
+
+
+
+
+  else if (guerinVideoContainer.mozRequestFullScreen) {
+  	guerinVideoContainer.mozRequestFullScreen();
+  } 
+
+  else if (guerinVideoContainer.webkitRequestFullScreen) {
+  	guerinVideoContainer.webkitRequestFullScreen();
+  	// guerinVideoContainer.webkitEnterFullscreen();
+  } 
+  else if (docElm.msRequestFullscreen) {
+  	guerinVideoContainer.msRequestFullscreen();
+  }
+
+
+
+
+  else {
     video.webkitEnterFullscreen();
   }
 
