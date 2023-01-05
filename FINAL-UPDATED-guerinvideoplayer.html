@@ -2499,14 +2499,12 @@
 
 
 $('.video-timeline-container').on('mousedown touchstart', function(e) {
-    paused = video.paused;
-    if (!paused) video.pause();
-    videoToggleScrubbing(e);
-    $(document).on('mousemove touchmove', videoToggleScrubbing);
+
+    $(document).on('touchmove', function() {
+    	if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+    });
     $(document).on('mouseup touchend', function() {
-        $(document).off('mousemove touchmove');
-        $(document).off('mouseup touchend');
-        if (!paused) video.play();
+    	if (videoIsScrubbing) videoToggleScrubbing(e)
     });
 });
 
