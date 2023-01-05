@@ -2594,7 +2594,7 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
 		        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
 		        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-		        (document.msFullscreenElement && document.msFullscreenElement !== null);
+		        (document.msFullscreenElement && document.msFullscreenElement !== null) || (guerinVideoContainer.requestFullscreen);
 
 		    if (!isInFullScreen) {
 		        if (guerinVideoContainer.requestFullscreen) {
