@@ -2563,25 +2563,40 @@
 
 videoFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-  if (document.fullscreenElement) {
+  /* if (document.fullscreenElement) {
     document.exitFullscreen();
-  } else {
+   } else {
+   	*/
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-  }
+  // }
 });
 
 
 
 mobileFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-  if (document.fullscreenElement) {
+  /* if (document.fullscreenElement) {
     document.exitFullscreen();
-  } else {
+   } else {
+   	*/
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-  }
+  // }
 });
+
+
+
+if ('orientation' in screen) {
+  screen.orientation.addEventListener('change', function () {
+    // Let's request fullscreen if user switches device in landscape mode.
+    if (screen.orientation.type.startsWith('landscape')) {
+      videoToggleFullScreenMode();
+    } else if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  });
+}
 
 
 
