@@ -2563,24 +2563,20 @@
 
 videoFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-  } else {
+
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-  }
+
 });
 
 
 
 mobileFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-  } else {
+
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-  }
+
 });
 
 
@@ -2614,13 +2610,14 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		        } else if (docElm.msRequestFullscreen) {
 		            guerinVideoContainer.msRequestFullscreen();
 
-		        } 
+		        } else {
+		        	video.webkitEnterFullscreen();
+		        }
 		    } else {
 
-		    	video.webkitEnterFullscreen();
+// if (document.exitFullscreen)
 		    	
-		    	/* 
-		        if (document.exitFullscreen) {
+		        if (document.fullscreenElement) {
 		            document.exitFullscreen();
 
 		        } else if (document.webkitExitFullscreen) {
@@ -2633,7 +2630,7 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		            document.msExitFullscreen();
 
 		        } 
-		        */
+		        
 		    }
 
 			/*
