@@ -518,6 +518,7 @@
 			display: flex;
 			align-items: center;
 			width: 100%;
+			padding-top: 15px;
 		}
 
 		.guerin-video-timeline {
@@ -654,6 +655,7 @@
 			margin: 0;
 			font-size: 15px;
 			position: relative;
+			margin-bottom: -15px;
 		}
 
 		.goatedopacity {
@@ -1167,10 +1169,6 @@
 							height: -webkit-fill-available;
 							width: 100%;
 							background: white;
-						}
-
-						#lin-grad {
-							z-index: 2147483647;
 						}
 
 						video::-webkit-media-controls {
@@ -2567,8 +2565,9 @@ videoFullScreenBtn.addEventListener('click', function (event) {
     document.exitFullscreen();
    } else {
    	*/
+   	// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
     videoToggleFullScreenMode();
-    guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+    
   // }
 });
 
@@ -2580,13 +2579,14 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
     document.exitFullscreen();
    } else {
    	*/
+   	// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
     videoToggleFullScreenMode();
-    guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+    
   // }
 });
 
 
-
+/* 
 if ('orientation' in screen) {
   screen.orientation.addEventListener('change', function () {
     // Let's request fullscreen if user switches device in landscape mode.
@@ -2597,11 +2597,27 @@ if ('orientation' in screen) {
     }
   });
 }
+*/
 
+document.addEventListener("fullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
 
+document.addEventListener("mozfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
 
+document.addEventListener("webkitfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
+
+document.addEventListener("msfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
 
 		function videoToggleFullScreenMode() {
+
+			// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
 /*
   if (guerinVideoContainer.requestFullscreen) {
     guerinVideoContainer.requestFullscreen();
