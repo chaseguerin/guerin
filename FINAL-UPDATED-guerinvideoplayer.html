@@ -2616,6 +2616,10 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 
 		        } 
 		    } else {
+
+		    	video.webkitEnterFullscreen();
+		    	
+		    	/* 
 		        if (document.exitFullscreen) {
 		            document.exitFullscreen();
 
@@ -2629,6 +2633,7 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		            document.msExitFullscreen();
 
 		        } 
+		        */
 		    }
 
 			/*
