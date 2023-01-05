@@ -2498,6 +2498,10 @@
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
 
+		document.addEventListener("touchmove", e => {
+			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+		})
+
 		// Playback Speed
 		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
 
