@@ -31,7 +31,7 @@
 			/* height: 100vh; */
 			background: url("https://images.squarespace-cdn.com/content/v1/55853764e4b052acf763c210/1583957754677-HRT6ZXB8YHHE8LI7MA7W/image-asset.png?format=1000w");
 			background-position: center;
-			height: calc(100vh - calc(100vh - 100%));
+			height: -webkit-fill-available;
 			background-size: cover;
 		}
 
@@ -280,7 +280,7 @@
 			.guerin-video-container.theater-mode,
 			.guerin-video-container.full-screen-mode {
 				/* height: 100vh; */
-				height: calc(100vh - calc(100vh - 100%));
+				height: -webkit-fill-available;
 				display: flex;
 			}
 
@@ -1164,7 +1164,7 @@
 
 						.guerin-background-for-auraplayer {
 							position: absolute;
-							height: calc(100vh - calc(100vh - 100%));
+							height: -webkit-fill-available;
 							width: 100%;
 							background: white;
 						}
