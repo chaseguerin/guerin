@@ -2502,6 +2502,11 @@
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
 
+		document.addEventListener("touchend", e => {
+			if (videoIsScrubbing) videoToggleScrubbing(e)
+		})
+		
+
 		// Playback Speed
 		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
 
