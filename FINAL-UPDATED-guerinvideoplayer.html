@@ -2560,6 +2560,19 @@
 		videoTheaterBtn.addEventListener("click", videoToggleTheaterMode);
 		videoFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
 		mobileFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
+
+
+mobileFullScreenBtn.addEventListener('click', function (event) {
+  event.stopPropagation();
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    videoToggleFullScreenMode();
+  }
+});
+
+
+		
 		videoMiniPlayerBtn.addEventListener("click", videoToggleMiniPlayerMode);
 		document.querySelector(".desktop-aurascript-btn").addEventListener("click", videoToggleAurascript);
 		document.querySelector(".aurascript-btn").addEventListener("click", videoToggleAurascript);
@@ -3002,10 +3015,7 @@
 		        } else if (docElm.msRequestFullscreen) {
 		            guerinVideoContainer.msRequestFullscreen();
 		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-		        } else {
-		        	video.webkitEnterFullscreen();
-		        	guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-		        }
+		        } 
 		    } else {
 		        if (document.exitFullscreen) {
 		            document.exitFullscreen();
@@ -3019,10 +3029,7 @@
 		        } else if (document.msExitFullscreen) {
 		            document.msExitFullscreen();
 		            guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-		        } else {
-		        	video.webkitEnterFullscreen();
-		        	guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-		        }
+		        } 
 		    }
 
 			/*
