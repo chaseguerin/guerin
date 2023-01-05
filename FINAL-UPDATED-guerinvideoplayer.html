@@ -2563,20 +2563,24 @@
 
 videoFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-
+  }
 });
 
 
 
 mobileFullScreenBtn.addEventListener('click', function (event) {
   event.stopPropagation();
-
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
     videoToggleFullScreenMode();
     guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
-
+  }
 });
 
 
@@ -2591,12 +2595,18 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
   }
 */
 
+
+/*
 		    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
 		        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
 		        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-		        (document.msFullscreenElement && document.msFullscreenElement !== null) || (guerinVideoContainer.requestFullscreen);
+		        (document.msFullscreenElement && document.msFullscreenElement !== null);
 
 		    if (!isInFullScreen) {
+
+*/
+
+
 		        if (guerinVideoContainer.requestFullscreen) {
 		            guerinVideoContainer.requestFullscreen();
 		            
@@ -2613,11 +2623,14 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		        } else {
 		        	video.webkitEnterFullscreen();
 		        }
+		 
+/*
+
 		    } else {
 
-// if (document.exitFullscreen)
+
 		    	
-		        if (document.fullscreenElement) {
+		        if (document.exitFullscreen) {
 		            document.exitFullscreen();
 
 		        } else if (document.webkitExitFullscreen) {
@@ -2632,7 +2645,7 @@ mobileFullScreenBtn.addEventListener('click', function (event) {
 		        } 
 		        
 		    }
-
+*/
 			/*
 			if (document.fullscreenElement == null) {
 				guerinVideoContainer.requestFullscreen();
