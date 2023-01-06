@@ -2372,7 +2372,7 @@
 
 	<script type="text/javascript">
 		
-document.addEventListener("touchstart", function() {}, true);
+// document.addEventListener("touchstart", function() {}, true);
 
 
 (function () {
@@ -2488,6 +2488,7 @@ document.addEventListener("touchstart", function() {}, true);
 			document.getElementById('goatedtwo').classList.add("goatedopacity");
 			// document.getElementById('aura-container').style.display = "none";
 
+guerinVideoContainer.classList.add("video-scrubbing");
 
 		});
 });
@@ -2510,14 +2511,21 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 "mouseout touchend touchcancel".split(" ").forEach(function(f) {
-    document.getElementById('timeline-element').addEventListener(f, function() {
+    document.addEventListener(f, e => {
+
 			document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
 			document.getElementById('aura-element').classList.remove("nodisplay");
 			document.getElementById('video-hiding-timer').classList.remove("nodisplay");
 			document.getElementById('goated').classList.remove("goated-hide");
+			document.getElementById('goatedtwo').classList.remove("goatedopacity");
+			guerinVideoContainer.classList.remove("video-scrubbing");
+
+
 			// document.getElementById('aura-container').style.display = "block";
 
-
+				if (!videoWasPaused) {
+					video.play();
+			}
 		});
 });
 
@@ -2541,15 +2549,7 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 
-"mouseout touchend touchcancel".split(" ").forEach(function(f) {
-    document.addEventListener(f, function() {
-			if (!videoIsScrubbing) {
-				document.getElementById('goatedtwo').classList.remove("goatedopacity");
-			}
 
-
-		});
-});
 
 
 /*
@@ -2602,7 +2602,7 @@ document.addEventListener("touchstart", function() {}, true);
 */
 
 "mousemove touchmove".split(" ").forEach(function(f) {
-    document.addEventListener(f, e => {
+    videoTimelineContainer.addEventListener(f, e => {
 
 
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
@@ -2627,17 +2627,26 @@ document.addEventListener("touchstart", function() {}, true);
 			
 			const videoPercent = Math.min(Math.max(0, clientX  - videoRect.x), videoRect.width) / videoRect.width;
 
-			videoIsScrubbing = (e.touches.length & 1) === 1;
+			
 
 			// console.log(e.targetTouches[0].clientX)
 
-			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
+			
 
 videoWasPaused = video.paused;
 
-				// console.log(videoPercent); 
-				// console.log(video.duration);
+				console.log(videoPercent); 
+				console.log(video.duration);
+				console.log(e.changedTouches); 
 
+
+
+
+
+      console.log( "BREAK" );
+      
+
+      videoIsScrubbing = (e.touches.length & 1) === 1;
 
 			if (videoIsScrubbing) {
 
@@ -2654,37 +2663,51 @@ videoWasPaused = video.paused;
 				// console.log(video.duration);
 
 				video.currentTime = videoPercent * video.duration;
+				// 
+
 
 				/* document.getElementById('aura-container').style.display = "block";
 				document.getElementById('goated').classList.remove("goated-hide");
 				document.getElementById('goatedtwo').classList.remove("goatedopacity"); */
 
-				
+/*				
 				if (!videoWasPaused) {
 					video.play();
-				}
-}
+			}
+			*/
+        }
 
 
 
 
 
 
-			videoHandleTimelineUpdate(e);
+
+
+
+
+videoHandleTimelineUpdate(e);
+
+
+			
 		}
 
 		function videoHandleTimelineUpdate(e) {
 			// e.preventDefault();
 
 
+  clientX = e.touches[0].clientX;
+  clientY = e.touches[0].clientY;
 
-
-			videoRect = videoTimelineContainer.getBoundingClientRect();
-			videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoPreviewImg.style.backgroundPositionY = 200 * (213 - Math.floor(videoPercent * 214)) + "px";
 
 
 			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+
+
 
 /*
 			video.currentTime = videoPercent * video.duration;
@@ -2704,6 +2727,8 @@ videoWasPaused = video.paused;
 				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
 				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
 			}
+
+
 		}
 
 
