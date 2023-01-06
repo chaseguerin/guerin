@@ -521,6 +521,7 @@
 			align-items: center;
 			width: 100%;
 			padding-top: 15px;
+			touch-action: pan-y;
 		}
 
 		.guerin-video-timeline {
@@ -2928,7 +2929,7 @@ document.addEventListener("msfullscreenchange", () => {
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
 			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoIsScrubbing = (e.buttons & 1) === 1;
+			videoIsScrubbing = (e.touches.length & 1) === 1;
 			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
 
 			if (videoIsScrubbing) {
@@ -2961,10 +2962,25 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 		function videoHandleTimelineUpdate(e) {
+			// e.preventDefault();
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
 			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoPreviewImg.style.backgroundPositionY = 200 * (213 - Math.floor(videoPercent * 214)) + "px";
+
+
 			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+/*
+			video.currentTime = videoPercent * video.duration;
+
+			videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
+
+			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+			videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
+
+*/
+
 
 			if (videoIsScrubbing) {
 				e.preventDefault();
