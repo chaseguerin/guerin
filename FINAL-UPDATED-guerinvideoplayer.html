@@ -558,7 +558,6 @@
 			position: absolute;
 			transform: translate(-50%, -50%) scale(var(--scale));
 			/* height: 350%; */
-			touch-action: pan-y;
 			width: 6px;
 			height: 19.44444444444444px;
 			top: 50%;
@@ -2491,32 +2490,39 @@
 		});
 
 		// Timeline
-		videoTimelineContainer.addEventListener("mousemove", videoHandleTimelineUpdate);
-		videoTimelineContainer.addEventListener("mousedown", videoToggleScrubbing);
+		// videoTimelineContainer.addEventListener("mousemove", videoHandleTimelineUpdate);
+		// videoTimelineContainer.addEventListener("mousedown", videoToggleScrubbing);
 		
 
 
 
 
 
-$('.video-timeline-container').on('mousedown touchstart', function(e) {
 
-    $(document).on('touchmove', function() {
+
+
+    $('.video-timeline-container').on('mousemove touchmove', videoHandleTimelineUpdate);
+    $('.video-timeline-container').on('mousedown touchstart', videoToggleScrubbing);
+
+/*
+    $(document).on('mousemove touchmove', e => {
     	if (videoIsScrubbing) videoHandleTimelineUpdate(e)
     });
-    $(document).on('mouseup touchend', function() {
+    $(document).on('mouseup touchend', e => {
     	if (videoIsScrubbing) videoToggleScrubbing(e)
     });
-});
+*/
 
 
 
 
 
 
-
+/*
 		videoTimelineContainer.addEventListener("touchstart", videoToggleScrubbing);
 		videoTimelineContainer.addEventListener("touchmove", videoHandleTimelineUpdate);
+*/
+
 
 		document.addEventListener("mouseup", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
@@ -2525,6 +2531,14 @@ $('.video-timeline-container').on('mousedown touchstart', function(e) {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
 
+		document.addEventListener("touchend", e => {
+			if (videoIsScrubbing) videoToggleScrubbing(e)
+		})
+		document.addEventListener("touchmove", e => {
+			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+		})
+	
+/*
 		document.addEventListener("touchmove", e => {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
@@ -2532,7 +2546,7 @@ $('.video-timeline-container').on('mousedown touchstart', function(e) {
 		document.addEventListener("touchend", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
 		})
-
+*/
 
 		// Playback Speed
 		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
@@ -2563,8 +2577,39 @@ $('.video-timeline-container').on('mousedown touchstart', function(e) {
 			document.querySelector(".video-aura-container").style.cursor = "pointer";
 		}, false);
 
+
+
+		// Mouse move pointer
+		document.addEventListener('touchmove', function (event) {
+			videoLinear_bar.classList.add('showing-video-guerin');
+			videoLinear_bar.classList.remove('hidden-video-guerin');
+
+			document.body.style.cursor = "default";
+
+
+			videoCounts = 0;
+
+			if (countingthis == 0) {
+				document.getElementById('gVideoID').style.cursor = "pointer";
+			} else {
+				document.getElementById('gVideoID').style.cursor = "default";
+			}
+
+			//document.getElementById('aura-container').style.cursor = "pointer";
+			document.querySelector(".video-aura-container").style.cursor = "pointer";
+		}, false);
+
+
 		// Update Num Token
 		document.addEventListener("mousemove", e => {
+			updateTime_VIDEO_TEN_MINUTE(e);
+			updateTime_VIDEO_MINUTE(e);
+			updateTime_VIDEO_TEN_SECOND(e);
+			updateTime_VIDEO_SECOND(e);
+		});
+
+		// Update Num Token
+		document.addEventListener("touchmove", e => {
 			updateTime_VIDEO_TEN_MINUTE(e);
 			updateTime_VIDEO_MINUTE(e);
 			updateTime_VIDEO_TEN_SECOND(e);
