@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
-<script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+
 
 
 	<script type="text/javascript">
@@ -2373,6 +2373,23 @@
 	<script type="text/javascript">
 		
 document.addEventListener("touchstart", function() {}, true);
+
+
+(function () {
+    if (typeof EventTarget !== "undefined") {
+        let func = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function (type, fn, capture) {
+            this.func = func;
+            if(typeof capture !== "boolean"){
+                capture = capture || {};
+                capture.passive = false;
+            }
+            this.func(type, fn, capture);
+        };
+    };
+}());
+
+
 		const videoPlayPauseBtn = document.querySelector(".play-pause-btn")
 		const videoTheaterBtn = document.querySelector(".theater-btn")
 		const videoFullScreenBtn = document.querySelector(".full-screen-btn")
@@ -2525,7 +2542,7 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 "mouseout touchend touchcancel".split(" ").forEach(function(f) {
-    document.body.addEventListener(f, function() {
+    document.addEventListener(f, function() {
 			if (!videoIsScrubbing) {
 				document.getElementById('goatedtwo').classList.remove("goatedopacity");
 			}
@@ -2547,16 +2564,22 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 "mousemove touchmove".split(" ").forEach(function(f) {
-    videoTimelineContainer.addEventListener(f, videoHandleTimelineUpdate);
+
+	videoTimelineContainer.addEventListener(f, e => {
+		videoHandleTimelineUpdate(e);
+	});
 });
 
 "mousedown touchstart".split(" ").forEach(function(f) {
-
-    videoTimelineContainer.addEventListener(f, videoToggleScrubbing);
+	videoTimelineContainer.addEventListener(f, e => {
+		videoToggleScrubbing(e);
+	});
 });
 
-function silentErrorHandler() {return true;}
+// function silentErrorHandler() {return true;}
 
+
+/*
 "mouseup touchend touchcancel".split(" ").forEach(function(f) {
     document.addEventListener(f, e => {
     
@@ -2576,6 +2599,8 @@ function silentErrorHandler() {return true;}
 		});
 });
 
+*/
+
 "mousemove touchmove".split(" ").forEach(function(f) {
     document.addEventListener(f, e => {
 
@@ -2583,6 +2608,111 @@ function silentErrorHandler() {return true;}
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		});
 });
+
+
+
+
+
+
+
+		function videoToggleScrubbing(e) {
+
+  clientX = e.touches[0].clientX;
+  clientY = e.touches[0].clientY;
+
+
+
+
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			
+			const videoPercent = Math.min(Math.max(0, clientX  - videoRect.x), videoRect.width) / videoRect.width;
+
+			videoIsScrubbing = (e.touches.length & 1) === 1;
+
+			// console.log(e.targetTouches[0].clientX)
+
+			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
+
+videoWasPaused = video.paused;
+
+				// console.log(videoPercent); 
+				// console.log(video.duration);
+
+
+			if (videoIsScrubbing) {
+
+				
+				video.pause();
+
+				/* document.getElementById('aura-container').style.display = "none"; */
+				// console.log(e.touches.length)
+
+				// video.currentTime = videoPercent * video.duration
+			} else {
+
+				// console.log(videoPercent); 
+				// console.log(video.duration);
+
+				video.currentTime = videoPercent * video.duration;
+
+				/* document.getElementById('aura-container').style.display = "block";
+				document.getElementById('goated').classList.remove("goated-hide");
+				document.getElementById('goatedtwo').classList.remove("goatedopacity"); */
+
+				
+				if (!videoWasPaused) {
+					video.play();
+				}
+}
+
+
+
+
+
+
+			videoHandleTimelineUpdate(e);
+		}
+
+		function videoHandleTimelineUpdate(e) {
+			// e.preventDefault();
+
+
+
+
+			videoRect = videoTimelineContainer.getBoundingClientRect();
+			videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoPreviewImg.style.backgroundPositionY = 200 * (213 - Math.floor(videoPercent * 214)) + "px";
+
+
+			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+/*
+			video.currentTime = videoPercent * video.duration;
+
+			videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
+
+			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+			videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
+
+*/
+
+
+			if (videoIsScrubbing) {
+				// e.preventDefault();
+				video.currentTime = videoPercent * video.duration;
+				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
+				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
+			}
+		}
+
+
+
+
+
+
+
+
 
 
 /*
@@ -2655,8 +2785,19 @@ function silentErrorHandler() {return true;}
 		// Update Num Token
 
 
+
+
+
 "mousemove touchmove".split(" ").forEach(function(f) {
-    document.addEventListener(f, e => {
+    videoTimelineContainer.addEventListener(f, e => {
+
+  clientX = e.touches[0].clientX;
+  clientY = e.touches[0].clientY;
+
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
+
 			updateTime_VIDEO_TEN_MINUTE(e);
 			updateTime_VIDEO_MINUTE(e);
 			updateTime_VIDEO_TEN_SECOND(e);
@@ -2977,88 +3118,7 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 
-		function videoToggleScrubbing(e) {
 
-
-
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX  - videoRect.x), videoRect.width) / videoRect.width;
-
-			videoIsScrubbing = (e.touches.length & 1) === 1;
-
-			// console.log(e.targetTouches[0].clientX)
-
-			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
-
-videoWasPaused = video.paused;
-
-				// console.log(videoPercent); 
-				// console.log(video.duration);
-
-
-			if (videoIsScrubbing) {
-
-				
-				video.pause();
-
-				/* document.getElementById('aura-container').style.display = "none"; */
-				// console.log(e.touches.length)
-
-				// video.currentTime = videoPercent * video.duration
-			} else {
-
-				// console.log(videoPercent); 
-				// console.log(video.duration);
-
-				video.currentTime = videoPercent * video.duration;
-
-				/* document.getElementById('aura-container').style.display = "block";
-				document.getElementById('goated').classList.remove("goated-hide");
-				document.getElementById('goatedtwo').classList.remove("goatedopacity"); */
-
-				
-				if (!videoWasPaused) {
-					video.play();
-				}
-}
-
-
-
-
-
-
-			videoHandleTimelineUpdate(e);
-		}
-
-		function videoHandleTimelineUpdate(e) {
-			// e.preventDefault();
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoPreviewImg.style.backgroundPositionY = 200 * (213 - Math.floor(videoPercent * 214)) + "px";
-
-
-			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
-
-/*
-			video.currentTime = videoPercent * video.duration;
-
-			videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
-
-			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
-
-			videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
-
-*/
-
-
-			if (videoIsScrubbing) {
-				// e.preventDefault();
-				video.currentTime = videoPercent * video.duration;
-				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
-				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
-			}
-		}
 
 		function changePlaybackSpeed() {
 			let videoNewPlaybackRate = video.playbackRate + 0.25;
@@ -3095,9 +3155,6 @@ videoWasPaused = video.paused;
 
 	    function updateTime_VIDEO_TEN_MINUTE(e) {
 
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currVideoTenMin = Math.floor((videoHovertime_var / 60) % 60);
 			currVideoTenMin = (currVideoTenMin / 10) % 10;
 
@@ -3145,9 +3202,6 @@ videoWasPaused = video.paused;
 
 	    function updateTime_VIDEO_MINUTE(e) {
 
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			videoCurrMin = Math.floor((videoHovertime_var / 60) % 10);
 
 			if (videoCurrMin >= 9) {
@@ -3194,9 +3248,6 @@ videoWasPaused = video.paused;
 
 	    function updateTime_VIDEO_TEN_SECOND(e) {
 
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currTenSec = Math.floor(videoHovertime_var % 60);
 			currTenSec = (currTenSec / 10) % 10;
 
@@ -3245,9 +3296,6 @@ videoWasPaused = video.paused;
 
 	    function updateTime_VIDEO_SECOND(e) {
 
-			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
-			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currSec = Math.floor(videoHovertime_var % 10);
 
 			if (currSec >= 9) {
