@@ -2492,7 +2492,7 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 
-"mouseout touchend".split(" ").forEach(function(f) {
+"mouseout touchend touchcancel".split(" ").forEach(function(f) {
     document.getElementById('timeline-element').addEventListener(f, function() {
 			document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
 			document.getElementById('aura-element').classList.remove("nodisplay");
@@ -2524,7 +2524,7 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 
-"mouseout touchend".split(" ").forEach(function(f) {
+"mouseout touchend touchcancel".split(" ").forEach(function(f) {
     document.body.addEventListener(f, function() {
 			if (!videoIsScrubbing) {
 				document.getElementById('goatedtwo').classList.remove("goatedopacity");
@@ -2551,19 +2551,35 @@ document.addEventListener("touchstart", function() {}, true);
 });
 
 "mousedown touchstart".split(" ").forEach(function(f) {
+
     videoTimelineContainer.addEventListener(f, videoToggleScrubbing);
 });
 
+function silentErrorHandler() {return true;}
 
-
-"mouseup touchend".split(" ").forEach(function(f) {
+"mouseup touchend touchcancel".split(" ").forEach(function(f) {
     document.addEventListener(f, e => {
-			if (videoIsScrubbing) videoToggleScrubbing(e)
+    
+
+
+			if (videoIsScrubbing) {
+
+// window.onerror=silentErrorHandler;
+				const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX  - videoRect.x), videoRect.width) / videoRect.width;
+
+				videoToggleScrubbing(e)
+			}
+
+			
+
+
 		});
 });
 
 "mousemove touchmove".split(" ").forEach(function(f) {
     document.addEventListener(f, e => {
+
+
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		});
 });
@@ -2592,6 +2608,30 @@ document.addEventListener("touchstart", function() {}, true);
 		video.addEventListener('timeupdate', videoHideOnIdle);
 		video.addEventListener('timeupdate', videoUpdateProgress);
 
+
+"mousemove touchmove".split(" ").forEach(function(f) {
+    document.addEventListener(f, function (event) {
+			videoLinear_bar.classList.add('showing-video-guerin');
+			videoLinear_bar.classList.remove('hidden-video-guerin');
+
+			document.body.style.cursor = "default";
+
+
+			videoCounts = 0;
+
+			if (countingthis == 0) {
+				document.getElementById('gVideoID').style.cursor = "pointer";
+			} else {
+				document.getElementById('gVideoID').style.cursor = "default";
+			}
+
+			//document.getElementById('aura-container').style.cursor = "pointer";
+			document.querySelector(".video-aura-container").style.cursor = "pointer";
+		}, false);
+});
+
+
+/*
 		// Mouse move pointer
 		document.addEventListener('mousemove', function (event) {
 			videoLinear_bar.classList.add('showing-video-guerin');
@@ -2611,14 +2651,29 @@ document.addEventListener("touchstart", function() {}, true);
 			//document.getElementById('aura-container').style.cursor = "pointer";
 			document.querySelector(".video-aura-container").style.cursor = "pointer";
 		}, false);
-
+*/
 		// Update Num Token
+
+
+"mousemove touchmove".split(" ").forEach(function(f) {
+    document.addEventListener(f, e => {
+			updateTime_VIDEO_TEN_MINUTE(e);
+			updateTime_VIDEO_MINUTE(e);
+			updateTime_VIDEO_TEN_SECOND(e);
+			updateTime_VIDEO_SECOND(e);
+		});
+});
+
+/*
 		document.addEventListener("mousemove", e => {
 			updateTime_VIDEO_TEN_MINUTE(e);
 			updateTime_VIDEO_MINUTE(e);
 			updateTime_VIDEO_TEN_SECOND(e);
 			updateTime_VIDEO_SECOND(e);
 		});
+
+*/
+
 
 		// Volume
 		videoMuteBtn.addEventListener("click", videoToggleMute);
@@ -2928,25 +2983,33 @@ document.addEventListener("msfullscreenchange", () => {
 
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
+			
 			videoIsScrubbing = (e.touches.length & 1) === 1;
+
+			// console.log(e.targetTouches[0].clientX)
+
 			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
 
+videoWasPaused = video.paused;
+
+				// console.log(videoPercent); 
+				// console.log(video.duration);
+
+
 			if (videoIsScrubbing) {
-				videoWasPaused = video.paused;
+
+				
 				video.pause();
 
 				/* document.getElementById('aura-container').style.display = "none"; */
-
-
-
-
-
+				// console.log(e.touches.length)
 
 				// video.currentTime = videoPercent * video.duration
 			} else {
-				console.log(videoPercent); 
-				console.log(video.duration);
+
+				// console.log(videoPercent); 
+				// console.log(video.duration);
+
 				video.currentTime = videoPercent * video.duration;
 
 				/* document.getElementById('aura-container').style.display = "block";
@@ -2957,7 +3020,13 @@ document.addEventListener("msfullscreenchange", () => {
 				if (!videoWasPaused) {
 					video.play();
 				}
-			}
+}
+
+
+
+
+
+
 			videoHandleTimelineUpdate(e);
 		}
 
@@ -2983,7 +3052,7 @@ document.addEventListener("msfullscreenchange", () => {
 
 
 			if (videoIsScrubbing) {
-				e.preventDefault();
+				// e.preventDefault();
 				video.currentTime = videoPercent * video.duration;
 				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
 				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
