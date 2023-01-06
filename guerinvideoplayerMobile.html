@@ -2372,7 +2372,7 @@
 
 	<script type="text/javascript">
 		
-// document.addEventListener("touchstart", function() {}, true);
+document.addEventListener("touchstart", function() {}, true);
 
 
 (function () {
@@ -2490,6 +2490,9 @@
 
 guerinVideoContainer.classList.add("video-scrubbing");
 
+
+
+
 		});
 });
 
@@ -2511,21 +2514,26 @@ guerinVideoContainer.classList.add("video-scrubbing");
 
 
 "mouseout touchend touchcancel".split(" ").forEach(function(f) {
-    document.addEventListener(f, e => {
+    videoTimelineContainer.addEventListener(f, e => {
 
 			document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
 			document.getElementById('aura-element').classList.remove("nodisplay");
 			document.getElementById('video-hiding-timer').classList.remove("nodisplay");
 			document.getElementById('goated').classList.remove("goated-hide");
 			document.getElementById('goatedtwo').classList.remove("goatedopacity");
+
+
+
 			guerinVideoContainer.classList.remove("video-scrubbing");
 
-
-			// document.getElementById('aura-container').style.display = "block";
-
+			if (videoIsScrubbing) {
 				if (!videoWasPaused) {
 					video.play();
+				}
 			}
+			// document.getElementById('aura-container').style.display = "block";
+
+
 		});
 });
 
@@ -2662,6 +2670,8 @@ videoWasPaused = video.paused;
 				// console.log(videoPercent); 
 				// console.log(video.duration);
 
+
+
 				video.currentTime = videoPercent * video.duration;
 				// 
 
@@ -2687,6 +2697,7 @@ videoWasPaused = video.paused;
 
 
 videoHandleTimelineUpdate(e);
+
 
 
 			
@@ -2722,7 +2733,7 @@ videoHandleTimelineUpdate(e);
 
 
 			if (videoIsScrubbing) {
-				// e.preventDefault();
+				e.preventDefault();
 				video.currentTime = videoPercent * video.duration;
 				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
 				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
