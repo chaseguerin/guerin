@@ -2565,12 +2565,12 @@ function silentErrorHandler() {return true;}
 			if (videoIsScrubbing) {
 
 // window.onerror=silentErrorHandler;
-				const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX  - videoRect.x), videoRect.width) / videoRect.width;
+				
 
 				videoToggleScrubbing(e)
 			}
 
-			
+
 
 
 		});
@@ -2977,13 +2977,14 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 
-
 		function videoToggleScrubbing(e) {
 
 
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
 			
+			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX  - videoRect.x), videoRect.width) / videoRect.width;
+
 			videoIsScrubbing = (e.touches.length & 1) === 1;
 
 			// console.log(e.targetTouches[0].clientX)
@@ -3095,7 +3096,7 @@ videoWasPaused = video.paused;
 	    function updateTime_VIDEO_TEN_MINUTE(e) {
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.x - videoRect.x), videoRect.width) / videoRect.width;
+			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currVideoTenMin = Math.floor((videoHovertime_var / 60) % 60);
 			currVideoTenMin = (currVideoTenMin / 10) % 10;
@@ -3145,7 +3146,7 @@ videoWasPaused = video.paused;
 	    function updateTime_VIDEO_MINUTE(e) {
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.x - videoRect.x), videoRect.width) / videoRect.width;
+			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			videoCurrMin = Math.floor((videoHovertime_var / 60) % 10);
 
@@ -3194,7 +3195,7 @@ videoWasPaused = video.paused;
 	    function updateTime_VIDEO_TEN_SECOND(e) {
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.x - videoRect.x), videoRect.width) / videoRect.width;
+			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currTenSec = Math.floor(videoHovertime_var % 60);
 			currTenSec = (currTenSec / 10) % 10;
@@ -3245,7 +3246,7 @@ videoWasPaused = video.paused;
 	    function updateTime_VIDEO_SECOND(e) {
 
 			const videoRect = videoTimelineContainer.getBoundingClientRect();
-			const videoPercent = Math.min(Math.max(0, e.x - videoRect.x), videoRect.width) / videoRect.width;
+			const videoPercent = Math.min(Math.max(0, e.targetTouches[0].clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 			currSec = Math.floor(videoHovertime_var % 10);
 
