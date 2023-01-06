@@ -400,12 +400,101 @@
 			pointer-events: none;
 		}
 
-		.guerin-video-container:hover .guerin-lin-gradient,
+
 		.guerin-video-container:active .guerin-lin-gradient,
 		.guerin-video-container:focus-within .guerin-lin-gradient,
 		.guerin-video-container.paused .guerin-lin-gradient {
 			opacity: 1;
 		}
+
+
+
+		.guerin-lin-gradient .guerin-controls button:active {
+			opacity: 1;
+		}
+
+
+
+		.guerin-volume-slider:focus-within {
+			width: 100px;
+			transform: scaleX(1);
+		}
+
+
+
+
+		.video-timeline-container:active + .video-aura-thumbnail {
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .video-aura,
+
+		.video-timeline-container:active .video-aura{
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .guerin-video-timeline::before,
+
+		.video-timeline-container:active .guerin-video-timeline::before{
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .video-thumb-indicator,
+
+		.video-timeline-container:active .video-thumb-indicator{
+			--scale: 1;
+		}
+
+		.guerin-video-container.video-scrubbing .guerin-video-timeline,
+
+		.video-timeline-container:active .guerin-video-timeline {
+			height: 100%;
+		}
+
+
+@media (pointer: fine) {
+
+
+		.guerin-video-container:hover .guerin-lin-gradient {
+			opacity: 1;
+		}
+
+
+		.guerin-lin-gradient .guerin-controls button:hover {
+			opacity: 1;
+		}
+
+
+		.video-volume-container:hover .guerin-volume-slider {
+			width: 100px;
+			transform: scaleX(1);
+		}
+
+
+
+		.video-timeline-container:hover + .video-aura-thumbnail {
+			display: block;
+		}
+
+
+		.video-timeline-container:hover .video-aura {
+			display: block;
+		}
+
+		.video-timeline-container:hover .guerin-video-timeline::before {
+			display: block;
+		}
+
+		.video-timeline-container:hover .video-thumb-indicator{
+			--scale: 1;
+		}
+
+		.video-timeline-container:hover .guerin-video-timeline {
+			height: 100%;
+		}
+
+
+}
 
 		.guerin-status-indicator {
 			display: flex;
@@ -430,11 +519,6 @@
 			cursor: pointer;
 			opacity: .85;
 			transition: opacity 150ms ease-in-out;
-		}
-
-		.guerin-lin-gradient .guerin-controls button:hover,
-		.guerin-lin-gradient .guerin-controls button:active {
-			opacity: 1;
 		}
 
 		.guerin-video-container.paused .video-pause-icon {
@@ -493,11 +577,7 @@
 			transition: width 150ms ease-in-out, transform 150ms ease-in-out;
 		}
 
-		.video-volume-container:hover .guerin-volume-slider,
-		.guerin-volume-slider:focus-within {
-			width: 100px;
-			transform: scaleX(1);
-		}
+
 
 		.video-duration-container {
 			display: flex;
@@ -729,34 +809,6 @@
 			display: block;
 		}
 
-		.video-timeline-container:hover + .video-aura-thumbnail,
-		.video-timeline-container:active + .video-aura-thumbnail {
-			display: block;
-		}
-
-		.guerin-video-container.video-scrubbing .video-aura,
-		.video-timeline-container:hover .video-aura, 
-		.video-timeline-container:active .video-aura{
-			display: block;
-		}
-
-		.guerin-video-container.video-scrubbing .guerin-video-timeline::before,
-		.video-timeline-container:hover .guerin-video-timeline::before, 
-		.video-timeline-container:active .guerin-video-timeline::before{
-			display: block;
-		}
-
-		.guerin-video-container.video-scrubbing .video-thumb-indicator,
-		.video-timeline-container:hover .video-thumb-indicator, 
-		.video-timeline-container:active .video-thumb-indicator{
-			--scale: 1;
-		}
-
-		.guerin-video-container.video-scrubbing .guerin-video-timeline,
-		.video-timeline-container:hover .guerin-video-timeline, 
-		.video-timeline-container:active .guerin-video-timeline {
-			height: 100%;
-		}
 
 
 
