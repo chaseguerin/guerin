@@ -2514,17 +2514,17 @@ $('.video-timeline-container').on('mousedown touchstart', function(e) {
 
 
 
-/*
+
 		videoTimelineContainer.addEventListener("touchstart", videoToggleScrubbing);
 		videoTimelineContainer.addEventListener("touchmove", videoHandleTimelineUpdate);
-*/
+
 		document.addEventListener("mouseup", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
 		})
 		document.addEventListener("mousemove", e => {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
-/*
+
 		document.addEventListener("touchmove", e => {
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
 		})
@@ -2532,7 +2532,7 @@ $('.video-timeline-container').on('mousedown touchstart', function(e) {
 		document.addEventListener("touchend", e => {
 			if (videoIsScrubbing) videoToggleScrubbing(e)
 		})
-*/
+
 
 		// Playback Speed
 		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
