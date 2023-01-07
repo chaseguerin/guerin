@@ -2537,7 +2537,7 @@ document.addEventListener("touchstart", function() {}, true);
 
 
 "mouseover touchstart".split(" ").forEach(function(f) {
-    document.getElementById('timeline-element').addEventListener(f, function() {
+    videoTimelineContainer.addEventListener(f, function() {
 			document.getElementById('aura-element').classList.add("nodisplay");
 			document.getElementById('video-hiding-timer').classList.add("nodisplay");
 			document.getElementById('video-whiteblur').classList.add("video-aura-container-background");
