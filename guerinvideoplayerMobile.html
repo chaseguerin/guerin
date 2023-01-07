@@ -584,6 +584,11 @@
 			gap: .6rem;
 			flex-grow: 1;
 			flex-direction: column;
+			/*
+		    -webkit-tap-highlight-color: transparent;
+		    -moz-tap-highlight-color: transparent;
+		    tap-highlight-color: transparent;
+		    */
 		}
 
 		.guerin-video-container.captions .guerin-video-captions-btn {
@@ -601,6 +606,7 @@
 			align-items: center;
 			width: 100%;
 			padding-top: 15px;
+			/* padding-bottom: 15px; */
 			touch-action: pan-y;
 		}
 
@@ -2567,7 +2573,7 @@ guerinVideoContainer.classList.add("video-scrubbing");
 
 "mouseout touchend touchcancel".split(" ").forEach(function(f) {
     videoTimelineContainer.addEventListener(f, e => {
-
+e.preventDefault();
 			document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
 			document.getElementById('aura-element').classList.remove("nodisplay");
 			document.getElementById('video-hiding-timer').classList.remove("nodisplay");
@@ -2580,6 +2586,7 @@ guerinVideoContainer.classList.add("video-scrubbing");
 
 			if (videoIsScrubbing) {
 				if (!videoWasPaused) {
+
 					video.play();
 				}
 			}
@@ -2664,8 +2671,9 @@ guerinVideoContainer.classList.add("video-scrubbing");
 "mousemove touchmove".split(" ").forEach(function(f) {
     videoTimelineContainer.addEventListener(f, e => {
 
-
+// window.onerror=silentErrorHandler;
 			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+
 		});
 });
 
@@ -2695,15 +2703,15 @@ guerinVideoContainer.classList.add("video-scrubbing");
 
 videoWasPaused = video.paused;
 
-				console.log(videoPercent); 
-				console.log(video.duration);
-				console.log(e.changedTouches); 
+				// console.log(videoPercent); 
+				// console.log(video.duration);
+				// console.log(e.changedTouches); 
 
 
 
 
 
-      console.log( "BREAK" );
+      // console.log( "BREAK" );
       
 
       videoIsScrubbing = (e.touches.length & 1) === 1;
@@ -2785,7 +2793,9 @@ videoHandleTimelineUpdate(e);
 
 
 			if (videoIsScrubbing) {
-				e.preventDefault();
+				// e.preventDefault();
+				if (e.cancelable) e.preventDefault();
+
 				video.currentTime = videoPercent * video.duration;
 				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
 				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
@@ -2879,6 +2889,7 @@ videoHandleTimelineUpdate(e);
 "mousemove touchmove".split(" ").forEach(function(f) {
     videoTimelineContainer.addEventListener(f, e => {
 
+
   clientX = e.touches[0].clientX;
   clientY = e.touches[0].clientY;
 
@@ -2886,10 +2897,18 @@ videoHandleTimelineUpdate(e);
 			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
 
+			// console.log(videoRect)
+			// console.log(videoPercent)
+			// console.log(videoHovertime_var)
+
+
+
+
 			updateTime_VIDEO_TEN_MINUTE(e);
 			updateTime_VIDEO_MINUTE(e);
 			updateTime_VIDEO_TEN_SECOND(e);
 			updateTime_VIDEO_SECOND(e);
+
 		});
 });
 
@@ -3235,6 +3254,8 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 		function videoUpdateProgress() {
+
+			 
 			const videoPercent = video.currentTime / video.duration;
 			videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
 			videoCurrentTimeElem.innerHTML = formatDuration(video.currentTime);
@@ -3242,7 +3263,7 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 	    function updateTime_VIDEO_TEN_MINUTE(e) {
-
+// e.preventDefault();
 			currVideoTenMin = Math.floor((videoHovertime_var / 60) % 60);
 			currVideoTenMin = (currVideoTenMin / 10) % 10;
 
@@ -3289,7 +3310,7 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 	    function updateTime_VIDEO_MINUTE(e) {
-
+ // e.preventDefault();
 			videoCurrMin = Math.floor((videoHovertime_var / 60) % 10);
 
 			if (videoCurrMin >= 9) {
@@ -3335,7 +3356,7 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 	    function updateTime_VIDEO_TEN_SECOND(e) {
-
+ // e.preventDefault();
 			currTenSec = Math.floor(videoHovertime_var % 60);
 			currTenSec = (currTenSec / 10) % 10;
 
@@ -3383,7 +3404,7 @@ document.addEventListener("msfullscreenchange", () => {
 		}
 
 	    function updateTime_VIDEO_SECOND(e) {
-
+ // e.preventDefault();
 			currSec = Math.floor(videoHovertime_var % 10);
 
 			if (currSec >= 9) {
