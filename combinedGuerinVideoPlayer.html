@@ -1,0 +1,3577 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auraplayer</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+
+	<script type="text/javascript">
+		function sleep(ms) {
+			return new Promise((resolve) => setTimeout(resolve, ms));
+		}
+	</script>
+
+
+	<style type="text/css">
+
+
+		body {
+			margin: 0;
+			/* height: 100vh; */
+			background: url("https://images.squarespace-cdn.com/content/v1/55853764e4b052acf763c210/1583957754677-HRT6ZXB8YHHE8LI7MA7W/image-asset.png?format=1000w");
+			background-position: center;
+			height: -webkit-fill-available;
+			background-size: cover;
+		}
+
+		.video-profile-box-container {
+		    width: 100%;
+		    /* height: 100px; */
+		    position: absolute;
+		    /* top: 30px; */
+		    /* left: 30px; */
+		    z-index: 2;
+		    display: flex;
+		    gap: 16px;
+		}
+
+
+
+		.video-text-title-container {
+			/* height: 100px; */
+			width: 100%;
+			position: relative;
+			/* margin-left: 16px; */
+			overflow: hidden;
+			display: block;
+		}
+
+
+
+
+		.video-title-text {
+			font-size: 20px;
+		    font-family: 'Source Code Pro', monospace;
+		    font-weight: 600;
+		    margin: 5px 0px 8px 0px;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    white-space: nowrap;
+		}
+
+		.video-secondary-accent-text {
+			font-size: 13px;
+			font-family: 'Source Code Pro', monospace;
+			font-weight: 500;
+			margin: 0px 0px 0px 0px;
+		}
+
+		.additional-video-secondary-accent-text {
+			font-size: 13px;
+			font-family: 'Source Code Pro', monospace;
+			font-weight: 500;
+			margin: -4px 0px 0px 0px;
+		}
+
+		.video-profilebuttons {
+			margin: 0px 0px 0px 0px;
+			border: none;
+			background: rgb(0, 0, 0, .12);
+			color: #000000;
+			outline: none;
+			cursor: pointer;
+			font-family: 'Source Code Pro', monospace;
+			font-size: 15px;
+		}
+
+		.video-ethbutton {
+			margin: 0px 0px 0px 0px;
+		    border: none;
+		    background: rgb(68, 79, 255, .12);
+		    color: #2D00FF;
+		    outline: none;
+		    cursor: pointer;
+		    font-family: 'Source Code Pro', monospace;
+		    font-size: 15px;
+		}
+
+
+		.video-logo-box-container {
+			/* width: 100px; */
+			height: 100px;
+			position: relative;
+			/* top: 30px; */
+			/* right: 0px; */
+			z-index: 2;
+			display: flex;
+			align-items: center;
+		}
+
+		.video-gray-arrow {
+			font-size: 13px;
+			font-family: 'Source Code Pro', monospace;
+			font-weight: 500;
+			margin: 0px -3px 0px 0px;
+			color: #808080;
+			opacity: 1;
+			animation-name: grayarrowanimate;
+			animation-duration: 1.14s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		@keyframes grayarrowanimate {
+			0% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.video-yearnum {
+			fill: white;
+		}
+
+		.video-top-left-attr {
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+
+		.video-top-right-attr {
+			top: 0;
+			right: 0;
+			position: absolute;
+		}
+
+		.video-bottom-left-attr {
+			bottom: 0;
+			left: 0;
+			position: absolute;
+		}
+
+		.video-bottom-right-attr {
+			bottom: 0;
+			right: 0;
+			position: absolute;
+		}
+
+		.video-yearvis-timer {
+			height: 74px; 
+			width: 74px; 
+			border: none; 
+			transform: translate(50%, -50%) translate3d(0, 0, 0);
+			top: 50%;
+			right: 50%;
+			position: absolute;
+			display: none;
+		}
+
+		.goated-hide {
+			display: none;
+		}
+
+		.guerin-video-container {
+			position: relative;
+			width: 90%;
+			max-width: 1000px;
+			display: flex; 
+			justify-content: center;
+			margin-inline: auto;
+		}
+
+		.guerin-video-container.theater-mode{
+			/* display: flex; */
+			background-color: transparent;
+			max-width: 1200px;
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			right: 50%;
+			transform: translate(50%, -50%) translate3d(0, 0, 0);
+		}
+
+		
+		.guerin-video-container.full-screen-mode {
+			max-width: initial;
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			right: 50%;
+			transform: translate(50%, -50%) translate3d(0, 0, 0);
+			/* max-width: 1200px; */
+		}
+
+		.guerin-video-container.full-screen-mode .aurascript-container {
+			bottom: 80px;
+		}
+
+		.currentVideoPlaying {
+		    width: 100%;
+		    height: 100%;
+		}
+
+		.aurascript-btn {
+			display: none;
+		}
+
+		.mobile-full-screen-btn {
+			display: none;
+		}
+
+		@media (max-width:600px) {  
+
+			.guerin-video-controls-container 
+			.guerin-controls {
+				margin: 0px 29px 36px 29px !important; 
+			}
+
+			.desktop-aurascript-btn {
+				display: none;
+			}
+
+
+			.aurascript-btn {
+				display: block;
+			}
+
+			.mobile-full-screen-btn {
+				display: block;
+			}
+
+			.video-duration-container {
+				gap: 1rem !important;
+			}
+
+			.video-progress-text {
+				font-size: 16.5px !important;
+			}
+
+			.play-pause-btn {
+				display: none;
+			}
+
+			.full-screen-btn {
+				display: none;
+			}
+
+			.currentVideoPlaying {
+			    object-fit: cover;
+			    object-position: center;
+			}
+
+			.guerin-video-container.theater-mode,
+			.guerin-video-container.full-screen-mode {
+				/* height: 100vh; */
+				height: -webkit-fill-available;
+				display: flex;
+			}
+
+		}
+
+
+		.guerin-video-container.theater-mode {
+			max-height: 100vh;
+		}
+
+		.guerin-video-container.full-screen-mode {
+			max-height: 100vh;
+		}
+
+		.guerin-video-controls-container {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			color: black;
+			/* z-index: 100; */
+			z-index: 1;
+			transition: opacity 300ms ease-in-out;
+		}
+
+
+		.guerin-lin-gradient-full {
+			background: linear-gradient(180deg, 
+			rgba(255, 255, 255, 1) -11.16%, 
+			rgba(255, 255, 255, 0) 49.41%, 
+			rgba(255, 255, 255, 0) 65.38%, 
+			rgba(255, 255, 255, 0.02) 66.22%, 
+			rgba(255, 255, 255, 1) 100%) !important;
+		}
+
+
+		.guerin-lin-gradient {
+			height: 100%; 
+			/* background: linear-gradient(180deg, 
+				rgba(255, 255, 255, 1) -11.16%, 
+				rgba(255, 255, 255, 0) 49.41%, 
+				rgba(255, 255, 255, 0) 65.38%, 
+				rgba(255, 255, 255, 0.02) 66.22%, 
+				rgba(255, 255, 255, 1) 100%); */
+
+			background: linear-gradient(180deg, 
+			   rgba(255, 255, 255, 1) -11.16%, 
+			   rgba(255, 255, 255, 0) 49.41%);
+			bottom: 0px;
+			position: absolute;
+			width: 100%;
+			transition: opacity 300ms ease-in-out;
+			overflow: hidden;
+		}
+
+		.guerin-video-container.full-screen-mode {
+			display: flex;
+		}
+
+		.hidden-video-guerin {
+			animation: hideAnimation 300ms ease-in-out 0s;
+			animation-fill-mode: forwards; 
+		}
+
+		.showing-video-guerin {
+			animation: showAnimation 300ms ease-in-out 0s;
+		}
+
+		.guerin-video-container.full-screen-mode.paused {
+			background-color: darkgray;
+			transition: background-color 300ms ease-in-out;
+		}
+
+		.guerin-video-container.full-screen-mode:not(.paused) {
+			background-color: black;
+			transition: background-color 300ms ease-in-out;
+		}
+
+		@keyframes hideAnimation {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0;
+			}
+		}
+
+		@keyframes showAnimation {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		/*
+		.guerin-video-container.full-screen-mode:not(.paused) .guerin-lin-gradient {
+			animation: hideAnimation 300ms ease-in-out 0s;
+			animation-fill-mode: forwards; 
+		}
+
+		.guerin-video-container.full-screen-mode.paused .guerin-lin-gradient {
+			animation: showAnimation 300ms ease-in-out 0s;
+		}
+		*/
+
+		.guerin-video-controls-container::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			aspect-ratio: 6 / 1;
+			z-index: -1;
+			pointer-events: none;
+		}
+
+
+		.guerin-video-container:active .guerin-lin-gradient,
+		.guerin-video-container:focus-within .guerin-lin-gradient,
+		.guerin-video-container.paused .guerin-lin-gradient {
+			opacity: 1;
+		}
+
+
+
+		.guerin-lin-gradient .guerin-controls button:active {
+			opacity: 1;
+		}
+
+
+
+		.guerin-volume-slider:focus-within {
+			width: 100px;
+			transform: scaleX(1);
+		}
+
+
+
+
+		.video-timeline-container:active + .video-aura-thumbnail {
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .video-aura,
+
+		.video-timeline-container:active .video-aura{
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .guerin-video-timeline::before,
+
+		.video-timeline-container:active .guerin-video-timeline::before{
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing .video-thumb-indicator,
+
+		.video-timeline-container:active .video-thumb-indicator{
+			--scale: 1;
+		}
+
+		.guerin-video-container.video-scrubbing .guerin-video-timeline,
+
+		.video-timeline-container:active .guerin-video-timeline {
+			height: 100%;
+		}
+
+
+@media (pointer: fine) {
+
+
+		.guerin-video-container:hover .guerin-lin-gradient {
+			opacity: 1;
+		}
+
+
+		.guerin-lin-gradient .guerin-controls button:hover {
+			opacity: 1;
+		}
+
+
+		.video-volume-container:hover .guerin-volume-slider {
+			width: 100px;
+			transform: scaleX(1);
+		}
+
+
+
+		.video-timeline-container:hover + .video-aura-thumbnail {
+			display: block;
+		}
+
+
+		.video-timeline-container:hover .video-aura {
+			display: block;
+		}
+
+		.video-timeline-container:hover .guerin-video-timeline::before {
+			display: block;
+		}
+
+		.video-timeline-container:hover .video-thumb-indicator{
+			--scale: 1;
+		}
+
+		.video-timeline-container:hover .guerin-video-timeline {
+			height: 100%;
+		}
+
+
+}
+
+		.guerin-status-indicator {
+			display: flex;
+		}
+
+		.guerin-video-controls-container .guerin-controls {
+			display: flex;
+			gap: .95rem;
+			align-items: center;
+			/* margin: 22px 20px 36px 20px; */
+			margin: 0px 20px 36px 20px;
+		}
+
+		.guerin-video-controls-container .guerin-controls button {
+			background: none;
+			border: none;
+			color: inherit;
+			padding: 0;
+			height: 30px;
+			width: 30px;
+			font-size: 1.1rem;
+			cursor: pointer;
+			opacity: .85;
+			transition: opacity 150ms ease-in-out;
+		}
+
+		.guerin-video-container.paused .video-pause-icon {
+			display: none;
+		}
+
+		.guerin-video-container:not(.paused) .video-play-icon {
+			display: none;
+		}
+
+		.guerin-video-container.theater-mode .tall {
+			display: none;
+		}
+
+		.guerin-video-container:not(.theater-mode) .wide {
+			display: none;
+		}
+
+		.guerin-video-container.full-screen-mode .open {
+			display: none;
+		}
+
+		.guerin-video-container:not(.full-screen-mode) .close {
+			display: none;
+		}
+
+		.video-volume-high-icon,
+		.video-volume-low-icon,
+		.video-volume-muted-icon {
+			display: none;
+		}
+
+		.guerin-video-container[data-volume-level="high"] .video-volume-high-icon {
+			display: block;
+		}
+
+		.guerin-video-container[data-volume-level="low"] .video-volume-low-icon {
+			display: block;
+		}
+
+		.guerin-video-container[data-volume-level="muted"] .video-volume-muted-icon {
+			display: block;
+			width: 12px;
+			margin: -2.5px 0px 0px 4px;
+		}
+
+		.video-volume-container {
+			display: flex;
+			align-items: center;
+		}
+
+		.guerin-volume-slider {
+			width: 0;
+			transform-origin: left;
+			transform: scaleX(0);
+			transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+		}
+
+
+
+		.video-duration-container {
+			display: flex;
+			gap: .6rem;
+			flex-grow: 1;
+			flex-direction: column;
+			/*
+		    -webkit-tap-highlight-color: transparent;
+		    -moz-tap-highlight-color: transparent;
+		    tap-highlight-color: transparent;
+		    */
+		}
+
+		.guerin-video-container.captions .guerin-video-captions-btn {
+			border-bottom: 3px solid red;
+		}
+
+		.guerin-video-controls-container .guerin-controls button.wide-btn {
+			width: 50px;
+		}
+
+		.video-timeline-container {
+			height: 5px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			padding-top: 15px;
+			/* padding-bottom: 15px; */
+			touch-action: pan-y;
+		}
+
+		.guerin-video-timeline {
+			background-color: rgba(100, 100, 100, .5);
+			height: 3px;
+			width: 100%;
+			position: relative;
+		}
+
+		.hidethese {
+			display: none;
+		}
+
+		.guerin-video-timeline::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: calc(100% - var(--video-preview-position) * 100%);
+			background-color: rgb(150, 150, 150);
+			display: none;
+		}
+
+		.guerin-video-timeline::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: calc(100% - var(--video-progress-position) * 100%);
+			background-color: black;
+		}
+
+		.guerin-video-timeline .video-thumb-indicator {
+			--scale: 0;
+			position: absolute;
+			transform: translate(-50%, -50%) scale(var(--scale));
+			/* height: 350%; */
+			width: 6px;
+			height: 19.44444444444444px;
+			top: 50%;
+			left: calc(var(--video-progress-position) * 100%);
+			background-color: black;
+			transition: transform 150ms ease-in-out;
+			aspect-ratio: 0.309071918337578 / 1;
+		}
+
+
+
+		.guerin-video-timeline .video-aura {
+			position: absolute;
+			height: 80px;
+			aspect-ratio: 16 / 9;
+			top: -1rem;
+			transform: translate(-50%, -100%);
+			left: calc(var(--video-preview-position) * 100%);
+			border-radius: .25rem;
+			-webkit-border-radius: .25rem; 
+			-moz-border-radius: .25rem; 
+			overflow: hidden;
+			border: 2px solid white;
+			display: none;
+		}
+
+
+		.video-aura {
+			position: absolute;
+			/* height: 100%; */
+			height: 200px;
+			width: 355px;
+			aspect-ratio: 16 / 9;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			background-color: #444fff;
+			display: none;
+			background-image: url("https://static.wixstatic.com/media/fab5c1_cfa3c00fda1e4eebab506d994279637b~mv2.png");
+		}
+
+
+		.nodisplay {
+			display: block;
+		}
+
+		.video-aura-container {
+			height: 200px;
+			width: 200px;
+			position: absolute;
+			transform: translate(-50%, -50%) translate3d(0, 0, 0);
+			filter: saturate(3) blur(18px) brightness(1.3);
+			-webkit-filter: saturate(3) blur(18px) brightness(1.3);
+			-moz-filter: saturate(3) blur(18px) brightness(1.3);
+			top: 50%;
+			left: 50%;
+			display: block;
+			overflow: hidden;
+			border-radius: 50%;
+			-webkit-border-radius: 50%; 
+			-moz-border-radius: 50%; 
+		}
+
+		.video-aura-container-background {
+			height: 250px;
+			width: 250px;
+			position: absolute;
+			transform: translate(-50%, -50%) translate3d(0, 0, 0);
+			filter: saturate(2) blur(40px);
+			-webkit-filter: saturate(2) blur(40px);
+			-moz-filter: saturate(2) blur(40px);
+			top: 50%;
+			left: 50%;
+			overflow: hidden;
+			border-radius: 50%;
+			-webkit-border-radius: 50%; 
+			-moz-border-radius: 50%; 
+			background-color: white;
+		}
+
+		.video-aura-thumbnail {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			background: black;
+		}
+
+		.video-progress-text {
+			font-family: 'Source Code Pro', monospace;
+			margin: 0;
+			font-size: 15px;
+			position: relative;
+			margin-bottom: -15px;
+		}
+
+		.goatedopacity {
+			opacity: .96 !important;
+		}
+
+		.guerin-video-container.video-scrubbing #video-hiding-timer {
+			display: block;
+		}
+
+		.guerin-video-container.video-scrubbing #goated {
+			display: none;
+		}
+
+		.guerin-video-container.video-scrubbing #goatedtwo {
+			display: block;
+			opacity: .96;
+		}
+
+		.guerin-video-container.video-scrubbing #video-whiteblur {
+			height: 250px;
+			width: 250px;
+			position: absolute;
+			transform: translate(-50%, -50%) translate3d(0, 0, 0);
+			filter: saturate(2) blur(40px);
+			-moz-filter: saturate(2) blur(40px);
+			-webkit-filter: saturate(2) blur(40px);
+			top: 50%;
+			left: 50%;
+			overflow: hidden;
+			border-radius: 50%;
+			-webkit-border-radius: 50%; 
+			-moz-border-radius: 50%; 
+			background-color: white;
+		}
+
+		.guerin-video-logo-shadow {
+			overflow: visible; 
+			transform: translate(50%, -50%) translate3d(0, 0, 0);
+			top: 50%;
+			right: 50%;
+			position: absolute; 
+			filter: blur(11px);
+		}
+
+		.guerin-video-logo {
+			overflow:visible; 
+			transform: translate(50%, -50%);
+			top: 50%;
+			right: 50%;
+			position: absolute; 
+			enable-background:new 0 0 118.9 118.9;
+		}
+
+		.invisible-full-playbtn {
+			opacity: 0; 
+			border-radius: 1; 
+			width: 100%; 
+			height: 100%; 
+			position: absolute; 
+			background: transparent; 
+			border: none;
+			/* cursor: pointer !important; */
+		}
+
+
+		.guerin-video-container.video-scrubbing .video-aura-thumbnail {
+			display: block;
+		}
+
+
+
+
+		.squareflashing {
+			top: 50%;
+		    transform: translate(-50%, -50%);
+		    left: 50%;
+		    position: absolute;
+		    aspect-ratio: 1 / 1;
+		    width: auto;
+		    height: 0px;
+		    background-color: white;
+		    opacity: .0;
+
+		    /* display: none; */
+		    /* z-index: 1; */
+		    border-radius: 40%;
+		    animation: future 1.85s infinite ease-in;
+		}
+
+		/* 
+		.squareonce {
+			top: 50%;
+		    transform: translate(-50%, -50%);
+		    left: 50%;
+		    position: absolute;
+		    aspect-ratio: 1 / 1;
+		    width: auto;
+		    height: 0px;
+		    background-color: white;
+		    opacity: .0;
+		    animation: futurecool .6s 1 ease-in;
+		}
+		*/
+
+		@keyframes future {
+		  0% {
+		  	opacity: 0;
+		  	height: 0px;
+		    width: 0px;
+		  }
+
+
+		  42% {
+		  	opacity: 1;
+		  	height: 34px;
+		    width: 34px;
+		  	filter: blur(11px);
+		  }
+
+		  75% {
+		  	opacity: .87;
+		  	height: 100px;
+		    width: 100px;
+		  	filter: blur(20px);
+		  }
+
+		  99% {
+		  	opacity: .0;
+		  	height: 200px;
+		    width: 200px;
+		  	filter: blur(40px);
+		  }
+
+		  100% {
+		  	opacity: 0;
+		  	height: 0px;
+		    width: 0px;
+		    filter: blur(100px);
+		  }
+
+		}
+
+		@keyframes futurecool {
+		  0% {
+		  	opacity: .0;
+		  	height: 0px;
+		    width: 0px;
+		  }
+
+
+		  10% {
+		  	opacity: .9;
+		  	height: 34px;
+		    width: 34px;
+		  	filter: blur(15px);
+		  }
+
+
+		  100% {
+		  	opacity: .0;
+		  	height: 300px;
+		    width: 300px;
+		  	filter: blur(60px);
+		  }
+		}
+	</style>
+
+
+					<style type="text/css">
+
+						/* DESKTOP */
+						.profileblur-picture-container {
+						    height: 100px;
+						    width: 100px;
+						    position: relative;
+						    left: 0;
+						    bottom: 0;
+						    z-index: 1;
+						}
+
+
+
+						/* DESKTOP */
+						.blurpicture-container {
+							display: none;
+						}
+
+						/* DESKTOP */
+						.profileblur-regular-picture {
+						    filter: saturate(1) blur(0px) brightness(1.1);
+						    -webkit-filter: saturate(1) blur(0px) brightness(1.1);
+						    -moz-filter: saturate(1) blur(0px) brightness(1.1);
+						    height: 100px;
+						    width: 100px;
+						    display: block;
+						}
+
+						/* DESKTOP */
+						.profileblur-img {
+							position: absolute;
+							height: 100px;
+							width: 100px;
+							top: 50%;
+							transform: translate(-50%, -50%) scale(1);
+							left: 50%;
+							background-color: #111111;
+							display: block;
+						}
+
+
+						.testing-container {
+							margin: 0px 29px 0 29px; 
+							position: relative; 
+							top: 30px;
+						}
+
+
+						.video-text-title-wrapper {
+							width: 100%; 
+							position: relative;
+						}
+
+						.guerin-video-social-icons {
+							width: 100%; 
+							margin: 11px 0px 0 0px; 
+							display: flex; 
+							gap: 10px;
+						}
+
+						.video-logo-box-wrapper {
+							height: 74px; 
+							width: 74px; 
+							position: relative;
+						}
+
+
+
+						@media (max-width:600px) {  
+
+						/* mobile */
+						.guerin-status-indicator {
+							display: none !important;
+						}
+
+						/* mobile */
+						.testing-container {
+							margin: 0px 23px 0 23px !important; 
+						}
+
+						/* mobile */
+						.profileblur-picture-container {
+							height: 62px !important;
+							width: 62px !important;
+							display: flex !important;
+							justify-content: center !important;
+							align-items: center !important;
+						}
+
+						/* mobile */
+						.profileblur-regular-picture {
+							transform: scale(.62) !important;
+						}
+
+						/* mobile */
+						.profileblur-img {
+							position: relative !important;
+							top: unset !important;
+							transform: unset !important;
+							left: unset !important;
+						}
+
+						/* mobile */
+						.video-text-title-container {
+							display: flex !important;
+							justify-content: center !important;
+							align-content: center !important;
+						}
+
+						/* mobile */
+						.video-text-title-wrapper {
+							width: calc(100%/.88) !important;
+							transform: scale(.88) !important;
+						}
+
+						/* mobile */
+						.video-title-text {
+							margin: -6px 0px 6px 0px !important; 
+						}
+
+						/* mobile */
+						.guerin-video-social-icons {
+							margin: 3px 0px 0 0px !important;
+						}
+
+						/* mobile */
+						.video-logo-box-container {
+							width: 54px !important;
+							height: 66px !important;
+						}
+
+						/* mobile */
+						.video-logo-box-wrapper {
+							transform: scale(.72) !important;
+						}
+
+
+
+
+						/* RESET ALL */
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container {
+							display: none !important;
+						}
+
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-wrapper {
+							transform: unset !important;
+						}
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-container {
+							width: unset !important;
+							height: 100px !important;
+						}
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-video-social-icons { 
+							margin: 11px 0px 0 0px !important; 
+						}
+
+
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper {
+							width: 100% !important;
+							transform: unset !important;
+						}
+
+
+
+
+
+
+
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container {
+							margin: 0px 29px 0 29px !important; 
+						}
+
+						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-status-indicator {
+							display: flex !important;
+						}
+
+
+
+
+
+
+
+
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container {
+								height: 160px !important;
+							    width: 250px !important;
+							    position: absolute !important;
+							    right: 0 !important;
+							    left: unset !important;
+							    transform: scale(.365) translate(92%, 89%) !important;
+							}
+
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container {
+								margin-left: 0px;
+								width: 340px;
+								flex: 1;
+								display: block !important;
+								justify-content: unset !important;
+								align-content: unset !important;
+							}
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-title-text {
+								text-overflow: unset;
+								overflow: unset;
+								white-space: unset;
+								margin: 5px 0px 12px 0px !important;
+							}
+
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .blurpicture-container {
+								filter: saturate(1.8) blur(12px) !important;
+								-webkit-filter: saturate(1.8) blur(12px) !important;
+								-moz-filter: saturate(1.8) blur(12px) !important;
+								position: absolute !important;
+								top: 50% !important;
+								transform: translate(-50%, -50%) !important;
+								left: 50% !important;
+								z-index: 1 !important;
+								transition: all .9s ease-in-out !important;
+								display: block !important;
+							}
+						
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture {
+								height: 151.5px !important;
+								width: 200px !important;
+								position: absolute !important;
+								transform: translate(-50%, -50%) translate3d(0, 0, 0) !important;
+								top: 50% !important;
+								left: 50% !important;
+								overflow: hidden !important;
+							}
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture .profileblur-img {
+								height: 200px !important;
+								width: 200px !important;
+								position: absolute !important;
+								top: 50% !important;
+								transform: translate(-50%, -50%) scale(1) !important;
+								left: 50% !important;
+							}
+						
+							.video-logo-box-container{
+								/* display: none; */
+								transform: scale(1);
+							}
+
+
+
+							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .goldenratioSvgBlur {
+								display: block; 
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+							}
+
+
+						}
+
+
+						.blurpictureSvgPath {
+							-webkit-clip-path: url(#profilePicturesvgPath);
+							clip-path: url(#profilePicturesvgPath);
+							transform: scale(1.28) translate3d(0, 0, 0);
+							width: 200px;
+							height: 151.5px;
+							display: flex;
+							justify-content: center;
+						}
+
+						.blur-picture {
+							height: 151.5px;
+							width: 200px;
+							display: block;
+							background-color: black;
+							position: relative;
+						}
+
+						.goldenratioSvgBlur {
+							display: none;
+						}
+
+
+						.video-general-social-btn {
+							margin: 0px 0px 0px 0px;
+					        border: none;
+					        outline: none;
+					        cursor: pointer;
+					        font-family: 'Source Code Pro', monospace;
+					        font-size: 13px;
+					        padding-left: 6px;
+					        padding-right: 6px;
+					        padding-top: 2px;
+					        padding-bottom: 2px;
+					        display: flex;
+					        align-items: center;		
+						}
+
+						#gVideoContainerID {
+							opacity: 0;
+							pointer-events: none; 
+						}
+
+						.show-guerin-controls {
+							opacity: 1 !important;
+							pointer-events: all !important; 
+						}
+
+						.guerin-background-for-auraplayer {
+							position: absolute;
+							height: -webkit-fill-available;
+							width: 100%;
+							background: white;
+						}
+
+						video::-webkit-media-controls {
+							display:none !important;
+						}
+						video::-webkit-media-controls-enclosure {
+							display:none !important;
+						}
+					</style>
+
+
+</head>
+<body>
+
+<div id="auraplayer-background">
+    <div id="gVideoID" class="guerin-video-container paused" data-volume-level="high">
+		<video class="currentVideoPlaying video-player" poster="https://i.ytimg.com/vi/glaG64Ao7sM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC5V_FuUjQOAAztRixlF-qdy6lZUg" src="https://video.wixstatic.com/video/fab5c1_4434324b90354d40bcb30e5fc0bfc384/720p/mp4/file.mp4" playsinline >
+
+		</video>
+      	<div id="lin-grad" class="guerin-lin-gradient showing-video-guerin">
+
+
+
+			<style type="text/css">
+				#aura-container {
+				    width: 300px;
+				    height: 300px;
+				    z-index: 1;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(.8);
+				    transition: all 350ms ease-in-out;
+				    animation: backgroundChange 4.14s ease-in-out infinite;
+				    background: transparent;
+				    -webkit-border-radius: 50%;
+				}
+
+				@keyframes backgroundRotate {
+
+				  0% {
+				    transform: translate(-50%, -50%) scale(.8) rotate(0deg);
+				  }
+
+
+				  100% {
+				    transform: translate(-50%, -50%) scale(.8) rotate(360deg);
+				  }
+
+				}
+
+				@keyframes backgroundChange {
+
+				  0% {
+				    -webkit-filter: hue-rotate(0deg) ;
+
+				  }
+
+				  50% {
+				    -webkit-filter: hue-rotate(15deg) ;
+				  }
+
+				  100% {
+				    -webkit-filter: hue-rotate(0deg) ;
+
+				  }
+
+				}
+
+				@keyframes backgroundMove {
+
+				  0% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				  60% {
+				    top: 40%;
+				    left: 50%;
+				  }
+
+
+				  100% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				}
+
+				@keyframes backgroundMoveTwo {
+
+				  0% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				  60% {
+				    top: 50%;
+				    left: 40%;
+				  }
+
+
+				  100% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				}
+
+				@keyframes grayarrowanimateTwo {
+					0% {
+						opacity: .7;
+					}
+
+					50% {
+						opacity: .4;
+					}
+
+					100% {
+						opacity: .7;
+					}
+				}
+
+				@keyframes grayarrowanimateThree {
+					0% {
+						opacity: .7;
+					}
+
+					50% {
+						opacity: .2;
+					}
+
+					100% {
+						opacity: .7;
+					}
+				}
+
+				.blackaura {
+					-webkit-filter: blur(14px);
+					opacity: .82;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%) scale(1.9);
+				}
+
+				.lightaura {
+					-webkit-filter: blur(14px);
+					opacity: .82;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%) scale(1.9);
+				}
+
+				.sub-aura-container {
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    opacity: .75;
+				    filter: contrast(2) saturate(0.2);
+				    transform: translate(50%, 50%);
+				}
+
+				.aura-object-one {
+				    height: 310px;
+				    width: 310px;
+				    background: #ffffff;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    filter: blur(32px);
+				    -webkit-filter: blur(32px);
+				    -moz-filter: blur(32px);
+				    border-radius: 50%;
+				}
+
+				.aura-object-two {
+					height: 120px;
+				    width: 120px;
+				    position: absolute;
+				    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+				    filter: saturate(1.3) blur(33px);
+				    -webkit-filter: saturate(1.3) blur(33px);
+				    top: 50%;
+				    left: 50%;
+				    opacity: .7;
+				    animation: grayarrowanimateTwo 5.14s infinite linear;
+				    overflow: hidden;
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border: 55px solid #74b1e7;
+				    z-index: 2;
+				}
+
+				.aura-object-three {
+				    height: 260px;
+				    width: 260px;
+				    background: #fefeff;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    filter: blur(47px);
+				    -webkit-filter: blur(47px);
+				    -moz-filter: blur(47px);
+				    border-radius: 50%;
+				}
+
+				.aura-object-four {
+				    height: 150px;
+				    width: 150px;
+				    background: #818999;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    transform: translate(-50%, -50%);
+				    filter: blur(17px);
+				    -webkit-filter: blur(17px);
+				    -moz-filter: blur(17px);
+				    border-radius: 50%;
+				}
+
+				.aura-moving-object-one {
+				    height: 150px;
+				    width: 150px;
+				    background: #7171715e;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(3.5);
+				    filter: blur(43px);
+				    -webkit-filter: blur(43px);
+				    -moz-filter: blur(43px);
+				    border-radius: 50%;
+				}
+
+				.aura-moving-object-two {
+				    height: 150px;
+				    width: 150px;
+				    background: #677883;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: backgroundMoveTwo 4.14s ease infinite;
+				    filter: blur(59px);
+				    -webkit-filter: blur(59px);
+				    -moz-filter: blur(59px);
+				    border-radius: 50%;
+				}
+
+				.lightaura-emphasis {
+					-webkit-filter: blur(10px) contrast(.5);
+				    opacity: 1;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(1.57);
+				}
+
+				.mobile-video-btns-container {
+					position: absolute;
+					right: 0;
+					bottom: 0; 
+					display: flex; 
+					gap: 15px;
+				}
+			</style>
+
+			<div id="aura-container" onclick="videoTogglePlay();">
+
+			    <div class="blackaura">
+			    	<div class="squareflashing" id="touchpress1" style="background-color: black;">
+			    	</div>
+			    </div>
+				
+			    <div class="lightaura">
+			    	<div class="squareflashing" id="touchpress2">
+			    	</div>
+			    </div>
+
+				<div class="sub-aura-container">
+
+					<div class="aura-object-one"></div>
+					<div class="aura-object-two"></div>
+					<div class="aura-object-three"></div>
+					<div class="aura-object-four"></div>
+
+					<!-- MOVING PARTS -->
+				    <div class="aura-moving-object-one"></div>
+				    <div class="aura-moving-object-two"></div>
+
+				    <div class="lightaura-emphasis">
+				    	<div class="squareflashing" id="touchpress3">
+				    	</div>
+				    </div>
+				</div>
+			</div>
+
+
+	        <button onclick="videoTogglePlay();" class="invisible-full-playbtn"></button>
+
+	        <div class="testing-container">
+				
+				<div class="video-profile-box-container" onclick="videoTogglePlay()">
+
+
+
+
+					<div class="profileblur-picture-container">
+						<div class="blurpicture-container">
+
+							<div class="blurpictureSvgPath">
+							  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="blur-picture" preload="auto" >
+							</div>
+						</div>
+
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="151.5px" viewBox="0 0 200 151.5" class="goldenratioSvgBlur" xml:space="preserve">
+							<defs></defs>
+							<clipPath id="profilePicturesvgPath">
+								<path d="M0,0v151.5h200V0H0z M163.56,115.04H36.45V36.45h127.11V115.04z"/>
+							</clipPath>
+						</svg>
+
+						<div class="profileblur-regular-picture">
+							<img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profileblur-img" preload="auto"> 
+							</img>
+						</div>
+					</div>
+
+
+
+			        <div class="video-text-title-container">
+			        	<div class="video-text-title-wrapper">
+				            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
+				            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
+				            <span class="video-gray-arrow"> ></span> 
+				            <span class="video-secondary-accent-text"> CHASE GUERIN </span>
+				            
+				            <div class="guerin-status-indicator">
+								<p class="additional-video-secondary-accent-text video-play-icon"> PAUSED </p> 
+								<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
+								<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
+								 height="14.61px" viewBox="0 0 19.05 14.61"
+								 xml:space="preserve">
+									<defs></defs>
+									<g>
+										<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
+										<polygon points="17.07,7.31 19.05,9.29 18.05,10.29 16.07,8.31 14.08,10.29 13.08,9.29 15.07,7.31 13.08,5.32 14.08,4.32 
+										  16.07,6.31 18.05,4.32 19.05,5.32  "/>
+									</g>
+								</svg>
+				            </div>
+
+				            <div class="guerin-video-social-icons">
+								<div style="display: inline-block;">
+									<a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
+										<button type="submit" class="video-general-social-btn" style="background: rgb(0, 0, 0, .12); color: black;">DESIGNER 
+
+											<svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" style="overflow:visible;enable-background:new 0 0 10 10;" xml:space="preserve">
+												<defs></defs>
+												<g>
+												<polygon style="fill: black;" points="10,5.52 6.25,5.52 8.9,8.17 8.17,8.9 5.52,6.25 5.52,10 4.48,10 4.48,6.25 1.83,8.9 1.1,8.17 
+												3.75,5.52 0,5.52 0,4.48 3.75,4.48 1.1,1.83 1.83,1.1 4.48,3.75 4.48,0 5.52,0 5.52,3.75 8.17,1.1 8.9,1.83 6.25,4.48 10,4.48 	"/>
+												</g>
+											</svg>
+										</button>
+									</a>
+								</div>
+
+								<div style="display: inline-block;">
+
+									<button type="submit" class="video-general-social-btn" style="background: rgb(68, 79, 255, .12); color: #2D00FF;" >.ETH 
+
+										<svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+											<defs></defs>
+											<g>
+												<polygon style="fill: #2D00FF;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+												<rect x="7.89" y="6.58" style="fill: #2D00FF;" width="6.58" height="1.32"></rect>
+											</g>
+										</svg>
+									</button>
+								</div>
+				            </div>
+			            </div>
+
+			        </div>
+
+			        <div class="video-logo-box-container" onclick="videoTogglePlay();">
+				        <div class="video-logo-box-wrapper">
+							<!-- LOGO shadow -->
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px"
+							 height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo-shadow" xml:space="preserve">
+								<defs></defs>
+								<g style="fill:#000000; opacity:0.1369;" id="goatedtwo">
+								    <rect y="86.48" width="10.8" height="32.43"/>
+								    <polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+								      10.8,64.86 97.28,64.86 97.28,75.66  "/>
+								    <polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+								      21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9   "/>
+								    <rect x="108.09" width="10.81" height="32.44"/>
+								</g>
+							</svg>
+
+							<!-- guerin LOGO -->
+							<svg id="goated" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px" height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo" xml:space="preserve">
+								<defs></defs>
+								<g style="fill:#FFFFFF; opacity:0.64;">
+									<rect y="86.48" width="10.8" height="32.43"/>
+									<polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+									  10.8,64.86 97.28,64.86 97.28,75.66"/>
+									<polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+									  21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9"/>
+									<rect x="108.09" width="10.81" height="32.44"/>
+								</g>
+							</svg>
+
+					        <div id="video-hiding-timer" class="video-yearvis-timer">
+
+					        	<!-- CONTAINER TEN-MINUTES TOP LEFT -->
+					            <div id="container-video-tenminutes-top-left"> 
+
+									<!-- NUMBER 0 TOP LEFT -->
+									<div id="zero-video-tenminutes-top-left" style=" display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+										    <defs></defs>
+										    <path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 TOP LEFT -->
+									<div id="one-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 TOP LEFT -->
+									<div id="two-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 TOP LEFT  -->
+									<div id="three-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 TOP LEFT  -->
+									<div id="four-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 TOP LEFT  -->
+									<div id="five-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 TOP LEFT  -->
+									<div id="six-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 TOP LEFT  -->
+									<div id="seven-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 TOP LEFT  -->
+									<div id="eight-video-tenminutes-top-left" style="display: none;">
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 TOP LEFT  -->
+									<div id="nine-video-tenminutes-top-left" style="display: none;">
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER MINUTES TOP RIGHT -->
+					            <div id="container-video-minutes-top-right"> 
+
+									<!-- NUMBER 0 TOP RIGHT -->
+									<div id="zero-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 TOP RIGHT -->
+									<div id="one-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 TOP RIGHT -->
+									<div id="two-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 TOP RIGHT  -->
+									<div id="three-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 TOP RIGHT  -->
+									<div id="four-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 TOP RIGHT  -->
+									<div id="five-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 TOP RIGHT  -->
+									<div id="six-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 TOP RIGHT  -->
+									<div id="seven-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 TOP RIGHT  -->
+									<div id="eight-video-minutes-top-right" style="display: none;">
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 TOP RIGHT  -->
+									<div id="nine-video-minutes-top-right" style="display: none;">
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER TEN-SECONDS BOTTOM LEFT -->
+					            <div id="container-video-tenseconds-bottom-left"> 
+
+									<!-- NUMBER 0 BOTTOM LEFT -->
+									<div id="zero-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 BOTTOM LEFT -->
+									<div id="one-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 BOTTOM LEFT -->
+									<div id="two-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 BOTTOM LEFT  -->
+									<div id="three-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 BOTTOM LEFT  -->
+									<div id="four-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 BOTTOM LEFT  -->
+									<div id="five-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 BOTTOM LEFT  -->
+									<div id="six-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 BOTTOM LEFT  -->
+									<div id="seven-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 BOTTOM LEFT  -->
+									<div id="eight-video-tenseconds-bottom-left" style="display: none;">
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 BOTTOM LEFT  -->
+									<div id="nine-video-tenseconds-bottom-left" style="display: none;">
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER SECONDS BOTTOM RIGHT -->
+					            <div id="container-video-seconds-bottom-right"> 
+
+									<!-- NUMBER 0 BOTTOM RIGHT -->
+									<div id="zero-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 BOTTOM RIGHT -->
+									<div id="one-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 BOTTOM RIGHT -->
+									<div id="two-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 BOTTOM RIGHT  -->
+									<div id="three-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 BOTTOM RIGHT  -->
+									<div id="four-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 BOTTOM RIGHT  -->
+									<div id="five-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 BOTTOM RIGHT  -->
+									<div id="six-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 BOTTOM RIGHT  -->
+									<div id="seven-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 BOTTOM RIGHT  -->
+									<div id="eight-video-seconds-bottom-right" style="display: none;">
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 BOTTOM RIGHT  -->
+									<div id="nine-video-seconds-bottom-right" style="display: none;">
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+					        </div>
+			        	</div>
+			        </div>
+		        </div>
+	    	</div>
+
+
+	      
+	        <div id="video-whiteblur" style="z-index: 1;"></div>
+
+	        <div class="video-aura-container" style="z-index: 1;" onclick="videoTogglePlay()">
+	          
+				<img class="video-aura-thumbnail">
+				<img id="aura-element" class="video-aura">
+	        </div>  
+
+
+
+	        <div id="gVideoContainerID" class="guerin-video-controls-container">
+
+	    		<div class="guerin-controls">
+
+		            <button class="play-pause-btn">
+
+						<svg class="video-play-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.19px" height="21px" viewBox="0 0 18.19 21" xml:space="preserve"><defs></defs><polygon points="0,10.5 0,0 9.09,5.25 18.19,10.5 9.09,15.75 0,21 "/>
+						</svg>
+
+						<svg class="video-pause-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.64px" height="21px" viewBox="0 0 17.64 21" xml:space="preserve"><defs></defs><g><rect width="5.88" height="21"/><rect x="11.76" width="5.88" height="21"/></g>
+						</svg>
+		            </button>
+
+		            <div class="video-volume-container hidethese">
+
+						<button class="mute-btn">
+
+							<svg class="video-volume-high-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+							</svg>
+
+							<svg class="video-volume-low-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" />
+							</svg>
+
+							<svg class="video-volume-muted-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" />
+							</svg>
+
+						</button>
+
+						<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
+		            </div>
+
+		            <div class="video-duration-container">
+						<p class="video-progress-text">
+							<span class="current-time">
+								0:00
+							</span> 
+							| 
+							<span class="total-time">
+								0:00
+							</span>
+
+
+							<g class="mobile-video-btns-container">
+							    <button class="aurascript-btn">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
+										 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
+										<defs>
+										</defs>
+										<path d="M0,0v27h27V0H0z M7.36,12.27h7.37v2.46H7.36V12.27z M19.64,19.64H7.36v-2.45h12.28V19.64z M19.64,9.81H7.36V7.36h12.28V9.81
+											z"/>
+									</svg>
+								</button>
+
+								<button class="mobile-full-screen-btn">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
+										 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
+										<defs></defs>
+										<g>
+											<rect y="15.96" width="18.41" height="11.04"/>
+											<polygon points="27,0 27,21.48 22.09,21.48 22.09,12.28 14.73,12.28 14.73,0"/>
+
+											<polygon points="5.89,2.03 5.89,8.42 6.25,8.05 7.51,6.81 8.75,5.55 10.01,6.81 8.75,8.05 7.51,9.31 6.25,10.55 5.01,11.81 0.01,6.81 1.25,5.55 2.51,6.81 3.75,8.05 4.12,8.42 4.12,0.26 11.19,0.26 11.19,2.03"/>
+										</g>
+									</svg>
+								</button>
+							</g>
+						</p>
+
+						<div class="video-timeline-container">
+							<div id="timeline-element" class="guerin-video-timeline">
+							  <div class="video-thumb-indicator"></div>
+							</div>
+						</div>
+		            </div>
+
+		            <div class="hidethese">
+						<button class="guerin-video-captions-btn">
+							<svg viewBox="0 0 24 24">
+								<path fill="currentColor" d="M18,11H16.5V10.5H14.5V13.5H16.5V13H18V14A1,1 0 0,1 17,15H14A1,1 0 0,1 13,14V10A1,1 0 0,1 14,9H17A1,1 0 0,1 18,10M11,11H9.5V10.5H7.5V13.5H9.5V13H11V14A1,1 0 0,1 10,15H7A1,1 0 0,1 6,14V10A1,1 0 0,1 7,9H10A1,1 0 0,1 11,10M19,4H5C3.89,4 3,4.89 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6C21,4.89 20.1,4 19,4Z" />
+							</svg>
+						</button>
+
+						<button class="speed-btn wide-btn">
+							<span>
+								1x
+							</span>
+						</button>
+
+						<button class="mini-player-btn">
+							<svg viewBox="0 0 24 24">
+								<path fill="currentColor" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
+							</svg>
+						</button>
+
+						<button class="theater-btn">
+							<svg class="tall" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
+							</svg>
+
+							<svg class="wide" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
+							</svg>
+						</button>
+		            </div>
+
+				    <button class="desktop-aurascript-btn" style="width: 25px;">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" style="height: 23px; width: 23px;" xml:space="preserve">
+							<defs></defs>
+							<path d="M0,0v27h27V0H0z M7.36,12.27h7.37v2.46H7.36V12.27z M19.64,19.64H7.36v-2.45h12.28V19.64z M19.64,9.81H7.36V7.36h12.28V9.81
+								z"/>
+						</svg>
+					</button>
+
+		            <button class="full-screen-btn">
+
+			            <svg class="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+			              	<defs></defs>
+			              	<g>
+			              		<polygon points="42.49,30.9 42.49,42.5 38.63,42.5 38.63,42.49 30.91,42.49 30.91,38.63 38.63,38.63 38.63,30.9   "/>
+			              		<polygon points="11.58,38.63 11.58,42.49 3.87,42.49 3.87,42.5 0,42.5 0,30.91 3.87,30.91 3.87,38.63   "/>
+			              		<polygon points="42.49,0.01 42.49,11.58 38.63,11.58 38.63,3.87 30.9,3.87 30.9,0 38.63,0 38.63,0.01   "/>
+			              		<polygon points="11.58,0 11.58,3.87 3.87,3.87 3.87,11.58 0,11.58 0,0.01 3.87,0.01 3.87,0   "/>
+			              	</g>
+			            </svg>
+
+			            <svg class="close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+							<defs></defs>
+							<g>
+								<polygon points="30.91,42.5 30.91,30.9 34.77,30.9 34.77,30.9 42.49,30.9 42.49,34.76 34.77,34.76 34.77,42.5  "/>
+								<polygon points="0,34.78 0,30.92 7.71,30.92 7.71,30.91 11.58,30.91 11.58,42.5 7.71,42.5 7.71,34.78  "/>
+								<polygon points="30.9,11.57 30.9,0 34.76,0 34.76,7.71 42.49,7.71 42.49,11.58 34.76,11.58 34.76,11.57  "/>
+								<polygon points="0,11.58 0,7.71 7.71,7.71 7.71,0 11.58,0 11.58,11.57 7.71,11.57 7.71,11.58  "/>
+							</g>
+			            </svg>
+		            </button>
+
+	            </div>
+	        </div>
+    	</div>
+
+
+
+		<style type="text/css">
+			.aurascript-container {
+				position: absolute;
+				font-family: 'Source Code Pro', monospace;
+				overflow-y: hidden;
+				bottom: 50px;
+				left: 50%;
+				transform: translateX(-50%);
+				text-align: center;
+				display: none;
+				height: 70px;
+				align-items: center;
+				/* width: 380px; */
+				z-index: 1;
+			}
+
+			.aurascript-text {
+				width: 100%;
+				color: #ff0000;
+				font-weight: 600;
+				text-shadow: #6a6a6a 0px 0px 1px;
+			    /* -webkit-text-stroke: black 0.1px; */
+			}
+
+
+			.aurascript-container .lyrics:before {
+				opacity: 0;
+			}
+
+			.aurascript-container .aurascript:after {
+				opacity: 1;
+			}
+
+			.aurascript-arrow {
+				color: #626262;
+				display: none;
+			}
+
+			.aurascript {
+				font-size: 17.5px;
+			}
+
+			.blinking-aurascript-cursor::after {
+				height: 13px;
+				width: 6px;
+				content: "";
+				display: inline-block;
+				margin-left: -3px;
+				margin-bottom: -2px;
+				background-color: #c7c7c7;
+				animation: auraBlink 0.9s steps(2, start) infinite;
+				display: none;
+			}
+
+
+			@keyframes auraBlink {
+				0% {
+					opacity: 1;
+				}
+				49% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+		</style>
+
+		<div class="aurascript-container">
+			<p class="aurascript-text"> 
+				<span class="aurascript-arrow"> > </span>
+				<span class="aurascript" style="display: none;">
+					07.030 | New kung fu kenny
+					10.030 | Ain't nobody prayin' for me
+					13.030 | Y'all know, what happens on earth stays on earth
+					17.470 | Here we go!
+					18.830 | I don't give a ****, I don't give a ****
+					20.530 | I don't give a, I don't give a, I don't give a ****
+					23.800 | I'm willin' to die for this ****
+					25.400 | I done cried for this ****, might take a life for this ****
+					27.870 | Put the bible down and go eye for an eye for this ****
+					30.330 | D.o.t. My enemy, won't catch a vibe for this ****, ayy
+					34.030 | I been stomped out in front of my mama
+					36.370 | My daddy commissary made it to commas
+					38.970 | *****, all my grandmas dead
+					40.570 | So ain't nobody prayin' for me, I'm on your head, ayy
+					43.970 | Thirty millions later, know the feds watchin'
+					46.130 | Auntie on my telegram, like, "be cautious!"
+					48.800 | I be hangin' out at tam's, I be on stockton
+					51.130 | I don't do it for the 'gram, I do it for compton
+					54.030 | I'm willin' to die for this ****, *****
+					56.400 | I'll take your ******' life for this ****, *****
+					58.970 | We ain't goin' back to broke, family sellin' ****
+					61.100 | That's why you maney-ass rap ****** better know
+					65.100 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					70.070 | If I gotta go hard on a *****, I'ma make it look ****
+					75.430 | I pull up, hop out, air out, made it look ****
+					79.830 | They won't take me out my element
+					81.600 | Nah, take me out my element
+					83.030 | I'm allergic to a ***** *****, ayy
+					84.800 | An imaginary rich *****, ayy
+					86.800 | Seven figures, hoe, that slimmer than my ***** figure, ayy
+					89.130 | Goin' digital and physical on all y'all, ayy
+					91.900 | Bunch of criminals and money in my phone calls, ayy
+					94.370 | We okay, we let the a1 fly
+					97.000 | Relocate, jump on the same g5
+					99.500 | Checkin' for me heavy 'cause I go yeah, I go yeah
+					102.100 | They never been ready yeah, I know yeah, I know yeah
+					104.570 | 100K ****** across the floor, 'cross the floor, yeah
+					107.130 | None of y'all ******' with the flow yeah, the flow yeah
+					109.830 | Years in the makin', and don't y'all mistake it
+					111.970 | I got 'em by a landslide, we talkin' about races
+					114.400 | You know this'll never be a tie, just look at their laces
+					116.830 | You know careers take off, just gotta be patient
+					119.430 | Mr. One through five, that's the only logic
+					121.970 | Fake my death, go to cuba, that's the only option
+					125.900 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					130.830 | If I gotta go hard on a *****, I'ma make it look ****
+					135.870 | I pull up, hop out, air out, made it look ****
+					140.400 | They won't take me out my element
+					142.070 | Nah, take me out my element
+					144.500 | Damned if I do, if I don't (yuhhh)
+					147.000 | ******* us all if you won't (yuhhh)
+					149.430 | Damn, damn, damn, it's a ******* shame
+					151.600 | You ain't frontline, get out the ******* way
+					154.800 | ****** thought they wasn't gonna see me, huh?
+					156.570 | ****** thought that k-dot real life
+					158.000 | Was the same life they see on tv, huh?
+					159.970 | ****** wanna flex on me and be in l.a. For free, huh?
+					162.400 | Next time they hit the 10 freeway, we need receipt, huh?
+					164.970 | 'Cause most of y'all ain't real
+					166.400 | Most of y'all gon' squeal
+					167.970 | Most of y'all just envy, but jealousy get you killed
+					170.030 | Most of y'all throw rocks and try to hide your hand
+					172.430 | Just say his name and I promise that you'll see candyman
+					174.900 | Because it's all in your eyes, most of y'all tell lies
+					177.570 | Most of y'all don't fade, most of y'all been advised
+					180.200 | Last lp I tried to lift the black artists
+					182.430 | But it's a difference between black artists and wack artists
+					186.970 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					191.130 | It's the one and only, the world's greatest, the kid *****
+					193.330 | If I gotta go hard on a *****, I'ma make it look ****
+					199.870 | I pull up, hop out, air out, made it look ****
+					205.070 | They won't take me out my element
+					207.600 | Nah, take me out my element
+				</span>
+				<span class="blinking-aurascript-cursor"></span> 
+			</p> 
+		</div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+	    const player = document.querySelector('.video-player')
+	    const lyrics = document.querySelector('.aurascript')
+	    const lines = lyrics.textContent.trim().split('\n')
+
+	    lyrics.removeAttribute('style')
+
+
+
+	    lyrics.innerText = ''
+
+
+
+	    let syncData = []
+	    let syncDataTwo = []
+
+	    lines.map((line, index) => {
+	        const [time, text] = line.trim().split('|')
+	        syncData.push({'start': time.trim(), 'text': text.trim()})
+	    })
+
+
+
+	    player.addEventListener('timeupdate', () => {
+	        syncData.forEach((item) => {
+	            
+	            if (player.currentTime >= item.start) {
+	              lyrics.innerText = item.text
+	              /* console.log(lyrics.innerText) */
+	            }
+	        })
+	    })
+
+	    player.addEventListener('timeupdate', () => {
+	        syncDataTwo.forEach((itemTwo) => {
+	            
+	            if (player.currentTime >= itemTwo.start) {
+	              lyricsTwo.innerText = itemTwo.text;
+	              /* console.log(itemTwo.text) */
+	            }
+	        })
+	    })
+	</script>
+
+	<script type="text/javascript">
+		
+
+		const videoPlayPauseBtn = document.querySelector(".play-pause-btn")
+		const videoTheaterBtn = document.querySelector(".theater-btn")
+		const videoFullScreenBtn = document.querySelector(".full-screen-btn")
+		const mobileFullScreenBtn = document.querySelector(".mobile-full-screen-btn")
+		const videoMiniPlayerBtn = document.querySelector(".mini-player-btn")
+		const videoMuteBtn = document.querySelector(".mute-btn")
+		const videoCaptionsBtn = document.querySelector(".guerin-video-captions-btn")
+		const videoSpeedBtn = document.querySelector(".speed-btn")
+		const videoCurrentTimeElem = document.querySelector(".current-time")
+		const videoTotalTimeElem = document.querySelector(".total-time")
+		const videoPreviewImg = document.querySelector(".video-aura")
+		const videoThumbnailImg = document.querySelector(".video-aura-thumbnail")
+		const videoVolumeSlider = document.querySelector(".guerin-volume-slider")
+		const guerinVideoContainer = document.querySelector(".guerin-video-container")
+		const videoTimelineContainer = document.querySelector(".video-timeline-container")
+		const video = document.querySelector("video")
+		const videoProgress_text = document.querySelector('.video-progress-text');
+		const videoLinear_bar = document.querySelector('.guerin-lin-gradient');
+		const videoTimelineElement = document.getElementById('timeline-element');
+		const videoLeadingZeroFormatter = new Intl.NumberFormat(undefined, {
+			minimumIntegerDigits: 2,
+		});
+		var countingthis = 0;
+		var countingthis2 = 0;
+		var videoCounts = 0
+		let videoIsScrubbing = false;
+		let videoWasPaused;
+		let aurascriptBoolean = false;
+		let colorCounter = 0;
+
+
+
+		var videoIntervalId = setInterval(function() {
+			videoTotalTimeElem.innerHTML = formatDuration(video.duration);
+		}, 1);
+
+		setTimeout(function() {
+			clearInterval(videoIntervalId);
+		}, 1000);
+
+		document.addEventListener("keydown", e => {
+			
+			const tagName = document.activeElement.tagName.toLowerCase()
+
+			if (tagName === "input") {
+				return
+			}
+
+			switch (e.key.toLowerCase()) {
+				case " ":
+				  if (tagName === "button") return
+				case "k":
+				  videoTogglePlay()
+				  break
+				case "f":
+				  videoToggleFullScreenMode()
+				  break
+				  
+				case "t":
+				  videoToggleTheaterMode()
+				  break
+				  
+				case "i":
+				  videoToggleMiniPlayerMode()
+				  break
+				case "m":
+				  videoToggleMute()
+				  break
+				case "arrowleft":
+				case "j":
+				  videoSkip(-5)
+				  break
+				case "arrowright":
+				case "l":
+				  videoSkip(5)
+				  break
+				case "c":
+				  videoToggleAurascript()
+				  break
+				case "a":
+				  changeAurascriptColor()
+				  break
+			}
+		})
+
+		// aurascript text color change 
+		document.querySelector(".aurascript-container").addEventListener('click', changeAurascriptColor);
+
+
+
+		" touchstart".split(" ").forEach(function(f) {
+		    videoTimelineContainer.addEventListener(f, e=> {
+		    	if (e.cancelable) e.preventDefault();
+					document.getElementById('aura-element').classList.add("nodisplay");
+					document.getElementById('video-hiding-timer').classList.add("nodisplay");
+					document.getElementById('video-whiteblur').classList.add("video-aura-container-background");
+					document.getElementById('goated').classList.add("goated-hide");
+					document.getElementById('goatedtwo').classList.add("goatedopacity");
+
+
+
+					// document.getElementById('aura-container').style.display = "none";
+
+					guerinVideoContainer.classList.add("video-scrubbing");
+
+				});
+		});
+
+
+
+		"mouseover ".split(" ").forEach(function(f) {
+		    videoTimelineContainer.addEventListener(f, e=> {
+		    	if (e.cancelable) e.preventDefault();
+					document.getElementById('aura-element').classList.add("nodisplay");
+					document.getElementById('video-hiding-timer').classList.add("nodisplay");
+					document.getElementById('video-whiteblur').classList.add("video-aura-container-background");
+					document.getElementById('goated').classList.add("goated-hide");
+					document.getElementById('goatedtwo').classList.add("goatedopacity");
+
+
+
+					// document.getElementById('aura-container').style.display = "none";
+
+					// guerinVideoContainer.classList.add("video-scrubbing");
+
+				});
+		});
+
+
+
+
+		"mouseout".split(" ").forEach(function(f) {
+		    videoTimelineContainer.addEventListener(f, e => {
+		    	if (e.cancelable) e.preventDefault();
+					document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
+					document.getElementById('aura-element').classList.remove("nodisplay");
+					document.getElementById('video-hiding-timer').classList.remove("nodisplay");
+					document.getElementById('goated').classList.remove("goated-hide");
+			
+
+
+			// document.getElementById('goatedtwo').classList.remove("goatedopacity");
+
+			if (!videoIsScrubbing) {
+				document.getElementById('goatedtwo').classList.remove("goatedopacity");
+			} 
+
+
+
+					// document.getElementById('aura-container').style.display = "block";
+
+					/*
+						guerinVideoContainer.classList.remove("video-scrubbing");
+
+						if (videoIsScrubbing) {
+							if (!videoWasPaused) {
+
+								video.play();
+							}
+						}
+					*/
+
+
+				});
+		});
+
+
+
+
+
+
+
+
+		"touchend touchcancel".split(" ").forEach(function(f) {
+		    videoTimelineContainer.addEventListener(f, e => {
+		    	e.preventDefault();
+					document.getElementById('video-whiteblur').classList.remove("video-aura-container-background");
+					document.getElementById('aura-element').classList.remove("nodisplay");
+					document.getElementById('video-hiding-timer').classList.remove("nodisplay");
+					document.getElementById('goated').classList.remove("goated-hide");
+			
+
+
+			// document.getElementById('goatedtwo').classList.remove("goatedopacity");
+
+			if (!videoIsScrubbing) {
+				document.getElementById('goatedtwo').classList.remove("goatedopacity");
+			} 
+
+
+
+					// document.getElementById('aura-container').style.display = "block";
+
+					
+						guerinVideoContainer.classList.remove("video-scrubbing");
+
+						if (videoIsScrubbing) {
+							if (!videoWasPaused) {
+
+								video.play();
+							}
+						}
+								
+
+				});
+		});
+
+
+
+
+
+
+
+
+
+		"touchend touchcancel".split(" ").forEach(function(f) {
+		    videoTimelineContainer.addEventListener(f, e => {
+		    	e.preventDefault();
+
+					document.getElementById('goatedtwo').classList.remove("goatedopacity");
+
+				});
+		});
+
+
+/*
+		document.body.addEventListener('mousedown', function(){
+
+			if (videoIsScrubbing) {
+				document.getElementById('goatedtwo').classList.add("goatedopacity");
+			} 
+				//document.getElementById('goatedtwo').classList.remove("goatedopacity");
+			
+		});
+*/
+
+
+
+		document.body.addEventListener('mousemove', function(){
+
+			if (!videoIsScrubbing && videoTimelineElement.parentNode.matches(":hover") == false) {
+				document.getElementById('goatedtwo').classList.remove("goatedopacity");
+			} 
+			
+		});
+
+
+
+ 
+
+
+		// Timeline
+		videoTimelineContainer.addEventListener("mousemove", e => {
+			clientX = e.x;
+			videoHandleTimelineUpdate(e);
+		});
+
+		videoTimelineContainer.addEventListener("touchmove", e => {
+			clientX = e.touches[0].clientX;
+			videoHandleTimelineUpdate(e);
+		});
+
+
+
+		videoTimelineContainer.addEventListener("mousedown", e => {
+			clientX = e.x;
+			scrubbingVar = e.buttons;
+			videoToggleScrubbing(e);
+		});
+
+
+		videoTimelineContainer.addEventListener("touchstart", e => {
+			clientX = e.touches[0].clientX;
+			scrubbingVar = e.touches.length;
+			videoToggleScrubbing(e);
+		});
+
+
+
+
+
+/* THESE BREAK THE MOBILE EXPERIENCE */
+
+/* IF THE DEVICE CAN HOVER, ENABLE THIS */
+		document.addEventListener("mouseup", e => {
+			if (window.matchMedia("(hover: hover)").matches) {
+				clientX = e.x;
+				scrubbingVar = e.buttons;
+				if (videoIsScrubbing) {
+					videoToggleScrubbing(e)
+				}
+
+
+
+			} else {
+
+				}
+		})
+
+
+		document.addEventListener("mousemove", e => {
+			if (window.matchMedia("(hover: hover)").matches) {
+				clientX = e.x;
+				if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+
+
+
+
+			} else {
+
+				}
+		})
+
+
+/*
+
+			if (!videoIsScrubbing) {
+							
+							if (videoWasPaused) {
+								video.play();
+							}
+			} 
+*/
+
+
+
+
+
+/*
+		"touchend touchcancel".split(" ").forEach(function(f) {
+		    document.addEventListener(f, e => {
+		    	clientX = e.touches[0].clientX;
+		    	scrubbingVar = e.touches.length;
+					if (videoIsScrubbing) videoToggleScrubbing(e)
+				});
+		});
+*/
+
+
+		videoTimelineContainer.addEventListener("touchmove", e => {
+			clientX = e.touches[0].clientX;
+			if (videoIsScrubbing) videoHandleTimelineUpdate(e)
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// Playback Speed
+		videoSpeedBtn.addEventListener("click", changePlaybackSpeed);
+
+
+
+		// Video Time Update 
+		video.addEventListener('timeupdate', videoHideOnIdle);
+		video.addEventListener('timeupdate', videoUpdateProgress);
+
+
+
+
+
+
+		// Mouse move pointer
+		"mousemove touchmove".split(" ").forEach(function(f) {
+		    document.addEventListener(f, function (event) {
+					videoLinear_bar.classList.add('showing-video-guerin');
+					videoLinear_bar.classList.remove('hidden-video-guerin');
+
+					document.body.style.cursor = "default";
+
+
+					videoCounts = 0;
+
+					if (countingthis == 0) {
+						document.getElementById('gVideoID').style.cursor = "pointer";
+					} else {
+						document.getElementById('gVideoID').style.cursor = "default";
+					}
+
+					//document.getElementById('aura-container').style.cursor = "pointer";
+					document.querySelector(".video-aura-container").style.cursor = "pointer";
+				}, false);
+		});
+
+
+
+
+		// Update Num Token
+		document.addEventListener("mousemove", e => {
+			clientX = e.x;
+
+
+
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
+
+
+			updateTime_VIDEO_TEN_MINUTE(e);
+			updateTime_VIDEO_MINUTE(e);
+			updateTime_VIDEO_TEN_SECOND(e);
+			updateTime_VIDEO_SECOND(e);
+		});
+
+		// Update Num Token
+		videoTimelineContainer.addEventListener("touchmove", e => {
+			clientX = e.touches[0].clientX;
+
+
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoHovertime_var = Math.floor((videoPercent * video.duration) / 1);
+
+
+			updateTime_VIDEO_TEN_MINUTE(e);
+			updateTime_VIDEO_MINUTE(e);
+			updateTime_VIDEO_TEN_SECOND(e);
+			updateTime_VIDEO_SECOND(e);
+		});
+
+
+		// Volume
+		videoMuteBtn.addEventListener("click", videoToggleMute);
+		videoVolumeSlider.addEventListener("input", e => {
+			video.volume = e.target.value;
+			video.muted = e.target.value === 0;
+		});
+		video.addEventListener("volumechange", () => {
+			videoVolumeSlider.value = video.volume;
+			let videoVolumelevel;
+			if (video.muted || video.volume === 0) {
+				videoVolumeSlider.value = 0;
+				videoVolumelevel = "muted";
+			} else if (video.volume >= 0.5) {
+				videoVolumelevel = "high";
+			} else {
+				videoVolumelevel = "low";
+			}
+
+			guerinVideoContainer.dataset.volumeLevel = videoVolumelevel;
+		});
+
+		// View Modes
+		videoTheaterBtn.addEventListener("click", videoToggleTheaterMode);
+		// videoFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
+		// mobileFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
+
+videoFullScreenBtn.addEventListener('click', function (event) {
+  event.stopPropagation();
+  /* if (document.fullscreenElement) {
+    document.exitFullscreen();
+   } else {
+   	*/
+   	// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+    videoToggleFullScreenMode();
+    
+  // }
+});
+
+
+
+mobileFullScreenBtn.addEventListener('click', function (event) {
+  event.stopPropagation();
+  /* if (document.fullscreenElement) {
+    document.exitFullscreen();
+   } else {
+   	*/
+   	// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+    videoToggleFullScreenMode();
+    
+  // }
+});
+
+
+/* 
+if ('orientation' in screen) {
+  screen.orientation.addEventListener('change', function () {
+    // Let's request fullscreen if user switches device in landscape mode.
+    if (screen.orientation.type.startsWith('landscape')) {
+      videoToggleFullScreenMode();
+    } else if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  });
+}
+*/
+
+document.addEventListener("fullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
+
+document.addEventListener("mozfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
+
+document.addEventListener("webkitfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
+
+document.addEventListener("msfullscreenchange", () => {
+  guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+});
+
+		function videoToggleFullScreenMode() {
+
+			// guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+/*
+  if (guerinVideoContainer.requestFullscreen) {
+    guerinVideoContainer.requestFullscreen();
+  } 
+
+
+
+
+  else if (guerinVideoContainer.mozRequestFullScreen) {
+  	guerinVideoContainer.mozRequestFullScreen();
+  } 
+
+  else if (guerinVideoContainer.webkitRequestFullScreen) {
+  	guerinVideoContainer.webkitRequestFullScreen();
+  	// guerinVideoContainer.webkitEnterFullscreen();
+  } 
+  else if (guerinVideoContainer.msRequestFullscreen) {
+  	guerinVideoContainer.msRequestFullscreen();
+  }
+
+
+
+
+  else {
+    video.webkitEnterFullscreen();
+  }
+*/
+
+
+
+		    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+		        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+		        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+		        (document.msFullscreenElement && document.msFullscreenElement !== null);
+
+		    if (!isInFullScreen) {
+
+
+
+
+		        if (guerinVideoContainer.requestFullscreen) {
+		            guerinVideoContainer.requestFullscreen();
+		            
+		        } else if (guerinVideoContainer.mozRequestFullScreen) {
+		            guerinVideoContainer.mozRequestFullScreen();
+
+		        } else if (guerinVideoContainer.webkitRequestFullScreen) {
+		            guerinVideoContainer.webkitRequestFullScreen();
+		            // guerinVideoContainer.webkitEnterFullscreen();
+
+		        } else if (guerinVideoContainer.msRequestFullscreen) {
+		            guerinVideoContainer.msRequestFullscreen();
+
+		        } else {
+		        	video.webkitEnterFullscreen();
+		        }
+
+
+		    } else {
+
+
+		    	
+		        if (document.exitFullscreen) {
+		            document.exitFullscreen();
+
+		        } else if (document.webkitExitFullscreen) {
+		            document.webkitExitFullscreen();
+
+		        } else if (document.mozCancelFullScreen) {
+		            document.mozCancelFullScreen();
+
+		        } else if (document.msExitFullscreen) {
+		            document.msExitFullscreen();
+
+		        } 
+		        
+		    }
+
+			/*
+			if (document.fullscreenElement == null) {
+				guerinVideoContainer.requestFullscreen();
+			} else {
+				document.exitFullscreen();
+			}
+			*/
+		}
+
+
+
+
+
+
+
+
+
+
+		videoMiniPlayerBtn.addEventListener("click", videoToggleMiniPlayerMode);
+		document.querySelector(".desktop-aurascript-btn").addEventListener("click", videoToggleAurascript);
+		document.querySelector(".aurascript-btn").addEventListener("click", videoToggleAurascript);
+		
+		/*
+		document.addEventListener("fullscreenchange", () => {
+			guerinVideoContainer.classList.toggle("full-screen-mode", document.fullscreenElement);
+		})
+		*/
+
+		video.addEventListener("enterpictureinpicture", () => {
+			guerinVideoContainer.classList.add("mini-player")
+		})
+
+		video.addEventListener("leavepictureinpicture", () => {
+			guerinVideoContainer.classList.remove("mini-player");
+		})
+
+
+
+		// Play/Pause
+		video.addEventListener("play", () => {
+			guerinVideoContainer.classList.remove("paused");
+
+			if (guerinVideoContainer.classList.contains("theater-mode") == false) {
+				// clickingChecker();
+
+				// toggle theater mode
+				videoToggleTheaterMode();
+
+
+			}
+
+			auraActivate();
+			countingthis++;
+		});
+
+		video.addEventListener("pause", () => {
+			guerinVideoContainer.classList.add("paused");
+
+			/* 
+				if (countingthis2 == 0) {
+					clickingChecker();
+					document.getElementById('gVideoContainerID').style.opacity = "1";
+					document.getElementById('gVideoContainerID').style.pointerEvents = "all";
+					document.getElementById('lin-grad').classList.add("guerin-lin-gradient-full");
+				}
+				countingthis2++;
+			*/
+
+			auraActivate();
+			videoLinear_bar.classList.add('showing-video-guerin');
+			document.body.style.cursor = "default";
+		});
+
+		videoPlayPauseBtn.addEventListener("click", videoTogglePlay);
+		video.addEventListener("click", videoTogglePlay);
+
+		function videoToggleTheaterMode() {
+			if (video.paused == false && guerinVideoContainer.classList.contains("theater-mode") == true) {
+				video.pause();
+			} 
+
+			guerinVideoContainer.classList.toggle("theater-mode");
+			document.getElementById('gVideoContainerID').classList.toggle("show-guerin-controls");
+			document.getElementById('lin-grad').classList.toggle("guerin-lin-gradient-full");
+			document.getElementById('auraplayer-background').classList.toggle("guerin-background-for-auraplayer");
+			 
+		}
+
+		function clickingChecker() {
+			if (document.getElementById('gVideoID').classList.contains("paused") == true) {
+				// document.getElementById("touchpress").style.display = "block";
+				document.getElementById("touchpress1").style.animation = "future 1.85s infinite ease-in";
+				document.getElementById("touchpress2").style.animation = "future 1.85s infinite ease-in";
+				document.getElementById("touchpress3").style.animation = "future 1.85s infinite ease-in";
+			} else {
+				// document.getElementById("touchpress").style.display = "none";
+				document.getElementById("touchpress1").style.animation = "none";
+				document.getElementById("touchpress2").style.animation = "none";
+				document.getElementById("touchpress3").style.animation = "none";
+			}
+		}
+
+
+		function changeAurascriptColor() {
+			if (colorCounter == 0) {
+				// cinema red
+				document.querySelector(".aurascript-text").style.color = "yellow";
+				document.querySelector(".aurascript-text").style.webkitTextStroke = "black .25px";
+				document.querySelector(".aurascript-text").style.textShadow = "unset";
+				document.querySelector(".aurascript-text").style.textShadow = "#6a6a6a 0px 0px 1px";
+				colorCounter++;
+			} else if (colorCounter == 1) {
+				document.querySelector(".aurascript-text").style.color = "#ffffff";
+				document.querySelector(".aurascript-text").style.webkitTextStroke = "unset";
+				document.querySelector(".aurascript-text").style.textShadow = "#6a6a6a 0px 0px 1px";
+				colorCounter++;
+			} else if (colorCounter == 2) {
+				// yellow
+				document.querySelector(".aurascript-text").style.color = "#ffc008";
+				colorCounter++;
+			} else {
+				document.querySelector(".aurascript-text").style.color = "#ff0000";
+				colorCounter = 0;
+			}
+		}
+
+
+		function videoToggleAurascript() {
+
+			if (aurascriptBoolean == false) {
+				document.querySelector(".aurascript-container").style.display = "flex";
+				aurascriptBoolean = true;
+			} else {
+				document.querySelector(".aurascript-container").style.display = "none";
+				aurascriptBoolean = false;
+			}
+		}
+
+
+
+
+
+		function videoToggleScrubbing(e) {
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoIsScrubbing = (scrubbingVar & 1) === 1;
+			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
+			
+
+			if (videoIsScrubbing) {
+				videoWasPaused = video.paused;
+				video.pause();
+
+				/* document.getElementById('aura-container').style.display = "none"; */
+
+
+
+
+
+
+				// video.currentTime = videoPercent * video.duration
+			} else {
+				console.log("triggered");
+
+
+
+				
+				if (!videoWasPaused) {
+					video.play();
+				}
+
+
+				video.currentTime = videoPercent * video.duration;
+
+				/* document.getElementById('aura-container').style.display = "block";
+				document.getElementById('goated').classList.remove("goated-hide");
+				document.getElementById('goatedtwo').classList.remove("goatedopacity"); */
+
+
+			}
+			videoHandleTimelineUpdate(e);
+		}
+
+		function videoHandleTimelineUpdate(e) {
+
+			const videoRect = videoTimelineContainer.getBoundingClientRect();
+			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
+			videoPreviewImg.style.backgroundPositionY = 200 * (213 - Math.floor(videoPercent * 214)) + "px";
+			videoTimelineContainer.style.setProperty("--video-preview-position", videoPercent);
+
+			if (videoIsScrubbing) {
+				// e.preventDefault();
+				if (e.cancelable) e.preventDefault();
+				video.currentTime = videoPercent * video.duration;
+
+
+				videoCurrentTimeElem.innerHTML = formatDuration(Math.floor((videoPercent * video.duration) / 1));
+				videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
+			}
+
+		}
+
+		function changePlaybackSpeed() {
+			let videoNewPlaybackRate = video.playbackRate + 0.25;
+			if (videoNewPlaybackRate > 2) {
+				videoNewPlaybackRate = 0.25;
+			}
+			video.playbackRate = videoNewPlaybackRate;
+			videoSpeedBtn.textContent = `${videoNewPlaybackRate}x`;
+		}
+
+
+
+		function videoHideOnIdle (video) {
+			if (video.paused === true) {
+				return videoLinear_bar.classList.add('showing-video-guerin') ;
+			} 
+
+			if (videoCounts > 15) {
+				videoLinear_bar.classList.add('hidden-video-guerin');
+				videoLinear_bar.classList.remove('showing-video-guerin');
+				document.body.style.cursor = "none";
+				videoCounts = 0;
+			}
+			
+			videoCounts += 1
+		}
+
+		function videoUpdateProgress() {
+			const videoPercent = video.currentTime / video.duration;
+			videoTimelineContainer.style.setProperty("--video-progress-position", videoPercent);
+			videoCurrentTimeElem.innerHTML = formatDuration(video.currentTime);
+			videoTotalTimeElem.innerHTML = formatDuration(video.duration);
+		}
+
+	    function updateTime_VIDEO_TEN_MINUTE(e) {
+// e.preventDefault();
+			currVideoTenMin = Math.floor((videoHovertime_var / 60) % 60);
+			currVideoTenMin = (currVideoTenMin / 10) % 10;
+
+			if (currVideoTenMin >= 9) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("nine-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 8) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("eight-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 7) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("seven-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 6) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("six-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 5) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("five-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 4) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("four-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 3) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("three-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 2) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("two-video-tenminutes-top-left").style.display = "block";
+			} else if (currVideoTenMin >= 1) {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("one-video-tenminutes-top-left").style.display = "block";
+			} else {
+				videoHideMe_TEN_MINUTE();
+				document.getElementById("zero-video-tenminutes-top-left").style.display = "block";
+			}
+	    }
+
+		function videoHideMe_TEN_MINUTE() {
+			var divSelector = document.getElementById('container-video-tenminutes-top-left').children;
+		    for (var i = 0; i < divSelector.length; i++) {
+		        if (divSelector[i].tagName == "DIV") {   
+		        	divSelector[i].style.display = 'none';
+		        }
+		    }
+		}
+
+	    function updateTime_VIDEO_MINUTE(e) {
+ // e.preventDefault();
+			videoCurrMin = Math.floor((videoHovertime_var / 60) % 10);
+
+			if (videoCurrMin >= 9) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("nine-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 8) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("eight-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 7) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("seven-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 6) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("six-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 5) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("five-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 4) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("four-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 3) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("three-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 2) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("two-video-minutes-top-right").style.display = "block";
+	    	} else if (videoCurrMin >= 1) {
+		        videoHideMe_MINUTE();
+		        document.getElementById("one-video-minutes-top-right").style.display = "block";
+	    	} else {
+		        videoHideMe_MINUTE();
+		        document.getElementById("zero-video-minutes-top-right").style.display = "block";
+	      	}
+	    }
+
+		function videoHideMe_MINUTE() {
+		    var divSelectortwo = document.getElementById('container-video-minutes-top-right').children;
+		    for (var i = 0; i < divSelectortwo.length; i++) {
+		        if (divSelectortwo[i].tagName == "DIV") {   
+		        	divSelectortwo[i].style.display = 'none';
+		        }
+		    }
+		}
+
+	    function updateTime_VIDEO_TEN_SECOND(e) {
+ // e.preventDefault();
+			currTenSec = Math.floor(videoHovertime_var % 60);
+			currTenSec = (currTenSec / 10) % 10;
+
+			if (currTenSec >= 9) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("nine-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 8) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("eight-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 7) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("seven-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 6) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("six-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 5) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("five-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 4) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("four-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 3) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("three-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 2) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("two-video-tenseconds-bottom-left").style.display = "block";
+			} else if (currTenSec >= 1) {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("one-video-tenseconds-bottom-left").style.display = "block";
+			} else {
+				videoHideMe_TEN_SECOND();
+				document.getElementById("zero-video-tenseconds-bottom-left").style.display = "block";
+			}
+	    }
+
+		function videoHideMe_TEN_SECOND() {
+			var divSelectorthree = document.getElementById('container-video-tenseconds-bottom-left').children;
+
+			for (var i = 0; i < divSelectorthree.length; i++) {
+			    if (divSelectorthree[i].tagName == "DIV") {   
+			        divSelectorthree[i].style.display = 'none';
+			    }
+			}
+		}
+
+	    function updateTime_VIDEO_SECOND(e) {
+ // e.preventDefault();
+			currSec = Math.floor(videoHovertime_var % 10);
+
+			if (currSec >= 9) {
+				videoHideMe_SECOND();
+				document.getElementById("nine-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 8) {
+				videoHideMe_SECOND();
+				document.getElementById("eight-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 7) {
+				videoHideMe_SECOND();
+				document.getElementById("seven-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 6) {
+				videoHideMe_SECOND();
+				document.getElementById("six-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 5) {
+				videoHideMe_SECOND();
+				document.getElementById("five-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 4) {
+				videoHideMe_SECOND();
+				document.getElementById("four-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 3) {
+				videoHideMe_SECOND();
+				document.getElementById("three-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 2) {
+				videoHideMe_SECOND();
+				document.getElementById("two-video-seconds-bottom-right").style.display = "block";
+			} else if (currSec >= 1) {
+				videoHideMe_SECOND();
+				document.getElementById("one-video-seconds-bottom-right").style.display = "block";
+			} else {
+				videoHideMe_SECOND();
+				document.getElementById("zero-video-seconds-bottom-right").style.display = "block";
+			}
+	    }
+
+		function videoHideMe_SECOND() {
+		    var divSelectorfour = document.getElementById('container-video-seconds-bottom-right').children;
+		    
+		    for (var i = 0; i < divSelectorfour.length; i++) {
+		        if (divSelectorfour[i].tagName == "DIV") {   
+		            divSelectorfour[i].style.display = 'none';
+		        }
+		    }
+		}
+
+		function formatDuration(time) {
+			const seconds = Math.floor(time % 60);
+			const minutes = Math.floor(time / 60) % 60;
+			const hours = Math.floor(time / 3600);
+			if (hours === 0) {
+				return `${minutes}:${videoLeadingZeroFormatter.format(seconds)}`;
+			} else {
+				return `${hours}:${videoLeadingZeroFormatter.format(minutes)}:${videoLeadingZeroFormatter.format(seconds)}`;
+			}
+		}
+
+		function videoSkip(duration) {
+			video.currentTime += duration;
+		}
+
+		function videoToggleMute() {
+			video.muted = !video.muted;
+		}
+
+
+
+
+
+		function videoToggleMiniPlayerMode() {
+			if (guerinVideoContainer.classList.contains("mini-player")) {
+				document.exitPictureInPicture();
+			} else {
+				video.requestPictureInPicture();
+			}
+		}
+
+		function videoTogglePlay() {
+			video.paused ? video.play() : video.pause();
+		}
+
+		async function auraActivate() {
+			document.getElementById("touchpress1").style.animation = "none";
+			document.getElementById("touchpress2").style.animation = "none";
+			document.getElementById("touchpress3").style.animation = "none";
+			await sleep(10);
+			document.getElementById("touchpress1").style.animation = "futurecool .45s 1 ease-in";
+			document.getElementById("touchpress2").style.animation = "futurecool .45s 1 ease-in";
+			document.getElementById("touchpress3").style.animation = "futurecool .45s 1 ease-in";
+			await sleep(450);
+			document.getElementById("touchpress1").style.animation = "none";
+			document.getElementById("touchpress2").style.animation = "none";
+			document.getElementById("touchpress3").style.animation = "none";
+			await sleep(100);
+			
+			if (document.getElementById('gVideoID').classList.contains("paused") == true) {
+				// document.getElementById("touchpress").style.display = "block";
+				document.getElementById("touchpress1").style.animation = "future 1.85s infinite ease-in";
+				document.getElementById("touchpress2").style.animation = "future 1.85s infinite ease-in";
+				document.getElementById("touchpress3").style.animation = "future 1.85s infinite ease-in";
+			} else {
+				// document.getElementById("touchpress").style.display = "none";
+				document.getElementById("touchpress1").style.animation = "none";
+				document.getElementById("touchpress2").style.animation = "none";
+				document.getElementById("touchpress3").style.animation = "none";
+			}
+
+		}
+
+	</script>
+
+
+</body>
+</html>
