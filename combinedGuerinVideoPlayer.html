@@ -43,6 +43,7 @@
 		    z-index: 2;
 		    display: flex;
 		    gap: 16px;
+		    pointer-events: none;
 		}
 
 
@@ -67,6 +68,7 @@
 		    text-overflow: ellipsis;
 		    overflow: hidden;
 		    white-space: nowrap;
+		    pointer-events: all;
 		}
 
 		.video-secondary-accent-text {
@@ -366,17 +368,28 @@
 			animation: showAnimation 250ms ease-in-out;
 		}
 
-		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .guerin-video-controls-container .guerin-controls {
-			display: none;
+
+		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .guerin-video-controls-container {
+			pointer-events: none !important;
 		}
+
+
 
 		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .video-aura-container {
 			pointer-events: none;
 		}
 
+		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .testing-container .video-profile-box-container .video-text-title-container .video-title-text {
+			pointer-events: none;
+		}
 
+		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .testing-container .video-profile-box-container .video-text-title-container .nametag-container {
+			pointer-events: none;
+		}
 
-
+		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .testing-container .video-profile-box-container .video-text-title-container .guerin-video-social-icons {
+			pointer-events: none;
+		}
 
 
 
@@ -753,6 +766,13 @@
 		}
 
 
+.nametag-container {
+	display: flex; 
+	gap: 4px;
+	pointer-events: all;
+}
+
+
 		.nodisplay {
 			display: block;
 		}
@@ -1040,6 +1060,7 @@
 							display: flex; 
 							gap: 10px;
 							font-weight: 500;
+							pointer-events: all;
 						}
 
 						.video-logo-box-wrapper {
@@ -1618,7 +1639,7 @@
 
 	        <div class="testing-container">
 				
-				<div class="video-profile-box-container" onclick="videoTogglePlay()">
+				<div class="video-profile-box-container" >
 
 
 
@@ -1650,7 +1671,7 @@
 			        	<div class="video-text-title-wrapper">
 				            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
 				            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
-				            <div style="display: flex; gap: 4px;">
+				            <div classs="nametag-container">
 				            	<span class="video-gray-arrow"> ></span> 
 				            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
 				            </div>
