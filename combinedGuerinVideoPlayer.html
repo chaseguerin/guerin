@@ -460,8 +460,8 @@
 
 
 		.guerin-volume-slider:focus-within {
-			width: 100px;
-			transform: scaleX(1);
+			width: 60px;
+			transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(22px);
 		}
 
 
@@ -543,8 +543,8 @@
 
 
 		.video-volume-container:hover .guerin-volume-slider {
-			width: 100px;
-			transform: scaleX(1);
+			width: 60px;
+			transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(22px);
 		}
 
 
@@ -606,13 +606,7 @@
 			display: none;
 		}
 
-		.guerin-video-container.theater-mode .tall {
-			display: none;
-		}
 
-		.guerin-video-container:not(.theater-mode) .wide {
-			display: none;
-		}
 
 		.guerin-video-container.full-screen-mode .open {
 			display: none;
@@ -638,22 +632,43 @@
 
 		.guerin-video-container[data-volume-level="muted"] .video-volume-muted-icon {
 			display: block;
-			width: 12px;
-			margin: -2.5px 0px 0px 4px;
+			/* width: 12px;
+			margin: -2.5px 0px 0px 4px; */
 		}
 
 		.video-volume-container {
 			display: flex;
 			align-items: center;
+			position: relative;
+			margin-bottom: 3px;
 		}
 
 		.guerin-volume-slider {
 			width: 0;
-			transform-origin: left;
-			transform: scaleX(0);
-			transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+	    transform-origin: left;
+	    transform: scaleX(0) rotate(270deg) translateY(-50%) translateX(20px);
+	    transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+	    background: #444fff;
+	    height: 3px;
+	    -webkit-appearance: none;
+	    left: 50%;
+	    position: absolute;
 		}
 
+
+
+
+		.guerin-volume-slider::-webkit-slider-thumb {
+			width: 5px;
+	    height: 16.2037037px;
+	    background: #444fff;
+	    -webkit-appearance: none;
+		}
+
+		.guerin-volume-slider::-webkit-slider-runnable-track {
+			/* background: black; */
+	    -webkit-appearance: none;
+		}
 
 
 		.video-duration-container {
@@ -668,13 +683,7 @@
 		    */
 		}
 
-		.guerin-video-container.captions .guerin-video-captions-btn {
-			border-bottom: 3px solid red;
-		}
 
-		.guerin-video-controls-container .guerin-controls button.wide-btn {
-			width: 50px;
-		}
 
 		.video-timeline-container {
 			height: 5px;
@@ -694,9 +703,6 @@
 			position: relative;
 		}
 
-		.hidethese {
-			display: none;
-		}
 
 		.guerin-video-timeline::before {
 			content: "";
@@ -1671,7 +1677,7 @@
 			        	<div class="video-text-title-wrapper">
 				            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
 				            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
-				            <div classs="nametag-container">
+				            <div class="nametag-container">
 				            	<span class="video-gray-arrow"> ></span> 
 				            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
 				            </div>
@@ -1681,7 +1687,7 @@
 								<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
 								<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
 								 height="14.61px" viewBox="0 0 19.05 14.61"
-								 xml:space="preserve">
+								 xml:space="preserve" style="width: 12px; margin: -2.5px 0px 0px 4px;">
 									<defs></defs>
 									<g>
 										<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
@@ -2173,156 +2179,162 @@
 
 	    		<div class="guerin-controls">
 
-		            <button class="play-pause-btn">
-
-						<svg class="video-play-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.19px" height="21px" viewBox="0 0 18.19 21" xml:space="preserve"><defs></defs><polygon points="0,10.5 0,0 9.09,5.25 18.19,10.5 9.09,15.75 0,21 "/>
-						</svg>
-
-						<svg class="video-pause-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.64px" height="21px" viewBox="0 0 17.64 21" xml:space="preserve"><defs></defs><g><rect width="5.88" height="21"/><rect x="11.76" width="5.88" height="21"/></g>
-						</svg>
-		            </button>
-
-		            <div class="video-volume-container hidethese">
-
-						<button class="mute-btn">
-
-							<svg class="video-volume-high-icon" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+		        <button class="play-pause-btn">
+							<svg class="video-play-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.19px" height="21px" viewBox="0 0 18.19 21" xml:space="preserve"><defs></defs><polygon points="0,10.5 0,0 9.09,5.25 18.19,10.5 9.09,15.75 0,21 "/>
 							</svg>
 
-							<svg class="video-volume-low-icon" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" />
+							<svg class="video-pause-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.64px" height="21px" viewBox="0 0 17.64 21" xml:space="preserve"><defs></defs><g><rect width="5.88" height="21"/><rect x="11.76" width="5.88" height="21"/></g>
 							</svg>
+		        </button>
 
-							<svg class="video-volume-muted-icon" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" />
-							</svg>
+		        <div class="video-volume-container" style="display: none;">
 
-						</button>
+							<button class="mute-btn">
 
-						<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
-		            </div>
+								<svg class="video-volume-high-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.98 24.58" height="24.58px" width="26.98px">
+								  <rect x="20.4" y="11.18" width="6.58" height="2.22"/>
+								  <rect x="20.4" y="2" width="6.58" height="2.22" transform="translate(4.73 17.65) rotate(-44.98)"/>
+								  <rect x="22.57" y="18.18" width="2.22" height="6.58" transform="translate(-8.24 23.04) rotate(-45)"/>
+								  <polygon points="14.56 .79 14.56 23.79 7.32 18.05 6.21 17.15 0 17.15 0 7.47 6.21 7.47 7.32 6.57 14.56 .79"/>
+								</svg>
 
-		            <div class="video-duration-container">
-						<p class="video-progress-text">
-							<span class="current-time">
-								0:00
-							</span> 
-							| 
-							<span class="total-time">
-								0:00
-							</span>
+								<svg class="video-volume-low-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.96 23" height="23px" width="23.96px">
+								  <polygon points="14.56 0 14.56 23 7.32 17.26 6.21 16.36 0 16.36 0 6.69 6.21 6.69 7.32 5.78 14.56 0"/>
+								  <polygon points="23.96 3.07 23.96 19.93 18.26 19.93 18.26 17.71 21.74 17.71 21.74 5.29 18.26 5.29 18.26 3.07 23.96 3.07"/>
+								</svg>
+
+								<svg class="video-volume-muted-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.99 23" height="23px" width="29.99px">
+								  <polygon points="14.56 0 14.56 23 7.32 17.27 6.22 16.36 0 16.36 0 6.69 6.22 6.69 7.32 5.78 14.56 0"/>
+								  <polygon points="26.87 11.51 29.99 14.62 28.42 16.2 25.3 13.08 22.17 16.2 20.59 14.62 23.72 11.51 20.59 8.38 22.17 6.8 25.3 9.93 28.42 6.8 29.99 8.38 26.87 11.51"/>
+								</svg>
+
+							</button>
+
+							<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
+			            </div>
+
+			            <div class="video-duration-container">
+							<p class="video-progress-text">
+								<span class="current-time">
+									0:00
+								</span> 
+								| 
+								<span class="total-time">
+									0:00
+								</span>
 
 
-							<g class="mobile-video-btns-container">
-							  <button class="aurascript-btn">
+								<g class="mobile-video-btns-container">
+								  <button class="aurascript-btn">
 
 
 
 
 
-					    <style>
-					      #aurascriptMobileBtn-fill {
-					        fill: transparent;
-					      }
+						    <style>
+						      #aurascriptMobileBtn-fill {
+						        fill: transparent;
+						      }
 
-					      .aurascriptMobileBtn-blur {
-									height: 30px;
-							    width: 30px;
-							    filter: blur(8px);
-							    position: absolute;
-							    z-index: -1;
-							    left: 50%;
-							    top: 50%;
-							    transform: translate(-50%,-50%);
-					      }
+						      .aurascriptMobileBtn-blur {
+										height: 30px;
+								    width: 30px;
+								    filter: blur(8px);
+								    position: absolute;
+								    z-index: -1;
+								    left: 50%;
+								    top: 50%;
+								    transform: translate(-50%,-50%);
+						      }
 
-								#aurablurMobile-opacity {
-									transition: opacity 250ms ease-in-out;
-									opacity: 0;
-								}
+									#aurablurMobile-opacity {
+										transition: opacity 250ms ease-in-out;
+										opacity: 0;
+									}
 
-					    </style>
+						    </style>
 
-							<!-- aurascript button -->
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
-								<defs></defs>
-							  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
-							  <g id="aurascriptMobileBtn-fill">
-								  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
-								  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
-								  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
+								<!-- aurascript button -->
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
+									<defs></defs>
+								  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
+								  <g id="aurascriptMobileBtn-fill">
+									  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
+									  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
+									  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
+									</g>
+								</svg>
+
+
+
+
+								<!-- blur -->
+								<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
+								  <rect width="27" height="27"/>
+								</svg>
+
+
+
+
+
+
+
+
+									</button>
+
+									<button class="mobile-full-screen-btn">
+										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
+											 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
+											<defs></defs>
+											<g>
+												<rect y="15.96" width="18.41" height="11.04"/>
+												<polygon points="27,0 27,21.48 22.09,21.48 22.09,12.28 14.73,12.28 14.73,0"/>
+
+												<polygon points="5.89,2.03 5.89,8.42 6.25,8.05 7.51,6.81 8.75,5.55 10.01,6.81 8.75,8.05 7.51,9.31 6.25,10.55 5.01,11.81 0.01,6.81 1.25,5.55 2.51,6.81 3.75,8.05 4.12,8.42 4.12,0.26 11.19,0.26 11.19,2.03"/>
+											</g>
+										</svg>
+									</button>
 								</g>
-							</svg>
+							</p>
 
-
-
-
-							<!-- blur -->
-							<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
-							  <rect width="27" height="27"/>
-							</svg>
-
-
-
-
-
-
-
-
-								</button>
-
-								<button class="mobile-full-screen-btn">
-									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
-										 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
-										<defs></defs>
-										<g>
-											<rect y="15.96" width="18.41" height="11.04"/>
-											<polygon points="27,0 27,21.48 22.09,21.48 22.09,12.28 14.73,12.28 14.73,0"/>
-
-											<polygon points="5.89,2.03 5.89,8.42 6.25,8.05 7.51,6.81 8.75,5.55 10.01,6.81 8.75,8.05 7.51,9.31 6.25,10.55 5.01,11.81 0.01,6.81 1.25,5.55 2.51,6.81 3.75,8.05 4.12,8.42 4.12,0.26 11.19,0.26 11.19,2.03"/>
-										</g>
-									</svg>
-								</button>
-							</g>
-						</p>
-
-						<div class="video-timeline-container">
-							<div id="timeline-element" class="guerin-video-timeline">
-							  <div class="video-thumb-indicator"></div>
+							<div class="video-timeline-container">
+								<div id="timeline-element" class="guerin-video-timeline">
+								  <div class="video-thumb-indicator"></div>
+								</div>
 							</div>
-						</div>
-		            </div>
+		        </div>
 
-		            <div class="hidethese">
-						<button class="guerin-video-captions-btn">
-							<svg viewBox="0 0 24 24">
-								<path fill="currentColor" d="M18,11H16.5V10.5H14.5V13.5H16.5V13H18V14A1,1 0 0,1 17,15H14A1,1 0 0,1 13,14V10A1,1 0 0,1 14,9H17A1,1 0 0,1 18,10M11,11H9.5V10.5H7.5V13.5H9.5V13H11V14A1,1 0 0,1 10,15H7A1,1 0 0,1 6,14V10A1,1 0 0,1 7,9H10A1,1 0 0,1 11,10M19,4H5C3.89,4 3,4.89 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6C21,4.89 20.1,4 19,4Z" />
+						<button class="guerin-speed-btn" style="display: none; width: 25px;">
+							<svg id="guerin-speed-btn-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="23px" height="23px">
+							  <polygon points="10.45 8.36 10.45 10.45 0 10.45 0 8.36 4.18 8.36 4.18 4.18 0 4.18 0 2.09 4.18 2.09 4.18 0 6.27 0 6.27 8.36 10.45 8.36"/>
+							  <rect x="12.54" width="10.46" height="10.45"/>
+							  <path d="m12.54,12.54v10.46h10.46v-10.46h-10.46Zm8.37,8.37h-6.28v-6.28h6.28v6.28Z"/>
+							  <path d="m0,12.54v10.46h10.45v-10.46H0Zm8.36,8.37H2.09v-6.28h6.27v6.28Z"/>
 							</svg>
 						</button>
 
-						<button class="speed-btn wide-btn">
-							<span>
-								1x
-							</span>
-						</button>
-
-						<button class="mini-player-btn">
-							<svg viewBox="0 0 24 24">
-								<path fill="currentColor" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
+						<button class="mini-player-btn" style="display: none; width: 25px;">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" height="23px" width="23px">
+							  <path d="m0,0v23h23V0H0Zm20.91,20.91H2.09V2.09h18.82v18.82Z"/>
+							  <rect x="8.36" y="12.55" width="10.45" height="6.27"/>
 							</svg>
 						</button>
 
-						<button class="theater-btn">
-							<svg class="tall" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
+						<button class="theater-btn" style="display: none; width: 25px;">
+
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" height="23px" width="23px">
+							  <rect width="4.18" height="2.09"/>
+							  <rect x="6.27" width="4.18" height="2.09"/>
+							  <rect x="12.55" width="4.18" height="2.09"/>
+							  <rect x="18.82" width="4.18" height="2.09"/>
+							  <rect y="4.18" width="23" height="14.64"/>
+							  <rect y="20.91" width="4.18" height="2.09"/>
+							  <rect x="6.27" y="20.91" width="4.18" height="2.09"/>
+							  <rect x="12.55" y="20.91" width="4.18" height="2.09"/>
+							  <rect x="18.82" y="20.91" width="4.18" height="2.09"/>
 							</svg>
 
-							<svg class="wide" viewBox="0 0 24 24">
-								<path fill="currentColor" d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
-							</svg>
 						</button>
-		            </div>
 
 				    <button class="desktop-aurascript-btn" style="width: 25px;">
 						
@@ -2628,8 +2640,7 @@
 		const mobileFullScreenBtn = document.querySelector(".mobile-full-screen-btn")
 		const videoMiniPlayerBtn = document.querySelector(".mini-player-btn")
 		const videoMuteBtn = document.querySelector(".mute-btn")
-		const videoCaptionsBtn = document.querySelector(".guerin-video-captions-btn")
-		const videoSpeedBtn = document.querySelector(".speed-btn")
+		const videoSpeedBtn = document.querySelector(".guerin-speed-btn")
 		const videoCurrentTimeElem = document.querySelector(".current-time")
 		const videoTotalTimeElem = document.querySelector(".total-time")
 		const videoPreviewImg = document.querySelector(".video-aura")
@@ -3438,10 +3449,42 @@ document.addEventListener("msfullscreenchange", () => {
 				videoNewPlaybackRate = 0.25;
 			}
 			video.playbackRate = videoNewPlaybackRate;
-			videoSpeedBtn.textContent = `${videoNewPlaybackRate}x`;
+			// document.getElementById('guerin-speed-btn-text').textContent = `${videoNewPlaybackRate}x`;
+
+			if (videoNewPlaybackRate == 2) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<polygon points="10.45 0 10.45 6.28 2.09 6.28 2.09 4.19 8.36 4.19 8.36 2.1 0 2.1 0 0 10.45 0"/><rect x="12.54" width="10.46" height="10.46"/><polygon points="10.45 8.37 10.45 10.46 0 10.46 0 6.28 2.09 6.28 2.09 8.37 10.45 8.37"/><path d="m12.54,12.55v10.45h10.46v-10.45h-10.46Zm8.37,8.36h-6.27v-6.27h6.27v6.27Z"/><path d="m0,12.55v10.45h10.45v-10.45H0Zm8.36,8.36H2.09v-6.27h6.27v6.27Z"/>';
+			}
+
+			if (videoNewPlaybackRate == 1.75) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<rect x="12.55" width="10.45" height="10.45"/><polygon points="10.46 8.36 10.46 10.45 0 10.45 0 8.36 4.19 8.36 4.19 4.18 0 4.18 0 2.09 4.19 2.09 4.19 0 6.28 0 6.28 8.36 10.46 8.36"/><polygon points="10.46 12.55 10.46 16.73 8.37 16.73 8.37 14.64 0 14.64 0 12.55 10.46 12.55"/><rect x="2.1" y="16.73" width="6.27" height="2.09"/><polygon points="23 12.55 23 14.64 14.64 14.64 14.64 16.73 20.91 16.73 20.91 18.82 12.55 18.82 12.55 12.55 23 12.55"/><rect y="18.82" width="2.1" height="4.18"/><rect x="20.91" y="18.82" width="2.09" height="2.09"/><rect x="12.55" y="20.91" width="8.36" height="2.09"/>';
+			}
+
+			if (videoNewPlaybackRate == 1.50) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<polygon points="10.45 8.36 10.45 10.45 0 10.45 0 8.36 4.18 8.36 4.18 4.18 0 4.18 0 2.09 4.18 2.09 4.18 0 6.27 0 6.27 8.36 10.45 8.36"/><rect x="12.54" width="10.46" height="10.45"/><polygon points="2.09 14.64 2.09 16.73 8.36 16.73 8.36 18.82 0 18.82 0 12.55 10.45 12.55 10.45 14.64 2.09 14.64"/><path d="m12.54,12.55v10.45h10.46v-10.45h-10.46Zm8.36,8.36h-6.27v-6.27h6.27v6.27Z"/><rect x="8.36" y="18.82" width="2.09" height="2.09"/><rect y="20.91" width="8.36" height="2.09"/>';
+			}
+
+			if (videoNewPlaybackRate == 1.25) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<polygon points="10.45 8.37 10.45 10.46 0 10.46 0 8.37 4.18 8.37 4.18 4.19 0 4.19 0 2.09 4.18 2.09 4.18 0 6.27 0 6.27 8.37 10.45 8.37"/><rect x="12.55" width="10.45" height="10.46"/><polygon points="10.45 12.55 10.45 18.82 2.09 18.82 2.09 16.73 8.36 16.73 8.36 14.64 0 14.64 0 12.55 10.45 12.55"/><polygon points="14.64 14.64 14.64 16.73 20.91 16.73 20.91 18.82 12.55 18.82 12.55 12.55 23 12.55 23 14.64 14.64 14.64"/><polygon points="10.45 20.91 10.45 23 0 23 0 18.82 2.09 18.82 2.09 20.91 10.45 20.91"/><rect x="20.91" y="18.82" width="2.09" height="2.09"/><rect x="12.55" y="20.91" width="8.36" height="2.09"/>';
+			}
+
+			if (videoNewPlaybackRate == 1.00) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<polygon points="10.45 8.36 10.45 10.45 0 10.45 0 8.36 4.18 8.36 4.18 4.18 0 4.18 0 2.09 4.18 2.09 4.18 0 6.27 0 6.27 8.36 10.45 8.36"/><rect x="12.54" width="10.46" height="10.45"/><path d="m12.54,12.54v10.46h10.46v-10.46h-10.46Zm8.37,8.37h-6.28v-6.28h6.28v6.28Z"/><path d="m0,12.54v10.46h10.45v-10.46H0Zm8.36,8.37H2.09v-6.28h6.27v6.28Z"/>';
+			}
+
+			if (videoNewPlaybackRate == 0.75) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<path d="m0,0v10.45h10.45V0H0Zm8.36,8.36H2.09V2.09h6.27v6.27Z"/><rect x="12.55" width="10.45" height="10.45"/><polygon points="10.45 12.54 10.45 16.72 8.36 16.72 8.36 14.63 0 14.63 0 12.54 10.45 12.54"/><polygon points="14.64 14.63 14.64 16.72 20.91 16.72 20.91 18.82 12.55 18.82 12.55 12.54 23 12.54 23 14.63 14.64 14.63"/><rect x="2.09" y="16.72" width="6.27" height="2.1"/><rect y="18.82" width="2.09" height="4.18"/><rect x="20.91" y="18.82" width="2.09" height="2.09"/><rect x="12.55" y="20.91" width="8.36" height="2.09"/>';
+			}
+
+			if (videoNewPlaybackRate == 0.50) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<path d="m0,0v10.46h10.46V0H0Zm8.37,8.37H2.09V2.1h6.28v6.27Z"/><rect x="12.55" width="10.45" height="10.46"/><polygon points="2.09 14.64 2.09 16.73 8.37 16.73 8.37 18.82 0 18.82 0 12.55 10.46 12.55 10.46 14.64 2.09 14.64"/><rect x="8.37" y="18.82" width="2.09" height="2.09"/><rect y="20.91" width="8.37" height="2.09"/><path d="m12.55,12.55v10.45h10.45v-10.45h-10.45Zm8.36,8.36h-6.27v-6.27h6.27v6.27Z"/>';
+			}		
+
+			if (videoNewPlaybackRate == 0.25) {
+				document.getElementById('guerin-speed-btn-text').innerHTML = '<path d="m0,0v10.46h10.45V0H0Zm8.36,8.37H2.09V2.09h6.27v6.28Z"/><rect x="12.55" width="10.45" height="10.46"/><polygon points="10.45 12.55 10.45 18.82 2.09 18.82 2.09 16.73 8.36 16.73 8.36 14.64 0 14.64 0 12.55 10.45 12.55"/><polygon points="14.64 14.64 14.64 16.73 20.91 16.73 20.91 18.82 12.55 18.82 12.55 12.55 23 12.55 23 14.64 14.64 14.64"/><polygon points="10.45 20.91 10.45 23 0 23 0 18.82 2.09 18.82 2.09 20.91 10.45 20.91"/><rect x="20.91" y="18.82" width="2.09" height="2.09"/><rect x="12.55" y="20.91" width="8.36" height="2.09"/>';
+			}		
+
+
 		}
-
-
 
 
 
