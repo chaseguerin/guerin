@@ -364,14 +364,6 @@
 			animation: showAnimation 300ms ease-in-out 0s;
 		}
 
-
-#lin-mobile-grad {
-	transition: opacity 150ms ease-in-out;
-}
-
-
-
-
 		.guerin-video-container.full-screen-mode.paused {
 			background-color: darkgray;
 			transition: background-color 300ms ease-in-out;
@@ -1320,1220 +1312,1218 @@
 		<video class="currentVideoPlaying video-player" poster="https://i.ytimg.com/vi/glaG64Ao7sM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC5V_FuUjQOAAztRixlF-qdy6lZUg" src="https://video.wixstatic.com/video/fab5c1_4434324b90354d40bcb30e5fc0bfc384/720p/mp4/file.mp4" playsinline >
 
 		</video>
-		<div id="lin-mobile-grad" style="position: absolute; height: 100%; width: 100%; ">
-	    <div id="lin-grad" class="guerin-lin-gradient showing-video-guerin">
+      	<div id="lin-grad" class="guerin-lin-gradient showing-video-guerin">
 
 
 
-				<style type="text/css">
-					#aura-container {
-					    width: 300px;
-					    height: 300px;
-					    /* z-index: 1; */
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%) scale(.8);
-					    transition: all 350ms ease-in-out;
-					    animation: backgroundChange 4.14s ease-in-out infinite;
-					    background: transparent;
-					    -webkit-border-radius: 50%;
+			<style type="text/css">
+				#aura-container {
+				    width: 300px;
+				    height: 300px;
+				    /* z-index: 1; */
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(.8);
+				    transition: all 350ms ease-in-out;
+				    animation: backgroundChange 4.14s ease-in-out infinite;
+				    background: transparent;
+				    -webkit-border-radius: 50%;
+				}
+
+				@keyframes backgroundRotate {
+
+				  0% {
+				    transform: translate(-50%, -50%) scale(.8) rotate(0deg);
+				  }
+
+
+				  100% {
+				    transform: translate(-50%, -50%) scale(.8) rotate(360deg);
+				  }
+
+				}
+
+				@keyframes backgroundChange {
+
+				  0% {
+				    -webkit-filter: hue-rotate(0deg) ;
+
+				  }
+
+				  50% {
+				    -webkit-filter: hue-rotate(15deg) ;
+				  }
+
+				  100% {
+				    -webkit-filter: hue-rotate(0deg) ;
+
+				  }
+
+				}
+
+				@keyframes backgroundMove {
+
+				  0% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				  60% {
+				    top: 40%;
+				    left: 50%;
+				  }
+
+
+				  100% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				}
+
+				@keyframes backgroundMoveTwo {
+
+				  0% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				  60% {
+				    top: 50%;
+				    left: 40%;
+				  }
+
+
+				  100% {
+				    top: 50%;
+				    left: 50%;
+				  }
+
+				}
+
+				@keyframes grayarrowanimateTwo {
+					0% {
+						opacity: .7;
 					}
 
-					@keyframes backgroundRotate {
-
-					  0% {
-					    transform: translate(-50%, -50%) scale(.8) rotate(0deg);
-					  }
-
-
-					  100% {
-					    transform: translate(-50%, -50%) scale(.8) rotate(360deg);
-					  }
-
+					50% {
+						opacity: .4;
 					}
 
-					@keyframes backgroundChange {
+					100% {
+						opacity: .7;
+					}
+				}
 
-					  0% {
-					    -webkit-filter: hue-rotate(0deg) ;
-
-					  }
-
-					  50% {
-					    -webkit-filter: hue-rotate(15deg) ;
-					  }
-
-					  100% {
-					    -webkit-filter: hue-rotate(0deg) ;
-
-					  }
-
+				@keyframes grayarrowanimateThree {
+					0% {
+						opacity: .7;
 					}
 
-					@keyframes backgroundMove {
-
-					  0% {
-					    top: 50%;
-					    left: 50%;
-					  }
-
-					  60% {
-					    top: 40%;
-					    left: 50%;
-					  }
-
-
-					  100% {
-					    top: 50%;
-					    left: 50%;
-					  }
-
+					50% {
+						opacity: .2;
 					}
 
-					@keyframes backgroundMoveTwo {
-
-					  0% {
-					    top: 50%;
-					    left: 50%;
-					  }
-
-					  60% {
-					    top: 50%;
-					    left: 40%;
-					  }
-
-
-					  100% {
-					    top: 50%;
-					    left: 50%;
-					  }
-
+					100% {
+						opacity: .7;
 					}
+				}
 
-					@keyframes grayarrowanimateTwo {
-						0% {
-							opacity: .7;
-						}
+				.blackaura {
+					-webkit-filter: blur(14px);
+					opacity: .82;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%) scale(1.9);
+				}
 
-						50% {
-							opacity: .4;
-						}
+				.lightaura {
+					-webkit-filter: blur(14px);
+					opacity: .82;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%) scale(1.9);
+				}
 
-						100% {
-							opacity: .7;
-						}
-					}
+				.sub-aura-container {
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    opacity: .75;
+				    filter: contrast(2) saturate(0.2);
+				    transform: translate(50%, 50%);
+				}
 
-					@keyframes grayarrowanimateThree {
-						0% {
-							opacity: .7;
-						}
+				.aura-object-one {
+				    height: 310px;
+				    width: 310px;
+				    background: #ffffff;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    filter: blur(32px);
+				    -webkit-filter: blur(32px);
+				    -moz-filter: blur(32px);
+				    border-radius: 50%;
+				}
 
-						50% {
-							opacity: .2;
-						}
+				.aura-object-two {
+					height: 120px;
+				    width: 120px;
+				    position: absolute;
+				    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+				    filter: saturate(1.3) blur(33px);
+				    -webkit-filter: saturate(1.3) blur(33px);
+				    top: 50%;
+				    left: 50%;
+				    opacity: .7;
+				    animation: grayarrowanimateTwo 5.14s infinite linear;
+				    overflow: hidden;
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border: 55px solid #74b1e7;
+				    z-index: 2;
+				}
 
-						100% {
-							opacity: .7;
-						}
-					}
+				.aura-object-three {
+				    height: 260px;
+				    width: 260px;
+				    background: #fefeff;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    filter: blur(47px);
+				    -webkit-filter: blur(47px);
+				    -moz-filter: blur(47px);
+				    border-radius: 50%;
+				}
 
-					.blackaura {
-						-webkit-filter: blur(14px);
-						opacity: .82;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%) scale(1.9);
-					}
+				.aura-object-four {
+				    height: 150px;
+				    width: 150px;
+				    background: #818999;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    animation: grayarrowanimateThree 5.14s infinite linear;
+				    transform: translate(-50%, -50%);
+				    filter: blur(17px);
+				    -webkit-filter: blur(17px);
+				    -moz-filter: blur(17px);
+				    border-radius: 50%;
+				}
 
-					.lightaura {
-						-webkit-filter: blur(14px);
-						opacity: .82;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%) scale(1.9);
-					}
+				.aura-moving-object-one {
+				    height: 150px;
+				    width: 150px;
+				    background: #7171715e;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(3.5);
+				    filter: blur(43px);
+				    -webkit-filter: blur(43px);
+				    -moz-filter: blur(43px);
+				    border-radius: 50%;
+				}
 
-					.sub-aura-container {
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    opacity: .75;
-					    filter: contrast(2) saturate(0.2);
-					    transform: translate(50%, 50%);
-					}
+				.aura-moving-object-two {
+				    height: 150px;
+				    width: 150px;
+				    background: #677883;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    animation: backgroundMoveTwo 4.14s ease infinite;
+				    filter: blur(59px);
+				    -webkit-filter: blur(59px);
+				    -moz-filter: blur(59px);
+				    border-radius: 50%;
+				}
 
-					.aura-object-one {
-					    height: 310px;
-					    width: 310px;
-					    background: #ffffff;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%);
-					    animation: grayarrowanimateThree 5.14s infinite linear;
-					    filter: blur(32px);
-					    -webkit-filter: blur(32px);
-					    -moz-filter: blur(32px);
-					    border-radius: 50%;
-					}
+				.lightaura-emphasis {
+					-webkit-filter: blur(10px) contrast(.5);
+				    opacity: 1;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%) scale(1.57);
+				}
 
-					.aura-object-two {
-						height: 120px;
-					    width: 120px;
-					    position: absolute;
-					    transform: translate(-50%, -50%) translate3d(0, 0, 0);
-					    filter: saturate(1.3) blur(33px);
-					    -webkit-filter: saturate(1.3) blur(33px);
-					    top: 50%;
-					    left: 50%;
-					    opacity: .7;
-					    animation: grayarrowanimateTwo 5.14s infinite linear;
-					    overflow: hidden;
-					    -webkit-border-radius: 50%;
-					    -moz-border-radius: 50%;
-					    border: 55px solid #74b1e7;
-					    z-index: 2;
-					}
+				.mobile-video-btns-container {
+					position: absolute;
+					right: 0;
+					bottom: 0; 
+					display: flex; 
+					gap: 15px;
+				}
+			</style>
 
-					.aura-object-three {
-					    height: 260px;
-					    width: 260px;
-					    background: #fefeff;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%);
-					    animation: grayarrowanimateThree 5.14s infinite linear;
-					    filter: blur(47px);
-					    -webkit-filter: blur(47px);
-					    -moz-filter: blur(47px);
-					    border-radius: 50%;
-					}
+			<div id="aura-container" onclick="videoTogglePlay();">
 
-					.aura-object-four {
-					    height: 150px;
-					    width: 150px;
-					    background: #818999;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    animation: grayarrowanimateThree 5.14s infinite linear;
-					    transform: translate(-50%, -50%);
-					    filter: blur(17px);
-					    -webkit-filter: blur(17px);
-					    -moz-filter: blur(17px);
-					    border-radius: 50%;
-					}
+			    <div class="blackaura">
+			    	<div class="squareflashing" id="touchpress1" style="background-color: black;">
+			    	</div>
+			    </div>
+				
+			    <div class="lightaura">
+			    	<div class="squareflashing" id="touchpress2">
+			    	</div>
+			    </div>
 
-					.aura-moving-object-one {
-					    height: 150px;
-					    width: 150px;
-					    background: #7171715e;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%) scale(3.5);
-					    filter: blur(43px);
-					    -webkit-filter: blur(43px);
-					    -moz-filter: blur(43px);
-					    border-radius: 50%;
-					}
+				<div class="sub-aura-container">
 
-					.aura-moving-object-two {
-					    height: 150px;
-					    width: 150px;
-					    background: #677883;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%);
-					    animation: backgroundMoveTwo 4.14s ease infinite;
-					    filter: blur(59px);
-					    -webkit-filter: blur(59px);
-					    -moz-filter: blur(59px);
-					    border-radius: 50%;
-					}
+					<div class="aura-object-one"></div>
+					<div class="aura-object-two"></div>
+					<div class="aura-object-three"></div>
+					<div class="aura-object-four"></div>
 
-					.lightaura-emphasis {
-						-webkit-filter: blur(10px) contrast(.5);
-					    opacity: 1;
-					    position: absolute;
-					    top: 50%;
-					    left: 50%;
-					    transform: translate(-50%, -50%) scale(1.57);
-					}
+					<!-- MOVING PARTS -->
+				    <div class="aura-moving-object-one"></div>
+				    <div class="aura-moving-object-two"></div>
 
-					.mobile-video-btns-container {
-						position: absolute;
-						right: 0;
-						bottom: 0; 
-						display: flex; 
-						gap: 15px;
-					}
-				</style>
-
-				<div id="aura-container" onclick="videoTogglePlay();">
-
-				    <div class="blackaura">
-				    	<div class="squareflashing" id="touchpress1" style="background-color: black;">
+				    <div class="lightaura-emphasis">
+				    	<div class="squareflashing" id="touchpress3">
 				    	</div>
 				    </div>
-					
-				    <div class="lightaura">
-				    	<div class="squareflashing" id="touchpress2">
-				    	</div>
-				    </div>
-
-					<div class="sub-aura-container">
-
-						<div class="aura-object-one"></div>
-						<div class="aura-object-two"></div>
-						<div class="aura-object-three"></div>
-						<div class="aura-object-four"></div>
-
-						<!-- MOVING PARTS -->
-					    <div class="aura-moving-object-one"></div>
-					    <div class="aura-moving-object-two"></div>
-
-					    <div class="lightaura-emphasis">
-					    	<div class="squareflashing" id="touchpress3">
-					    	</div>
-					    </div>
-					</div>
 				</div>
+			</div>
 
 
-		        <button id="invisible-full-playbtn"></button>
+	        <button id="invisible-full-playbtn"></button>
 
-		        <div class="testing-container">
-					
-					<div class="video-profile-box-container" onclick="videoTogglePlay()">
-
-
+	        <div class="testing-container">
+				
+				<div class="video-profile-box-container" onclick="videoTogglePlay()">
 
 
-						<div class="profileblur-picture-container">
-							<div class="blurpicture-container">
 
-								<div class="blurpictureSvgPath">
-								  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="blur-picture" preload="auto" >
-								</div>
-							</div>
 
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="151.5px" viewBox="0 0 200 151.5" class="goldenratioSvgBlur" xml:space="preserve">
-								<defs></defs>
-								<clipPath id="profilePicturesvgPath">
-									<path d="M0,0v151.5h200V0H0z M163.56,115.04H36.45V36.45h127.11V115.04z"/>
-								</clipPath>
-							</svg>
+					<div class="profileblur-picture-container">
+						<div class="blurpicture-container">
 
-							<div class="profileblur-regular-picture">
-								<img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profileblur-img" preload="auto"> 
-								</img>
+							<div class="blurpictureSvgPath">
+							  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="blur-picture" preload="auto" >
 							</div>
 						</div>
 
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="151.5px" viewBox="0 0 200 151.5" class="goldenratioSvgBlur" xml:space="preserve">
+							<defs></defs>
+							<clipPath id="profilePicturesvgPath">
+								<path d="M0,0v151.5h200V0H0z M163.56,115.04H36.45V36.45h127.11V115.04z"/>
+							</clipPath>
+						</svg>
+
+						<div class="profileblur-regular-picture">
+							<img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profileblur-img" preload="auto"> 
+							</img>
+						</div>
+					</div>
 
 
-				        <div class="video-text-title-container">
-				        	<div class="video-text-title-wrapper">
-					            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
-					            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
-					            <div style="display: flex; gap: 4px;">
-					            	<span class="video-gray-arrow"> ></span> 
-					            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
-					            </div>
-					            
-					            <div class="guerin-status-indicator">
-									<p class="additional-video-secondary-accent-text video-play-icon"> PAUSED </p> 
-									<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
-									<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
-									 height="14.61px" viewBox="0 0 19.05 14.61"
-									 xml:space="preserve">
-										<defs></defs>
-										<g>
-											<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
-											<polygon points="17.07,7.31 19.05,9.29 18.05,10.29 16.07,8.31 14.08,10.29 13.08,9.29 15.07,7.31 13.08,5.32 14.08,4.32 
-											  16.07,6.31 18.05,4.32 19.05,5.32  "/>
-										</g>
-									</svg>
-					            </div>
 
-					            <div class="guerin-video-social-icons">
-									<div style="display: inline-block;">
-										<a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
-											<button type="submit" class="video-general-social-btn" style="background: rgb(0, 0, 0, .12); color: black;">DESIGNER 
+			        <div class="video-text-title-container">
+			        	<div class="video-text-title-wrapper">
+				            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
+				            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
+				            <div style="display: flex; gap: 4px;">
+				            	<span class="video-gray-arrow"> ></span> 
+				            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
+				            </div>
+				            
+				            <div class="guerin-status-indicator">
+								<p class="additional-video-secondary-accent-text video-play-icon"> PAUSED </p> 
+								<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
+								<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
+								 height="14.61px" viewBox="0 0 19.05 14.61"
+								 xml:space="preserve">
+									<defs></defs>
+									<g>
+										<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
+										<polygon points="17.07,7.31 19.05,9.29 18.05,10.29 16.07,8.31 14.08,10.29 13.08,9.29 15.07,7.31 13.08,5.32 14.08,4.32 
+										  16.07,6.31 18.05,4.32 19.05,5.32  "/>
+									</g>
+								</svg>
+				            </div>
 
-												<svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" style="overflow:visible;enable-background:new 0 0 10 10;" xml:space="preserve">
-													<defs></defs>
-													<g>
-													<polygon style="fill: black;" points="10,5.52 6.25,5.52 8.9,8.17 8.17,8.9 5.52,6.25 5.52,10 4.48,10 4.48,6.25 1.83,8.9 1.1,8.17 
-													3.75,5.52 0,5.52 0,4.48 3.75,4.48 1.1,1.83 1.83,1.1 4.48,3.75 4.48,0 5.52,0 5.52,3.75 8.17,1.1 8.9,1.83 6.25,4.48 10,4.48 	"/>
-													</g>
-												</svg>
-											</button>
-										</a>
-									</div>
+				            <div class="guerin-video-social-icons">
+								<div style="display: inline-block;">
+									<a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
+										<button type="submit" class="video-general-social-btn" style="background: rgb(0, 0, 0, .12); color: black;">DESIGNER 
 
-									<div style="display: inline-block;">
-
-										<button type="submit" class="video-general-social-btn" style="background: rgb(68, 79, 255, .12); color: #2D00FF;" >.ETH 
-
-											<svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
+											<svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" style="overflow:visible;enable-background:new 0 0 10 10;" xml:space="preserve">
 												<defs></defs>
 												<g>
-													<polygon style="fill: #2D00FF;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
-													<rect x="7.89" y="6.58" style="fill: #2D00FF;" width="6.58" height="1.32"></rect>
+												<polygon style="fill: black;" points="10,5.52 6.25,5.52 8.9,8.17 8.17,8.9 5.52,6.25 5.52,10 4.48,10 4.48,6.25 1.83,8.9 1.1,8.17 
+												3.75,5.52 0,5.52 0,4.48 3.75,4.48 1.1,1.83 1.83,1.1 4.48,3.75 4.48,0 5.52,0 5.52,3.75 8.17,1.1 8.9,1.83 6.25,4.48 10,4.48 	"/>
 												</g>
 											</svg>
 										</button>
-									</div>
-					            </div>
-				            </div>
+									</a>
+								</div>
 
-				        </div>
+								<div style="display: inline-block;">
 
-				        <div class="video-logo-box-container" onclick="videoTogglePlay();">
-					        <div class="video-logo-box-wrapper">
-								<!-- LOGO shadow -->
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px"
-								 height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo-shadow" xml:space="preserve">
-									<defs></defs>
-									<g style="fill:#000000; opacity:0.1369;" id="goatedtwo">
-									    <rect y="86.48" width="10.8" height="32.43"/>
-									    <polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
-									      10.8,64.86 97.28,64.86 97.28,75.66  "/>
-									    <polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
-									      21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9   "/>
-									    <rect x="108.09" width="10.81" height="32.44"/>
-									</g>
-								</svg>
+									<button type="submit" class="video-general-social-btn" style="background: rgb(68, 79, 255, .12); color: #2D00FF;" >.ETH 
 
-								<!-- guerin LOGO -->
-								<svg id="goated" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px" height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo" xml:space="preserve">
-									<defs></defs>
-									<g style="fill:#FFFFFF; opacity:0.64;">
-										<rect y="86.48" width="10.8" height="32.43"/>
-										<polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
-										  10.8,64.86 97.28,64.86 97.28,75.66"/>
-										<polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
-										  21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9"/>
-										<rect x="108.09" width="10.81" height="32.44"/>
-									</g>
-								</svg>
-
-						        <div id="video-hiding-timer" class="video-yearvis-timer">
-
-						        	<!-- CONTAINER TEN-MINUTES TOP LEFT -->
-						            <div id="container-video-tenminutes-top-left"> 
-
-										<!-- NUMBER 0 TOP LEFT -->
-										<div id="zero-video-tenminutes-top-left" style=" display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											    <defs></defs>
-											    <path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 1 TOP LEFT -->
-										<div id="one-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-												  20.18,0 20.18,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 2 TOP LEFT -->
-										<div id="two-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 3 TOP LEFT  -->
-										<div id="three-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 4 TOP LEFT  -->
-										<div id="four-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 5 TOP LEFT  -->
-										<div id="five-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 6 TOP LEFT  -->
-										<div id="six-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 7 TOP LEFT  -->
-										<div id="seven-video-tenminutes-top-left" style="display: none;"> 
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 8 TOP LEFT  -->
-										<div id="eight-video-tenminutes-top-left" style="display: none;">
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 9 TOP LEFT  -->
-										<div id="nine-video-tenminutes-top-left" style="display: none;">
-											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-						            </div>
-
-
-						        	<!-- CONTAINER MINUTES TOP RIGHT -->
-						            <div id="container-video-minutes-top-right"> 
-
-										<!-- NUMBER 0 TOP RIGHT -->
-										<div id="zero-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 1 TOP RIGHT -->
-										<div id="one-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-												  20.18,0 20.18,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 2 TOP RIGHT -->
-										<div id="two-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 3 TOP RIGHT  -->
-										<div id="three-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
-											   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 4 TOP RIGHT  -->
-										<div id="four-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 5 TOP RIGHT  -->
-										<div id="five-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 6 TOP RIGHT  -->
-										<div id="six-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 7 TOP RIGHT  -->
-										<div id="seven-video-minutes-top-right" style="display: none;"> 
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
-											   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 8 TOP RIGHT  -->
-										<div id="eight-video-minutes-top-right" style="display: none;">
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 9 TOP RIGHT  -->
-										<div id="nine-video-minutes-top-right" style="display: none;">
-											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-						            </div>
-
-
-						        	<!-- CONTAINER TEN-SECONDS BOTTOM LEFT -->
-						            <div id="container-video-tenseconds-bottom-left"> 
-
-										<!-- NUMBER 0 BOTTOM LEFT -->
-										<div id="zero-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 1 BOTTOM LEFT -->
-										<div id="one-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-												  20.18,0 20.18,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 2 BOTTOM LEFT -->
-										<div id="two-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 3 BOTTOM LEFT  -->
-										<div id="three-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 4 BOTTOM LEFT  -->
-										<div id="four-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 5 BOTTOM LEFT  -->
-										<div id="five-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 6 BOTTOM LEFT  -->
-										<div id="six-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 7 BOTTOM LEFT  -->
-										<div id="seven-video-tenseconds-bottom-left" style="display: none;"> 
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 8 BOTTOM LEFT  -->
-										<div id="eight-video-tenseconds-bottom-left" style="display: none;">
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 9 BOTTOM LEFT  -->
-										<div id="nine-video-tenseconds-bottom-left" style="display: none;">
-											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-						            </div>
-
-
-						        	<!-- CONTAINER SECONDS BOTTOM RIGHT -->
-						            <div id="container-video-seconds-bottom-right"> 
-
-										<!-- NUMBER 0 BOTTOM RIGHT -->
-										<div id="zero-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 1 BOTTOM RIGHT -->
-										<div id="one-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-												  20.18,0 20.18,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 2 BOTTOM RIGHT -->
-										<div id="two-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 3 BOTTOM RIGHT  -->
-										<div id="three-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 4 BOTTOM RIGHT  -->
-										<div id="four-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 5 BOTTOM RIGHT  -->
-										<div id="five-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 6 BOTTOM RIGHT  -->
-										<div id="six-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 7 BOTTOM RIGHT  -->
-										<div id="seven-video-seconds-bottom-right" style="display: none;"> 
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 8 BOTTOM RIGHT  -->
-										<div id="eight-video-seconds-bottom-right" style="display: none;">
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-												<defs></defs>
-												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-											</svg>
-										</div>
-
-										<!-- NUMBER 9 BOTTOM RIGHT  -->
-										<div id="nine-video-seconds-bottom-right" style="display: none;">
-											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-												<defs></defs>
-												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-											</svg>
-										</div>
-						            </div>
-						        </div>
-				        	</div>
-				        </div>
-			        </div>
-		    	</div>
-
-
-		      
-		        <div id="video-whiteblur" style="z-index: 1;"></div>
-
-		        <div class="video-aura-container" style="z-index: 1;" onclick="videoTogglePlay()">
-		          
-					<img class="video-aura-thumbnail">
-					<img id="aura-element" class="video-aura">
-		        </div>  
-
-
-
-		        <div id="gVideoContainerID" class="guerin-video-controls-container">
-
-		    		<div class="guerin-controls">
-
-			            <button class="play-pause-btn">
-
-							<svg class="video-play-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.19px" height="21px" viewBox="0 0 18.19 21" xml:space="preserve"><defs></defs><polygon points="0,10.5 0,0 9.09,5.25 18.19,10.5 9.09,15.75 0,21 "/>
-							</svg>
-
-							<svg class="video-pause-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.64px" height="21px" viewBox="0 0 17.64 21" xml:space="preserve"><defs></defs><g><rect width="5.88" height="21"/><rect x="11.76" width="5.88" height="21"/></g>
-							</svg>
-			            </button>
-
-			            <div class="video-volume-container hidethese">
-
-							<button class="mute-btn">
-
-								<svg class="video-volume-high-icon" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
-								</svg>
-
-								<svg class="video-volume-low-icon" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" />
-								</svg>
-
-								<svg class="video-volume-muted-icon" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" />
-								</svg>
-
-							</button>
-
-							<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
-			            </div>
-
-			            <div class="video-duration-container">
-							<p class="video-progress-text">
-								<span class="current-time">
-									0:00
-								</span> 
-								| 
-								<span class="total-time">
-									0:00
-								</span>
-
-
-								<g class="mobile-video-btns-container">
-								  <button class="aurascript-btn">
-
-
-
-
-
-						    <style>
-						      #aurascriptMobileBtn-fill {
-						        fill: transparent;
-						      }
-
-						      .aurascriptMobileBtn-blur {
-										height: 30px;
-								    width: 30px;
-								    filter: blur(8px);
-								    position: absolute;
-								    z-index: -1;
-								    left: 50%;
-								    top: 50%;
-								    transform: translate(-50%,-50%);
-						      }
-
-									#aurablurMobile-opacity {
-										transition: opacity 250ms ease-in-out;
-										opacity: 0;
-									}
-
-						    </style>
-
-								<!-- aurascript button -->
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
-									<defs></defs>
-								  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
-								  <g id="aurascriptMobileBtn-fill">
-									  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
-									  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
-									  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
-									</g>
-								</svg>
-
-
-
-
-								<!-- blur -->
-								<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
-								  <rect width="27" height="27"/>
-								</svg>
-
-
-
-
-
-
-
-
-									</button>
-
-									<button class="mobile-full-screen-btn">
-										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
-											 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
+										<svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
 											<defs></defs>
 											<g>
-												<rect y="15.96" width="18.41" height="11.04"/>
-												<polygon points="27,0 27,21.48 22.09,21.48 22.09,12.28 14.73,12.28 14.73,0"/>
-
-												<polygon points="5.89,2.03 5.89,8.42 6.25,8.05 7.51,6.81 8.75,5.55 10.01,6.81 8.75,8.05 7.51,9.31 6.25,10.55 5.01,11.81 0.01,6.81 1.25,5.55 2.51,6.81 3.75,8.05 4.12,8.42 4.12,0.26 11.19,0.26 11.19,2.03"/>
+												<polygon style="fill: #2D00FF;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+												<rect x="7.89" y="6.58" style="fill: #2D00FF;" width="6.58" height="1.32"></rect>
 											</g>
 										</svg>
 									</button>
-								</g>
-							</p>
-
-							<div class="video-timeline-container">
-								<div id="timeline-element" class="guerin-video-timeline">
-								  <div class="video-thumb-indicator"></div>
 								</div>
-							</div>
+				            </div>
 			            </div>
 
-			            <div class="hidethese">
-							<button class="guerin-video-captions-btn">
-								<svg viewBox="0 0 24 24">
-									<path fill="currentColor" d="M18,11H16.5V10.5H14.5V13.5H16.5V13H18V14A1,1 0 0,1 17,15H14A1,1 0 0,1 13,14V10A1,1 0 0,1 14,9H17A1,1 0 0,1 18,10M11,11H9.5V10.5H7.5V13.5H9.5V13H11V14A1,1 0 0,1 10,15H7A1,1 0 0,1 6,14V10A1,1 0 0,1 7,9H10A1,1 0 0,1 11,10M19,4H5C3.89,4 3,4.89 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6C21,4.89 20.1,4 19,4Z" />
-								</svg>
-							</button>
+			        </div>
 
-							<button class="speed-btn wide-btn">
-								<span>
-									1x
-								</span>
-							</button>
-
-							<button class="mini-player-btn">
-								<svg viewBox="0 0 24 24">
-									<path fill="currentColor" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
-								</svg>
-							</button>
-
-							<button class="theater-btn">
-								<svg class="tall" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
-								</svg>
-
-								<svg class="wide" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
-								</svg>
-							</button>
-			            </div>
-
-					    <button class="desktop-aurascript-btn" style="width: 25px;">
-							
-
-						    <style>
-						      #aurascriptBtn-fill {
-						        fill: transparent;
-						      }
-
-						      .aurascriptBtn-blur {
-										height: 26px;
-								    width: 26px;
-								    filter: blur(8px);
-								    position: absolute;
-								    z-index: -1;
-								    left: 50%;
-								    top: 50%;
-								    transform: translate(-50%,-50%);
-						      }
-
-									#aurablur-opacity {
-										transition: opacity 250ms ease-in-out;
-										opacity: 0;
-									}
-
-						    </style>
-
-								<!-- aurascript button -->
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" style="height: 23px; width: 23px;" xml:space="preserve">
-									<defs></defs>
-								  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
-								  <g id="aurascriptBtn-fill">
-									  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
-									  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
-									  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
-									</g>
-								</svg>
-
-
-								<!-- blur -->
-								<svg id="aurablur-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptBtn-blur">
-								  <rect width="27" height="27"/>
-								</svg>
-
-							</button>
-
-
-
-
-
-
-
-
-
-			            <button class="full-screen-btn">
-
-				            <svg class="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
-				              	<defs></defs>
-				              	<g>
-				              		<polygon points="42.49,30.9 42.49,42.5 38.63,42.5 38.63,42.49 30.91,42.49 30.91,38.63 38.63,38.63 38.63,30.9   "/>
-				              		<polygon points="11.58,38.63 11.58,42.49 3.87,42.49 3.87,42.5 0,42.5 0,30.91 3.87,30.91 3.87,38.63   "/>
-				              		<polygon points="42.49,0.01 42.49,11.58 38.63,11.58 38.63,3.87 30.9,3.87 30.9,0 38.63,0 38.63,0.01   "/>
-				              		<polygon points="11.58,0 11.58,3.87 3.87,3.87 3.87,11.58 0,11.58 0,0.01 3.87,0.01 3.87,0   "/>
-				              	</g>
-				            </svg>
-
-				            <svg class="close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+			        <div class="video-logo-box-container" onclick="videoTogglePlay();">
+				        <div class="video-logo-box-wrapper">
+							<!-- LOGO shadow -->
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px"
+							 height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo-shadow" xml:space="preserve">
 								<defs></defs>
-								<g>
-									<polygon points="30.91,42.5 30.91,30.9 34.77,30.9 34.77,30.9 42.49,30.9 42.49,34.76 34.77,34.76 34.77,42.5  "/>
-									<polygon points="0,34.78 0,30.92 7.71,30.92 7.71,30.91 11.58,30.91 11.58,42.5 7.71,42.5 7.71,34.78  "/>
-									<polygon points="30.9,11.57 30.9,0 34.76,0 34.76,7.71 42.49,7.71 42.49,11.58 34.76,11.58 34.76,11.57  "/>
-									<polygon points="0,11.58 0,7.71 7.71,7.71 7.71,0 11.58,0 11.58,11.57 7.71,11.57 7.71,11.58  "/>
+								<g style="fill:#000000; opacity:0.1369;" id="goatedtwo">
+								    <rect y="86.48" width="10.8" height="32.43"/>
+								    <polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+								      10.8,64.86 97.28,64.86 97.28,75.66  "/>
+								    <polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+								      21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9   "/>
+								    <rect x="108.09" width="10.81" height="32.44"/>
 								</g>
-				            </svg>
-			            </button>
+							</svg>
 
-		            </div>
+							<!-- guerin LOGO -->
+							<svg id="goated" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px" height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo" xml:space="preserve">
+								<defs></defs>
+								<g style="fill:#FFFFFF; opacity:0.64;">
+									<rect y="86.48" width="10.8" height="32.43"/>
+									<polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+									  10.8,64.86 97.28,64.86 97.28,75.66"/>
+									<polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+									  21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9"/>
+									<rect x="108.09" width="10.81" height="32.44"/>
+								</g>
+							</svg>
+
+					        <div id="video-hiding-timer" class="video-yearvis-timer">
+
+					        	<!-- CONTAINER TEN-MINUTES TOP LEFT -->
+					            <div id="container-video-tenminutes-top-left"> 
+
+									<!-- NUMBER 0 TOP LEFT -->
+									<div id="zero-video-tenminutes-top-left" style=" display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+										    <defs></defs>
+										    <path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 TOP LEFT -->
+									<div id="one-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 TOP LEFT -->
+									<div id="two-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 TOP LEFT  -->
+									<div id="three-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 TOP LEFT  -->
+									<div id="four-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 TOP LEFT  -->
+									<div id="five-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 TOP LEFT  -->
+									<div id="six-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 TOP LEFT  -->
+									<div id="seven-video-tenminutes-top-left" style="display: none;"> 
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 TOP LEFT  -->
+									<div id="eight-video-tenminutes-top-left" style="display: none;">
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 TOP LEFT  -->
+									<div id="nine-video-tenminutes-top-left" style="display: none;">
+										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER MINUTES TOP RIGHT -->
+					            <div id="container-video-minutes-top-right"> 
+
+									<!-- NUMBER 0 TOP RIGHT -->
+									<div id="zero-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 TOP RIGHT -->
+									<div id="one-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 TOP RIGHT -->
+									<div id="two-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 TOP RIGHT  -->
+									<div id="three-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 TOP RIGHT  -->
+									<div id="four-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 TOP RIGHT  -->
+									<div id="five-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 TOP RIGHT  -->
+									<div id="six-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 TOP RIGHT  -->
+									<div id="seven-video-minutes-top-right" style="display: none;"> 
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 TOP RIGHT  -->
+									<div id="eight-video-minutes-top-right" style="display: none;">
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 TOP RIGHT  -->
+									<div id="nine-video-minutes-top-right" style="display: none;">
+										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER TEN-SECONDS BOTTOM LEFT -->
+					            <div id="container-video-tenseconds-bottom-left"> 
+
+									<!-- NUMBER 0 BOTTOM LEFT -->
+									<div id="zero-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 BOTTOM LEFT -->
+									<div id="one-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 BOTTOM LEFT -->
+									<div id="two-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 BOTTOM LEFT  -->
+									<div id="three-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 BOTTOM LEFT  -->
+									<div id="four-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 BOTTOM LEFT  -->
+									<div id="five-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 BOTTOM LEFT  -->
+									<div id="six-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 BOTTOM LEFT  -->
+									<div id="seven-video-tenseconds-bottom-left" style="display: none;"> 
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 BOTTOM LEFT  -->
+									<div id="eight-video-tenseconds-bottom-left" style="display: none;">
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 BOTTOM LEFT  -->
+									<div id="nine-video-tenseconds-bottom-left" style="display: none;">
+										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+
+
+					        	<!-- CONTAINER SECONDS BOTTOM RIGHT -->
+					            <div id="container-video-seconds-bottom-right"> 
+
+									<!-- NUMBER 0 BOTTOM RIGHT -->
+									<div id="zero-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 1 BOTTOM RIGHT -->
+									<div id="one-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+											  20.18,0 20.18,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 2 BOTTOM RIGHT -->
+									<div id="two-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 3 BOTTOM RIGHT  -->
+									<div id="three-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 4 BOTTOM RIGHT  -->
+									<div id="four-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 5 BOTTOM RIGHT  -->
+									<div id="five-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 6 BOTTOM RIGHT  -->
+									<div id="six-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 7 BOTTOM RIGHT  -->
+									<div id="seven-video-seconds-bottom-right" style="display: none;"> 
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 8 BOTTOM RIGHT  -->
+									<div id="eight-video-seconds-bottom-right" style="display: none;">
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+											<defs></defs>
+											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+										</svg>
+									</div>
+
+									<!-- NUMBER 9 BOTTOM RIGHT  -->
+									<div id="nine-video-seconds-bottom-right" style="display: none;">
+										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											<defs></defs>
+											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+										</svg>
+									</div>
+					            </div>
+					        </div>
+			        	</div>
+			        </div>
 		        </div>
 	    	</div>
 
 
+	      
+	        <div id="video-whiteblur" style="z-index: 1;"></div>
 
-				<style type="text/css">
-							.aurascript-container {
-									position: absolute;
-									font-family: 'Source Code Pro', monospace;
-									/* overflow-y: hidden; */
-									bottom: 50px;
-									left: 50%;
-									transform: translateX(-50%);
-									text-align: center;
-									display: none;
-									height: 70px;
-									align-items: center;
-									/* width: 380px; */
-									z-index: 0;
-									transition: all 250ms ease-in-out;
-							}
-
-							.aurascript-text {
-								width: 100%;
-								color: #ff0000;
-								font-weight: 600;
-								text-shadow: #6a6a6a 0px 0px 1px;
-							    /* -webkit-text-stroke: black 0.1px; */
-							    transition: color 120ms ease-in-out;
-							}
+	        <div class="video-aura-container" style="z-index: 1;" onclick="videoTogglePlay()">
+	          
+				<img class="video-aura-thumbnail">
+				<img id="aura-element" class="video-aura">
+	        </div>  
 
 
-							.aurascript-container .lyrics:before {
-								opacity: 0;
-							}
 
-							.aurascript-container .aurascript:after {
-								opacity: 1;
-							}
+	        <div id="gVideoContainerID" class="guerin-video-controls-container">
 
-							.aurascript-arrow {
-								color: #626262;
-								display: none;
-							}
+	    		<div class="guerin-controls">
 
-							.aurascript {
-								font-size: 17.5px;
-							}
+		            <button class="play-pause-btn">
 
-							.blinking-aurascript-cursor::after {
-								height: 13px;
-								width: 6px;
-								content: "";
-								display: inline-block;
-								margin-left: -3px;
-								margin-bottom: -2px;
-								background-color: #c7c7c7;
-								animation: auraBlink 0.9s steps(2, start) infinite;
-								display: none;
-							}
+						<svg class="video-play-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.19px" height="21px" viewBox="0 0 18.19 21" xml:space="preserve"><defs></defs><polygon points="0,10.5 0,0 9.09,5.25 18.19,10.5 9.09,15.75 0,21 "/>
+						</svg>
 
+						<svg class="video-pause-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.64px" height="21px" viewBox="0 0 17.64 21" xml:space="preserve"><defs></defs><g><rect width="5.88" height="21"/><rect x="11.76" width="5.88" height="21"/></g>
+						</svg>
+		            </button>
 
-							@keyframes auraBlink {
-								0% {
-									opacity: 1;
-								}
-								49% {
-									opacity: 1;
-								}
-								50% {
-									opacity: 0;
-								}
-								100% {
-									opacity: 0;
-								}
-							}
-					</style>
+		            <div class="video-volume-container hidethese">
 
-					<div class="aurascript-container">
-						<p class="aurascript-text"> 
-							<span class="aurascript-arrow"> > </span>
-							<span class="aurascript" style="display: none;">
-								07.030 | New kung fu kenny
-								10.030 | Ain't nobody prayin' for me
-								13.030 | Y'all know, what happens on earth stays on earth
-								17.470 | Here we go!
-								18.830 | I don't give a ****, I don't give a ****
-								20.530 | I don't give a, I don't give a, I don't give a ****
-								23.800 | I'm willin' to die for this ****
-								25.400 | I done cried for this ****, might take a life for this ****
-								27.870 | Put the bible down and go eye for an eye for this ****
-								30.330 | D.o.t. My enemy, won't catch a vibe for this ****, ayy
-								34.030 | I been stomped out in front of my mama
-								36.370 | My daddy commissary made it to commas
-								38.970 | *****, all my grandmas dead
-								40.570 | So ain't nobody prayin' for me, I'm on your head, ayy
-								43.970 | Thirty millions later, know the feds watchin'
-								46.130 | Auntie on my telegram, like, "be cautious!"
-								48.800 | I be hangin' out at tam's, I be on stockton
-								51.130 | I don't do it for the 'gram, I do it for compton
-								54.030 | I'm willin' to die for this ****, *****
-								56.400 | I'll take your ******' life for this ****, *****
-								58.970 | We ain't goin' back to broke, family sellin' ****
-								61.100 | That's why you maney-ass rap ****** better know
-								65.100 | If I gotta slap a *****-ass *****, I'ma make it look ****
-								70.070 | If I gotta go hard on a *****, I'ma make it look ****
-								75.430 | I pull up, hop out, air out, made it look ****
-								79.830 | They won't take me out my element
-								81.600 | Nah, take me out my element
-								83.030 | I'm allergic to a ***** *****, ayy
-								84.800 | An imaginary rich *****, ayy
-								86.800 | Seven figures, hoe, that slimmer than my ***** figure, ayy
-								89.130 | Goin' digital and physical on all y'all, ayy
-								91.900 | Bunch of criminals and money in my phone calls, ayy
-								94.370 | We okay, we let the a1 fly
-								97.000 | Relocate, jump on the same g5
-								99.500 | Checkin' for me heavy 'cause I go yeah, I go yeah
-								102.100 | They never been ready yeah, I know yeah, I know yeah
-								104.570 | 100K ****** across the floor, 'cross the floor, yeah
-								107.130 | None of y'all ******' with the flow yeah, the flow yeah
-								109.830 | Years in the makin', and don't y'all mistake it
-								111.970 | I got 'em by a landslide, we talkin' about races
-								114.400 | You know this'll never be a tie, just look at their laces
-								116.830 | You know careers take off, just gotta be patient
-								119.430 | Mr. One through five, that's the only logic
-								121.970 | Fake my death, go to cuba, that's the only option
-								125.900 | If I gotta slap a *****-ass *****, I'ma make it look ****
-								130.830 | If I gotta go hard on a *****, I'ma make it look ****
-								135.870 | I pull up, hop out, air out, made it look ****
-								140.400 | They won't take me out my element
-								142.070 | Nah, take me out my element
-								144.500 | Damned if I do, if I don't (yuhhh)
-								147.000 | ******* us all if you won't (yuhhh)
-								149.430 | Damn, damn, damn, it's a ******* shame
-								151.600 | You ain't frontline, get out the ******* way
-								154.800 | ****** thought they wasn't gonna see me, huh?
-								156.570 | ****** thought that k-dot real life
-								158.000 | Was the same life they see on tv, huh?
-								159.970 | ****** wanna flex on me and be in l.a. For free, huh?
-								162.400 | Next time they hit the 10 freeway, we need receipt, huh?
-								164.970 | 'Cause most of y'all ain't real
-								166.400 | Most of y'all gon' squeal
-								167.970 | Most of y'all just envy, but jealousy get you killed
-								170.030 | Most of y'all throw rocks and try to hide your hand
-								172.430 | Just say his name and I promise that you'll see candyman
-								174.900 | Because it's all in your eyes, most of y'all tell lies
-								177.570 | Most of y'all don't fade, most of y'all been advised
-								180.200 | Last lp I tried to lift the black artists
-								182.430 | But it's a difference between black artists and wack artists
-								186.970 | If I gotta slap a *****-ass *****, I'ma make it look ****
-								191.130 | It's the one and only, the world's greatest, the kid *****
-								193.330 | If I gotta go hard on a *****, I'ma make it look ****
-								199.870 | I pull up, hop out, air out, made it look ****
-								205.070 | They won't take me out my element
-								207.600 | Nah, take me out my element
+						<button class="mute-btn">
+
+							<svg class="video-volume-high-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+							</svg>
+
+							<svg class="video-volume-low-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" />
+							</svg>
+
+							<svg class="video-volume-muted-icon" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" />
+							</svg>
+
+						</button>
+
+						<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
+		            </div>
+
+		            <div class="video-duration-container">
+						<p class="video-progress-text">
+							<span class="current-time">
+								0:00
+							</span> 
+							| 
+							<span class="total-time">
+								0:00
 							</span>
-							<span class="blinking-aurascript-cursor"></span> 
-						</p> 
-					</div>
 
-	    </div>
+
+							<g class="mobile-video-btns-container">
+							  <button class="aurascript-btn">
+
+
+
+
+
+					    <style>
+					      #aurascriptMobileBtn-fill {
+					        fill: transparent;
+					      }
+
+					      .aurascriptMobileBtn-blur {
+									height: 30px;
+							    width: 30px;
+							    filter: blur(8px);
+							    position: absolute;
+							    z-index: -1;
+							    left: 50%;
+							    top: 50%;
+							    transform: translate(-50%,-50%);
+					      }
+
+								#aurablurMobile-opacity {
+									transition: opacity 250ms ease-in-out;
+									opacity: 0;
+								}
+
+					    </style>
+
+							<!-- aurascript button -->
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
+								<defs></defs>
+							  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
+							  <g id="aurascriptMobileBtn-fill">
+								  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
+								  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
+								  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
+								</g>
+							</svg>
+
+
+
+
+							<!-- blur -->
+							<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
+							  <rect width="27" height="27"/>
+							</svg>
+
+
+
+
+
+
+
+
+								</button>
+
+								<button class="mobile-full-screen-btn">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px"
+										 height="27px" viewBox="0 0 27 27" style="" xml:space="preserve">
+										<defs></defs>
+										<g>
+											<rect y="15.96" width="18.41" height="11.04"/>
+											<polygon points="27,0 27,21.48 22.09,21.48 22.09,12.28 14.73,12.28 14.73,0"/>
+
+											<polygon points="5.89,2.03 5.89,8.42 6.25,8.05 7.51,6.81 8.75,5.55 10.01,6.81 8.75,8.05 7.51,9.31 6.25,10.55 5.01,11.81 0.01,6.81 1.25,5.55 2.51,6.81 3.75,8.05 4.12,8.42 4.12,0.26 11.19,0.26 11.19,2.03"/>
+										</g>
+									</svg>
+								</button>
+							</g>
+						</p>
+
+						<div class="video-timeline-container">
+							<div id="timeline-element" class="guerin-video-timeline">
+							  <div class="video-thumb-indicator"></div>
+							</div>
+						</div>
+		            </div>
+
+		            <div class="hidethese">
+						<button class="guerin-video-captions-btn">
+							<svg viewBox="0 0 24 24">
+								<path fill="currentColor" d="M18,11H16.5V10.5H14.5V13.5H16.5V13H18V14A1,1 0 0,1 17,15H14A1,1 0 0,1 13,14V10A1,1 0 0,1 14,9H17A1,1 0 0,1 18,10M11,11H9.5V10.5H7.5V13.5H9.5V13H11V14A1,1 0 0,1 10,15H7A1,1 0 0,1 6,14V10A1,1 0 0,1 7,9H10A1,1 0 0,1 11,10M19,4H5C3.89,4 3,4.89 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6C21,4.89 20.1,4 19,4Z" />
+							</svg>
+						</button>
+
+						<button class="speed-btn wide-btn">
+							<span>
+								1x
+							</span>
+						</button>
+
+						<button class="mini-player-btn">
+							<svg viewBox="0 0 24 24">
+								<path fill="currentColor" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
+							</svg>
+						</button>
+
+						<button class="theater-btn">
+							<svg class="tall" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
+							</svg>
+
+							<svg class="wide" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
+							</svg>
+						</button>
+		            </div>
+
+				    <button class="desktop-aurascript-btn" style="width: 25px;">
+						
+
+					    <style>
+					      #aurascriptBtn-fill {
+					        fill: transparent;
+					      }
+
+					      .aurascriptBtn-blur {
+									height: 26px;
+							    width: 26px;
+							    filter: blur(8px);
+							    position: absolute;
+							    z-index: -1;
+							    left: 50%;
+							    top: 50%;
+							    transform: translate(-50%,-50%);
+					      }
+
+								#aurablur-opacity {
+									transition: opacity 250ms ease-in-out;
+									opacity: 0;
+								}
+
+					    </style>
+
+							<!-- aurascript button -->
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" style="height: 23px; width: 23px;" xml:space="preserve">
+								<defs></defs>
+							  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
+							  <g id="aurascriptBtn-fill">
+								  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
+								  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
+								  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
+								</g>
+							</svg>
+
+
+							<!-- blur -->
+							<svg id="aurablur-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptBtn-blur">
+							  <rect width="27" height="27"/>
+							</svg>
+
+						</button>
+
+
+
+
+
+
+
+
+
+		            <button class="full-screen-btn">
+
+			            <svg class="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+			              	<defs></defs>
+			              	<g>
+			              		<polygon points="42.49,30.9 42.49,42.5 38.63,42.5 38.63,42.49 30.91,42.49 30.91,38.63 38.63,38.63 38.63,30.9   "/>
+			              		<polygon points="11.58,38.63 11.58,42.49 3.87,42.49 3.87,42.5 0,42.5 0,30.91 3.87,30.91 3.87,38.63   "/>
+			              		<polygon points="42.49,0.01 42.49,11.58 38.63,11.58 38.63,3.87 30.9,3.87 30.9,0 38.63,0 38.63,0.01   "/>
+			              		<polygon points="11.58,0 11.58,3.87 3.87,3.87 3.87,11.58 0,11.58 0,0.01 3.87,0.01 3.87,0   "/>
+			              	</g>
+			            </svg>
+
+			            <svg class="close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+							<defs></defs>
+							<g>
+								<polygon points="30.91,42.5 30.91,30.9 34.77,30.9 34.77,30.9 42.49,30.9 42.49,34.76 34.77,34.76 34.77,42.5  "/>
+								<polygon points="0,34.78 0,30.92 7.71,30.92 7.71,30.91 11.58,30.91 11.58,42.5 7.71,42.5 7.71,34.78  "/>
+								<polygon points="30.9,11.57 30.9,0 34.76,0 34.76,7.71 42.49,7.71 42.49,11.58 34.76,11.58 34.76,11.57  "/>
+								<polygon points="0,11.58 0,7.71 7.71,7.71 7.71,0 11.58,0 11.58,11.57 7.71,11.57 7.71,11.58  "/>
+							</g>
+			            </svg>
+		            </button>
+
+	            </div>
+	        </div>
+    	</div>
+
+
+
+		<style type="text/css">
+			.aurascript-container {
+				position: absolute;
+				font-family: 'Source Code Pro', monospace;
+				/* overflow-y: hidden; */
+				bottom: 50px;
+				left: 50%;
+				transform: translateX(-50%);
+				text-align: center;
+				display: none;
+				height: 70px;
+				align-items: center;
+				/* width: 380px; */
+				z-index: 0;
+				transition: all 250ms ease-in-out;
+			}
+
+			.aurascript-text {
+				width: 100%;
+				color: #ff0000;
+				font-weight: 600;
+				text-shadow: #6a6a6a 0px 0px 1px;
+			    /* -webkit-text-stroke: black 0.1px; */
+			    transition: color 120ms ease-in-out;
+			}
+
+
+			.aurascript-container .lyrics:before {
+				opacity: 0;
+			}
+
+			.aurascript-container .aurascript:after {
+				opacity: 1;
+			}
+
+			.aurascript-arrow {
+				color: #626262;
+				display: none;
+			}
+
+			.aurascript {
+				font-size: 17.5px;
+			}
+
+			.blinking-aurascript-cursor::after {
+				height: 13px;
+				width: 6px;
+				content: "";
+				display: inline-block;
+				margin-left: -3px;
+				margin-bottom: -2px;
+				background-color: #c7c7c7;
+				animation: auraBlink 0.9s steps(2, start) infinite;
+				display: none;
+			}
+
+
+			@keyframes auraBlink {
+				0% {
+					opacity: 1;
+				}
+				49% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+		</style>
+
+		<div class="aurascript-container">
+			<p class="aurascript-text"> 
+				<span class="aurascript-arrow"> > </span>
+				<span class="aurascript" style="display: none;">
+					07.030 | New kung fu kenny
+					10.030 | Ain't nobody prayin' for me
+					13.030 | Y'all know, what happens on earth stays on earth
+					17.470 | Here we go!
+					18.830 | I don't give a ****, I don't give a ****
+					20.530 | I don't give a, I don't give a, I don't give a ****
+					23.800 | I'm willin' to die for this ****
+					25.400 | I done cried for this ****, might take a life for this ****
+					27.870 | Put the bible down and go eye for an eye for this ****
+					30.330 | D.o.t. My enemy, won't catch a vibe for this ****, ayy
+					34.030 | I been stomped out in front of my mama
+					36.370 | My daddy commissary made it to commas
+					38.970 | *****, all my grandmas dead
+					40.570 | So ain't nobody prayin' for me, I'm on your head, ayy
+					43.970 | Thirty millions later, know the feds watchin'
+					46.130 | Auntie on my telegram, like, "be cautious!"
+					48.800 | I be hangin' out at tam's, I be on stockton
+					51.130 | I don't do it for the 'gram, I do it for compton
+					54.030 | I'm willin' to die for this ****, *****
+					56.400 | I'll take your ******' life for this ****, *****
+					58.970 | We ain't goin' back to broke, family sellin' ****
+					61.100 | That's why you maney-ass rap ****** better know
+					65.100 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					70.070 | If I gotta go hard on a *****, I'ma make it look ****
+					75.430 | I pull up, hop out, air out, made it look ****
+					79.830 | They won't take me out my element
+					81.600 | Nah, take me out my element
+					83.030 | I'm allergic to a ***** *****, ayy
+					84.800 | An imaginary rich *****, ayy
+					86.800 | Seven figures, hoe, that slimmer than my ***** figure, ayy
+					89.130 | Goin' digital and physical on all y'all, ayy
+					91.900 | Bunch of criminals and money in my phone calls, ayy
+					94.370 | We okay, we let the a1 fly
+					97.000 | Relocate, jump on the same g5
+					99.500 | Checkin' for me heavy 'cause I go yeah, I go yeah
+					102.100 | They never been ready yeah, I know yeah, I know yeah
+					104.570 | 100K ****** across the floor, 'cross the floor, yeah
+					107.130 | None of y'all ******' with the flow yeah, the flow yeah
+					109.830 | Years in the makin', and don't y'all mistake it
+					111.970 | I got 'em by a landslide, we talkin' about races
+					114.400 | You know this'll never be a tie, just look at their laces
+					116.830 | You know careers take off, just gotta be patient
+					119.430 | Mr. One through five, that's the only logic
+					121.970 | Fake my death, go to cuba, that's the only option
+					125.900 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					130.830 | If I gotta go hard on a *****, I'ma make it look ****
+					135.870 | I pull up, hop out, air out, made it look ****
+					140.400 | They won't take me out my element
+					142.070 | Nah, take me out my element
+					144.500 | Damned if I do, if I don't (yuhhh)
+					147.000 | ******* us all if you won't (yuhhh)
+					149.430 | Damn, damn, damn, it's a ******* shame
+					151.600 | You ain't frontline, get out the ******* way
+					154.800 | ****** thought they wasn't gonna see me, huh?
+					156.570 | ****** thought that k-dot real life
+					158.000 | Was the same life they see on tv, huh?
+					159.970 | ****** wanna flex on me and be in l.a. For free, huh?
+					162.400 | Next time they hit the 10 freeway, we need receipt, huh?
+					164.970 | 'Cause most of y'all ain't real
+					166.400 | Most of y'all gon' squeal
+					167.970 | Most of y'all just envy, but jealousy get you killed
+					170.030 | Most of y'all throw rocks and try to hide your hand
+					172.430 | Just say his name and I promise that you'll see candyman
+					174.900 | Because it's all in your eyes, most of y'all tell lies
+					177.570 | Most of y'all don't fade, most of y'all been advised
+					180.200 | Last lp I tried to lift the black artists
+					182.430 | But it's a difference between black artists and wack artists
+					186.970 | If I gotta slap a *****-ass *****, I'ma make it look ****
+					191.130 | It's the one and only, the world's greatest, the kid *****
+					193.330 | If I gotta go hard on a *****, I'ma make it look ****
+					199.870 | I pull up, hop out, air out, made it look ****
+					205.070 | They won't take me out my element
+					207.600 | Nah, take me out my element
+				</span>
+				<span class="blinking-aurascript-cursor"></span> 
+			</p> 
+		</div>
+
     </div>
 </div>
 
@@ -3260,6 +3250,7 @@ document.addEventListener("msfullscreenchange", () => {
 
 			auraActivate();
 			videoLinear_bar.classList.add('showing-video-guerin');
+			console.log("ADD SHOWING VIDEO GUERIN: Video EventListener Pause")
 			document.body.style.cursor = "default";
 		});
 
@@ -3348,6 +3339,7 @@ document.addEventListener("msfullscreenchange", () => {
 			const videoPercent = Math.min(Math.max(0, clientX - videoRect.x), videoRect.width) / videoRect.width;
 			videoIsScrubbing = (scrubbingVar & 1) === 1;
 			guerinVideoContainer.classList.toggle("video-scrubbing", videoIsScrubbing);
+
 			
 
 			if (videoIsScrubbing) {
@@ -3416,28 +3408,23 @@ document.addEventListener("msfullscreenchange", () => {
 
 
 
-/* LEFT HERE */
+
 
 		video.addEventListener('timeupdate', videoHideOnIdle);
-		video.addEventListener('timeupdate', clickingMobileDesktopToggle);
-		window.addEventListener('resize', clickingMobileDesktopToggle);
-
+		document.addEventListener('mousemove', clickingMobileDesktopToggle);
+		
 
 function clickingMobileDesktopToggle() {
 
-	if (document.body.clientWidth > 600) {
+		if /* (document.body.clientWidth > 600) */ (window.matchMedia("(hover: hover)").matches) {
 
-		if (document.getElementById('lin-mobile-grad').style.opacity == "0") {
-			document.getElementById('lin-mobile-grad').style.opacity = "1";
+			document.getElementById('invisible-full-playbtn').removeEventListener('click', toggleAuraOpacity);
+			document.getElementById('invisible-full-playbtn').addEventListener('click', videoTogglePlay);
+		} else {
+
+			document.getElementById('invisible-full-playbtn').removeEventListener('click', videoTogglePlay);
+			document.getElementById('invisible-full-playbtn').addEventListener('click', toggleAuraOpacity);
 		}
-
-		document.getElementById('invisible-full-playbtn').removeEventListener('click', toggleAuraOpacity);
-		document.getElementById('invisible-full-playbtn').addEventListener('click', videoTogglePlay);
-	} else {
-
-		document.getElementById('invisible-full-playbtn').removeEventListener('click', videoTogglePlay);
-		document.getElementById('invisible-full-playbtn').addEventListener('click', toggleAuraOpacity);
-	}
 
 }
 
@@ -3451,38 +3438,100 @@ let opacityAuraBoolean = false;
 
 
 function toggleAuraOpacity() {
-	if (opacityAuraBoolean == false) {
 
-		if (videoLinear_bar.classList.contains('showing-video-guerin')) {
-			document.getElementById('lin-mobile-grad').style.opacity = "0";
-			document.querySelector(".video-aura-container").style.pointerEvents = "none";
-		} else {
-			document.getElementById('lin-mobile-grad').style.opacity = "1";
-			document.querySelector(".video-aura-container").style.pointerEvents = "all";
-		}
 
-		
-		opacityAuraBoolean = true;
+
+videoCounts = 0;
+/*
+if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
+		videoLinear_bar.classList.remove('hidden-video-guerin');
+		videoLinear_bar.classList.add('showing-video-guerin');
+} 
+*/
+
+	if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
+			videoLinear_bar.classList.add('showing-video-guerin');
+			console.log("ADD SHOWING VIDEO GUERIN: Function toggleAuraOpacity");
+			videoLinear_bar.classList.remove('hidden-video-guerin');
+			console.log("REMOVE HIDDEN VIDEO GUERIN: Function toggleAuraOpacity");
+
+
+
+
+
 	} else {
+			videoLinear_bar.classList.remove('showing-video-guerin');
+			console.log("ADD SHOWING VIDEO GUERIN: Function toggleAuraOpacity");
+			videoLinear_bar.classList.add('hidden-video-guerin');
+			console.log("REMOVE HIDDEN VIDEO GUERIN: Function toggleAuraOpacity");
 
 
- 
-			document.getElementById('lin-mobile-grad').style.opacity = "1";
+					if (document.body.clientWidth < 600) {
+						document.querySelector(".aurascript-container").style.bottom = "50px";
+					} else {
+						document.querySelector(".aurascript-container").style.bottom = "50px";
+					}
 
-document.querySelector(".video-aura-container").style.pointerEvents = "all";
 
+	}
+
+
+}
 
 
 /*
-		if (videoLinear_bar.classList.contains('showing-video-guerin')) {
-			document.getElementById('lin-mobile-grad').style.opacity = "1";
+	video.addEventListener('timeupdate', videoHideOnIdle);
+	video.addEventListener('timeupdate', clickingMobileDesktopToggle);
+	window.addEventListener('resize', clickingMobileDesktopToggle);
+
+
+	function clickingMobileDesktopToggle() {
+
+		if (document.body.clientWidth > 600) {
+
+			if (document.getElementById('lin-mobile-grad').style.opacity == "0") {
+				document.getElementById('lin-mobile-grad').style.opacity = "1";
+			}
+
+			document.getElementById('invisible-full-playbtn').removeEventListener('click', toggleAuraOpacity);
+			document.getElementById('invisible-full-playbtn').addEventListener('click', videoTogglePlay);
 		} else {
-			document.getElementById('lin-mobile-grad').style.opacity = "1";
+
+			document.getElementById('invisible-full-playbtn').removeEventListener('click', videoTogglePlay);
+			document.getElementById('invisible-full-playbtn').addEventListener('click', toggleAuraOpacity);
 		}
-*/		
-		opacityAuraBoolean = false;
+
 	}
-}
+
+	let opacityAuraBoolean = false;
+
+
+	function toggleAuraOpacity() {
+		if (opacityAuraBoolean == false) {
+
+			if (videoLinear_bar.classList.contains('showing-video-guerin')) {
+				document.getElementById('lin-mobile-grad').style.opacity = "0";
+				document.querySelector(".video-aura-container").style.pointerEvents = "none";
+			} else {
+				document.getElementById('lin-mobile-grad').style.opacity = "1";
+				document.querySelector(".video-aura-container").style.pointerEvents = "all";
+			}
+
+			
+			opacityAuraBoolean = true;
+		} else {
+
+
+	 
+				document.getElementById('lin-mobile-grad').style.opacity = "1";
+
+	document.querySelector(".video-aura-container").style.pointerEvents = "all";
+
+
+			opacityAuraBoolean = false;
+		}
+	}
+*/
 
 
 
@@ -3491,16 +3540,38 @@ document.querySelector(".video-aura-container").style.pointerEvents = "all";
 		    document.addEventListener(f, function (event) {
 					
 
-					videoLinear_bar.classList.remove('hidden-video-guerin');
-					videoLinear_bar.classList.add('showing-video-guerin');
+
+
+
+
+
+
 					document.body.style.cursor = "default";
 
 
-					if (document.body.clientWidth < 600) {
-						document.querySelector(".aurascript-container").style.bottom = "80px";
-					} else {
-						document.querySelector(".aurascript-container").style.bottom = "50px";
-					}
+					if /* (document.body.clientWidth > 600) */ (window.matchMedia("(hover: hover)").matches) {
+						//document.querySelector(".aurascript-container").style.bottom = "80px";
+
+					videoLinear_bar.classList.remove('hidden-video-guerin');
+					console.log("REMOVE HIDDEN VIDEO GUERIN: Document EventListener Mousemove-Touchmove")
+					videoLinear_bar.classList.add('showing-video-guerin');
+					console.log("ADD SHOWING VIDEO GUERIN: Document EventListener Mousemove-Touchmove")
+
+					} 
+
+
+
+						if (document.body.clientWidth < 600) {
+							document.querySelector(".aurascript-container").style.bottom = "80px";
+						} else {
+							document.querySelector(".aurascript-container").style.bottom = "50px";
+						}
+
+
+
+
+
+					
 
 
 					window.addEventListener('resize', function() {
@@ -3518,13 +3589,16 @@ document.querySelector(".video-aura-container").style.pointerEvents = "all";
 
 					videoCounts = 0;
 
-
-					/* can pointer click on video before it loads */
+/*
+					// can pointer click on video before it loads 
 					if (countingthis == 0) {
-						document.getElementById('gVideoID').style.cursor = "pointer";
+						// document.getElementById('gVideoID').style.cursor = "pointer";
 					} else {
-						document.getElementById('gVideoID').style.cursor = "default";
+						// document.getElementById('gVideoID').style.cursor = "default";
 					}
+
+*/
+
 					/* gives pointer cursor to aura */
 					document.querySelector(".video-aura-container").style.cursor = "pointer";
 
@@ -3535,16 +3609,19 @@ document.querySelector(".video-aura-container").style.pointerEvents = "all";
 
 
 
-
+document.getElementById('invisible-full-playbtn').addEventListener('click', clickingMobileDesktopToggle);
 
 		function videoHideOnIdle (video) {
 			if (video.paused === true) {
 				return videoLinear_bar.classList.add('showing-video-guerin') ;
+				console.log("ADD SHOWING VIDEO GUERIN: Function videoHideOnIdle");
 			} 
 
 			if (videoCounts > 15) {
 				videoLinear_bar.classList.add('hidden-video-guerin');
+				console.log("ADD HIDDEN VIDEO GUERIN: Function videoHideOnIdle");
 				videoLinear_bar.classList.remove('showing-video-guerin');
+				console.log("REMOVE SHOWING VIDEO GUERIN: Function videoHideOnIdle");
 				document.body.style.cursor = "none";
 				document.querySelector(".aurascript-container").style.bottom = "50px";
 				videoCounts = 0;
@@ -3794,7 +3871,6 @@ document.querySelector(".video-aura-container").style.pointerEvents = "all";
 		}
 
 		function videoTogglePlay() {
-
 			video.paused ? video.play() : video.pause();
 		}
 
