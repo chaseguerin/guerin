@@ -3450,13 +3450,17 @@ if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
 */
 
 	if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
-			videoLinear_bar.classList.add('showing-video-guerin');
-			console.log("ADD SHOWING VIDEO GUERIN: Function toggleAuraOpacity");
 			videoLinear_bar.classList.remove('hidden-video-guerin');
 			console.log("REMOVE HIDDEN VIDEO GUERIN: Function toggleAuraOpacity");
+			videoLinear_bar.classList.add('showing-video-guerin');
+			console.log("ADD SHOWING VIDEO GUERIN: Function toggleAuraOpacity");
 
 
-
+					if (document.body.clientWidth < 600) {
+						document.querySelector(".aurascript-container").style.bottom = "80px";
+					} else {
+						document.querySelector(".aurascript-container").style.bottom = "50px";
+					}
 
 
 	} else {
@@ -3562,7 +3566,10 @@ if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
 
 
 						if (document.body.clientWidth < 600) {
-							document.querySelector(".aurascript-container").style.bottom = "80px";
+							if (videoLinear_bar.classList.contains('showing-video-guerin')) {
+								document.querySelector(".aurascript-container").style.bottom = "80px";
+							}
+
 						} else {
 							document.querySelector(".aurascript-container").style.bottom = "50px";
 						}
@@ -3577,7 +3584,9 @@ if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
 					window.addEventListener('resize', function() {
 
 						if (document.body.clientWidth < 600) {
-							document.querySelector(".aurascript-container").style.bottom = "80px";
+							if (videoLinear_bar.classList.contains('showing-video-guerin')) {
+								document.querySelector(".aurascript-container").style.bottom = "80px";
+							}
 						} else {
 							document.querySelector(".aurascript-container").style.bottom = "50px";
 						}
