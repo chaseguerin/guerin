@@ -242,7 +242,7 @@
 
 			.guerin-video-controls-container 
 			.guerin-controls {
-				margin: 0px 29px 36px 29px !important; 
+				margin: 0px 29px 28px 29px !important; 
 			}
 
 			.desktop-aurascript-btn {
@@ -526,7 +526,7 @@
 			gap: .95rem;
 			align-items: center;
 			/* margin: 22px 20px 36px 20px; */
-			margin: 0px 20px 36px 20px;
+			margin: 0px 20px 28px 20px;
 		}
 
 		.guerin-video-controls-container .guerin-controls button {
@@ -623,7 +623,7 @@
 			align-items: center;
 			width: 100%;
 			padding-top: 15px;
-			/* padding-bottom: 15px; */
+			padding-bottom: 8px; 
 			touch-action: pan-y;
 		}
 
@@ -974,6 +974,11 @@
 			position: relative;
 		}
 
+		#back-button  {
+			display: none;
+		}
+
+
 		@media (max-width:600px) {  
 
 			.aurascript-container {
@@ -1065,6 +1070,24 @@
 				margin: 11px 0px 0 0px !important; 
 			}
 
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper #back-button { 
+			    background: none;
+			    border: none;
+			    color: inherit;
+			    padding: 0;
+			    height: 27px;
+			    width: 27px;
+			    font-size: 1.1rem;
+			    cursor: pointer;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    margin-bottom: 15px;
+			    pointer-events: all;
+			}
+
+
 			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper {
 				width: 100% !important;
 				transform: unset !important;
@@ -1094,6 +1117,7 @@
 				display: block !important;
 				justify-content: unset !important;
 				align-content: unset !important;
+				overflow: visible !important;
 			}
 
 			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-title-text {
@@ -1224,7 +1248,8 @@
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
-	    transform: translate(-50%, -50%) scale(.8);
+	    transform: translate(-50%, -50%) scale(.55);
+	    /* transform: translate(-50%, -50%) scale(.8); */
 	    transition: all 350ms ease-in-out;
 	    animation: backgroundChange 4.14s ease-in-out infinite;
 	    background: transparent;
@@ -1468,8 +1493,18 @@
 		}
 
 
+
+
+		.guerin-video-container.theater-mode .guerin-lin-gradient #aura-container,
+		.guerin-video-container.full-screen-mode .guerin-lin-gradient #aura-container {
+			transform: translate(-50%, -50%) scale(.8);
+		}
+
+
+
+
 		.guerin-video-container.theater-mode .aurascript-container,
-		.guerin-video-container.theater-mode .aurascript-container {
+		.guerin-video-container.full-screen-mode .aurascript-container {
 			position: absolute;
 			font-family: 'Source Code Pro', monospace;
 			/* overflow-y: hidden; */
@@ -1658,6 +1693,27 @@
 		        <div class="video-text-title-container">
 		        	<div class="video-text-title-wrapper">
 		            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
+
+<button id="back-button">
+
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" height="27px" width="27px" style="position: absolute;">
+	  <defs>
+	  </defs>
+	  <path d="m0,0v27h27V0H0Zm22.09,14.73h-12.27v2.45h2.45v2.45h-2.45v-2.45h-2.47v-2.45h-2.45v-2.45h2.45v-2.45h2.47v-2.45h2.45v2.45h-2.45v2.45h12.27v2.45Z"/>
+	  <g style="fill: #b2b2b2;">
+	    <rect x="9.83" y="7.37" width="2.45" height="2.45"/>
+	    <polygon points="22.09 12.28 22.09 14.73 9.83 14.73 9.83 17.19 7.36 17.19 7.36 14.73 4.91 14.73 4.91 12.28 7.36 12.28 7.36 9.83 9.83 9.83 9.83 12.28 22.09 12.28"/>
+	    <rect x="9.83" y="17.19" width="2.45" height="2.45"/>
+	  </g>
+	</svg>
+
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" style="height: 30px; width: 30px; filter: blur(8px); position: absolute; z-index: -1;">
+		<rect width="27" height="27"></rect>
+	</svg>
+
+</button>
+
+
 		            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
 		            <div class="nametag-container">
 		            	<span class="video-gray-arrow"> ></span> 
@@ -2884,6 +2940,7 @@
 
 		// View Modes
 		videoTheaterBtn.addEventListener("click", videoToggleTheaterMode);
+		document.getElementById('back-button').addEventListener("click", videoToggleTheaterMode);
 		// videoFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
 		// mobileFullScreenBtn.addEventListener("click", videoToggleFullScreenMode);
 
