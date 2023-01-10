@@ -46,8 +46,6 @@
 		    pointer-events: none;
 		}
 
-
-
 		.video-text-title-container {
 			/* height: 100px; */
 			width: 100%;
@@ -57,18 +55,15 @@
 			display: block;
 		}
 
-
-
-
 		.video-title-text {
 			font-size: 20px;
-		    font-family: 'Source Code Pro', monospace;
-		    font-weight: 600;
-		    margin: 5px 0px 8px 0px;
-		    text-overflow: ellipsis;
-		    overflow: hidden;
-		    white-space: nowrap;
-		    pointer-events: all;
+	    font-family: 'Source Code Pro', monospace;
+	    font-weight: 600;
+	    margin: 5px 0px 8px 0px;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    pointer-events: all;
 		}
 
 		.video-secondary-accent-text {
@@ -191,7 +186,8 @@
 
 		.guerin-video-container {
 			position: relative;
-			width: 90%;
+			/* width: 90%; */
+			width: 100%;
 			max-width: 1000px;
 			display: flex; 
 			justify-content: center;
@@ -208,7 +204,6 @@
 			right: 50%;
 			transform: translate(50%, -50%) translate3d(0, 0, 0);
 		}
-
 		
 		.guerin-video-container.full-screen-mode {
 			max-width: initial;
@@ -223,10 +218,6 @@
 		.guerin-video-container.full-screen-mode .aurascript-container {
 			bottom: 80px !important;
 		}
-
-
-
-
 
 		.currentVideoPlaying {
 		    width: 100%;
@@ -248,12 +239,6 @@
 		}
 
 		@media (max-width:600px) {  
-
-
-
-
-
-
 
 			.guerin-video-controls-container 
 			.guerin-controls {
@@ -303,7 +288,6 @@
 
 		}
 
-
 		.guerin-video-container.theater-mode {
 			max-height: 100vh;
 		}
@@ -323,7 +307,6 @@
 			transition: opacity 300ms ease-in-out;
 		}
 
-
 		.guerin-lin-gradient-full {
 			background: linear-gradient(180deg, 
 			rgba(255, 255, 255, 1) -11.16%, 
@@ -332,7 +315,6 @@
 			rgba(255, 255, 255, 0.02) 66.22%, 
 			rgba(255, 255, 255, 1) 100%) !important;
 		}
-
 
 		.guerin-lin-gradient {
 			height: 100%; 
@@ -368,12 +350,9 @@
 			animation: showAnimation 250ms ease-in-out;
 		}
 
-
 		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .guerin-video-controls-container {
 			pointer-events: none !important;
 		}
-
-
 
 		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .video-aura-container {
 			pointer-events: none;
@@ -390,8 +369,6 @@
 		.guerin-lin-gradient.guerin-lin-gradient-full.hidden-video-guerin .testing-container .video-profile-box-container .video-text-title-container .guerin-video-social-icons {
 			pointer-events: none;
 		}
-
-
 
 		.guerin-video-container.full-screen-mode.paused {
 			background-color: darkgray;
@@ -423,17 +400,6 @@
 			}
 		}
 
-		/*
-		.guerin-video-container.full-screen-mode:not(.paused) .guerin-lin-gradient {
-			animation: hideAnimation 300ms ease-in-out 0s;
-			animation-fill-mode: forwards; 
-		}
-
-		.guerin-video-container.full-screen-mode.paused .guerin-lin-gradient {
-			animation: showAnimation 300ms ease-in-out 0s;
-		}
-		*/
-
 		.guerin-video-controls-container::before {
 			content: "";
 			position: absolute;
@@ -444,134 +410,112 @@
 			pointer-events: none;
 		}
 
-
 		.guerin-video-container:active .guerin-lin-gradient,
 		.guerin-video-container:focus-within .guerin-lin-gradient,
 		.guerin-video-container.paused .guerin-lin-gradient {
 			opacity: 1;
 		}
 
-
-
 		.guerin-lin-gradient .guerin-controls button:active {
 			opacity: 1;
 		}
 
-
-
 		.guerin-volume-slider:focus-within {
 			width: 60px;
-			transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(22px);
+			transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(21px);
 		}
-
-
-
 
 		.video-timeline-container:active + .video-aura-thumbnail {
 			display: block;
 		}
 
 		.guerin-video-container.video-scrubbing .video-aura,
-
-		.video-timeline-container:active .video-aura{
+		.video-timeline-container:active .video-aura {
 			display: block;
 		}
 
 		.guerin-video-container.video-scrubbing .guerin-video-timeline::before,
-
-		.video-timeline-container:active .guerin-video-timeline::before{
+		.video-timeline-container:active .guerin-video-timeline::before {
 			display: block;
 		}
 
 		.guerin-video-container.video-scrubbing .video-thumb-indicator,
-
-		.video-timeline-container:active .video-thumb-indicator{
+		.video-timeline-container:active .video-thumb-indicator {
 			--scale: 1;
 		}
 
 		.guerin-video-container.video-scrubbing .guerin-video-timeline,
-
 		.video-timeline-container:active .guerin-video-timeline {
 			height: 100%;
 		}
 
-.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container {
-    width: 100% !important;
-    transform: unset !important;
-}
-
-	.video-profile-box-container {
-		transform: scale(.9) translate(-5.5%, -16px) !important;
-    width: calc(100%/.9) !important;
-	}
-
-@media (max-height:600px) {
-	.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container {
-		transform: scale(.9) translate(-5.5%, -16px) !important;
-    width: calc(100%/.9) !important;
-	}
-
-	.guerin-lin-gradient-full {
-		background: linear-gradient(180deg, 
-					rgba(255, 255, 255, 1) -11.16%, 
-					rgba(255, 255, 255, 0) 59.41%, 
-					rgba(255, 255, 255, 0) 59.38%, 
-					rgba(255, 255, 255, 0.02) 66.22%, 
-					rgba(255, 255, 255, 1) 100%) !important;
-	}
-}
-
-
-@media (pointer: coarse) {
-	.guerin-video-container.theater-mode {
-		height: -webkit-fill-available;
-	}
-}
-
-
-@media (pointer: fine) {
-
-
-		.guerin-video-container:hover .guerin-lin-gradient {
-			opacity: 1;
+		.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container {
+		  width: 100% !important;
+		  transform: unset !important;
 		}
 
-
-		.guerin-lin-gradient .guerin-controls button:hover {
-			opacity: 1;
+		.video-profile-box-container {
+			transform: scale(.9) translate(-5.5%, -16px) !important;
+	    width: calc(100%/.9) !important;
 		}
 
+		@media (max-height:600px) {
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container {
+				transform: scale(.9) translate(-5.5%, -16px) !important;
+		    width: calc(100%/.9) !important;
+			}
 
-		.video-volume-container:hover .guerin-volume-slider {
-			width: 60px;
-			transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(22px);
+			.guerin-lin-gradient-full {
+				background: linear-gradient(180deg, 
+							rgba(255, 255, 255, 1) -11.16%, 
+							rgba(255, 255, 255, 0) 59.41%, 
+							rgba(255, 255, 255, 0) 59.38%, 
+							rgba(255, 255, 255, 0.02) 66.22%, 
+							rgba(255, 255, 255, 1) 100%) !important;
+			}
 		}
 
-
-
-		.video-timeline-container:hover + .video-aura-thumbnail {
-			display: block;
+		@media (pointer: coarse) {
+			.guerin-video-container.theater-mode {
+				height: -webkit-fill-available;
+			}
 		}
 
+		@media (pointer: fine) {
 
-		.video-timeline-container:hover .video-aura {
-			display: block;
+			.guerin-video-container:hover .guerin-lin-gradient {
+				opacity: 1;
+			}
+
+			.guerin-lin-gradient .guerin-controls button:hover {
+				opacity: 1;
+			}
+
+			.video-volume-container:hover .guerin-volume-slider {
+				width: 60px;
+				transform: scaleX(1) rotate(270deg) translateY(-50%) translateX(21px);
+			}
+
+			.video-timeline-container:hover + .video-aura-thumbnail {
+				display: block;
+			}
+
+			.video-timeline-container:hover .video-aura {
+				display: block;
+			}
+
+			.video-timeline-container:hover .guerin-video-timeline::before {
+				display: block;
+			}
+
+			.video-timeline-container:hover .video-thumb-indicator{
+				--scale: 1;
+			}
+
+			.video-timeline-container:hover .guerin-video-timeline {
+				height: 100%;
+			}
 		}
-
-		.video-timeline-container:hover .guerin-video-timeline::before {
-			display: block;
-		}
-
-		.video-timeline-container:hover .video-thumb-indicator{
-			--scale: 1;
-		}
-
-		.video-timeline-container:hover .guerin-video-timeline {
-			height: 100%;
-		}
-
-
-}
 
 		.guerin-status-indicator {
 			display: flex;
@@ -605,8 +549,6 @@
 		.guerin-video-container:not(.paused) .video-play-icon {
 			display: none;
 		}
-
-
 
 		.guerin-video-container.full-screen-mode .open {
 			display: none;
@@ -646,7 +588,7 @@
 		.guerin-volume-slider {
 			width: 0;
 	    transform-origin: left;
-	    transform: scaleX(0) rotate(270deg) translateY(-50%) translateX(20px);
+	    transform: scaleX(0) rotate(270deg) translateY(-50%) translateX(21px);
 	    transition: width 150ms ease-in-out, transform 150ms ease-in-out;
 	    background: #444fff;
 	    height: 3px;
@@ -654,9 +596,6 @@
 	    left: 50%;
 	    position: absolute;
 		}
-
-
-
 
 		.guerin-volume-slider::-webkit-slider-thumb {
 			width: 5px;
@@ -670,20 +609,12 @@
 	    -webkit-appearance: none;
 		}
 
-
 		.video-duration-container {
 			display: flex;
 			gap: .6rem;
 			flex-grow: 1;
 			flex-direction: column;
-			/*
-		    -webkit-tap-highlight-color: transparent;
-		    -moz-tap-highlight-color: transparent;
-		    tap-highlight-color: transparent;
-		    */
 		}
-
-
 
 		.video-timeline-container {
 			height: 5px;
@@ -702,7 +633,6 @@
 			width: 100%;
 			position: relative;
 		}
-
 
 		.guerin-video-timeline::before {
 			content: "";
@@ -739,8 +669,6 @@
 			aspect-ratio: 0.309071918337578 / 1;
 		}
 
-
-
 		.guerin-video-timeline .video-aura {
 			position: absolute;
 			height: 80px;
@@ -756,7 +684,6 @@
 			display: none;
 		}
 
-
 		.video-aura {
 			position: absolute;
 			/* height: 100%; */
@@ -771,13 +698,11 @@
 			background-image: url("https://static.wixstatic.com/media/fab5c1_cfa3c00fda1e4eebab506d994279637b~mv2.png");
 		}
 
-
-.nametag-container {
-	display: flex; 
-	gap: 4px;
-	pointer-events: all;
-}
-
+		.nametag-container {
+			display: flex; 
+			gap: 4px;
+			pointer-events: all;
+		}
 
 		.nodisplay {
 			display: block;
@@ -902,45 +827,23 @@
 			/* cursor: pointer !important; */
 		}
 
-
 		.guerin-video-container.video-scrubbing .video-aura-thumbnail {
 			display: block;
 		}
 
-
-
-
 		.squareflashing {
 			top: 50%;
-		    transform: translate(-50%, -50%);
-		    left: 50%;
-		    position: absolute;
-		    aspect-ratio: 1 / 1;
-		    width: auto;
-		    height: 0px;
-		    background-color: white;
-		    opacity: .0;
-
-		    /* display: none; */
-		    /* z-index: 1; */
-		    border-radius: 40%;
-		    animation: future 1.85s infinite ease-in;
+	    transform: translate(-50%, -50%);
+	    left: 50%;
+	    position: absolute;
+	    aspect-ratio: 1 / 1;
+	    width: auto;
+	    height: 0px;
+	    background-color: white;
+	    opacity: .0;
+	    border-radius: 40%;
+	    animation: future 1.85s infinite ease-in;
 		}
-
-		/* 
-		.squareonce {
-			top: 50%;
-		    transform: translate(-50%, -50%);
-		    left: 50%;
-		    position: absolute;
-		    aspect-ratio: 1 / 1;
-		    width: auto;
-		    height: 0px;
-		    background-color: white;
-		    opacity: .0;
-		    animation: futurecool .6s 1 ease-in;
-		}
-		*/
 
 		@keyframes future {
 		  0% {
@@ -1006,611 +909,698 @@
 	</style>
 
 
-					<style type="text/css">
-
-						/* DESKTOP */
-						.profileblur-picture-container {
-						    height: 100px;
-						    width: 100px;
-						    position: relative;
-						    left: 0;
-						    bottom: 0;
-						    z-index: 1;
-						}
-
-
-
-						/* DESKTOP */
-						.blurpicture-container {
-							display: none;
-						}
-
-						/* DESKTOP */
-						.profileblur-regular-picture {
-						    filter: saturate(1) blur(0px) brightness(1.1);
-						    -webkit-filter: saturate(1) blur(0px) brightness(1.1);
-						    -moz-filter: saturate(1) blur(0px) brightness(1.1);
-						    height: 100px;
-						    width: 100px;
-						    display: block;
-						}
-
-						/* DESKTOP */
-						.profileblur-img {
-							position: absolute;
-							height: 100px;
-							width: 100px;
-							top: 50%;
-							transform: translate(-50%, -50%) scale(1);
-							left: 50%;
-							background-color: #111111;
-							display: block;
-						}
-
-
-						.testing-container {
-							margin: 0px 29px 0 29px; 
-							position: relative; 
-							top: 30px;
-						}
-
-
-						.video-text-title-wrapper {
-							width: 100%; 
-							position: relative;
-						}
-
-						.guerin-video-social-icons {
-							width: 100%; 
-							margin: 12px 0px 0 0px; 
-							display: flex; 
-							gap: 10px;
-							font-weight: 500;
-							pointer-events: all;
-						}
-
-						.video-logo-box-wrapper {
-							height: 74px; 
-							width: 74px; 
-							position: relative;
-						}
-
-
-
-						@media (max-width:600px) {  
-
-
-						.aurascript-container {
-							width: 80%;
-						}
-
-
-						/* mobile */
-						.guerin-status-indicator {
-							display: none !important;
-						}
-
-						/* mobile */
-						.testing-container {
-							margin: 0px 23px 0 23px !important; 
-						}
-
-						/* mobile */
-						.profileblur-picture-container {
-							height: 62px !important;
-							width: 62px !important;
-							display: flex !important;
-							justify-content: center !important;
-							align-items: center !important;
-						}
-
-						/* mobile */
-						.profileblur-regular-picture {
-							transform: scale(.62) !important;
-						}
-
-						/* mobile */
-						.profileblur-img {
-							position: relative !important;
-							top: unset !important;
-							transform: unset !important;
-							left: unset !important;
-						}
-
-						/* mobile */
-						.video-text-title-container {
-							display: flex !important;
-							justify-content: center !important;
-							align-content: center !important;
-						}
-
-						/* mobile */
-						.video-text-title-wrapper {
-							width: calc(100%/.88) !important;
-							transform: scale(.88) !important;
-						}
-
-						/* mobile */
-						.video-title-text {
-							margin: -6px 0px 6px 0px !important; 
-						}
-
-						/* mobile */
-						.guerin-video-social-icons {
-							margin: 3px 0px 0 0px !important;
-						}
-
-						/* mobile */
-						.video-logo-box-container {
-							width: 54px !important;
-							height: 66px !important;
-						}
-
-						/* mobile */
-						.video-logo-box-wrapper {
-							transform: scale(.72) !important;
-						}
-
-
-
-
-						/* RESET ALL */
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container {
-							display: none !important;
-						}
-
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-wrapper {
-							transform: unset !important;
-						}
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-container {
-							width: unset !important;
-							height: 100px !important;
-						}
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-video-social-icons { 
-							margin: 11px 0px 0 0px !important; 
-						}
-
-
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper {
-							width: 100% !important;
-							transform: unset !important;
-						}
-
-
-
-
-
-
-
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container {
-							margin: 0px 29px 0 29px !important; 
-						}
-
-						.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-status-indicator {
-							display: flex !important;
-						}
-
-
-
-
-
-
-
-
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container {
-								height: 160px !important;
-							    width: 250px !important;
-							    position: absolute !important;
-							    right: 0 !important;
-							    left: unset !important;
-							    transform: scale(.365) translate(92%, 89%) !important;
-							}
-
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container {
-								margin-left: 0px;
-								width: 340px;
-								flex: 1;
-								display: block !important;
-								justify-content: unset !important;
-								align-content: unset !important;
-							}
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-title-text {
-								text-overflow: unset;
-								overflow: unset;
-								white-space: unset;
-								margin: 5px 0px 12px 0px !important;
-							}
-
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .blurpicture-container {
-								filter: saturate(1.8) blur(12px) !important;
-								-webkit-filter: saturate(1.8) blur(12px) !important;
-								-moz-filter: saturate(1.8) blur(12px) !important;
-								position: absolute !important;
-								top: 50% !important;
-								transform: translate(-50%, -50%) !important;
-								left: 50% !important;
-								z-index: 1 !important;
-								transition: all .9s ease-in-out !important;
-								display: block !important;
-							}
-						
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture {
-								height: 151.5px !important;
-								width: 200px !important;
-								position: absolute !important;
-								transform: translate(-50%, -50%) translate3d(0, 0, 0) !important;
-								top: 50% !important;
-								left: 50% !important;
-								overflow: hidden !important;
-							}
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture .profileblur-img {
-								height: 200px !important;
-								width: 200px !important;
-								position: absolute !important;
-								top: 50% !important;
-								transform: translate(-50%, -50%) scale(1) !important;
-								left: 50% !important;
-							}
-						
-							.video-logo-box-container{
-								/* display: none; */
-								transform: scale(1);
-							}
-
-
-
-							.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .goldenratioSvgBlur {
-								display: block; 
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								transform: translate(-50%, -50%);
-							}
-
-
-						}
-
-
-						.blurpictureSvgPath {
-							-webkit-clip-path: url(#profilePicturesvgPath);
-							clip-path: url(#profilePicturesvgPath);
-							transform: scale(1.28) translate3d(0, 0, 0);
-							width: 200px;
-							height: 151.5px;
-							display: flex;
-							justify-content: center;
-						}
-
-						.blur-picture {
-							height: 151.5px;
-							width: 200px;
-							display: block;
-							background-color: black;
-							position: relative;
-						}
-
-						.goldenratioSvgBlur {
-							display: none;
-						}
-
-
-						.video-general-social-btn {
-							margin: 0px 0px 0px 0px;
-					        border: none;
-					        outline: none;
-					        cursor: pointer;
-					        font-family: 'Source Code Pro', monospace;
-					        font-size: 13px;
-					        padding-left: 6px;
-					        padding-right: 6px;
-					        padding-top: 2px;
-					        padding-bottom: 2px;
-					        display: flex;
-					        align-items: center;		
-					        font-weight: 500;
-						}
-
-						#gVideoContainerID {
-							opacity: 0;
-							pointer-events: none; 
-						}
-
-						.show-guerin-controls {
-							opacity: 1 !important;
-							pointer-events: all !important; 
-						}
-
-						.guerin-background-for-auraplayer {
-							position: absolute;
-							height: -webkit-fill-available;
-							width: 100%;
-							background: white;
-						}
-
-						video::-webkit-media-controls {
-							display:none !important;
-						}
-						video::-webkit-media-controls-enclosure {
-							display:none !important;
-						}
-					</style>
+	<style type="text/css">
+
+		/* DESKTOP */
+		.profileblur-picture-container {
+	    height: 100px;
+	    width: 100px;
+	    position: relative;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 1;
+		}
+
+		/* DESKTOP */
+		.blurpicture-container {
+			display: none;
+		}
+
+		/* DESKTOP */
+		.profileblur-regular-picture {
+	    filter: saturate(1) blur(0px);
+	    -webkit-filter: saturate(1) blur(0px);
+	    -moz-filter: saturate(1) blur(0px);
+	    height: 100px;
+	    width: 100px;
+	    display: block;
+		}
+
+		/* DESKTOP */
+		.profileblur-img {
+			position: absolute;
+			height: 100px;
+			width: 100px;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(1);
+			left: 50%;
+			background-color: #111111;
+			display: block;
+		}
+
+		.testing-container {
+			margin: 0px 29px 0 29px; 
+			position: relative; 
+			top: 30px;
+		}
+
+		.video-text-title-wrapper {
+			width: 100%; 
+			position: relative;
+		}
+
+		.guerin-video-social-icons {
+			width: 100%; 
+			margin: 12px 0px 0 0px; 
+			display: flex; 
+			gap: 10px;
+			font-weight: 500;
+			pointer-events: all;
+		}
+
+		.video-logo-box-wrapper {
+			height: 74px; 
+			width: 74px; 
+			position: relative;
+		}
+
+		@media (max-width:600px) {  
+
+			.aurascript-container {
+				width: 80%;
+			}
+
+			/* mobile */
+			.guerin-status-indicator {
+				display: none !important;
+			}
+
+			/* mobile */
+			.testing-container {
+				margin: 0px 23px 0 23px !important; 
+			}
+
+			/* mobile */
+			.profileblur-picture-container {
+				height: 62px !important;
+				width: 62px !important;
+				display: flex !important;
+				justify-content: center !important;
+				align-items: center !important;
+			}
+
+			/* mobile */
+			.profileblur-regular-picture {
+				transform: scale(.62) !important;
+			}
+
+			/* mobile */
+			.profileblur-img {
+				position: relative !important;
+				top: unset !important;
+				transform: unset !important;
+				left: unset !important;
+			}
+
+			/* mobile */
+			.video-text-title-container {
+				display: flex !important;
+				justify-content: center !important;
+				align-content: center !important;
+			}
+
+			/* mobile */
+			.video-text-title-wrapper {
+				width: calc(100%/.88) !important;
+				transform: scale(.88) !important;
+			}
+
+			/* mobile */
+			.video-title-text {
+				margin: -6px 0px 6px 0px !important; 
+			}
+
+			/* mobile */
+			.guerin-video-social-icons {
+				margin: 3px 0px 0 0px !important;
+			}
+
+			/* mobile */
+			.video-logo-box-container {
+				width: 54px !important;
+				height: 66px !important;
+			}
+
+			/* mobile */
+			.video-logo-box-wrapper {
+				transform: scale(.72) !important;
+			}
+
+			/* RESET ALL */
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container {
+				display: none !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-wrapper {
+				transform: unset !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-logo-box-container .video-logo-box-container {
+				width: unset !important;
+				height: 100px !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-video-social-icons { 
+				margin: 11px 0px 0 0px !important; 
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper {
+				width: 100% !important;
+				transform: unset !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container {
+				margin: 0px 29px 0 29px !important; 
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-text-title-wrapper .guerin-status-indicator {
+				display: flex !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container {
+				height: 160px !important;
+		    width: 250px !important;
+		    position: absolute !important;
+		    right: 0 !important;
+		    left: unset !important;
+		    transform: scale(.365) translate(92%, 89%) !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container {
+				margin-left: 0px;
+				width: 340px;
+				flex: 1;
+				display: block !important;
+				justify-content: unset !important;
+				align-content: unset !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .video-text-title-container .video-title-text {
+				text-overflow: unset;
+				overflow: unset;
+				white-space: unset;
+				margin: 5px 0px 12px 0px !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .blurpicture-container {
+				filter: saturate(1.8) blur(12px) !important;
+				-webkit-filter: saturate(1.8) blur(12px) !important;
+				-moz-filter: saturate(1.8) blur(12px) !important;
+				position: absolute !important;
+				top: 50% !important;
+				transform: translate(-50%, -50%) !important;
+				left: 50% !important;
+				z-index: 1 !important;
+				transition: all .9s ease-in-out !important;
+				display: block !important;
+			}
+		
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture {
+				height: 151.5px !important;
+				width: 200px !important;
+				position: absolute !important;
+				transform: translate(-50%, -50%) translate3d(0, 0, 0) !important;
+				top: 50% !important;
+				left: 50% !important;
+				overflow: hidden !important;
+				filter: saturate(1) blur(0px) brightness(1.1) !important;
+				-webkit-filter: saturate(1) blur(0px) brightness(1.1) !important;
+				-moz-filter: saturate(1) blur(0px) brightness(1.1) !important;
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .profileblur-regular-picture .profileblur-img {
+				height: 200px !important;
+				width: 200px !important;
+				position: absolute !important;
+				top: 50% !important;
+				transform: translate(-50%, -50%) scale(1) !important;
+				left: 50% !important;
+			}
+		
+			.video-logo-box-container{
+				/* display: none; */
+				transform: scale(1);
+			}
+
+			.guerin-video-container.theater-mode .guerin-lin-gradient .testing-container .video-profile-box-container .profileblur-picture-container .goldenratioSvgBlur {
+				display: block; 
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+
+		.blurpictureSvgPath {
+			-webkit-clip-path: url(#profilePicturesvgPath);
+			clip-path: url(#profilePicturesvgPath);
+			transform: scale(1.28) translate3d(0, 0, 0);
+			width: 200px;
+			height: 151.5px;
+			display: flex;
+			justify-content: center;
+		}
+
+		.blur-picture {
+			height: 151.5px;
+			width: 200px;
+			display: block;
+			background-color: black;
+			position: relative;
+		}
+
+		.goldenratioSvgBlur {
+			display: none;
+		}
+
+		.video-general-social-btn {
+			margin: 0px 0px 0px 0px;
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    font-family: 'Source Code Pro', monospace;
+	    font-size: 13px;
+	    padding-left: 6px;
+	    padding-right: 6px;
+	    padding-top: 2px;
+	    padding-bottom: 2px;
+	    display: flex;
+	    align-items: center;		
+	    font-weight: 500;
+		}
+
+		#gVideoContainerID {
+			opacity: 0;
+			pointer-events: none; 
+		}
+
+		.show-guerin-controls {
+			opacity: 1 !important;
+			pointer-events: all !important; 
+		}
+
+		.guerin-background-for-auraplayer {
+			position: absolute;
+			height: -webkit-fill-available;
+			width: 100%;
+			background: white;
+		}
+
+		video::-webkit-media-controls {
+			display:none !important;
+		}
+		video::-webkit-media-controls-enclosure {
+			display:none !important;
+		}
+	</style>
+
+	<style type="text/css">
+		#aura-container {
+	    width: 300px;
+	    height: 300px;
+	    /* z-index: 1; */
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%) scale(.8);
+	    transition: all 350ms ease-in-out;
+	    animation: backgroundChange 4.14s ease-in-out infinite;
+	    background: transparent;
+	    -webkit-border-radius: 50%;
+		}
+
+		@keyframes backgroundRotate {
+		  0% {
+		    transform: translate(-50%, -50%) scale(.8) rotate(0deg);
+		  }
+
+		  100% {
+		    transform: translate(-50%, -50%) scale(.8) rotate(360deg);
+		  }
+		}
+
+		@keyframes backgroundChange {
+		  0% {
+		    -webkit-filter: hue-rotate(0deg) ;
+		  }
+
+		  50% {
+		    -webkit-filter: hue-rotate(15deg) ;
+		  }
+
+		  100% {
+		    -webkit-filter: hue-rotate(0deg) ;
+		  }
+		}
+
+		@keyframes backgroundMove {
+
+		  0% {
+		    top: 50%;
+		    left: 50%;
+		  }
+
+		  60% {
+		    top: 40%;
+		    left: 50%;
+		  }
+
+
+		  100% {
+		    top: 50%;
+		    left: 50%;
+		  }
+
+		}
+
+		@keyframes backgroundMoveTwo {
+
+		  0% {
+		    top: 50%;
+		    left: 50%;
+		  }
+
+		  60% {
+		    top: 50%;
+		    left: 40%;
+		  }
+
+
+		  100% {
+		    top: 50%;
+		    left: 50%;
+		  }
+
+		}
+
+		@keyframes grayarrowanimateTwo {
+			0% {
+				opacity: .7;
+			}
+
+			50% {
+				opacity: .4;
+			}
+
+			100% {
+				opacity: .7;
+			}
+		}
+
+		@keyframes grayarrowanimateThree {
+			0% {
+				opacity: .7;
+			}
+
+			50% {
+				opacity: .2;
+			}
+
+			100% {
+				opacity: .7;
+			}
+		}
+
+		.blackaura {
+			-webkit-filter: blur(14px);
+			opacity: .82;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.9);
+		}
+
+		.lightaura {
+			-webkit-filter: blur(14px);
+			opacity: .82;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.9);
+		}
+
+		.sub-aura-container {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    opacity: .75;
+	    filter: contrast(2) saturate(0.2);
+	    transform: translate(50%, 50%);
+		}
+
+		.aura-object-one {
+	    height: 310px;
+	    width: 310px;
+	    background: #ffffff;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    animation: grayarrowanimateThree 5.14s infinite linear;
+	    filter: blur(32px);
+	    -webkit-filter: blur(32px);
+	    -moz-filter: blur(32px);
+	    border-radius: 50%;
+		}
+
+		.aura-object-two {
+			height: 120px;
+	    width: 120px;
+	    position: absolute;
+	    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+	    filter: saturate(1.3) blur(33px);
+	    -webkit-filter: saturate(1.3) blur(33px);
+	    top: 50%;
+	    left: 50%;
+	    opacity: .7;
+	    animation: grayarrowanimateTwo 5.14s infinite linear;
+	    overflow: hidden;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    border: 55px solid #74b1e7;
+	    z-index: 2;
+		}
+
+		.aura-object-three {
+	    height: 260px;
+	    width: 260px;
+	    background: #fefeff;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    animation: grayarrowanimateThree 5.14s infinite linear;
+	    filter: blur(47px);
+	    -webkit-filter: blur(47px);
+	    -moz-filter: blur(47px);
+	    border-radius: 50%;
+		}
+
+		.aura-object-four {
+	    height: 150px;
+	    width: 150px;
+	    background: #818999;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    animation: grayarrowanimateThree 5.14s infinite linear;
+	    transform: translate(-50%, -50%);
+	    filter: blur(17px);
+	    -webkit-filter: blur(17px);
+	    -moz-filter: blur(17px);
+	    border-radius: 50%;
+		}
+
+		.aura-moving-object-one {
+	    height: 150px;
+	    width: 150px;
+	    background: #7171715e;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%) scale(3.5);
+	    filter: blur(43px);
+	    -webkit-filter: blur(43px);
+	    -moz-filter: blur(43px);
+	    border-radius: 50%;
+		}
+
+		.aura-moving-object-two {
+	    height: 150px;
+	    width: 150px;
+	    background: #677883;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    animation: backgroundMoveTwo 4.14s ease infinite;
+	    filter: blur(59px);
+	    -webkit-filter: blur(59px);
+	    -moz-filter: blur(59px);
+	    border-radius: 50%;
+		}
+
+		.lightaura-emphasis {
+			-webkit-filter: blur(10px) contrast(.5);
+	    opacity: 1;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%) scale(1.57);
+		}
+
+		.mobile-video-btns-container {
+			position: absolute;
+			right: 0;
+			bottom: 0; 
+			display: flex; 
+			gap: 15px;
+		}
+	</style>
+
+	<style type="text/css">
+		.aurascript-container {
+
+			display: none;
+
+		}
+
+
+		.guerin-video-container.theater-mode .aurascript-container,
+		.guerin-video-container.theater-mode .aurascript-container {
+			position: absolute;
+			font-family: 'Source Code Pro', monospace;
+			/* overflow-y: hidden; */
+			bottom: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+			display: none;
+			height: 70px;
+			align-items: center;
+			/* width: 380px; */
+			z-index: 0;
+			display: block;
+			transition: all 250ms ease-in-out;
+		}
+
+		.aurascript-text {
+			width: 100%;
+			color: #ff0000;
+			font-weight: 600;
+			text-shadow: #6a6a6a 0px 0px 1px;
+	    /* -webkit-text-stroke: black 0.1px; */
+	    transition: color 120ms ease-in-out;
+		}
+
+		.aurascript-container .lyrics:before {
+			opacity: 0;
+		}
+
+		.aurascript-container .aurascript:after {
+			opacity: 1;
+		}
+
+		.aurascript-arrow {
+			color: #626262;
+			display: none;
+		}
+
+		.aurascript {
+			font-size: 17.5px;
+		}
+
+		.blinking-aurascript-cursor::after {
+			height: 13px;
+			width: 6px;
+			content: "";
+			display: inline-block;
+			margin-left: -3px;
+			margin-bottom: -2px;
+			background-color: #c7c7c7;
+			animation: auraBlink 0.9s steps(2, start) infinite;
+			display: none;
+		}
+
+		@keyframes auraBlink {
+			0% {
+				opacity: 1;
+			}
+			49% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+	</style>
+  <style>
+    #aurascriptMobileBtn-fill {
+      fill: transparent;
+    }
+
+    .aurascriptMobileBtn-blur {
+			height: 30px;
+	    width: 30px;
+	    filter: blur(8px);
+	    position: absolute;
+	    z-index: -1;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%,-50%);
+    }
+
+		#aurablurMobile-opacity {
+			transition: opacity 250ms ease-in-out;
+			opacity: 0;
+		}
+
+  </style>
+
+  <style>
+    #aurascriptBtn-fill {
+      fill: transparent;
+    }
+
+    .aurascriptBtn-blur {
+			height: 26px;
+	    width: 26px;
+	    filter: blur(8px);
+	    position: absolute;
+	    z-index: -1;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%,-50%);
+    }
+
+		#aurablur-opacity {
+			transition: opacity 250ms ease-in-out;
+			opacity: 0;
+		}
+
+
+
+
+  </style>
 
 
 </head>
+
 <body>
 
-<div id="auraplayer-background">
-    <div id="gVideoID" class="guerin-video-container paused" data-volume-level="high">
-		<video class="currentVideoPlaying video-player" poster="https://i.ytimg.com/vi/glaG64Ao7sM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC5V_FuUjQOAAztRixlF-qdy6lZUg" src="https://video.wixstatic.com/video/fab5c1_4434324b90354d40bcb30e5fc0bfc384/720p/mp4/file.mp4" playsinline >
+	<div id="auraplayer-background">
+	  <div id="gVideoID" class="guerin-video-container paused" data-volume-level="high">
+			<video class="currentVideoPlaying video-player" poster="https://i.ytimg.com/vi/glaG64Ao7sM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC5V_FuUjQOAAztRixlF-qdy6lZUg" src="https://video.wixstatic.com/video/fab5c1_4434324b90354d40bcb30e5fc0bfc384/720p/mp4/file.mp4" playsinline >
+			</video>
+	  
+	  	<div id="lin-grad" class="guerin-lin-gradient showing-video-guerin">
 
-		</video>
-      	<div id="lin-grad" class="guerin-lin-gradient showing-video-guerin">
-
-
-
-			<style type="text/css">
-				#aura-container {
-				    width: 300px;
-				    height: 300px;
-				    /* z-index: 1; */
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%) scale(.8);
-				    transition: all 350ms ease-in-out;
-				    animation: backgroundChange 4.14s ease-in-out infinite;
-				    background: transparent;
-				    -webkit-border-radius: 50%;
-				}
-
-				@keyframes backgroundRotate {
-
-				  0% {
-				    transform: translate(-50%, -50%) scale(.8) rotate(0deg);
-				  }
-
-
-				  100% {
-				    transform: translate(-50%, -50%) scale(.8) rotate(360deg);
-				  }
-
-				}
-
-				@keyframes backgroundChange {
-
-				  0% {
-				    -webkit-filter: hue-rotate(0deg) ;
-
-				  }
-
-				  50% {
-				    -webkit-filter: hue-rotate(15deg) ;
-				  }
-
-				  100% {
-				    -webkit-filter: hue-rotate(0deg) ;
-
-				  }
-
-				}
-
-				@keyframes backgroundMove {
-
-				  0% {
-				    top: 50%;
-				    left: 50%;
-				  }
-
-				  60% {
-				    top: 40%;
-				    left: 50%;
-				  }
-
-
-				  100% {
-				    top: 50%;
-				    left: 50%;
-				  }
-
-				}
-
-				@keyframes backgroundMoveTwo {
-
-				  0% {
-				    top: 50%;
-				    left: 50%;
-				  }
-
-				  60% {
-				    top: 50%;
-				    left: 40%;
-				  }
-
-
-				  100% {
-				    top: 50%;
-				    left: 50%;
-				  }
-
-				}
-
-				@keyframes grayarrowanimateTwo {
-					0% {
-						opacity: .7;
-					}
-
-					50% {
-						opacity: .4;
-					}
-
-					100% {
-						opacity: .7;
-					}
-				}
-
-				@keyframes grayarrowanimateThree {
-					0% {
-						opacity: .7;
-					}
-
-					50% {
-						opacity: .2;
-					}
-
-					100% {
-						opacity: .7;
-					}
-				}
-
-				.blackaura {
-					-webkit-filter: blur(14px);
-					opacity: .82;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%) scale(1.9);
-				}
-
-				.lightaura {
-					-webkit-filter: blur(14px);
-					opacity: .82;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%) scale(1.9);
-				}
-
-				.sub-aura-container {
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    opacity: .75;
-				    filter: contrast(2) saturate(0.2);
-				    transform: translate(50%, 50%);
-				}
-
-				.aura-object-one {
-				    height: 310px;
-				    width: 310px;
-				    background: #ffffff;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%);
-				    animation: grayarrowanimateThree 5.14s infinite linear;
-				    filter: blur(32px);
-				    -webkit-filter: blur(32px);
-				    -moz-filter: blur(32px);
-				    border-radius: 50%;
-				}
-
-				.aura-object-two {
-					height: 120px;
-				    width: 120px;
-				    position: absolute;
-				    transform: translate(-50%, -50%) translate3d(0, 0, 0);
-				    filter: saturate(1.3) blur(33px);
-				    -webkit-filter: saturate(1.3) blur(33px);
-				    top: 50%;
-				    left: 50%;
-				    opacity: .7;
-				    animation: grayarrowanimateTwo 5.14s infinite linear;
-				    overflow: hidden;
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border: 55px solid #74b1e7;
-				    z-index: 2;
-				}
-
-				.aura-object-three {
-				    height: 260px;
-				    width: 260px;
-				    background: #fefeff;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%);
-				    animation: grayarrowanimateThree 5.14s infinite linear;
-				    filter: blur(47px);
-				    -webkit-filter: blur(47px);
-				    -moz-filter: blur(47px);
-				    border-radius: 50%;
-				}
-
-				.aura-object-four {
-				    height: 150px;
-				    width: 150px;
-				    background: #818999;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    animation: grayarrowanimateThree 5.14s infinite linear;
-				    transform: translate(-50%, -50%);
-				    filter: blur(17px);
-				    -webkit-filter: blur(17px);
-				    -moz-filter: blur(17px);
-				    border-radius: 50%;
-				}
-
-				.aura-moving-object-one {
-				    height: 150px;
-				    width: 150px;
-				    background: #7171715e;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%) scale(3.5);
-				    filter: blur(43px);
-				    -webkit-filter: blur(43px);
-				    -moz-filter: blur(43px);
-				    border-radius: 50%;
-				}
-
-				.aura-moving-object-two {
-				    height: 150px;
-				    width: 150px;
-				    background: #677883;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%);
-				    animation: backgroundMoveTwo 4.14s ease infinite;
-				    filter: blur(59px);
-				    -webkit-filter: blur(59px);
-				    -moz-filter: blur(59px);
-				    border-radius: 50%;
-				}
-
-				.lightaura-emphasis {
-					-webkit-filter: blur(10px) contrast(.5);
-				    opacity: 1;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;
-				    transform: translate(-50%, -50%) scale(1.57);
-				}
-
-				.mobile-video-btns-container {
-					position: absolute;
-					right: 0;
-					bottom: 0; 
-					display: flex; 
-					gap: 15px;
-				}
-			</style>
-
-			<div id="aura-container" onclick="videoTogglePlay();">
+				<div id="aura-container" onclick="videoTogglePlay();">
 
 			    <div class="blackaura">
 			    	<div class="squareflashing" id="touchpress1" style="background-color: black;">
@@ -1622,560 +1612,543 @@
 			    	</div>
 			    </div>
 
-				<div class="sub-aura-container">
+					<div class="sub-aura-container">
 
-					<div class="aura-object-one"></div>
-					<div class="aura-object-two"></div>
-					<div class="aura-object-three"></div>
-					<div class="aura-object-four"></div>
+						<div class="aura-object-one"></div>
+						<div class="aura-object-two"></div>
+						<div class="aura-object-three"></div>
+						<div class="aura-object-four"></div>
 
-					<!-- MOVING PARTS -->
-				    <div class="aura-moving-object-one"></div>
-				    <div class="aura-moving-object-two"></div>
+						<!-- MOVING PARTS -->
+					    <div class="aura-moving-object-one"></div>
+					    <div class="aura-moving-object-two"></div>
 
-				    <div class="lightaura-emphasis">
-				    	<div class="squareflashing" id="touchpress3">
-				    	</div>
-				    </div>
+					    <div class="lightaura-emphasis">
+					    	<div class="squareflashing" id="touchpress3">
+					    	</div>
+					    </div>
+					</div>
 				</div>
-			</div>
 
+		    <button id="invisible-full-playbtn"></button>
 
-	        <button id="invisible-full-playbtn"></button>
+		    <div class="testing-container">
+					<div class="video-profile-box-container" >
 
-	        <div class="testing-container">
-				
-				<div class="video-profile-box-container" >
+						<div class="profileblur-picture-container">
+							<div class="blurpicture-container">
+								<div class="blurpictureSvgPath">
+								  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="blur-picture" preload="auto" >
+								</div>
+							</div>
 
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="151.5px" viewBox="0 0 200 151.5" class="goldenratioSvgBlur" xml:space="preserve">
+								<defs></defs>
+								<clipPath id="profilePicturesvgPath">
+									<path d="M0,0v151.5h200V0H0z M163.56,115.04H36.45V36.45h127.11V115.04z"/>
+								</clipPath>
+							</svg>
 
-
-
-					<div class="profileblur-picture-container">
-						<div class="blurpicture-container">
-
-							<div class="blurpictureSvgPath">
-							  <img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="blur-picture" preload="auto" >
+							<div class="profileblur-regular-picture">
+								<img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profileblur-img" preload="auto"> 
+								</img>
 							</div>
 						</div>
 
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="151.5px" viewBox="0 0 200 151.5" class="goldenratioSvgBlur" xml:space="preserve">
-							<defs></defs>
-							<clipPath id="profilePicturesvgPath">
-								<path d="M0,0v151.5h200V0H0z M163.56,115.04H36.45V36.45h127.11V115.04z"/>
-							</clipPath>
-						</svg>
+		        <div class="video-text-title-container">
+		        	<div class="video-text-title-wrapper">
+		            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
+		            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
+		            <div class="nametag-container">
+		            	<span class="video-gray-arrow"> ></span> 
+		            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
+		            </div>
+		            
+		            <div class="guerin-status-indicator">
+									<p class="additional-video-secondary-accent-text video-play-icon"> PAUSED </p> 
+									<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
+									<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
+									 height="14.61px" viewBox="0 0 19.05 14.61"
+									 xml:space="preserve" style="width: 12px; margin: -2.5px 0px 0px 4px;">
+										<defs></defs>
+										<g>
+											<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
+											<polygon points="17.07,7.31 19.05,9.29 18.05,10.29 16.07,8.31 14.08,10.29 13.08,9.29 15.07,7.31 13.08,5.32 14.08,4.32 
+											  16.07,6.31 18.05,4.32 19.05,5.32  "/>
+										</g>
+									</svg>
+			          </div>
 
-						<div class="profileblur-regular-picture">
-							<img src="https://static.wixstatic.com/media/fab5c1_4d1b0ea9c6fb4f66bedd0b4e0a26d79b~mv2.png" class="profileblur-img" preload="auto"> 
-							</img>
-						</div>
-					</div>
+		            <div class="guerin-video-social-icons">
+									<div style="display: inline-block;">
+										<a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
+											<button type="submit" class="video-general-social-btn" style="background: rgb(0, 0, 0, .12); color: black;">DESIGNER 
+												<svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" style="overflow:visible;enable-background:new 0 0 10 10;" xml:space="preserve">
+													<defs></defs>
+													<g>
+													<polygon style="fill: black;" points="10,5.52 6.25,5.52 8.9,8.17 8.17,8.9 5.52,6.25 5.52,10 4.48,10 4.48,6.25 1.83,8.9 1.1,8.17 
+													3.75,5.52 0,5.52 0,4.48 3.75,4.48 1.1,1.83 1.83,1.1 4.48,3.75 4.48,0 5.52,0 5.52,3.75 8.17,1.1 8.9,1.83 6.25,4.48 10,4.48 	"/>
+													</g>
+												</svg>
+											</button>
+										</a>
+									</div>
 
-
-
-			        <div class="video-text-title-container">
-			        	<div class="video-text-title-wrapper">
-				            <!--<p class="video-title-text"> CHASE GUERIN - ELEMENT. </p>-->
-				            <p class="video-title-text"> CHASE GUERIN - KING KUNTA STATE OF COMPTON. </p>
-				            <div class="nametag-container">
-				            	<span class="video-gray-arrow"> ></span> 
-				            	<span class="video-secondary-accent-text"> CHASE GUERIN </span>
-				            </div>
-				            
-				            <div class="guerin-status-indicator">
-								<p class="additional-video-secondary-accent-text video-play-icon"> PAUSED </p> 
-								<p class="additional-video-secondary-accent-text video-pause-icon"> NOW PLAYING </p>
-								<svg class="video-volume-muted-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19.05px"
-								 height="14.61px" viewBox="0 0 19.05 14.61"
-								 xml:space="preserve" style="width: 12px; margin: -2.5px 0px 0px 4px;">
-									<defs></defs>
-									<g>
-										<polygon points="9.25,0 9.25,14.61 4.65,10.97 3.95,10.39 0,10.39 0,4.25 3.95,4.25 4.65,3.67   "/>
-										<polygon points="17.07,7.31 19.05,9.29 18.05,10.29 16.07,8.31 14.08,10.29 13.08,9.29 15.07,7.31 13.08,5.32 14.08,4.32 
-										  16.07,6.31 18.05,4.32 19.05,5.32  "/>
-									</g>
-								</svg>
-				            </div>
-
-				            <div class="guerin-video-social-icons">
-								<div style="display: inline-block;">
-									<a href="https://github.com/chaseguerin" target="_blank" style="text-decoration: none;">
-										<button type="submit" class="video-general-social-btn" style="background: rgb(0, 0, 0, .12); color: black;">DESIGNER 
-
-											<svg version="1.1" style="margin-left: 4px; margin-right: 0px; height: 100%;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" style="overflow:visible;enable-background:new 0 0 10 10;" xml:space="preserve">
+									<div style="display: inline-block;">
+										<button type="submit" class="video-general-social-btn" style="background: rgb(68, 79, 255, .12); color: #2D00FF;" >.ETH 
+											<svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
 												<defs></defs>
 												<g>
-												<polygon style="fill: black;" points="10,5.52 6.25,5.52 8.9,8.17 8.17,8.9 5.52,6.25 5.52,10 4.48,10 4.48,6.25 1.83,8.9 1.1,8.17 
-												3.75,5.52 0,5.52 0,4.48 3.75,4.48 1.1,1.83 1.83,1.1 4.48,3.75 4.48,0 5.52,0 5.52,3.75 8.17,1.1 8.9,1.83 6.25,4.48 10,4.48 	"/>
+													<polygon style="fill: #2D00FF;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
+													<rect x="7.89" y="6.58" style="fill: #2D00FF;" width="6.58" height="1.32"></rect>
 												</g>
 											</svg>
 										</button>
-									</a>
-								</div>
-
-								<div style="display: inline-block;">
-
-									<button type="submit" class="video-general-social-btn" style="background: rgb(68, 79, 255, .12); color: #2D00FF;" >.ETH 
-
-										<svg version="1.1" style="margin-left: 5px; margin-right: 0px; height: 100%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 14.47 14.47" xml:space="preserve">
-											<defs></defs>
-											<g>
-												<polygon style="fill: #2D00FF;" points="14.47,0 14.47,3.95 5.26,3.95 5.26,10.52 14.47,10.52 14.47,14.47 0,14.47 0,0  "></polygon>
-												<rect x="7.89" y="6.58" style="fill: #2D00FF;" width="6.58" height="1.32"></rect>
-											</g>
-										</svg>
-									</button>
-								</div>
-				            </div>
-			            </div>
-
-			        </div>
-
-			        <div class="video-logo-box-container" onclick="videoTogglePlay();">
-				        <div class="video-logo-box-wrapper">
-							<!-- LOGO shadow -->
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px"
-							 height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo-shadow" xml:space="preserve">
-								<defs></defs>
-								<g style="fill:#000000; opacity:0.1369;" id="goatedtwo">
-								    <rect y="86.48" width="10.8" height="32.43"/>
-								    <polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
-								      10.8,64.86 97.28,64.86 97.28,75.66  "/>
-								    <polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
-								      21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9   "/>
-								    <rect x="108.09" width="10.81" height="32.44"/>
-								</g>
-							</svg>
-
-							<!-- guerin LOGO -->
-							<svg id="goated" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px" height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo" xml:space="preserve">
-								<defs></defs>
-								<g style="fill:#FFFFFF; opacity:0.64;">
-									<rect y="86.48" width="10.8" height="32.43"/>
-									<polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
-									  10.8,64.86 97.28,64.86 97.28,75.66"/>
-									<polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
-									  21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9"/>
-									<rect x="108.09" width="10.81" height="32.44"/>
-								</g>
-							</svg>
-
-					        <div id="video-hiding-timer" class="video-yearvis-timer">
-
-					        	<!-- CONTAINER TEN-MINUTES TOP LEFT -->
-					            <div id="container-video-tenminutes-top-left"> 
-
-									<!-- NUMBER 0 TOP LEFT -->
-									<div id="zero-video-tenminutes-top-left" style=" display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-										    <defs></defs>
-										    <path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-										</svg>
 									</div>
-
-									<!-- NUMBER 1 TOP LEFT -->
-									<div id="one-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-											  20.18,0 20.18,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 2 TOP LEFT -->
-									<div id="two-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 3 TOP LEFT  -->
-									<div id="three-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 4 TOP LEFT  -->
-									<div id="four-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 5 TOP LEFT  -->
-									<div id="five-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 6 TOP LEFT  -->
-									<div id="six-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 7 TOP LEFT  -->
-									<div id="seven-video-tenminutes-top-left" style="display: none;"> 
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 8 TOP LEFT  -->
-									<div id="eight-video-tenminutes-top-left" style="display: none;">
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 9 TOP LEFT  -->
-									<div id="nine-video-tenminutes-top-left" style="display: none;">
-										<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-					            </div>
-
-
-					        	<!-- CONTAINER MINUTES TOP RIGHT -->
-					            <div id="container-video-minutes-top-right"> 
-
-									<!-- NUMBER 0 TOP RIGHT -->
-									<div id="zero-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 1 TOP RIGHT -->
-									<div id="one-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-											  20.18,0 20.18,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 2 TOP RIGHT -->
-									<div id="two-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 3 TOP RIGHT  -->
-									<div id="three-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
-										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 4 TOP RIGHT  -->
-									<div id="four-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 5 TOP RIGHT  -->
-									<div id="five-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 6 TOP RIGHT  -->
-									<div id="six-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 7 TOP RIGHT  -->
-									<div id="seven-video-minutes-top-right" style="display: none;"> 
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
-										   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 8 TOP RIGHT  -->
-									<div id="eight-video-minutes-top-right" style="display: none;">
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 9 TOP RIGHT  -->
-									<div id="nine-video-minutes-top-right" style="display: none;">
-										<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-					            </div>
-
-
-					        	<!-- CONTAINER TEN-SECONDS BOTTOM LEFT -->
-					            <div id="container-video-tenseconds-bottom-left"> 
-
-									<!-- NUMBER 0 BOTTOM LEFT -->
-									<div id="zero-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 1 BOTTOM LEFT -->
-									<div id="one-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-											  20.18,0 20.18,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 2 BOTTOM LEFT -->
-									<div id="two-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 3 BOTTOM LEFT  -->
-									<div id="three-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 4 BOTTOM LEFT  -->
-									<div id="four-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 5 BOTTOM LEFT  -->
-									<div id="five-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 6 BOTTOM LEFT  -->
-									<div id="six-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 7 BOTTOM LEFT  -->
-									<div id="seven-video-tenseconds-bottom-left" style="display: none;"> 
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 8 BOTTOM LEFT  -->
-									<div id="eight-video-tenseconds-bottom-left" style="display: none;">
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 9 BOTTOM LEFT  -->
-									<div id="nine-video-tenseconds-bottom-left" style="display: none;">
-										<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-					            </div>
-
-
-					        	<!-- CONTAINER SECONDS BOTTOM RIGHT -->
-					            <div id="container-video-seconds-bottom-right"> 
-
-									<!-- NUMBER 0 BOTTOM RIGHT -->
-									<div id="zero-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 1 BOTTOM RIGHT -->
-									<div id="one-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
-											  20.18,0 20.18,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 2 BOTTOM RIGHT -->
-									<div id="two-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 3 BOTTOM RIGHT  -->
-									<div id="three-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
-											<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 4 BOTTOM RIGHT  -->
-									<div id="four-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
-											  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 5 BOTTOM RIGHT  -->
-									<div id="five-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
-											<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 6 BOTTOM RIGHT  -->
-									<div id="six-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
-											<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 7 BOTTOM RIGHT  -->
-									<div id="seven-video-seconds-bottom-right" style="display: none;"> 
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
-											<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
-											<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 8 BOTTOM RIGHT  -->
-									<div id="eight-video-seconds-bottom-right" style="display: none;">
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
-										   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
-											<defs></defs>
-											<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
-											<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
-											<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
-										</svg>
-									</div>
-
-									<!-- NUMBER 9 BOTTOM RIGHT  -->
-									<div id="nine-video-seconds-bottom-right" style="display: none;">
-										<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
-											<defs></defs>
-											<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
-											<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
-										</svg>
-									</div>
-					            </div>
-					        </div>
-			        	</div>
-			        </div>
+		            </div>
+		          </div>
 		        </div>
-	    	</div>
+
+		        <div class="video-logo-box-container" onclick="videoTogglePlay();">
+			        <div class="video-logo-box-wrapper">
+								<!-- LOGO shadow -->
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px"
+								 height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo-shadow" xml:space="preserve">
+									<defs></defs>
+									<g style="fill:#000000; opacity:0.1369;" id="goatedtwo">
+									    <rect y="86.48" width="10.8" height="32.43"/>
+									    <polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+									      10.8,64.86 97.28,64.86 97.28,75.66  "/>
+									    <polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+									      21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9   "/>
+									    <rect x="108.09" width="10.81" height="32.44"/>
+									</g>
+								</svg>
+
+								<!-- guerin LOGO -->
+								<svg id="goated" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74px" height="74px" viewBox="0 0 118.9 118.9" class="guerin-video-logo" xml:space="preserve">
+									<defs></defs>
+									<g style="fill:#FFFFFF; opacity:0.64;">
+										<rect y="86.48" width="10.8" height="32.43"/>
+										<polygon points="0,75.66 0,0 97.28,0 97.28,32.44 21.61,32.44 21.61,21.63 86.46,21.63 86.46,10.81 10.8,10.81 
+										  10.8,64.86 97.28,64.86 97.28,75.66"/>
+										<polygon points="21.61,118.9 21.61,86.48 97.28,86.48 97.28,97.29 32.43,97.29 32.43,108.1 108.09,108.1 108.09,54.05 
+										  21.61,54.05 21.61,43.24 118.9,43.24 118.9,118.9"/>
+										<rect x="108.09" width="10.81" height="32.44"/>
+									</g>
+								</svg>
+
+				        <div id="video-hiding-timer" class="video-yearvis-timer">
+
+				        	<!-- CONTAINER TEN-MINUTES TOP LEFT -->
+				          <div id="container-video-tenminutes-top-left"> 
+
+										<!-- NUMBER 0 TOP LEFT -->
+										<div id="zero-video-tenminutes-top-left" style=" display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+											    <defs></defs>
+											    <path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 1 TOP LEFT -->
+										<div id="one-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+												  20.18,0 20.18,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 2 TOP LEFT -->
+										<div id="two-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 3 TOP LEFT  -->
+										<div id="three-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 4 TOP LEFT  -->
+										<div id="four-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 5 TOP LEFT  -->
+										<div id="five-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 6 TOP LEFT  -->
+										<div id="six-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 7 TOP LEFT  -->
+										<div id="seven-video-tenminutes-top-left" style="display: none;"> 
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 8 TOP LEFT  -->
+										<div id="eight-video-tenminutes-top-left" style="display: none;">
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 9 TOP LEFT  -->
+										<div id="nine-video-tenminutes-top-left" style="display: none;">
+											<svg class="video-top-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+					        </div>
 
 
-	      
-	        <div id="video-whiteblur" style="z-index: 1;"></div>
+				        	<!-- CONTAINER MINUTES TOP RIGHT -->
+				          <div id="container-video-minutes-top-right"> 
 
-	        <div class="video-aura-container" style="z-index: 1;" onclick="videoTogglePlay()">
-	          
-				<img class="video-aura-thumbnail">
-				<img id="aura-element" class="video-aura">
-	        </div>  
+										<!-- NUMBER 0 TOP RIGHT -->
+										<div id="zero-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 1 TOP RIGHT -->
+										<div id="one-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+												  20.18,0 20.18,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 2 TOP RIGHT -->
+										<div id="two-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 3 TOP RIGHT  -->
+										<div id="three-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+											   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 4 TOP RIGHT  -->
+										<div id="four-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 5 TOP RIGHT  -->
+										<div id="five-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 6 TOP RIGHT  -->
+										<div id="six-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 7 TOP RIGHT  -->
+										<div id="seven-video-minutes-top-right" style="display: none;"> 
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px"
+											   height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 8 TOP RIGHT  -->
+										<div id="eight-video-minutes-top-right" style="display: none;">
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 9 TOP RIGHT  -->
+										<div id="nine-video-minutes-top-right" style="display: none;">
+											<svg class="video-top-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+					        </div>
 
 
+				        	<!-- CONTAINER TEN-SECONDS BOTTOM LEFT -->
+				          <div id="container-video-tenseconds-bottom-left"> 
 
-	        <div id="gVideoContainerID" class="guerin-video-controls-container">
+										<!-- NUMBER 0 BOTTOM LEFT -->
+										<div id="zero-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 1 BOTTOM LEFT -->
+										<div id="one-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+												  20.18,0 20.18,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 2 BOTTOM LEFT -->
+										<div id="two-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 3 BOTTOM LEFT  -->
+										<div id="three-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 4 BOTTOM LEFT  -->
+										<div id="four-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 5 BOTTOM LEFT  -->
+										<div id="five-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 6 BOTTOM LEFT  -->
+										<div id="six-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 7 BOTTOM LEFT  -->
+										<div id="seven-video-tenseconds-bottom-left" style="display: none;"> 
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 8 BOTTOM LEFT  -->
+										<div id="eight-video-tenseconds-bottom-left" style="display: none;">
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 9 BOTTOM LEFT  -->
+										<div id="nine-video-tenseconds-bottom-left" style="display: none;">
+											<svg class="video-bottom-left-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+					        </div>
+
+
+				        	<!-- CONTAINER SECONDS BOTTOM RIGHT -->
+				          <div id="container-video-seconds-bottom-right"> 
+
+										<!-- NUMBER 0 BOTTOM RIGHT -->
+										<div id="zero-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v33.64h33.64V0H0z M26.91,26.91H6.73V6.73h20.18V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 1 BOTTOM RIGHT -->
+										<div id="one-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.63 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,26.91 33.63,33.64 0,33.64 0,26.91 13.45,26.91 13.45,13.46 0,13.46 0,6.73 13.45,6.73 13.45,0 
+												  20.18,0 20.18,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 2 BOTTOM RIGHT -->
+										<div id="two-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,20.18 6.73,20.18 6.73,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<polygon class="video-yearnum" points="33.64,26.91 33.64,33.64 0,33.64 0,20.18 6.73,20.18 6.73,26.91 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 3 BOTTOM RIGHT  -->
+										<div id="three-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" class="" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.46 26.91,13.46 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.46" class="video-yearnum" width="20.18" height="6.72"/>
+												<polygon class="video-yearnum" points="33.64,20.18 33.64,33.64 0,33.64 0,26.91 26.91,26.91 26.91,20.18 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 4 BOTTOM RIGHT  -->
+										<div id="four-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,20.19 33.64,26.91 26.91,26.91 26.91,33.64 20.18,33.64 20.18,26.91 0,26.91 0,20.19 6.73,20.19 
+												  6.73,13.46 13.46,13.46 13.46,20.19 20.18,20.19 20.18,13.46 13.46,13.46 13.46,6.73 20.18,6.73 20.18,0 26.91,0 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 5 BOTTOM RIGHT  -->
+										<div id="five-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,6.73 6.73,6.73 6.73,13.46 26.91,13.46 26.91,20.19 0,20.19 0,0 "/>
+												<rect x="26.91" y="20.19" class="video-yearnum" width="6.73" height="6.72"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 6 BOTTOM RIGHT  -->
+										<div id="six-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px" height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<rect x="6.72" class="video-yearnum" width="26.91" height="6.73"/>
+												<path class="video-yearnum" d="M6.72,13.45V6.73H0v26.91h33.63V13.45H6.72z M26.91,26.91H6.72v-6.73h20.19V26.91z"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 7 BOTTOM RIGHT  -->
+										<div id="seven-video-seconds-bottom-right" style="display: none;"> 
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.64,0 33.64,13.45 26.91,13.45 26.91,6.73 0,6.73 0,0 "/>
+												<rect x="6.73" y="13.45" class="video-yearnum" width="20.18" height="6.73"/>
+												<rect y="20.18" class="video-yearnum" width="6.73" height="13.46"/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 8 BOTTOM RIGHT  -->
+										<div id="eight-video-seconds-bottom-right" style="display: none;">
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.63px"
+											   height="33.64px" viewBox="0 0 33.63 33.64" xml:space="preserve">
+												<defs></defs>
+												<polygon class="video-yearnum" points="33.63,0 33.63,13.46 26.91,13.46 26.91,6.73 6.72,6.73 6.72,13.46 0,13.46 0,0 "/>
+												<rect x="6.72" y="13.46" class="video-yearnum" width="20.19" height="6.73"/>
+												<polygon class="video-yearnum" points="33.63,20.19 33.63,33.64 0,33.64 0,20.19 6.72,20.19 6.72,26.91 26.91,26.91 26.91,20.19 "/>
+											</svg>
+										</div>
+
+										<!-- NUMBER 9 BOTTOM RIGHT  -->
+										<div id="nine-video-seconds-bottom-right" style="display: none;">
+											<svg class="video-bottom-right-attr" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.64px" height="33.64px" viewBox="0 0 33.64 33.64" xml:space="preserve">
+												<defs></defs>
+												<path class="video-yearnum" d="M0,0v20.19h26.91v6.72h6.73V0H0z M26.91,13.46H6.73V6.73h20.18V13.46z"/>
+												<rect y="26.91" class="video-yearnum" width="26.91" height="6.73"/>
+											</svg>
+										</div>
+					        </div>
+				        </div>
+		        	</div>
+		        </div>
+			    </div>
+		    </div>
+		      
+	      <div id="video-whiteblur" style="z-index: 1;"></div>
+
+	      <div class="video-aura-container" style="z-index: 1;" onclick="videoTogglePlay()">
+					<img class="video-aura-thumbnail">
+					<img id="aura-element" class="video-aura">
+	      </div>  
+
+	      <div id="gVideoContainerID" class="guerin-video-controls-container">
 
 	    		<div class="guerin-controls">
 
@@ -2188,7 +2161,6 @@
 		        </button>
 
 		        <div class="video-volume-container" style="display: none;">
-
 							<button class="mute-btn">
 
 								<svg class="video-volume-high-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.98 24.58" height="24.58px" width="26.98px">
@@ -2207,13 +2179,11 @@
 								  <polygon points="14.56 0 14.56 23 7.32 17.27 6.22 16.36 0 16.36 0 6.69 6.22 6.69 7.32 5.78 14.56 0"/>
 								  <polygon points="26.87 11.51 29.99 14.62 28.42 16.2 25.3 13.08 22.17 16.2 20.59 14.62 23.72 11.51 20.59 8.38 22.17 6.8 25.3 9.93 28.42 6.8 29.99 8.38 26.87 11.51"/>
 								</svg>
-
 							</button>
-
 							<input class="guerin-volume-slider" type="range" min="0" max="1" step="any" value="1">
-			            </div>
+			      </div>
 
-			            <div class="video-duration-container">
+			      <div class="video-duration-container">
 							<p class="video-progress-text">
 								<span class="current-time">
 									0:00
@@ -2223,62 +2193,24 @@
 									0:00
 								</span>
 
-
 								<g class="mobile-video-btns-container">
-								  <button class="aurascript-btn">
+									<button class="aurascript-btn">
 
+										<!-- aurascript button -->
+										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
+											<defs></defs>
+										  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
+										  <g id="aurascriptMobileBtn-fill">
+											  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
+											  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
+											  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
+											</g>
+										</svg>
 
-
-
-
-						    <style>
-						      #aurascriptMobileBtn-fill {
-						        fill: transparent;
-						      }
-
-						      .aurascriptMobileBtn-blur {
-										height: 30px;
-								    width: 30px;
-								    filter: blur(8px);
-								    position: absolute;
-								    z-index: -1;
-								    left: 50%;
-								    top: 50%;
-								    transform: translate(-50%,-50%);
-						      }
-
-									#aurablurMobile-opacity {
-										transition: opacity 250ms ease-in-out;
-										opacity: 0;
-									}
-
-						    </style>
-
-								<!-- aurascript button -->
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" xml:space="preserve">
-									<defs></defs>
-								  <path d="m0,0v27h27V0H0Zm7.36,12.27h7.37v2.46h-7.37v-2.46Zm12.28,7.37H7.36v-2.45h12.28v2.45Zm0-9.83H7.36v-2.45h12.28v2.45Z"/>
-								  <g id="aurascriptMobileBtn-fill">
-									  <rect x="7.36" y="17.19" width="12.28" height="2.45"/>
-									  <rect x="7.36" y="12.27" width="7.37" height="2.46"/>
-									  <rect x="7.36" y="7.36" width="12.28" height="2.45"/>
-									</g>
-								</svg>
-
-
-
-
-								<!-- blur -->
-								<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
-								  <rect width="27" height="27"/>
-								</svg>
-
-
-
-
-
-
-
+										<!-- blur -->
+										<svg id="aurablurMobile-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptMobileBtn-blur">
+										  <rect width="27" height="27"/>
+										</svg>
 
 									</button>
 
@@ -2333,35 +2265,10 @@
 							  <rect x="12.55" y="20.91" width="4.18" height="2.09"/>
 							  <rect x="18.82" y="20.91" width="4.18" height="2.09"/>
 							</svg>
-
 						</button>
 
 				    <button class="desktop-aurascript-btn" style="width: 25px;">
 						
-
-					    <style>
-					      #aurascriptBtn-fill {
-					        fill: transparent;
-					      }
-
-					      .aurascriptBtn-blur {
-									height: 26px;
-							    width: 26px;
-							    filter: blur(8px);
-							    position: absolute;
-							    z-index: -1;
-							    left: 50%;
-							    top: 50%;
-							    transform: translate(-50%,-50%);
-					      }
-
-								#aurablur-opacity {
-									transition: opacity 250ms ease-in-out;
-									opacity: 0;
-								}
-
-					    </style>
-
 							<!-- aurascript button -->
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="27px" viewBox="0 0 27 27" style="height: 23px; width: 23px;" xml:space="preserve">
 								<defs></defs>
@@ -2373,262 +2280,167 @@
 								</g>
 							</svg>
 
-
 							<!-- blur -->
 							<svg id="aurablur-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" class="aurascriptBtn-blur">
 							  <rect width="27" height="27"/>
 							</svg>
-
 						</button>
 
+	          <button class="full-screen-btn">
 
+	            <svg class="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+	            	<defs></defs>
+	            	<g>
+	            		<polygon points="42.49,30.9 42.49,42.5 38.63,42.5 38.63,42.49 30.91,42.49 30.91,38.63 38.63,38.63 38.63,30.9   "/>
+	            		<polygon points="11.58,38.63 11.58,42.49 3.87,42.49 3.87,42.5 0,42.5 0,30.91 3.87,30.91 3.87,38.63   "/>
+	            		<polygon points="42.49,0.01 42.49,11.58 38.63,11.58 38.63,3.87 30.9,3.87 30.9,0 38.63,0 38.63,0.01   "/>
+	            		<polygon points="11.58,0 11.58,3.87 3.87,3.87 3.87,11.58 0,11.58 0,0.01 3.87,0.01 3.87,0   "/>
+	            	</g>
+	            </svg>
 
-
-
-
-
-
-
-		            <button class="full-screen-btn">
-
-			            <svg class="open" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
-			              	<defs></defs>
-			              	<g>
-			              		<polygon points="42.49,30.9 42.49,42.5 38.63,42.5 38.63,42.49 30.91,42.49 30.91,38.63 38.63,38.63 38.63,30.9   "/>
-			              		<polygon points="11.58,38.63 11.58,42.49 3.87,42.49 3.87,42.5 0,42.5 0,30.91 3.87,30.91 3.87,38.63   "/>
-			              		<polygon points="42.49,0.01 42.49,11.58 38.63,11.58 38.63,3.87 30.9,3.87 30.9,0 38.63,0 38.63,0.01   "/>
-			              		<polygon points="11.58,0 11.58,3.87 3.87,3.87 3.87,11.58 0,11.58 0,0.01 3.87,0.01 3.87,0   "/>
-			              	</g>
-			            </svg>
-
-			            <svg class="close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
-							<defs></defs>
-							<g>
-								<polygon points="30.91,42.5 30.91,30.9 34.77,30.9 34.77,30.9 42.49,30.9 42.49,34.76 34.77,34.76 34.77,42.5  "/>
-								<polygon points="0,34.78 0,30.92 7.71,30.92 7.71,30.91 11.58,30.91 11.58,42.5 7.71,42.5 7.71,34.78  "/>
-								<polygon points="30.9,11.57 30.9,0 34.76,0 34.76,7.71 42.49,7.71 42.49,11.58 34.76,11.58 34.76,11.57  "/>
-								<polygon points="0,11.58 0,7.71 7.71,7.71 7.71,0 11.58,0 11.58,11.57 7.71,11.57 7.71,11.58  "/>
-							</g>
-			            </svg>
-		            </button>
-
-	            </div>
+	            <svg class="close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 42.49 42.5" xml:space="preserve">
+								<defs></defs>
+								<g>
+									<polygon points="30.91,42.5 30.91,30.9 34.77,30.9 34.77,30.9 42.49,30.9 42.49,34.76 34.77,34.76 34.77,42.5  "/>
+									<polygon points="0,34.78 0,30.92 7.71,30.92 7.71,30.91 11.58,30.91 11.58,42.5 7.71,42.5 7.71,34.78  "/>
+									<polygon points="30.9,11.57 30.9,0 34.76,0 34.76,7.71 42.49,7.71 42.49,11.58 34.76,11.58 34.76,11.57  "/>
+									<polygon points="0,11.58 0,7.71 7.71,7.71 7.71,0 11.58,0 11.58,11.57 7.71,11.57 7.71,11.58  "/>
+								</g>
+	            </svg>
+	          </button>
 	        </div>
-    	</div>
+	      </div>
+	    </div>
 
+			<div class="aurascript-container">
+				<p class="aurascript-text"> 
+					<span class="aurascript-arrow"> > </span>
+					<span class="aurascript" style="display: none;">
+						07.030 | New kung fu kenny
+						10.030 | Ain't nobody prayin' for me
+						13.030 | Y'all know, what happens on earth stays on earth
+						17.470 | Here we go!
+						18.830 | I don't give a ****, I don't give a ****
+						20.530 | I don't give a, I don't give a, I don't give a ****
+						23.800 | I'm willin' to die for this ****
+						25.400 | I done cried for this ****, might take a life for this ****
+						27.870 | Put the bible down and go eye for an eye for this ****
+						30.330 | D.o.t. My enemy, won't catch a vibe for this ****, ayy
+						34.030 | I been stomped out in front of my mama
+						36.370 | My daddy commissary made it to commas
+						38.970 | *****, all my grandmas dead
+						40.570 | So ain't nobody prayin' for me, I'm on your head, ayy
+						43.970 | Thirty millions later, know the feds watchin'
+						46.130 | Auntie on my telegram, like, "be cautious!"
+						48.800 | I be hangin' out at tam's, I be on stockton
+						51.130 | I don't do it for the 'gram, I do it for compton
+						54.030 | I'm willin' to die for this ****, *****
+						56.400 | I'll take your ******' life for this ****, *****
+						58.970 | We ain't goin' back to broke, family sellin' ****
+						61.100 | That's why you maney-ass rap ****** better know
+						65.100 | If I gotta slap a *****-ass *****, I'ma make it look ****
+						70.070 | If I gotta go hard on a *****, I'ma make it look ****
+						75.430 | I pull up, hop out, air out, made it look ****
+						79.830 | They won't take me out my element
+						81.600 | Nah, take me out my element
+						83.030 | I'm allergic to a ***** *****, ayy
+						84.800 | An imaginary rich *****, ayy
+						86.800 | Seven figures, hoe, that slimmer than my ***** figure, ayy
+						89.130 | Goin' digital and physical on all y'all, ayy
+						91.900 | Bunch of criminals and money in my phone calls, ayy
+						94.370 | We okay, we let the a1 fly
+						97.000 | Relocate, jump on the same g5
+						99.500 | Checkin' for me heavy 'cause I go yeah, I go yeah
+						102.100 | They never been ready yeah, I know yeah, I know yeah
+						104.570 | 100K ****** across the floor, 'cross the floor, yeah
+						107.130 | None of y'all ******' with the flow yeah, the flow yeah
+						109.830 | Years in the makin', and don't y'all mistake it
+						111.970 | I got 'em by a landslide, we talkin' about races
+						114.400 | You know this'll never be a tie, just look at their laces
+						116.830 | You know careers take off, just gotta be patient
+						119.430 | Mr. One through five, that's the only logic
+						121.970 | Fake my death, go to cuba, that's the only option
+						125.900 | If I gotta slap a *****-ass *****, I'ma make it look ****
+						130.830 | If I gotta go hard on a *****, I'ma make it look ****
+						135.870 | I pull up, hop out, air out, made it look ****
+						140.400 | They won't take me out my element
+						142.070 | Nah, take me out my element
+						144.500 | Damned if I do, if I don't (yuhhh)
+						147.000 | ******* us all if you won't (yuhhh)
+						149.430 | Damn, damn, damn, it's a ******* shame
+						151.600 | You ain't frontline, get out the ******* way
+						154.800 | ****** thought they wasn't gonna see me, huh?
+						156.570 | ****** thought that k-dot real life
+						158.000 | Was the same life they see on tv, huh?
+						159.970 | ****** wanna flex on me and be in l.a. For free, huh?
+						162.400 | Next time they hit the 10 freeway, we need receipt, huh?
+						164.970 | 'Cause most of y'all ain't real
+						166.400 | Most of y'all gon' squeal
+						167.970 | Most of y'all just envy, but jealousy get you killed
+						170.030 | Most of y'all throw rocks and try to hide your hand
+						172.430 | Just say his name and I promise that you'll see candyman
+						174.900 | Because it's all in your eyes, most of y'all tell lies
+						177.570 | Most of y'all don't fade, most of y'all been advised
+						180.200 | Last lp I tried to lift the black artists
+						182.430 | But it's a difference between black artists and wack artists
+						186.970 | If I gotta slap a *****-ass *****, I'ma make it look ****
+						191.130 | It's the one and only, the world's greatest, the kid *****
+						193.330 | If I gotta go hard on a *****, I'ma make it look ****
+						199.870 | I pull up, hop out, air out, made it look ****
+						205.070 | They won't take me out my element
+						207.600 | Nah, take me out my element
+					</span>
+					<span class="blinking-aurascript-cursor"></span> 
+				</p> 
+			</div>
 
+			<button id="theaterInvisibleOverlay" style="width: 100%; height: 100%; position: absolute; background: transparent; border: none; z-index: 2; cursor: pointer;"></button>
 
-		<style type="text/css">
-			.aurascript-container {
-				position: absolute;
-				font-family: 'Source Code Pro', monospace;
-				/* overflow-y: hidden; */
-				bottom: 50px;
-				left: 50%;
-				transform: translateX(-50%);
-				text-align: center;
-				display: none;
-				height: 70px;
-				align-items: center;
-				/* width: 380px; */
-				z-index: 0;
-				transition: all 250ms ease-in-out;
-			}
-
-			.aurascript-text {
-				width: 100%;
-				color: #ff0000;
-				font-weight: 600;
-				text-shadow: #6a6a6a 0px 0px 1px;
-			    /* -webkit-text-stroke: black 0.1px; */
-			    transition: color 120ms ease-in-out;
-			}
-
-
-			.aurascript-container .lyrics:before {
-				opacity: 0;
-			}
-
-			.aurascript-container .aurascript:after {
-				opacity: 1;
-			}
-
-			.aurascript-arrow {
-				color: #626262;
-				display: none;
-			}
-
-			.aurascript {
-				font-size: 17.5px;
-			}
-
-			.blinking-aurascript-cursor::after {
-				height: 13px;
-				width: 6px;
-				content: "";
-				display: inline-block;
-				margin-left: -3px;
-				margin-bottom: -2px;
-				background-color: #c7c7c7;
-				animation: auraBlink 0.9s steps(2, start) infinite;
-				display: none;
-			}
-
-
-			@keyframes auraBlink {
-				0% {
-					opacity: 1;
-				}
-				49% {
-					opacity: 1;
-				}
-				50% {
-					opacity: 0;
-				}
-				100% {
-					opacity: 0;
-				}
-			}
-		</style>
-
-		<div class="aurascript-container">
-			<p class="aurascript-text"> 
-				<span class="aurascript-arrow"> > </span>
-				<span class="aurascript" style="display: none;">
-					07.030 | New kung fu kenny
-					10.030 | Ain't nobody prayin' for me
-					13.030 | Y'all know, what happens on earth stays on earth
-					17.470 | Here we go!
-					18.830 | I don't give a ****, I don't give a ****
-					20.530 | I don't give a, I don't give a, I don't give a ****
-					23.800 | I'm willin' to die for this ****
-					25.400 | I done cried for this ****, might take a life for this ****
-					27.870 | Put the bible down and go eye for an eye for this ****
-					30.330 | D.o.t. My enemy, won't catch a vibe for this ****, ayy
-					34.030 | I been stomped out in front of my mama
-					36.370 | My daddy commissary made it to commas
-					38.970 | *****, all my grandmas dead
-					40.570 | So ain't nobody prayin' for me, I'm on your head, ayy
-					43.970 | Thirty millions later, know the feds watchin'
-					46.130 | Auntie on my telegram, like, "be cautious!"
-					48.800 | I be hangin' out at tam's, I be on stockton
-					51.130 | I don't do it for the 'gram, I do it for compton
-					54.030 | I'm willin' to die for this ****, *****
-					56.400 | I'll take your ******' life for this ****, *****
-					58.970 | We ain't goin' back to broke, family sellin' ****
-					61.100 | That's why you maney-ass rap ****** better know
-					65.100 | If I gotta slap a *****-ass *****, I'ma make it look ****
-					70.070 | If I gotta go hard on a *****, I'ma make it look ****
-					75.430 | I pull up, hop out, air out, made it look ****
-					79.830 | They won't take me out my element
-					81.600 | Nah, take me out my element
-					83.030 | I'm allergic to a ***** *****, ayy
-					84.800 | An imaginary rich *****, ayy
-					86.800 | Seven figures, hoe, that slimmer than my ***** figure, ayy
-					89.130 | Goin' digital and physical on all y'all, ayy
-					91.900 | Bunch of criminals and money in my phone calls, ayy
-					94.370 | We okay, we let the a1 fly
-					97.000 | Relocate, jump on the same g5
-					99.500 | Checkin' for me heavy 'cause I go yeah, I go yeah
-					102.100 | They never been ready yeah, I know yeah, I know yeah
-					104.570 | 100K ****** across the floor, 'cross the floor, yeah
-					107.130 | None of y'all ******' with the flow yeah, the flow yeah
-					109.830 | Years in the makin', and don't y'all mistake it
-					111.970 | I got 'em by a landslide, we talkin' about races
-					114.400 | You know this'll never be a tie, just look at their laces
-					116.830 | You know careers take off, just gotta be patient
-					119.430 | Mr. One through five, that's the only logic
-					121.970 | Fake my death, go to cuba, that's the only option
-					125.900 | If I gotta slap a *****-ass *****, I'ma make it look ****
-					130.830 | If I gotta go hard on a *****, I'ma make it look ****
-					135.870 | I pull up, hop out, air out, made it look ****
-					140.400 | They won't take me out my element
-					142.070 | Nah, take me out my element
-					144.500 | Damned if I do, if I don't (yuhhh)
-					147.000 | ******* us all if you won't (yuhhh)
-					149.430 | Damn, damn, damn, it's a ******* shame
-					151.600 | You ain't frontline, get out the ******* way
-					154.800 | ****** thought they wasn't gonna see me, huh?
-					156.570 | ****** thought that k-dot real life
-					158.000 | Was the same life they see on tv, huh?
-					159.970 | ****** wanna flex on me and be in l.a. For free, huh?
-					162.400 | Next time they hit the 10 freeway, we need receipt, huh?
-					164.970 | 'Cause most of y'all ain't real
-					166.400 | Most of y'all gon' squeal
-					167.970 | Most of y'all just envy, but jealousy get you killed
-					170.030 | Most of y'all throw rocks and try to hide your hand
-					172.430 | Just say his name and I promise that you'll see candyman
-					174.900 | Because it's all in your eyes, most of y'all tell lies
-					177.570 | Most of y'all don't fade, most of y'all been advised
-					180.200 | Last lp I tried to lift the black artists
-					182.430 | But it's a difference between black artists and wack artists
-					186.970 | If I gotta slap a *****-ass *****, I'ma make it look ****
-					191.130 | It's the one and only, the world's greatest, the kid *****
-					193.330 | If I gotta go hard on a *****, I'ma make it look ****
-					199.870 | I pull up, hop out, air out, made it look ****
-					205.070 | They won't take me out my element
-					207.600 | Nah, take me out my element
-				</span>
-				<span class="blinking-aurascript-cursor"></span> 
-			</p> 
-		</div>
-
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+	  </div>
+	</div>
 
 	<script>
-	    const player = document.querySelector('.video-player')
-	    const lyrics = document.querySelector('.aurascript')
-	    const lines = lyrics.textContent.trim().split('\n')
+    const player = document.querySelector('.video-player')
+    const lyrics = document.querySelector('.aurascript')
+    const lines = lyrics.textContent.trim().split('\n')
 
-	    lyrics.removeAttribute('style')
-
-
-
-	    lyrics.innerText = ''
+    lyrics.removeAttribute('style')
 
 
 
-	    let syncData = []
-	    let syncDataTwo = []
-
-	    lines.map((line, index) => {
-	        const [time, text] = line.trim().split('|')
-	        syncData.push({'start': time.trim(), 'text': text.trim()})
-	    })
+    lyrics.innerText = ''
 
 
 
-	    player.addEventListener('timeupdate', () => {
-	        syncData.forEach((item) => {
-	            
-	            if (player.currentTime >= item.start) {
-	              lyrics.innerText = item.text
-	              /* console.log(lyrics.innerText) */
-	            }
-	        })
-	    })
+    let syncData = []
+    let syncDataTwo = []
 
-	    player.addEventListener('timeupdate', () => {
-	        syncDataTwo.forEach((itemTwo) => {
-	            
-	            if (player.currentTime >= itemTwo.start) {
-	              lyricsTwo.innerText = itemTwo.text;
-	              /* console.log(itemTwo.text) */
-	            }
-	        })
-	    })
+    lines.map((line, index) => {
+        const [time, text] = line.trim().split('|')
+        syncData.push({'start': time.trim(), 'text': text.trim()})
+    })
+
+
+
+    player.addEventListener('timeupdate', () => {
+        syncData.forEach((item) => {
+            
+            if (player.currentTime >= item.start) {
+              lyrics.innerText = item.text
+              /* console.log(lyrics.innerText) */
+            }
+        })
+    })
+
+    player.addEventListener('timeupdate', () => {
+        syncDataTwo.forEach((itemTwo) => {
+            
+            if (player.currentTime >= itemTwo.start) {
+              lyricsTwo.innerText = itemTwo.text;
+              /* console.log(itemTwo.text) */
+            }
+        })
+    })
 	</script>
 
 	<script type="text/javascript">
@@ -2694,7 +2506,16 @@
 				case "t":
 				  videoToggleTheaterMode()
 				  break
-				  
+				 
+
+
+				case "escape":
+					if ((guerinVideoContainer.classList.contains("theater-mode") == true)) {
+				  	videoToggleTheaterMode()
+					}
+				  break
+
+
 				case "i":
 				  videoToggleMiniPlayerMode()
 				  break
@@ -3305,17 +3126,111 @@ document.addEventListener("msfullscreenchange", () => {
 		videoPlayPauseBtn.addEventListener("click", videoTogglePlay);
 		video.addEventListener("click", videoTogglePlay);
 
-		function videoToggleTheaterMode() {
-			if (video.paused == false && guerinVideoContainer.classList.contains("theater-mode") == true) {
-				video.pause();
-			} 
 
-			guerinVideoContainer.classList.toggle("theater-mode");
-			document.getElementById('gVideoContainerID').classList.toggle("show-guerin-controls");
-			document.getElementById('lin-grad').classList.toggle("guerin-lin-gradient-full");
-			document.getElementById('auraplayer-background').classList.toggle("guerin-background-for-auraplayer");
-			 
+
+
+
+
+
+document.getElementById('theaterInvisibleOverlay').addEventListener("click", videoTogglePlay);
+
+
+
+		function videoToggleTheaterMode() {
+
+
+			if (guerinVideoContainer.classList.contains("full-screen-mode") == true) {
+
+				videoToggleFullScreenMode();
+				if (video.paused == false && guerinVideoContainer.classList.contains("theater-mode") == true) {
+					video.pause();
+				} 
+
+				if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
+					videoLinear_bar.classList.remove('hidden-video-guerin');
+					videoLinear_bar.classList.add('showing-video-guerin');
+				}
+
+
+
+				if (document.querySelector(".aurascript-container").style.display == "flex") {
+					videoToggleAurascript();
+				}
+
+
+				if (guerinVideoContainer.classList.contains("theater-mode") == true) {
+					document.getElementById('theaterInvisibleOverlay').style.display = "block";
+				} else {
+					document.getElementById('theaterInvisibleOverlay').style.display = "none";
+				}
+
+				guerinVideoContainer.classList.toggle("theater-mode");
+				document.getElementById('gVideoContainerID').classList.toggle("show-guerin-controls");
+				document.getElementById('lin-grad').classList.toggle("guerin-lin-gradient-full");
+				document.getElementById('auraplayer-background').classList.toggle("guerin-background-for-auraplayer");
+			} else if (document.querySelector(".aurascript-container").style.display == "flex") {
+
+				videoToggleAurascript();
+
+				if (video.paused == false && guerinVideoContainer.classList.contains("theater-mode") == true) {
+					video.pause();
+				} 
+
+				if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
+					videoLinear_bar.classList.remove('hidden-video-guerin');
+					videoLinear_bar.classList.add('showing-video-guerin');
+				}
+
+				if (guerinVideoContainer.classList.contains("theater-mode") == true) {
+					document.getElementById('theaterInvisibleOverlay').style.display = "block";
+				} else {
+					document.getElementById('theaterInvisibleOverlay').style.display = "none";
+				}
+
+				guerinVideoContainer.classList.toggle("theater-mode");
+				document.getElementById('gVideoContainerID').classList.toggle("show-guerin-controls");
+				document.getElementById('lin-grad').classList.toggle("guerin-lin-gradient-full");
+				document.getElementById('auraplayer-background').classList.toggle("guerin-background-for-auraplayer");
+
+
+			} else {
+
+				if (video.paused == false && guerinVideoContainer.classList.contains("theater-mode") == true) {
+					video.pause();
+				} 
+
+				if (videoLinear_bar.classList.contains('hidden-video-guerin')) {
+					videoLinear_bar.classList.remove('hidden-video-guerin');
+					videoLinear_bar.classList.add('showing-video-guerin');
+				}
+
+				if (guerinVideoContainer.classList.contains("theater-mode") == true) {
+					document.getElementById('theaterInvisibleOverlay').style.display = "block";
+				} else {
+					document.getElementById('theaterInvisibleOverlay').style.display = "none";
+				}
+
+				guerinVideoContainer.classList.toggle("theater-mode");
+				document.getElementById('gVideoContainerID').classList.toggle("show-guerin-controls");
+				document.getElementById('lin-grad').classList.toggle("guerin-lin-gradient-full");
+				document.getElementById('auraplayer-background').classList.toggle("guerin-background-for-auraplayer");
+
+
+			}
+
+
+
+
 		}
+
+
+
+
+
+
+
+
+
 
 		function clickingChecker() {
 			if (document.getElementById('gVideoID').classList.contains("paused") == true) {
@@ -3358,25 +3273,34 @@ document.addEventListener("msfullscreenchange", () => {
 
 		function videoToggleAurascript() {
 
-			if (aurascriptBoolean == false) {
-				document.querySelector(".aurascript-container").style.display = "flex";
-				document.getElementById('aurablur-opacity').style.opacity = "1";
-				document.getElementById('aurascriptBtn-fill').style.fill = "white";
 
-				document.getElementById('aurablurMobile-opacity').style.opacity = "1";
-				document.getElementById('aurascriptMobileBtn-fill').style.fill = "white";
-				aurascriptBoolean = true;
+
+
+			if (guerinVideoContainer.classList.contains("theater-mode") == true || guerinVideoContainer.classList.contains("full-screen-mode") == true) {
+			
+				if (aurascriptBoolean == false) {
+					document.querySelector(".aurascript-container").style.display = "flex";
+					document.getElementById('aurablur-opacity').style.opacity = "1";
+					document.getElementById('aurascriptBtn-fill').style.fill = "white";
+					document.getElementById('aurablurMobile-opacity').style.opacity = "1";
+					document.getElementById('aurascriptMobileBtn-fill').style.fill = "white";
+					aurascriptBoolean = true;
+				} else {
+					document.querySelector(".aurascript-container").style.display = "none";
+					document.getElementById('aurablur-opacity').style.opacity = "0";
+					document.getElementById('aurascriptBtn-fill').style.fill = "transparent";
+					document.getElementById('aurablurMobile-opacity').style.opacity = "0";
+					document.getElementById('aurascriptMobileBtn-fill').style.fill = "transparent";
+					aurascriptBoolean = false;
+				}
 			} else {
-				document.querySelector(".aurascript-container").style.display = "none";
+					document.querySelector(".aurascript-container").style.display = "none";
+					document.getElementById('aurablur-opacity').style.opacity = "0";
+					document.getElementById('aurascriptBtn-fill').style.fill = "transparent";
+					document.getElementById('aurablurMobile-opacity').style.opacity = "0";
+					document.getElementById('aurascriptMobileBtn-fill').style.fill = "transparent";
+				}
 
-				document.getElementById('aurablur-opacity').style.opacity = "0";
-				document.getElementById('aurascriptBtn-fill').style.fill = "transparent";
-
-				document.getElementById('aurablurMobile-opacity').style.opacity = "0";
-				document.getElementById('aurascriptMobileBtn-fill').style.fill = "transparent";
-
-				aurascriptBoolean = false;
-			}
 		}
 
 
