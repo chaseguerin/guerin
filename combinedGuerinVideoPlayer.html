@@ -476,8 +476,13 @@
 		}
 
 		@media (pointer: coarse) {
-			.guerin-video-container.theater-mode {
-				height: -webkit-fill-available;
+
+
+			@media (max-height: 476px) {
+
+				.guerin-video-container.theater-mode {
+					height: -webkit-fill-available;
+				}
 			}
 		}
 
